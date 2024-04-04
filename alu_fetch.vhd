@@ -22,12 +22,12 @@ architecture behavior of alu_fetch is
     attribute NOM_FREQ: string;
     attribute NOM_FREQ of OSCinst0: label is "26.60";
 ----------------------------------------------------------
-	component registro12 is port(
+	component registro24 is port(
 		clk : in std_logic;
 		clr : in std_logic;
 		load : in std_logic;
-		data_in : in std_logic_vector(11 downto 0);
-		data_out : out std_logic_vector(11 downto 0)
+		data_in : in std_logic_vector(23 downto 0);
+		data_out : out std_logic_vector(23 downto 0)
 	);
 	end component;
 	
@@ -42,6 +42,14 @@ architecture behavior of alu_fetch is
 	end component;
 	
 signal clk: std_logic;
+
+type state_type is (reset_pc, fetch, decode, execute_addi, execute_load, execute_jump);
+
+signal state,next_state: state_type;
+
+type fetch_type is (t1,t2,t3);
+
+signal fetch_state,next_fetch_state: fetch_type;
 
 begin
 -----------IMPLEMENTACION OSCILADOR INTERNO---------------
@@ -61,13 +69,39 @@ B: registro12 port map(clk,reset,1,,);
 C: registro12 port map(clk,reset,1,,);
 D: registro12 port map(clk,reset,1,,);
 
-	process(clk,reset,stop_run)
-		if(reset = '1') then
-			
-		elsif(stop_run = '1') then
-		
-		elsif(clk'event and clk='1') then
-		
-		end if;
+	process(clk,reset)
+		begin
+			if(reset = '1') then
+				state<= reset_pc;
+			elsif(clk'event and clk='1') then
+				state<=next_state;
+				if (state=fetch) then
+					fetch_state <= next_fetch_state;
+				end if;
+			end if;
+	end process;
+	
+	process(state,fetch_state)
+		begin
+			case state is
+				when reset_pc=>
+				when fetch=>
+					case fetch_state is 
+						when t1=>
+							MAR<= PC;
+							next_fetch_state<=t2;
+						when t2=>
+							MBR<= data_out;
+							PC<=PC+1;
+							next_fetch_state<=t3;
+						when t3=>
+							IR<= MBR;
+							next_fetch_state<=t1;
+							state=>decode;
+					end case;
+				when decode=>
+				when execute_addi=>
+				when execute_load=>
+				when execute_jump=>
 	end process;
 end behavior;
