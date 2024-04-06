@@ -1,0 +1,63 @@
+---------------------------------------------------
+Report for cell alu_fetch
+   Instance path: alu_fetch
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      69.00        100.0
+                                  LUT4	      29.00        100.0
+                               DISTRAM	      18.00        100.0
+                                 IOBUF	         44        100.0
+                                PFUREG	        121        100.0
+                                RIPPLE	         12        100.0
+                                   EBR	          2        100.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+                         registro24_U2	          1        17.1
+                            registro24	          1         5.8
+                         registro24_U0	          1        11.6
+                         registro24_U1	          1         5.8
+                           Universales	          1        14.5
+                                   ROM	          1         0.5
+---------------------------------------------------
+Report for cell registro24_U0
+   Instance path: alu_fetch/MBR
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       8.00        11.6
+                                PFUREG	         24        19.8
+---------------------------------------------------
+Report for cell registro24_U2
+   Instance path: alu_fetch/IR
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      11.83        17.1
+                                PFUREG	         24        19.8
+---------------------------------------------------
+Report for cell registro24
+   Instance path: alu_fetch/PC
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       4.00         5.8
+                                PFUREG	          8         6.6
+---------------------------------------------------
+Report for cell Universales
+   Instance path: alu_fetch/RPG
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      10.00        14.5
+                               DISTRAM	      18.00        100.0
+---------------------------------------------------
+Report for cell ROM
+   Instance path: alu_fetch/ROM_imp
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       0.33         0.5
+                                PFUREG	          1         0.8
+                                   EBR	          2        100.0
+---------------------------------------------------
+Report for cell registro24_U1
+   Instance path: alu_fetch/MAR
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       4.00         5.8
+                                PFUREG	          8         6.6

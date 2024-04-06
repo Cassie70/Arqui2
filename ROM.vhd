@@ -34,25 +34,29 @@ architecture a_ROM of ROM is
 	constant OP_LSL: std_logic_vector(5 downto 0):=   "010000";
 	constant OP_LOAD: std_logic_vector(5 downto 0):=  "010001";
 	constant OP_MOV: std_logic_vector(5 downto 0):=   "010010";
-	constant OP_HALF: std_logic_vector(5 downto 0):=  "010011";
+	constant OP_HALT: std_logic_vector(5 downto 0):=  "010011";
 	constant OP_BNZ: std_logic_vector(5 downto 0):=   "010100";
 	constant OP_BZ: std_logic_vector(5 downto 0):=    "010101";
 	constant OP_NOP: std_logic_vector(5 downto 0):=   "010110";
 	constant OP_JMP: std_logic_vector(5 downto 0):=   "010111";
-	constant OP_DPY: std_logic_vector(5 downto 0):=   "011000";
-	constant OP_DPYI: std_logic_vector(5 downto 0):=  "011001";
+	constant OP_DPLY: std_logic_vector(5 downto 0):=   "011000";
+	constant OP_DPLYI: std_logic_vector(5 downto 0):=  "011001";
 
 	type ROM_Array is array (0 to 255) of std_logic_vector(23 downto 0);
 	constant content: ROM_Array := (
-		247 => x"0003EB", -- 1003 en decimal
-		248 => x"000065", -- 101 en decimal
-		249 => x"000046", -- 70 en decimal
-		250 => x"000032", -- 50 en decimal
-		251 => x"000012", -- 18 en decimal
-		252 => x"000007", -- 7 en decimal
-		253 => x"000017", -- 23 en decimal
-		254 => x"000037", -- 55 en decimal
-		255 => x"00004D", -- 77 en decimal
+		0 =>OP_DPLYI&"000000000000001101",--display<-13
+		1 => OP_LOAD&"00"&"0000000011110111",--LOAD W,RA
+		2 => OP_ADDI&"00"&"0000000000000101",--ADDI RA,5
+		3 => OP_DPLY&"00"&"0000000000000000",--Rdisplay<- RA
+		247 => x"0003EB", -- 1003 en decimal W
+		248 => x"000065", -- 101 en decimal X
+		249 => x"000046", -- 70 en decimal Y 
+		250 => x"000032", -- 50 en decimal Z
+		251 => x"000012", -- 18 en decimal M
+		252 => x"000007", -- 7 en decimal N 
+		253 => x"000017", -- 23 en decimal O 
+		254 => x"000037", -- 55 en decimal P 
+		255 => x"00004D", -- 77 en decimal Q
 		others => x"FFFFFF"
 	);
 begin

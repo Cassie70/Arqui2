@@ -10,7 +10,7 @@ entity registro24 is port(
 );
 end registro24;
 
-architecture a_registro12 of registro12 is
+architecture a_registro24 of registro24 is
 	signal registro : std_logic_vector(23 downto 0);
 begin
 	process(clk)

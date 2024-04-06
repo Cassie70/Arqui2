@@ -1,0 +1,5 @@
+-rem
+-distrce
+-log "alu_fetch_implAluFetch.log"
+-o "alu_fetch_implAluFetch.csv"
+-pr "alu_fetch_implAluFetch.prf"

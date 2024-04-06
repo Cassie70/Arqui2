@@ -1,0 +1,18 @@
+Results of NGD DRC are available in alu_fetch_drc.log.
+Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/xo2c00a/data/xo2alib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/xo2c00/data/xo2clib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/mg5g00/data/mg5glib.ngl'...
+Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/or5g00/data/orc5glib.ngl'...
+
+
+Running DRC...
+
+WARNING - synthesis: logical net 'stop_run' has no load.
+WARNING - synthesis: input pad net 'stop_run' has no legal load.
+WARNING - synthesis: DRC complete with 2 warnings.
+
+Design Results:
+    221 blocks expanded
+completed the first expansion
+All blocks are expanded and NGD expansion is successful.
+Writing NGD file alu_fetch_implAluFetch.ngd.

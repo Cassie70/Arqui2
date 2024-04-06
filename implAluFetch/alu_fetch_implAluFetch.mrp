@@ -1,0 +1,534 @@
+
+          Lattice Mapping Report File for Design Module 'alu_fetch'
+
+
+Design Information
+------------------
+
+Command line:   map -a MachXO2 -p LCMXO2-7000HE -t TQFP144 -s 5 -oc Commercial
+     alu_fetch_implAluFetch.ngd -o alu_fetch_implAluFetch_map.ncd -pr
+     alu_fetch_implAluFetch.prf -mp alu_fetch_implAluFetch.mrp -lpf
+     C:/Users/Cassandra/Desktop/Arqui2/implAluFetch/alu_fetch_implAluFetch.lpf
+     -lpf C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf -c 0 -gui -msgset
+     C:/Users/Cassandra/Desktop/Arqui2/promote.xml 
+Target Vendor:  LATTICE
+Target Device:  LCMXO2-7000HETQFP144
+Target Performance:   5
+Mapper:  xo2c00,  version:  Diamond (64-bit) 3.13.0.56.2
+Mapped on:  04/06/24  05:27:34
+
+Design Summary
+--------------
+
+   Number of registers:    121 out of  7209 (2%)
+      PFU registers:          121 out of  6864 (2%)
+      PIO registers:            0 out of   345 (0%)
+   Number of SLICEs:        69 out of  3432 (2%)
+      SLICEs as Logic/ROM:     51 out of  3432 (1%)
+      SLICEs as RAM:           18 out of  2574 (1%)
+      SLICEs as Carry:         12 out of  3432 (0%)
+   Number of LUT4s:         89 out of  6864 (1%)
+      Number used as logic LUTs:         29
+      Number used as distributed RAM:    36
+      Number used as ripple logic:       24
+      Number used as shift registers:     0
+   Number of PIO sites used: 44 + 4(JTAG) out of 115 (42%)
+   Number of block RAMs:  2 out of 26 (8%)
+   Number of GSRs:        1 out of 1 (100%)
+   EFB used :        No
+   JTAG used :       No
+   Readback used :   No
+   Oscillator used : Yes
+   Startup used :    No
+   POR :             On
+   Bandgap :         On
+   Number of Power Controller:  0 out of 1 (0%)
+   Number of Dynamic Bank Controller (BCINRD):  0 out of 6 (0%)
+   Number of Dynamic Bank Controller (BCLVDSO):  0 out of 1 (0%)
+   Number of DCCA:  0 out of 8 (0%)
+   Number of DCMA:  0 out of 2 (0%)
+   Number of PLLs:  0 out of 2 (0%)
+   Number of DQSDLLs:  0 out of 2 (0%)
+   Number of CLKDIVC:  0 out of 4 (0%)
+   Number of ECLKSYNCA:  0 out of 4 (0%)
+   Number of ECLKBRIDGECS:  0 out of 2 (0%)
+   Notes:-
+      1. Total number of LUT4s = (Number of logic LUT4s) + 2*(Number of
+     distributed RAMs) + 2*(Number of ripple logic)
+      2. Number of logic LUT4s does not include count of distributed RAM and
+     ripple logic.
+   Number of clocks:  2
+     Net clk: 56 loads, 56 rising, 0 falling (Driver: OSCinst0 )
+     Net rpg_in_23__N_36: 9 loads, 9 rising, 0 falling (Driver: i1_2_lut_4_lut )
+
+                                    Page 1
+
+
+
+
+Design:  alu_fetch                                     Date:  04/06/24  05:27:34
+
+Design Summary (cont)
+---------------------
+     
+   Number of Clock Enables:  4
+     Net clk_enable_30: 3 loads, 3 LSLICEs
+     Net clk_enable_31: 2 loads, 2 LSLICEs
+     Net reset_c: 12 loads, 12 LSLICEs
+     Net clk_enable_20: 1 loads, 1 LSLICEs
+   Number of LSRs:  6
+     Net clk_enable_31: 12 loads, 12 LSLICEs
+     Net n863: 9 loads, 9 LSLICEs
+     Net reset_c: 2 loads, 0 LSLICEs
+     Net n1910: 1 loads, 1 LSLICEs
+     Net n1989: 1 loads, 1 LSLICEs
+     Net ROM_imp/data_out_23__N_345: 12 loads, 12 LSLICEs
+   Number of nets driven by tri-state buffers:  0
+   Top 10 highest fanout non-clock nets:
+     Net rpg_sel_0: 30 loads
+     Net rpg_sel_1: 30 loads
+     Net reset_c: 17 loads
+     Net clk_enable_31: 14 loads
+     Net ROM_imp/data_out_23__N_345: 12 loads
+     Net n863: 10 loads
+     Net clk_enable_30: 7 loads
+     Net display_c_1: 6 loads
+     Net temp_control_0: 6 loads
+     Net temp_control_1: 6 loads
+
+
+
+
+   Number of warnings:  2
+   Number of errors:    0
+     
+
+Design Errors/Warnings
+----------------------
+
+WARNING - map: input pad net 'stop_run' has no legal load.
+WARNING - map: IO buffer missing for top level port stop_run...logic will be
+     discarded.
+
+IO (PIO) Attributes
+-------------------
+
++---------------------+-----------+-----------+------------+
+| IO Name             | Direction | Levelmode | IO         |
+|                     |           |  IO_TYPE  | Register   |
++---------------------+-----------+-----------+------------+
+| CI[4]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| display[6]          | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[5]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| display[5]          | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[6]               | OUTPUT    | LVCMOS25  |            |
+
+                                    Page 2
+
+
+
+
+Design:  alu_fetch                                     Date:  04/06/24  05:27:34
+
+IO (PIO) Attributes (cont)
+--------------------------
++---------------------+-----------+-----------+------------+
+| CI[7]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[8]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[9]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[10]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[11]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[12]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[13]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[14]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[15]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[16]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[17]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[18]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[19]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[20]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[21]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[22]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[23]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| sel[0]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| rom_address[0]      | INPUT     | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| sel[1]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| sel[2]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| sel[3]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| display[0]          | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| display[1]          | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| display[2]          | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| rom_address[1]      | INPUT     | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| display[3]          | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| rom_address[2]      | INPUT     | LVCMOS25  |            |
+
+                                    Page 3
+
+
+
+
+Design:  alu_fetch                                     Date:  04/06/24  05:27:34
+
+IO (PIO) Attributes (cont)
+--------------------------
++---------------------+-----------+-----------+------------+
+| display[4]          | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| rom_address[3]      | INPUT     | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| rom_address[4]      | INPUT     | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| rom_address[5]      | INPUT     | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| rom_address[6]      | INPUT     | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| rom_address[7]      | INPUT     | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| reset               | INPUT     | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[0]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[1]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[2]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[3]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+
+Removed logic
+-------------
+
+Signal n1913 was merged into signal ROM_imp/data_out_23__N_345
+Signal n1907 was merged into signal n863
+Signal clk_enable_27 was merged into signal reset_c
+Signal VCC_net undriven or does not drive anything - clipped.
+Signal count_579_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal count_579_add_4_1/CI undriven or does not drive anything - clipped.
+Signal count_579_add_4_23/S1 undriven or does not drive anything - clipped.
+Signal count_579_add_4_23/CO undriven or does not drive anything - clipped.
+Block ROM_imp/i914_1_lut was optimized away.
+Block i908_1_lut was optimized away.
+Block i907_1_lut was optimized away.
+Block i2 was optimized away.
+
+Memory Usage
+------------
+
+/:
+    EBRs: 0
+    RAM SLICEs: 12
+    Logic SLICEs: 34
+    PFU Registers: 87
+/ROM_imp:
+    EBRs: 2
+    RAM SLICEs: 0
+    Logic SLICEs: 0
+    PFU Registers: 0
+    -Contains EBR mux_353:  TYPE= PDPW8KC,  Width= 6,  Depth_R= 256,  REGMODE=
+         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+    -Contains EBR mux_352:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 256,  REGMODE=
+
+                                    Page 4
+
+
+
+
+Design:  alu_fetch                                     Date:  04/06/24  05:27:34
+
+Memory Usage (cont)
+-------------------
+         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+/RPG/selector_1__I_00:
+    EBRs: 0
+    RAM SLICEs: 1
+    Logic SLICEs: 0
+    PFU Registers: 0
+/RPG/selector_1__I_01:
+    EBRs: 0
+    RAM SLICEs: 1
+    Logic SLICEs: 0
+    PFU Registers: 0
+/RPG/selector_1__I_02:
+    EBRs: 0
+    RAM SLICEs: 1
+    Logic SLICEs: 0
+    PFU Registers: 0
+/RPG/selector_1__I_03:
+    EBRs: 0
+    RAM SLICEs: 1
+    Logic SLICEs: 0
+    PFU Registers: 0
+/RPG/selector_1__I_04:
+    EBRs: 0
+    RAM SLICEs: 1
+    Logic SLICEs: 0
+    PFU Registers: 0
+/RPG/selector_1__I_05:
+    EBRs: 0
+    RAM SLICEs: 1
+    Logic SLICEs: 0
+    PFU Registers: 0
+
+     
+
+OSC Summary
+-----------
+
+OSC 1:                                     Pin/Node Value
+  OSC Instance Name:                                OSCinst0
+  OSC Type:                                         OSCH
+  STDBY Input:                                      NONE
+  OSC Output:                              NODE     clk
+  OSC Nominal Frequency (MHz):                      26.60
+
+ASIC Components
+---------------
+
+Instance Name: OSCinst0
+         Type: OSCH
+Instance Name: ROM_imp/mux_353
+         Type: PDPW8KC
+Instance Name: ROM_imp/mux_352
+         Type: PDPW8KC
+
+
+
+
+                                    Page 5
+
+
+
+
+Design:  alu_fetch                                     Date:  04/06/24  05:27:34
+
+GSR Usage
+---------
+
+GSR Component:
+   The Global Set Reset (GSR) resource has been used to implement a global reset
+        of the design. The reset signal used for GSR control is 'reset_c'.
+        
+
+     GSR Property:
+   The design components with GSR property set to ENABLED will respond to global
+        set reset while the components with GSR property set to DISABLED will
+        not.
+        
+
+     Components with disabled GSR Property
+-------------------------------------
+
+     These components have the GSR property set to DISABLED. The components will
+     not respond to the reset signal 'reset_c' via the GSR component.
+
+     Type and number of components of the type: 
+   Register = 45 
+   PDPW8KC = 2
+
+     Type and instance name of component: 
+   Register : rpg_in_23__I_0_i1
+   Register : count_579__i1
+   Register : count_579__i4
+   Register : count_579__i5
+   Register : rpg_sel_1__I_0_i2
+   Register : rpg_in_23__I_0_i2
+   Register : rpg_in_23__I_0_i3
+   Register : rpg_in_23__I_0_i4
+   Register : rpg_in_23__I_0_i5
+   Register : rpg_in_23__I_0_i6
+   Register : rpg_in_23__I_0_i7
+   Register : rpg_in_23__I_0_i8
+   Register : rpg_in_23__I_0_i9
+   Register : rpg_in_23__I_0_i10
+   Register : rpg_in_23__I_0_i11
+   Register : rpg_in_23__I_0_i12
+   Register : rpg_in_23__I_0_i13
+   Register : rpg_in_23__I_0_i14
+   Register : rpg_in_23__I_0_i15
+   Register : rpg_in_23__I_0_i16
+   Register : count_579__i6
+   Register : count_579__i7
+   Register : count_579__i2
+   Register : count_579__i8
+   Register : count_579__i9
+   Register : count_579__i3
+   Register : count_579__i0
+   Register : count_579__i10
+   Register : sel_i0_i4
+   Register : sel_i0_i3
+   Register : count_579__i11
+   Register : sel_i0_i2
+   Register : count_579__i12
+
+                                    Page 6
+
+
+
+
+Design:  alu_fetch                                     Date:  04/06/24  05:27:34
+
+GSR Usage (cont)
+----------------
+   Register : count_579__i13
+   Register : count_579__i14
+   Register : display_i0_i2
+   Register : count_579__i15
+   Register : count_579__i16
+   Register : count_579__i17
+   Register : count_579__i18
+   Register : count_579__i19
+   Register : count_579__i20
+   Register : count_579__i21
+   Register : sel_i0_i1
+   Register : rpg_sel_1__I_0_i1
+   PDPW8KC : ROM_imp/mux_353
+   PDPW8KC : ROM_imp/mux_352
+
+     Components with synchronous local reset also reset by asynchronous GSR
+----------------------------------------------------------------------
+
+     These components have the GSR property set to ENABLED and the local reset
+     is synchronous. The components will respond to the synchronous local reset
+     and to the unrelated asynchronous reset signal 'reset_c' via the GSR
+     component.
+
+     Type and number of components of the type: 
+   Register = 27 
+
+     Type and instance name of component: 
+   Register : MBR/registro_i23
+   Register : MBR/registro_i22
+   Register : MBR/registro_i21
+   Register : MBR/registro_i20
+   Register : MBR/registro_i19
+   Register : MBR/registro_i18
+   Register : MBR/registro_i17
+   Register : MBR/registro_i16
+   Register : MBR/registro_i15
+   Register : MBR/registro_i14
+   Register : MBR/registro_i13
+   Register : MBR/registro_i12
+   Register : MBR/registro_i11
+   Register : MBR/registro_i10
+   Register : MBR/registro_i9
+   Register : MBR/registro_i8
+   Register : MBR/registro_i0
+   Register : MBR/registro_i7
+   Register : MBR/registro_i6
+   Register : MBR/registro_i5
+   Register : MBR/registro_i4
+   Register : MBR/registro_i3
+   Register : MBR/registro_i2
+   Register : MBR/registro_i1
+   Register : temp_control_i3
+   Register : temp_control_i2
+   Register : temp_control_i1
+
+
+
+                                    Page 7
+
+
+
+
+Design:  alu_fetch                                     Date:  04/06/24  05:27:34
+
+Run Time and Memory Usage
+-------------------------
+
+   Total CPU Time: 0 secs  
+   Total REAL Time: 0 secs  
+   Peak Memory Usage: 60 MB
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    Page 8
+
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+     Copyright (c) 1995 AT&T Corp.   All rights reserved.
+     Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+     Copyright (c) 2001 Agere Systems   All rights reserved.
+     Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights
+     reserved.

@@ -2,6 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity alu is port(
+	clk: in std_logic;
 	A,B: in std_logic_vector(11 downto 0);
 	control: in std_logic_vector(3 downto 0);
 	result: out std_logic_vector(11 downto 0);
@@ -45,7 +46,7 @@ architecture a_alu of alu is
 begin
     imp_add_sub_12: add_sub_12 port map(A_temp,B_temp,substract,sum_result,overflow);
 	imp_multi: multi6 port map(A_temp,B_temp,multi_result);
-	imp_div: divi6 port map(A_temp,B_temp,div_result);
+	imp_div: divi6 port map(clk,A_temp,B_temp,div_result);
 	input_process:process(A,B,control)
 	begin
 		case control is
@@ -104,6 +105,9 @@ begin
 			when "1111"=>--A LSL
 			A_temp<=A;
 			B_temp<=A;
+			when others=>
+				A_temp<=zero;
+				B_temp<=zero;
 		end case;
 	end process input_process;
 	

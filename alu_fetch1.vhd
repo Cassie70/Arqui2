@@ -10,6 +10,7 @@ use machxo2.all;
 entity alu_fetch is port(
 	reset: in std_logic;
 	stop_run: in std_logic;
+	rom_address: in std_logic_vector(7 downto 0);
 	display: out std_logic_vector(6 downto 0);
 	sel: out std_logic_vector(3 downto 0);
 	CI: out std_logic_vector(23 downto 0)
@@ -68,32 +69,39 @@ architecture behavior of alu_fetch is
         bcd_out   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
 	end component;
+	
+	component registro24 is port(
+	clk : in std_logic;
+	clr : in std_logic;
+	load : in std_logic;
+	data_in : in std_logic_vector(23 downto 0);
+	data_out : out std_logic_vector(23 downto 0)
+	);
+	end component;
 
 signal clk_0: std_logic:='0';
 signal Q: std_logic_vector(13 downto 0);
 signal Qbcd: std_logic_vector(15 downto 0);
-signal temp_control: std_logic_vector(3 downto 0);
+signal temp_control: std_logic_vector(3 downto 0):="0001";
 signal u,d,c,m: std_logic_vector(6 downto 0);
 	
 	
 signal clk: std_logic;
 
-type state_type is (reset_pc, fetch, decode, execute_addi, execute_load, execute_jump, execute_display);
+type state_type is (reset_pc, fetch, decode, execute_addi, execute_load, execute_jump, execute_display, execute_halt);
 signal state,next_state: state_type;
 
 type fetch_type is (t1,t2,t3);
 signal fetch_state,next_fetch_state: fetch_type;
 
---REGISTROS PARA DATAPATH--
-signal PC: std_logic_vector(15 downto 0); --Program Counter
-signal MAR: std_logic_vector(15 downto 0);--Memory Address Register
-signal MBR: std_logic_vector(23 downto 0);--Memory Buffer Register 
-signal IR: std_logic_vector(23 downto 0);--Instruction Register
-signal ACC: std_logic_vector(23 downto 0);--Accumulator
+
 
 --BUSES--
-signal address_bus: std_logic_vector(15 downto 0);
+signal pc_out: std_logic_vector(23 downto 0);
+signal address_bus: std_logic_vector(23 downto 0);
 signal data_bus: std_logic_vector(23 downto 0);
+signal mbr_out: std_logic_vector(23 downto 0);
+signal ir_out: std_logic_vector(23 downto 0);
 signal rpg_in: std_logic_vector(23 downto 0);
 signal rpg_out: std_logic_vector(23 downto 0);
 signal rpg_sel: std_logic_vector(1 downto 0);
@@ -110,87 +118,78 @@ millar: bcdDisplay port map(clk_0,reset,Qbcd(15 downto 12),m);
 ROM_imp: ROM port map(clk,reset,'1','1',address_bus(7 downto 0),data_bus);
 RPG : Universales port map('1',rpg_in,'1',rpg_sel,rpg_out);
 
+--REGISTROS PARA DATAPATH--
+PC: registro24 port map(clk,reset,'1',"0000000000000000"&rom_address,pc_out); --Program Counter
+MAR: registro24 port map(clk,reset,'1',pc_out,address_bus);--Memory Address Register
+MBR: registro24 port map(clk,reset,'1',data_bus,mbr_out);--Memory Buffer Register 
+IR: registro24 port map(clk,reset,'1',mbr_out,ir_out);--Instruction Register
+--ACC: registro24 port map(clk,reset,1,x"000001",);--Accumulator
+
 	process(clk,reset)
 		variable count: integer range 0 to 2500000;
 		begin
 			if(reset = '1') then
 				state<= reset_pc;
+				temp_control<="0000";
 			elsif(clk'event and clk='1') then
 				state<=next_state;
-				if (state=fetch) then
-					fetch_state <= next_fetch_state;
-				end if;
-				
 				
 				if(count < 150000) then
 					count := count + 1;
 				else
 					count:= 0;
 					clk_0 <= not clk_0;
-					if temp_control = "1000" then
-						temp_control <= "0001"; 
-					else
-						temp_control <= temp_control(2 downto 0) & temp_control(3);
-					end if;
+					
 					case temp_control is
-					when "0001"=> display<=m;
-					when "0010"=> display<=c;
-					when "0100"=> display<=d;
-					when "1000"=> display<=u;
-					when others=> display<="0111111";
+					when "0000"=>
+						temp_control<="0001";
+					when "0001"=> 
+						temp_control<="0010";
+						display<=m;
+					when "0010"=> 
+						temp_control<="0100";
+						display<=c;
+					when "0100"=> 
+						temp_control<="1000";
+						display<=d;
+					when "1000"=> 
+						temp_control<="0001";
+						display<=u;
 					end case;
 					sel<=temp_control;
 				end if;
 			end if;
 	end process;
 	
-	process(state,fetch_state)
+	process(state)
 		begin
 			case state is
 				when reset_pc=>
-					PC<=(others=>'0');
-					MAR<=(others=>'0');
-					MBR<=(others=>'0');
-					IR<=(others=>'0');
-					ACC<=(others=>'0');
+					next_state<=fetch;
 				when fetch=>
-					case fetch_state is 
-						when t1=>
-							MAR<=PC;
-							address_bus<=MAR(15 downto 0);
-							next_fetch_state<=t2;
-						when t2=>
-							MBR<= data_bus;
-							next_fetch_state<=t3;
-						when t3=>
-							IR<= MBR;
-							PC<=PC+1;
-							next_fetch_state<=t1;
-							next_state<=decode;
-					end case;
+					next_state<=decode;
 				when decode=>
-					CI<= IR;
-					case IR(23 downto 18) is
+					case ir_out(23 downto 18) is
 						when "011000"=>
 							next_state<=execute_addi;
 						when "010001"=>
 							next_state<=execute_load;
 						when "010111"=>
 							next_state<=execute_jump;
-						when "011010"=>
+						when "011001"=>
 							next_state<=execute_display;
+						when "010011"=>
+							next_state<=execute_halt;
 						when others=>
 							next_state<=fetch;
 					end case;
 				when execute_load=>
-					rpg_sel<=IR(17 downto 16);
-					MAR<=IR(15 downto 0);
-					address_bus<=MAR;
-					MBR<=data_bus;
-					ACC<=MBR;
-					rpg_in<=ACC;
-				when execute_display=>
-					Q<= IR(13 downto 0);
+					rpg_sel<=ir_out(17 downto 16);
+					rpg_in<="00000000"&ir_out(15 downto 0);
+					next_state<=execute_halt;
+				when execute_halt=>
+					next_state<=execute_halt;
 				end case;
 	end process;
+	CI<=rpg_out;
 end behavior;

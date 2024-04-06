@@ -1,0 +1,1150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliMessageLog>
+    <Task name="Map">
+        <Message>
+            <ID>1166064</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>input</Dynamic>
+            <Dynamic>stop_run</Dynamic>
+        </Message>
+        <Message>
+            <ID>51001046</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>stop_run</Dynamic>
+        </Message>
+    </Task>
+    <Task name="Lattice_Synthesis">
+        <Message>
+            <ID>35002000</ID>
+            <Severity>Info</Severity>
+        </Message>
+        <Message>
+            <ID>35001781</ID>
+            <Severity>Info</Severity>
+        </Message>
+        <Message>
+            <ID>35928037</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(143): </Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>143</Navigation>
+        </Message>
+        <Message>
+            <ID>35928037</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(166): </Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>166</Navigation>
+        </Message>
+        <Message>
+            <ID>35001200</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>alu_fetch</Dynamic>
+        </Message>
+        <Message>
+            <ID>35921504</ID>
+            <Severity>Info</Severity>
+            <Dynamic></Dynamic>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/implAluFetch</Dynamic>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/addersub12.vhd(4): </Dynamic>
+            <Dynamic>add_sub_12</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/addersub12.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/addersub12.vhd(12): </Dynamic>
+            <Dynamic>a_add_sub_12</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/addersub12.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921443</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/addersub12.vhd(28): </Dynamic>
+            <Dynamic>b</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/addersub12.vhd</Navigation>
+            <Navigation>28</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu.vhd(4): </Dynamic>
+            <Dynamic>alu</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu.vhd(13): </Dynamic>
+            <Dynamic>a_alu</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu.vhd</Navigation>
+            <Navigation>13</Navigation>
+        </Message>
+        <Message>
+            <ID>35921178</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu.vhd(13): </Dynamic>
+            <Dynamic>a_alu</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu.vhd</Navigation>
+            <Navigation>13</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/divi6.vhd(4): </Dynamic>
+            <Dynamic>divi6</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/divi6.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/divi6.vhd(12): </Dynamic>
+            <Dynamic>a_divi6</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/divi6.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/fa.vhd(4): </Dynamic>
+            <Dynamic>fa</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/fa.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/fa.vhd(10): </Dynamic>
+            <Dynamic>a_fa</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/fa.vhd</Navigation>
+            <Navigation>10</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/multi6.vhd(4): </Dynamic>
+            <Dynamic>multi6</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/multi6.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/multi6.vhd(10): </Dynamic>
+            <Dynamic>a_multi6</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/multi6.vhd</Navigation>
+            <Navigation>10</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/registro24.vhd(4): </Dynamic>
+            <Dynamic>registro24</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/registro24.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/registro24.vhd(13): </Dynamic>
+            <Dynamic>a_registro24</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/registro24.vhd</Navigation>
+            <Navigation>13</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/rom.vhd(6): </Dynamic>
+            <Dynamic>rom</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/rom.vhd</Navigation>
+            <Navigation>6</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/rom.vhd(16): </Dynamic>
+            <Dynamic>a_rom</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/rom.vhd</Navigation>
+            <Navigation>16</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(4): </Dynamic>
+            <Dynamic>bcddisplay</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/bcddisplay.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(13): </Dynamic>
+            <Dynamic>behavior</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/bcddisplay.vhd</Navigation>
+            <Navigation>13</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/binariobcd.vhd(6): </Dynamic>
+            <Dynamic>bin2bcd</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/binariobcd.vhd</Navigation>
+            <Navigation>6</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/binariobcd.vhd(14): </Dynamic>
+            <Dynamic>behavioral</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/binariobcd.vhd</Navigation>
+            <Navigation>14</Navigation>
+        </Message>
+        <Message>
+            <ID>35921240</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(6): </Dynamic>
+            <Dynamic>components</Dynamic>
+            <Dynamic>lattice</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>6</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(10): </Dynamic>
+            <Dynamic>alu_fetch</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>10</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(20): </Dynamic>
+            <Dynamic>behavior</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>20</Navigation>
+        </Message>
+        <Message>
+            <ID>35921443</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(122): </Dynamic>
+            <Dynamic>data_in</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>122</Navigation>
+        </Message>
+        <Message>
+            <ID>35921178</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(20): </Dynamic>
+            <Dynamic>behavior</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>20</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(4): </Dynamic>
+            <Dynamic>universales</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/universales.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(14): </Dynamic>
+            <Dynamic>behavioral</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/universales.vhd</Navigation>
+            <Navigation>14</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/addersub12.vhd(4): </Dynamic>
+            <Dynamic>add_sub_12</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/addersub12.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/addersub12.vhd(12): </Dynamic>
+            <Dynamic>a_add_sub_12</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/addersub12.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921443</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/addersub12.vhd(28): </Dynamic>
+            <Dynamic>b</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/addersub12.vhd</Navigation>
+            <Navigation>28</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu.vhd(4): </Dynamic>
+            <Dynamic>alu</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu.vhd(13): </Dynamic>
+            <Dynamic>a_alu</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu.vhd</Navigation>
+            <Navigation>13</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/divi6.vhd(4): </Dynamic>
+            <Dynamic>divi6</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/divi6.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/divi6.vhd(12): </Dynamic>
+            <Dynamic>a_divi6</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/divi6.vhd</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/fa.vhd(4): </Dynamic>
+            <Dynamic>fa</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/fa.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/fa.vhd(10): </Dynamic>
+            <Dynamic>a_fa</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/fa.vhd</Navigation>
+            <Navigation>10</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/multi6.vhd(4): </Dynamic>
+            <Dynamic>multi6</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/multi6.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/multi6.vhd(10): </Dynamic>
+            <Dynamic>a_multi6</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/multi6.vhd</Navigation>
+            <Navigation>10</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/registro24.vhd(4): </Dynamic>
+            <Dynamic>registro24</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/registro24.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/registro24.vhd(13): </Dynamic>
+            <Dynamic>a_registro24</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/registro24.vhd</Navigation>
+            <Navigation>13</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/rom.vhd(6): </Dynamic>
+            <Dynamic>rom</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/rom.vhd</Navigation>
+            <Navigation>6</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/rom.vhd(16): </Dynamic>
+            <Dynamic>a_rom</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/rom.vhd</Navigation>
+            <Navigation>16</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(4): </Dynamic>
+            <Dynamic>bcddisplay</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/bcddisplay.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(13): </Dynamic>
+            <Dynamic>behavior</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/bcddisplay.vhd</Navigation>
+            <Navigation>13</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/binariobcd.vhd(6): </Dynamic>
+            <Dynamic>bin2bcd</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/binariobcd.vhd</Navigation>
+            <Navigation>6</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/binariobcd.vhd(14): </Dynamic>
+            <Dynamic>behavioral</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/binariobcd.vhd</Navigation>
+            <Navigation>14</Navigation>
+        </Message>
+        <Message>
+            <ID>35921240</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(6): </Dynamic>
+            <Dynamic>components</Dynamic>
+            <Dynamic>lattice</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>6</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(10): </Dynamic>
+            <Dynamic>alu_fetch</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>10</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(20): </Dynamic>
+            <Dynamic>behavior</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>20</Navigation>
+        </Message>
+        <Message>
+            <ID>35921443</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(122): </Dynamic>
+            <Dynamic>data_in</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>122</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(4): </Dynamic>
+            <Dynamic>universales</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/universales.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(14): </Dynamic>
+            <Dynamic>behavioral</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/universales.vhd</Navigation>
+            <Navigation>14</Navigation>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[11]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[10]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[9]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[8]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[7]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[6]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[5]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[4]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[3]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>operation_complete</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>n239</Dynamic>
+        </Message>
+        <Message>
+            <ID>35928037</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(143): </Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>143</Navigation>
+        </Message>
+        <Message>
+            <ID>35928037</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(166): </Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>166</Navigation>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[11]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[10]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[9]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[8]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[7]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[6]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[5]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[4]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[3]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>subtraction_counter[0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>operation_complete</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001714</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>n239</Dynamic>
+        </Message>
+        <Message>
+            <ID>35921303</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(83): </Dynamic>
+            <Dynamic>&quot;UUUUUUUUUUUUUU&quot;</Dynamic>
+            <Dynamic>q</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>83</Navigation>
+        </Message>
+        <Message>
+            <ID>35928037</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(143): </Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>143</Navigation>
+        </Message>
+        <Message>
+            <ID>35928037</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(166): </Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>166</Navigation>
+        </Message>
+        <Message>
+            <ID>35921251</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(172): </Dynamic>
+            <Dynamic>ir_out</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>172</Navigation>
+        </Message>
+        <Message>
+            <ID>35921251</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(187): </Dynamic>
+            <Dynamic>ir_out</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>187</Navigation>
+        </Message>
+        <Message>
+            <ID>35921251</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(188): </Dynamic>
+            <Dynamic>ir_out</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>188</Navigation>
+        </Message>
+        <Message>
+            <ID>35921613</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(193): </Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>193</Navigation>
+        </Message>
+        <Message>
+            <ID>35921205</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(18): </Dynamic>
+            <Dynamic>alu_fetch</Dynamic>
+            <Dynamic>behavior</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>18</Navigation>
+        </Message>
+        <Message>
+            <ID>35002005</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>stop_run</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i1 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i2 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i3 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i4 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i5 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i6 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i7 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i8 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i9 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i10 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i11 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i12 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i13 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i14 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i15 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i16 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i17 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i18 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i19 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i20 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i21 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i22 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i23 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/universales.vhd(50): Transparent Latch \RPG/data_out_23__I_0_i24 gate is stuck at One
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>23</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>22</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>21</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>20</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>19</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>18</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>17</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>16</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>15</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>14</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>13</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>12</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>11</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>10</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>9</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>8</Dynamic>
+            <Dynamic>\PC/registro</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001774</ID>
+            <Severity>Info</Severity>
+            <Dynamic>state</Dynamic>
+            <Dynamic>one-hot</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009991</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(193): Latch rpg_in_23__I_0_i17 input is stuck at Zero
+</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>6</Dynamic>
+            <Dynamic>\millar/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>2</Dynamic>
+            <Dynamic>\millar/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>1</Dynamic>
+            <Dynamic>\millar/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>6</Dynamic>
+            <Dynamic>\unidades/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>5</Dynamic>
+            <Dynamic>\unidades/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>4</Dynamic>
+            <Dynamic>\unidades/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>3</Dynamic>
+            <Dynamic>\unidades/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>2</Dynamic>
+            <Dynamic>\unidades/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>1</Dynamic>
+            <Dynamic>\unidades/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>0</Dynamic>
+            <Dynamic>\unidades/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>6</Dynamic>
+            <Dynamic>\centenas/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>1</Dynamic>
+            <Dynamic>\centenas/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>5</Dynamic>
+            <Dynamic>\millar/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001747</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>6</Dynamic>
+            <Dynamic>\decenas/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>5</Dynamic>
+            <Dynamic>\decenas/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>4</Dynamic>
+            <Dynamic>\decenas/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>3</Dynamic>
+            <Dynamic>\decenas/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>2</Dynamic>
+            <Dynamic>\decenas/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>1</Dynamic>
+            <Dynamic>\decenas/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>0</Dynamic>
+            <Dynamic>\decenas/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>5</Dynamic>
+            <Dynamic>\centenas/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>4</Dynamic>
+            <Dynamic>\centenas/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>3</Dynamic>
+            <Dynamic>\centenas/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001748</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>2</Dynamic>
+            <Dynamic>\centenas/DISPLAY</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002005</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>stop_run</Dynamic>
+        </Message>
+        <Message>
+            <ID>35935013</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd(161): </Dynamic>
+            <Dynamic>display_i0_i7</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch1.vhd</Navigation>
+            <Navigation>161</Navigation>
+        </Message>
+        <Message>
+            <ID>35001779</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>temp_control_i0</Dynamic>
+        </Message>
+        <Message>
+            <ID>35001611</ID>
+            <Severity>Warning</Severity>
+        </Message>
+        <Message>
+            <ID>1166052</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>logical</Dynamic>
+            <Dynamic>stop_run</Dynamic>
+            <Navigation>stop_run</Navigation>
+        </Message>
+        <Message>
+            <ID>1166064</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>input</Dynamic>
+            <Dynamic>stop_run</Dynamic>
+        </Message>
+        <Message>
+            <ID>1163101</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>2</Dynamic>
+        </Message>
+    </Task>
+    <Task name="PAR">
+        <Message>
+            <ID>61061008</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>reset_c</Dynamic>
+            <Dynamic>Secondary</Dynamic>
+            <Dynamic>reset</Dynamic>
+            <Dynamic>1</Dynamic>
+            <Dynamic>Secondary</Dynamic>
+        </Message>
+    </Task>
+    <Task name="Jedecgen">
+        <Message>
+            <ID>1009992</ID>
+            <Severity>Info</Severity>
+            <Dynamic> SW_XO3D_SECURITY_ENCRYPTION *NOT* controlled by xo2c00.acd ###</Dynamic>
+        </Message>
+        <Message>
+            <ID>1009992</ID>
+            <Severity>Info</Severity>
+            <Dynamic> SW_XO3D_SECURITY_ENCRYPTION license_securityIP OK</Dynamic>
+        </Message>
+    </Task>
+</BaliMessageLog>
