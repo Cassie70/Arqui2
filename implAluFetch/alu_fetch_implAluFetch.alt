@@ -1,21 +1,27 @@
 NOTE Copyright (C), 1992-2010, Lattice Semiconductor Corporation *
 NOTE All Rights Reserved *
-NOTE DATE CREATED: Sat Apr 06 05:27:44 2024 *
+NOTE DATE CREATED: Sun Apr 07 23:55:36 2024 *
 NOTE DESIGN NAME: alu_fetch *
 NOTE DEVICE NAME: LCMXO2-7000HE-5TQFP144 *
 NOTE PIN ASSIGNMENTS *
-NOTE PINS CI[4] : 94 : out *
-NOTE PINS display[6] : 85 : out *
-NOTE PINS CI[5] : 93 : out *
 NOTE PINS display[5] : 84 : out *
+NOTE PINS reset : 1 : in *
+NOTE PINS CI[0] : 97 : out *
+NOTE PINS CI[1] : 98 : out *
+NOTE PINS CI[2] : 95 : out *
+NOTE PINS CI[3] : 96 : out *
+NOTE PINS CI[4] : 94 : out *
+NOTE PINS CI[5] : 93 : out *
 NOTE PINS CI[6] : 92 : out *
 NOTE PINS CI[7] : 91 : out *
+NOTE PINS display[4] : 83 : out *
 NOTE PINS CI[8] : 41 : out *
 NOTE PINS CI[9] : 39 : out *
 NOTE PINS CI[10] : 44 : out *
 NOTE PINS CI[11] : 42 : out *
 NOTE PINS CI[12] : 43 : out *
 NOTE PINS CI[13] : 45 : out *
+NOTE PINS display[6] : 85 : out *
 NOTE PINS CI[14] : 47 : out *
 NOTE PINS CI[15] : 49 : out *
 NOTE PINS CI[16] : 48 : out *
@@ -27,26 +33,12 @@ NOTE PINS CI[21] : 56 : out *
 NOTE PINS CI[22] : 57 : out *
 NOTE PINS CI[23] : 59 : out *
 NOTE PINS sel[0] : 73 : out *
-NOTE PINS rom_address[0] : 14 : in *
 NOTE PINS sel[1] : 74 : out *
 NOTE PINS sel[2] : 75 : out *
 NOTE PINS sel[3] : 76 : out *
 NOTE PINS display[0] : 77 : out *
 NOTE PINS display[1] : 78 : out *
 NOTE PINS display[2] : 81 : out *
-NOTE PINS rom_address[1] : 13 : in *
 NOTE PINS display[3] : 82 : out *
-NOTE PINS rom_address[2] : 12 : in *
-NOTE PINS display[4] : 83 : out *
-NOTE PINS rom_address[3] : 11 : in *
-NOTE PINS rom_address[4] : 10 : in *
-NOTE PINS rom_address[5] : 9 : in *
-NOTE PINS rom_address[6] : 6 : in *
-NOTE PINS rom_address[7] : 5 : in *
-NOTE PINS reset : 1 : in *
-NOTE PINS CI[0] : 97 : out *
-NOTE PINS CI[1] : 98 : out *
-NOTE PINS CI[2] : 95 : out *
-NOTE PINS CI[3] : 96 : out *
 NOTE CONFIGURATION MODE: NONE *
 NOTE COMPRESSION: on *

@@ -33,15 +33,14 @@
 -lpf 1
 -lib "work" -vhd "C:/Users/Cassandra/Desktop/Arqui2/AdderSub12.vhd"
 "C:/Users/Cassandra/Desktop/Arqui2/alu.vhd"
+"C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.vhd"
 "C:/Users/Cassandra/Desktop/Arqui2/divi6.vhd"
 "C:/Users/Cassandra/Desktop/Arqui2/FA.vhd"
 "C:/Users/Cassandra/Desktop/Arqui2/multi6.vhd"
-"C:/Users/Cassandra/Desktop/Arqui2/registro24.vhd"
 "C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd"
 "C:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd"
 "C:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd"
-"C:/Users/Cassandra/Desktop/Arqui2/alu_fetch1.vhd"
-"C:/Users/Cassandra/Desktop/Arqui2/Universales.vhd"
+"C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd"
 
 
 -p "C:/lscc/diamond/3.13/ispfpga/xo2c00/data" "C:/Users/Cassandra/Desktop/Arqui2/implAluFetch" "C:/Users/Cassandra/Desktop/Arqui2"

@@ -1,5 +1,5 @@
 // Verilog netlist produced by program LSE :  version Diamond (64-bit) 3.13.0.56.2
-// Netlist written on Sat Apr 06 00:32:02 2024
+// Netlist written on Sun Apr 07 17:18:05 2024
 //
 // Verilog Description of module registro24
 //

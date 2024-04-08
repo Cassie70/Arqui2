@@ -1,0 +1,15 @@
+# Reading pref.tcl
+# Loading project alu_fetch
+# Compile of AdderSub12.vhd failed with 1 errors.
+# Compile of alu.vhd failed with 1 errors.
+# Compile of alu_fetch.vhd failed with 2 errors.
+# Compile of bcdDisplay.vhd was successful.
+# Compile of binarioBCD.vhd was successful.
+# Compile of divi6.vhd was successful.
+# Compile of FA.vhd was successful.
+# Compile of multi6.vhd was successful.
+# Compile of ROM.vhd was successful.
+# Compile of RPG24_4.vhd was successful.
+# 10 compiles, 3 failed with 4 errors.
+# can't read "Startup(-L)": no such element in array
+# Load canceled

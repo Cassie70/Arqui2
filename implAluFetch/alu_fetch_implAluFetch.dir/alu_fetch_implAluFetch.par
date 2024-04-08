@@ -4,12 +4,11 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
-Sat Apr 06 05:27:35 2024
+Sun Apr 07 23:55:26 2024
 
 C:/lscc/diamond/3.13/ispfpga\bin\nt64\par -f alu_fetch_implAluFetch.p2t
 alu_fetch_implAluFetch_map.ncd alu_fetch_implAluFetch.dir
-alu_fetch_implAluFetch.prf -gui -msgset
-C:/Users/Cassandra/Desktop/Arqui2/promote.xml
+alu_fetch_implAluFetch.prf -gui
 
 
 Preference file: alu_fetch_implAluFetch.prf.
@@ -17,7 +16,7 @@ Preference file: alu_fetch_implAluFetch.prf.
 Level/       Number       Worst        Timing       Worst        Timing       Run          NCD
 Cost [ncd]   Unrouted     Slack        Score        Slack(hold)  Score(hold)  Time         Status
 ----------   --------     -----        ------       -----------  -----------  ----         ------
-5_1   *      0            27.057       0            0.301        0            05           Completed
+5_1   *      0            23.957       0            0.306        0            04           Completed
 
 * : Design saved.
 

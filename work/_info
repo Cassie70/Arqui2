@@ -1,0 +1,352 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Cassandra/Desktop/Arqui2
+Eadd_sub_12
+Z1 w1712378253
+Z2 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z3 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+!i122 0
+R0
+8C:/Users/Cassandra/Desktop/Arqui2/AdderSub12.vhd
+FC:/Users/Cassandra/Desktop/Arqui2/AdderSub12.vhd
+l0
+L4 1
+V`;C0e7RSHNSRJ<61[g<Qz0
+!s100 7g0P7`gF[OTLHL5cQ=2;52
+Z4 OT;C;2023.3;77
+32
+!s110 1712544612
+!i10b 1
+!s108 1712544612.000000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Cassandra/Desktop/Arqui2/AdderSub12.vhd|
+!s107 C:/Users/Cassandra/Desktop/Arqui2/AdderSub12.vhd|
+!i113 1
+Z5 o-work work -2002 -explicit -O0
+Z6 tExplicit 1 CvgOpt 0
+Ealu
+w1712384613
+R2
+R3
+!i122 1
+R0
+8C:/Users/Cassandra/Desktop/Arqui2/alu.vhd
+FC:/Users/Cassandra/Desktop/Arqui2/alu.vhd
+l0
+L4 1
+VMm5>:LgDzE^QTazHjJ;W?0
+!s100 Jkkafni;_C@Fh=j>PX>f:0
+R4
+32
+Z7 !s110 1712544613
+!i10b 1
+Z8 !s108 1712544613.000000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Cassandra/Desktop/Arqui2/alu.vhd|
+!s107 C:/Users/Cassandra/Desktop/Arqui2/alu.vhd|
+!i113 1
+R5
+R6
+Ebcddisplay
+Z9 w1712397847
+R2
+R3
+!i122 2
+R0
+Z10 8C:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd
+Z11 FC:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd
+l0
+L4 1
+V9nd669llZLGVK5f7Z]=8C3
+!s100 ^@IQhOh3_6WMTJn<cSH;23
+R4
+32
+R7
+!i10b 1
+R8
+Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd|
+Z13 !s107 C:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd|
+!i113 1
+R5
+R6
+Abehavior
+R2
+R3
+DEx4 work 10 bcddisplay 0 22 9nd669llZLGVK5f7Z]=8C3
+!i122 2
+l24
+L13 32
+VGMU@UUGb_XkoY?=0_Mc?d3
+!s100 lndfmX_mbGDE187Xd`FM41
+R4
+32
+R7
+!i10b 1
+R8
+R12
+R13
+!i113 1
+R5
+R6
+Ebin2bcd
+Z14 w1712397843
+Z15 DPx4 ieee 18 std_logic_unsigned 0 22 o4hn5gYc0WVo72BSL@Ta50
+Z16 DPx4 ieee 15 std_logic_arith 0 22 B[jVX6I8iRX2o6WYW0BB>3
+R2
+R3
+!i122 3
+R0
+Z17 8C:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd
+Z18 FC:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd
+l0
+L6 1
+VUz2zTI5;K2E8ozD>54W]<2
+!s100 M:[<];O^=Y:_ocY9YWM_71
+R4
+32
+R7
+!i10b 1
+R8
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd|
+Z20 !s107 C:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd|
+!i113 1
+R5
+R6
+Abehavioral
+R15
+R16
+R2
+R3
+DEx4 work 7 bin2bcd 0 22 Uz2zTI5;K2E8ozD>54W]<2
+!i122 3
+l15
+L14 31
+VoS;;U>fg5PIEZTPeaZz9T1
+!s100 G6gXM2H2V`a@=zbA9;He13
+R4
+32
+R7
+!i10b 1
+R8
+R19
+R20
+!i113 1
+R5
+R6
+Edivi6
+R1
+R2
+R3
+!i122 4
+R0
+Z21 8C:/Users/Cassandra/Desktop/Arqui2/divi6.vhd
+Z22 FC:/Users/Cassandra/Desktop/Arqui2/divi6.vhd
+l0
+L4 1
+V1nL>YQb_7k8SknTGAZ6O`0
+!s100 ^IaeHM4cekiEe;4i3e?Z02
+R4
+32
+R7
+!i10b 1
+R8
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Cassandra/Desktop/Arqui2/divi6.vhd|
+Z24 !s107 C:/Users/Cassandra/Desktop/Arqui2/divi6.vhd|
+!i113 1
+R5
+R6
+Aa_divi6
+R2
+R3
+DEx4 work 5 divi6 0 22 1nL>YQb_7k8SknTGAZ6O`0
+!i122 4
+l27
+L12 47
+V:i6ZS_LQVR2?jn^Wl5jo41
+!s100 Wb5n7J2VkPo_2aIN4=fSY1
+R4
+32
+R7
+!i10b 1
+R8
+R23
+R24
+!i113 1
+R5
+R6
+Efa
+R1
+R2
+R3
+!i122 5
+R0
+Z25 8C:/Users/Cassandra/Desktop/Arqui2/FA.vhd
+Z26 FC:/Users/Cassandra/Desktop/Arqui2/FA.vhd
+l0
+L4 1
+V5bY@FZiXREoK[DGcA06M=0
+!s100 XRCm=Ua0I^OD01H4R`hKH1
+R4
+32
+R7
+!i10b 1
+R8
+Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Cassandra/Desktop/Arqui2/FA.vhd|
+Z28 !s107 C:/Users/Cassandra/Desktop/Arqui2/FA.vhd|
+!i113 1
+R5
+R6
+Aa_fa
+R2
+R3
+DEx4 work 2 fa 0 22 5bY@FZiXREoK[DGcA06M=0
+!i122 5
+l12
+L10 14
+V4`RRoSIg7h2XPm>f@3aj]3
+!s100 7I33cA9G?ChP_eUf2NF`51
+R4
+32
+R7
+!i10b 1
+R8
+R27
+R28
+!i113 1
+R5
+R6
+Emulti6
+R1
+R2
+R3
+!i122 6
+R0
+Z29 8C:/Users/Cassandra/Desktop/Arqui2/multi6.vhd
+Z30 FC:/Users/Cassandra/Desktop/Arqui2/multi6.vhd
+l0
+L4 1
+V2U8`_`5zzQJcklAHj:LK?1
+!s100 ih3UODjIZ<E8Io8H7MgAG3
+R4
+32
+R7
+!i10b 1
+R8
+Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Cassandra/Desktop/Arqui2/multi6.vhd|
+Z32 !s107 C:/Users/Cassandra/Desktop/Arqui2/multi6.vhd|
+!i113 1
+R5
+R6
+Aa_multi6
+R2
+R3
+DEx4 work 6 multi6 0 22 2U8`_`5zzQJcklAHj:LK?1
+!i122 6
+l22
+L10 28
+V?cRTbO5:L9Nd]@P?]8Xmz3
+!s100 BT^h1jbeY6EYORSEKBKb_2
+R4
+32
+R7
+!i10b 1
+R8
+R31
+R32
+!i113 1
+R5
+R6
+Eregistrospg
+Z33 w1712526001
+Z34 DPx4 ieee 11 numeric_std 0 22 F8@]:i<mFK7<TjIzKcTGi0
+R2
+R3
+!i122 8
+R0
+Z35 8C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd
+Z36 FC:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd
+l0
+L5 1
+VX1G1Az4V57ThZc@38AU<Q0
+!s100 M=1>n^:ZlaR7G^=>Y2CiY2
+R4
+32
+R7
+!i10b 1
+R8
+Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd|
+!s107 C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd|
+!i113 1
+R5
+R6
+Abehavioral
+R34
+R2
+R3
+DEx4 work 11 registrospg 0 22 X1G1Az4V57ThZc@38AU<Q0
+!i122 8
+l17
+L14 32
+VmeU^j<hhgiQS@zELSOVje0
+!s100 `o]B9<X9f;i6l5DVc275j2
+R4
+32
+R7
+!i10b 1
+R8
+R37
+Z38 !s107 C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd|
+!i113 1
+R5
+R6
+Erom
+Z39 w1712401348
+R15
+R16
+R2
+R3
+!i122 7
+R0
+Z40 8C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd
+Z41 FC:/Users/Cassandra/Desktop/Arqui2/ROM.vhd
+l0
+L6 1
+V?ggF9EjAk<CLbXPfB9kMZ0
+!s100 gBf<b@P8`PCOlV<]nD2_C2
+R4
+32
+R7
+!i10b 1
+R8
+Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd|
+Z43 !s107 C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd|
+!i113 1
+R5
+R6
+Aa_rom
+R15
+R16
+R2
+R3
+DEx4 work 3 rom 0 22 ?ggF9EjAk<CLbXPfB9kMZ0
+!i122 7
+l62
+L16 62
+V06TlO4eR[;]d8BF8ofJC>1
+!s100 S`L:6hmagBzbbkX7HgdOX3
+R4
+32
+R7
+!i10b 1
+R8
+R42
+R43
+!i113 1
+R5
+R6

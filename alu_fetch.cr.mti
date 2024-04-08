@@ -1,0 +1,93 @@
+C:/Users/Cassandra/Desktop/Arqui2/multi6.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Cassandra/Desktop/Arqui2/multi6.vhd
+Model Technology ModelSim - Lattice FPGA Edition vcom 2023.3 Compiler 2023.07 Jul 18 2023
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity multi6
+-- Compiling architecture a_multi6 of multi6
+
+} {} {}} C:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd
+Model Technology ModelSim - Lattice FPGA Edition vcom 2023.3 Compiler 2023.07 Jul 18 2023
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Bin2BCD
+-- Compiling architecture Behavioral of Bin2BCD
+
+} {} {}} C:/Users/Cassandra/Desktop/Arqui2/AdderSub12.vhd {0 {vcom -work work -2002 -explicit -stats=none C:/Users/Cassandra/Desktop/Arqui2/AdderSub12.vhd
+Model Technology ModelSim - Lattice FPGA Edition vcom 2023.3 Compiler 2023.07 Jul 18 2023
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity add_sub_12
+-- Compiling architecture A_add_sub_12 of add_sub_12
+** Error: C:/Users/Cassandra/Desktop/Arqui2/AdderSub12.vhd(28): (vcom-1436) Actual expression (infix expression) of formal "B" is not globally static.
+** Note: C:/Users/Cassandra/Desktop/Arqui2/AdderSub12.vhd(35): VHDL Compiler exiting
+
+} {8.0 9.0} {}} C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd
+Model Technology ModelSim - Lattice FPGA Edition vcom 2023.3 Compiler 2023.07 Jul 18 2023
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity registrosPG
+-- Compiling architecture Behavioral of registrosPG
+
+} {} {}} C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd
+Model Technology ModelSim - Lattice FPGA Edition vcom 2023.3 Compiler 2023.07 Jul 18 2023
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ROM
+-- Compiling architecture a_ROM of ROM
+
+} {} {}} C:/Users/Cassandra/Desktop/Arqui2/divi6.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Cassandra/Desktop/Arqui2/divi6.vhd
+Model Technology ModelSim - Lattice FPGA Edition vcom 2023.3 Compiler 2023.07 Jul 18 2023
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity divi6
+-- Compiling architecture a_divi6 of divi6
+
+} {} {}} C:/Users/Cassandra/Desktop/Arqui2/alu.vhd {0 {vcom -work work -2002 -explicit -stats=none C:/Users/Cassandra/Desktop/Arqui2/alu.vhd
+Model Technology ModelSim - Lattice FPGA Edition vcom 2023.3 Compiler 2023.07 Jul 18 2023
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity alu
+-- Compiling architecture a_alu of alu
+** Error (suppressible): C:/Users/Cassandra/Desktop/Arqui2/alu.vhd(114): (vcom-1339) Selected signal assignment choices cover only 16 out of 6561 cases.
+** Note: C:/Users/Cassandra/Desktop/Arqui2/alu.vhd(131): VHDL Compiler exiting
+
+} {} {}} C:/Users/Cassandra/Desktop/Arqui2/FA.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Cassandra/Desktop/Arqui2/FA.vhd
+Model Technology ModelSim - Lattice FPGA Edition vcom 2023.3 Compiler 2023.07 Jul 18 2023
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity FA
+-- Compiling architecture a_FA of FA
+
+} {} {}} C:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd
+Model Technology ModelSim - Lattice FPGA Edition vcom 2023.3 Compiler 2023.07 Jul 18 2023
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity bcdDisplay
+-- Compiling architecture behavior of bcdDisplay
+
+} {} {}} C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.vhd {0 {vcom -work work -2002 -explicit -stats=none C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.vhd
+Model Technology ModelSim - Lattice FPGA Edition vcom 2023.3 Compiler 2023.07 Jul 18 2023
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+** Error: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.vhd(6): (vcom-1598) Library "lattice" not found.
+** Error: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.vhd(7): (vcom-1136) Unknown identifier "lattice".
+** Note: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.vhd(11): VHDL Compiler exiting
+
+} {8.0 10.0} {}}
