@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
-Sun Apr 07 23:55:22 2024
+Mon Apr 08 01:56:00 2024
 
 
 Command Line:  synthesis -f alu_fetch_implAluFetch_lattice.synproj -gui 
@@ -68,7 +68,6 @@ VHDL library = work
 VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/AdderSub12.vhd
 VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/alu.vhd
 VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.vhd
-VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/divi6.vhd
 VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/FA.vhd
 VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/multi6.vhd
 VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd
@@ -96,7 +95,6 @@ unit alu_fetch is not yet analyzed. VHDL-1485
 Analyzing VHDL file c:/users/cassandra/desktop/arqui2/alu.vhd. VHDL-1481
 INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu.vhd(4): analyzing entity alu. VHDL-1012
 INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu.vhd(13): analyzing architecture a_alu. VHDL-1010
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu.vhd(13): overwriting existing secondary unit a_alu. VHDL-1178
 unit alu_fetch is not yet analyzed. VHDL-1485
 unit alu_fetch is not yet analyzed. VHDL-1485
 Analyzing VHDL file c:/users/cassandra/desktop/arqui2/alu_fetch.vhd. VHDL-1481
@@ -104,11 +102,6 @@ WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(7): 'compon
 INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(11): analyzing entity alu_fetch. VHDL-1012
 INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(20): analyzing architecture behavior. VHDL-1010
 WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(20): overwriting existing secondary unit behavior. VHDL-1178
-unit alu_fetch is not yet analyzed. VHDL-1485
-unit alu_fetch is not yet analyzed. VHDL-1485
-Analyzing VHDL file c:/users/cassandra/desktop/arqui2/divi6.vhd. VHDL-1481
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/divi6.vhd(4): analyzing entity divi6. VHDL-1012
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/divi6.vhd(12): analyzing architecture a_divi6. VHDL-1010
 unit alu_fetch is not yet analyzed. VHDL-1485
 unit alu_fetch is not yet analyzed. VHDL-1485
 Analyzing VHDL file c:/users/cassandra/desktop/arqui2/fa.vhd. VHDL-1481
@@ -158,11 +151,6 @@ INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(11): analyzing
 INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(20): analyzing architecture behavior. VHDL-1010
 unit alu_fetch is not yet analyzed. VHDL-1485
 unit alu_fetch is not yet analyzed. VHDL-1485
-Analyzing VHDL file c:/users/cassandra/desktop/arqui2/divi6.vhd. VHDL-1481
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/divi6.vhd(4): analyzing entity divi6. VHDL-1012
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/divi6.vhd(12): analyzing architecture a_divi6. VHDL-1010
-unit alu_fetch is not yet analyzed. VHDL-1485
-unit alu_fetch is not yet analyzed. VHDL-1485
 Analyzing VHDL file c:/users/cassandra/desktop/arqui2/fa.vhd. VHDL-1481
 INFO - synthesis: c:/users/cassandra/desktop/arqui2/fa.vhd(4): analyzing entity fa. VHDL-1012
 INFO - synthesis: c:/users/cassandra/desktop/arqui2/fa.vhd(10): analyzing architecture a_fa. VHDL-1010
@@ -193,37 +181,11 @@ INFO - synthesis: c:/users/cassandra/desktop/arqui2/rpg24_4.vhd(5): analyzing en
 INFO - synthesis: c:/users/cassandra/desktop/arqui2/rpg24_4.vhd(14): analyzing architecture behavioral. VHDL-1010
 unit alu_fetch is not yet analyzed. VHDL-1485
 unit alu_fetch is not yet analyzed. VHDL-1485
-WARNING - synthesis: Net subtraction_counter[11] has following drivers :
-WARNING - synthesis: Net subtraction_counter[10] has following drivers :
-WARNING - synthesis: Net subtraction_counter[9] has following drivers :
-WARNING - synthesis: Net subtraction_counter[8] has following drivers :
-WARNING - synthesis: Net subtraction_counter[7] has following drivers :
-WARNING - synthesis: Net subtraction_counter[6] has following drivers :
-WARNING - synthesis: Net subtraction_counter[5] has following drivers :
-WARNING - synthesis: Net subtraction_counter[4] has following drivers :
-WARNING - synthesis: Net subtraction_counter[3] has following drivers :
-WARNING - synthesis: Net subtraction_counter[2] has following drivers :
-WARNING - synthesis: Net subtraction_counter[1] has following drivers :
-WARNING - synthesis: Net subtraction_counter[0] has following drivers :
-WARNING - synthesis: Net operation_complete has following drivers :
-WARNING - synthesis: Net n239 has following drivers :
-WARNING - synthesis: Net subtraction_counter[11] has following drivers :
-WARNING - synthesis: Net subtraction_counter[10] has following drivers :
-WARNING - synthesis: Net subtraction_counter[9] has following drivers :
-WARNING - synthesis: Net subtraction_counter[8] has following drivers :
-WARNING - synthesis: Net subtraction_counter[7] has following drivers :
-WARNING - synthesis: Net subtraction_counter[6] has following drivers :
-WARNING - synthesis: Net subtraction_counter[5] has following drivers :
-WARNING - synthesis: Net subtraction_counter[4] has following drivers :
-WARNING - synthesis: Net subtraction_counter[3] has following drivers :
-WARNING - synthesis: Net subtraction_counter[2] has following drivers :
-WARNING - synthesis: Net subtraction_counter[1] has following drivers :
-WARNING - synthesis: Net subtraction_counter[0] has following drivers :
-WARNING - synthesis: Net operation_complete has following drivers :
-WARNING - synthesis: Net n239 has following drivers :
 unit alu_fetch is not yet analyzed. VHDL-1485
 c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(11): executing alu_fetch(behavior)
 
+INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(216): others clause is never selected. VHDL-1172
+WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(85): net ACC[23] does not have a driver. VDB-1002
 WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(18): replacing existing netlist alu_fetch(behavior). VHDL-1205
 Top module name (VHDL): alu_fetch
 Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/xo2c00a/data/xo2alib.ngl'...
@@ -233,7 +195,21 @@ Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/or5g00/data/orc5glib.ngl'...
 Loading device for application map from file 'xo2c7000.nph' in environment: C:/lscc/diamond/3.13/ispfpga.
 Package Status:                     Final          Version 1.39.
 Top-level module name = alu_fetch.
+@Inferred RAM (selector_1__I_0) from primitives
+
 WARNING - synthesis: I/O Port stop_run 's net has no driver and is unused.
+######## Missing driver on net ACC[23]. Patching with GND.
+######## Missing driver on net ACC[22]. Patching with GND.
+######## Missing driver on net ACC[21]. Patching with GND.
+######## Missing driver on net ACC[20]. Patching with GND.
+######## Missing driver on net ACC[19]. Patching with GND.
+######## Missing driver on net ACC[18]. Patching with GND.
+######## Missing driver on net ACC[17]. Patching with GND.
+######## Missing driver on net ACC[16]. Patching with GND.
+######## Missing driver on net ACC[15]. Patching with GND.
+######## Missing driver on net ACC[14]. Patching with GND.
+######## Missing driver on net ACC[13]. Patching with GND.
+######## Missing driver on net ACC[12]. Patching with GND.
 INFO - synthesis: Extracted state machine for register 'temp_control' with one-hot encoding
 original encoding -> new encoding (one-hot encoding)
 
@@ -250,29 +226,39 @@ original encoding -> new encoding (one-hot encoding)
 INFO - synthesis: Extracted state machine for register 'state' with one-hot encoding
 original encoding -> new encoding (one-hot encoding)
 
- 0000 -> 0000000001
+ 0000 -> 00000000000001
 
- 0001 -> 0000000010
+ 0001 -> 00000000000010
 
- 0010 -> 0000000100
+ 0010 -> 00000000000100
 
- 0011 -> 0000001000
+ 0011 -> 00000000001000
 
- 0100 -> 0000010000
+ 0100 -> 00000000010000
 
- 0101 -> 0000100000
+ 0101 -> 00000000100000
 
- 0110 -> 0001000000
+ 0110 -> 00000001000000
 
- 0111 -> 0010000000
+ 0111 -> 00000010000000
 
- 1000 -> 0100000000
+ 1000 -> 00000100000000
 
- 1001 -> 1000000000
+ 1001 -> 00001000000000
+
+ 1010 -> 00010000000000
+
+ 1011 -> 00100000000000
+
+ 1100 -> 01000000000000
+
+ 1101 -> 10000000000000
 
 
 
 
+WARNING - synthesis: Bit 15 of Register state_FSM is stuck at Zero
+WARNING - synthesis: Bit 14 of Register state_FSM is stuck at Zero
 WARNING - synthesis: Bit 15 of Register temp_control_FSM is stuck at Zero
 WARNING - synthesis: Bit 14 of Register temp_control_FSM is stuck at Zero
 WARNING - synthesis: Bit 13 of Register temp_control_FSM is stuck at Zero
@@ -284,15 +270,13 @@ WARNING - synthesis: Bit 7 of Register temp_control_FSM is stuck at Zero
 WARNING - synthesis: Bit 6 of Register temp_control_FSM is stuck at Zero
 WARNING - synthesis: Bit 5 of Register temp_control_FSM is stuck at Zero
 WARNING - synthesis: Bit 3 of Register temp_control_FSM is stuck at Zero
-WARNING - synthesis: Bit 6 of Register \millar/DISPLAY is stuck at Zero
-WARNING - synthesis: Bit 1 of Register \millar/DISPLAY is stuck at One
-WARNING - synthesis: Bit 5 of Register \millar/DISPLAY is stuck at One
-WARNING - synthesis: Bit 4 of Register \millar/DISPLAY is stuck at One
-WARNING - synthesis: Bit 3 of Register \millar/DISPLAY is stuck at One
-WARNING - synthesis: Bit 2 of Register \millar/DISPLAY is stuck at One
-WARNING - synthesis: Bit 1 of Register \centenas/DISPLAY is stuck at One
+Core reset RAM implemented for net \RPG/selector_1__I_0.
+######## Found 1 RTL RAMs in the design.
+######## Mapping RTL RAM \RPG/selector_1__I_0 to 6 Distributed blocks in SINGLE_PORT Mode
+
+WARNING - synthesis: c:/users/cassandra/desktop/arqui2/rpg24_4.vhd(43): Register creset_2156 is stuck at Zero. VDB-5013
 WARNING - synthesis: I/O Port stop_run 's net has no driver and is unused.
-GSR instance connected to net n2922.
+GSR instance connected to net n4259.
 Applying 200.000000 MHz constraint to all clocks
 
 WARNING - synthesis: No user .sdc file.
@@ -308,22 +292,23 @@ All blocks are expanded and NGD expansion is successful.
 Writing NGD file alu_fetch_implAluFetch.ngd.
 
 ################### Begin Area Report (alu_fetch)######################
-Number of register bits => 159 of 7209 (2 % )
-CCU2D => 28
-FD1P3AX => 22
+Number of register bits => 254 of 7209 (3 % )
+CCU2D => 17
+FD1P3AX => 30
 FD1P3AY => 2
-FD1P3IX => 43
-FD1S1A => 8
-FD1S1I => 64
-FD1S3AX => 4
+FD1P3IX => 24
+FD1S1A => 48
+FD1S1I => 121
+FD1S3AX => 5
 FD1S3AY => 4
-FD1S3JX => 12
+FD1S3JX => 20
 GSR => 1
 IB => 1
-LUT4 => 161
+LUT4 => 537
 OB => 35
 PDPW8KC => 2
-PFUMX => 8
+PFUMX => 48
+SPR16X4C => 4
 ################### End Area Report ##################
 
 ################### Begin BlackBox Report ######################
@@ -333,34 +318,45 @@ TSALL => 1
 
 ################### Begin Clock Report ######################
 Clock Nets
-Number of Clocks: 6
-  Net : clk, loads : 70
-  Net : CI_23__N_36, loads : 37
-  Net : MBR_23__N_90, loads : 28
-  Net : clk_0, loads : 20
-  Net : address_bus_7__N_99, loads : 8
-  Net : MAR_7__N_65, loads : 8
+Number of Clocks: 15
+  Net : clk, loads : 63
+  Net : CI_23__N_36, loads : 35
+  Net : clk_0, loads : 29
+  Net : A_11__N_156, loads : 27
+  Net : MBR_23__N_106, loads : 26
+  Net : ALU_imp/control_3_derived_24, loads : 24
+  Net : MAR_7__N_81, loads : 19
+  Net : Rdisplay_13__N_51, loads : 16
+  Net : rpg_in_23__N_131, loads : 16
+  Net : ALU_imp/logic_result_11__N_847, loads : 12
+  Net : control_3__N_173, loads : 8
+  Net : PC_7__N_72, loads : 8
+  Net : address_bus_7__N_143, loads : 8
+  Net : control_3__N_173_derived_2, loads : 2
+  Net : ALU_imp/substract_N_886, loads : 1
 Clock Enable Nets
-Number of Clock Enables: 6
-Top 6 highest fanout Clock Enables:
-  Net : clk_enable_65, loads : 45
-  Net : clk_enable_49, loads : 22
-  Net : clk_enable_67, loads : 8
-  Net : clk_enable_52, loads : 8
-  Net : clk_enable_54, loads : 7
-  Net : clk_enable_61, loads : 1
+Number of Clock Enables: 8
+Top 8 highest fanout Clock Enables:
+  Net : clk_enable_46, loads : 26
+  Net : clk_enable_43, loads : 24
+  Net : clk_enable_56, loads : 23
+  Net : clk_enable_8, loads : 7
+  Net : clk_enable_10, loads : 1
+  Net : clk_enable_17, loads : 1
+  Net : clk_enable_9, loads : 1
+  Net : clk_enable_11, loads : 1
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : clk_enable_65, loads : 45
-  Net : reset_c, loads : 42
-  Net : n3068, loads : 32
-  Net : n3073, loads : 25
-  Net : n3067, loads : 24
-  Net : ROM_imp/data_out_23__N_457, loads : 24
-  Net : clk_enable_49, loads : 22
-  Net : imp_binBCD/bcd_out_15__N_369, loads : 12
-  Net : Q_4, loads : 11
-  Net : Q_0, loads : 11
+  Net : reset_c, loads : 62
+  Net : control_1, loads : 51
+  Net : control_2, loads : 49
+  Net : control_0, loads : 39
+  Net : control_3, loads : 29
+  Net : clk_enable_46, loads : 26
+  Net : clk_enable_43, loads : 24
+  Net : n5081, loads : 24
+  Net : n5078, loads : 24
+  Net : ROM_imp/data_out_23__N_488, loads : 24
 ################### End Clock Report ##################
 
 Timing Report Summary
@@ -370,22 +366,35 @@ Constraint                              |   Constraint|       Actual|Levels
 --------------------------------------------------------------------------------
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk2 [get_nets address_bus_7__N_99]     |            -|            -|     0  
+clk6 [get_nets \ALU_imp/substract_N_886]|            -|            -|     0  
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk1 [get_nets clk_0]                   |            -|            -|     0  
+clk5 [get_nets clk_0]                   |            -|            -|     0  
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk0 [get_nets clk]                     |  200.000 MHz|   96.880 MHz|     7 *
+clk4 [get_nets                          |             |             |
+\ALU_imp/control[3]_derived_24]         |            -|            -|     0  
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk3 [get_nets PC_7__N_72]              |  200.000 MHz|  185.874 MHz|     7 *
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk2 [get_nets address_bus_7__N_143]    |            -|            -|     0  
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk1 [get_nets rpg_in_23__N_131]        |            -|            -|     0  
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk0 [get_nets clk]                     |  200.000 MHz|   93.197 MHz|     7 *
                                         |             |             |
 --------------------------------------------------------------------------------
 
 
-1 constraints not met.
+2 constraints not met.
 
 
-Peak Memory Usage: 91.996  MB
+Peak Memory Usage: 104.438  MB
 
 --------------------------------------------------------------
-Elapsed CPU time for LSE flow : 0.594  secs
+Elapsed CPU time for LSE flow : 1.500  secs
 --------------------------------------------------------------

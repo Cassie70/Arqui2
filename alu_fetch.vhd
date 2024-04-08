@@ -72,26 +72,31 @@ architecture behavior of alu_fetch is
 
 signal clk: std_logic;
 signal clk_0: std_logic:='0';
-signal clk_1: std_logic:='0';
-signal Q: std_logic_vector(13 downto 0);
+signal Rdisplay: std_logic_vector(13 downto 0):=(others=>'0');
 signal Qbcd: std_logic_vector(15 downto 0);
 signal temp_control: std_logic_vector(3 downto 0);
-signal u,d,c,m: std_logic_vector(6 downto 0);
-	
+signal un,de,ce,mi: std_logic_vector(6 downto 0);
+
 --REGISTROS PARA DATAPATH--
 signal PC: std_logic_vector(7 downto 0):="00000000";
-signal MAR: std_logic_vector(7 downto 0);
+signal MAR: std_logic_vector(7 downto 0):=(others=>'0');
 signal MBR: std_logic_vector(23 downto 0);
 signal IR: std_logic_vector(23 downto 0);
 signal ACC: std_logic_vector(23 downto 0);
+
 --entradas,salidas componentes
 signal rpg_in: std_logic_vector(23 downto 0):=(others=>'0');
 signal rpg_out: std_logic_vector(23 downto 0);
 signal rpg_sel: std_logic_vector(1 downto 0):=(others=>'0');
 signal address_bus: std_logic_vector(7 downto 0);
 signal data_bus: std_logic_vector(23 downto 0);
+signal A,B: std_logic_vector(11 downto 0);
+signal control: std_logic_vector(3 downto 0);
+signal C: std_logic;
+signal Q: std_logic_vector(13 downto 0);
 
-type state_type is (reset_pc, fetch, fetch1, fetch2, decode, execute_addi, execute_load, execute_jump, execute_display, execute_halt);
+type state_type is (reset_pc, fetch, fetch1, fetch2, decode, execute_addi,execute_addi1,execute_addi2, 
+execute_load,execute_load1, execute_jump, execute_display,execute_display1, execute_halt);
 signal state,next_state: state_type;
 
 begin
@@ -101,51 +106,44 @@ OSCinst0: OSCH generic map("26.60") port map('0', clk);
 
 imp_binBCD: bin2bcd port map(reset,Q,Qbcd);
 --clk_0
-unidades: bcdDisplay port map(clk_0,reset,Qbcd(3 downto 0),u);
-decenas: bcdDisplay port map(clk_0,reset,Qbcd(7 downto 4),d);
-centenas: bcdDisplay port map(clk_0,reset,Qbcd(11 downto 8),c);
-millar: bcdDisplay port map(clk_0,reset,Qbcd(15 downto 12),m);
+unidades: bcdDisplay port map(clk_0,reset,Qbcd(3 downto 0),un);
+decenas: bcdDisplay port map(clk_0,reset,Qbcd(7 downto 4),de);
+centenas: bcdDisplay port map(clk_0,reset,Qbcd(11 downto 8),ce);
+millar: bcdDisplay port map(clk_0,reset,Qbcd(15 downto 12),mi);
 
 --clk
 ROM_imp: ROM port map(clk,reset,'1','1',address_bus,data_bus);
 RPG : registrosPG port map(clk,reset,'1',rpg_in,rpg_sel,rpg_out);
-ALU_imp :  
+ALU_imp : alu port map(clk,A,B,control,ACC(11 downto 0),C);  
 	process(clk,reset,stop_run)
-		variable count: integer range 0 to 250000;
-		variable count1: integer range 0 to 25000000;
+		variable count: integer range 0 to 2500000;
 		begin
 			if(reset = '1') then
 				state<= reset_pc;
 				temp_control<="0000";
 			elsif(clk'event and clk='1') then
 				
-				if(count1 < 20000000) then
-					count1:= count1 + 1;
-				else
-					count1:=0;
-					state<=next_state;
-				end if;
-				
-				if(count < 150000) then
+				if(count < 2000000) then
 					count := count + 1;
 				else
 					count:= 0;
 					clk_0 <= not clk_0;
+					state<=next_state;
 					case temp_control is
 					when "0000"=>
 						temp_control<="0001";
 					when "0001"=> 
 						temp_control<="0010";
-						display<=m;
+						display<=mi;
 					when "0010"=> 
 						temp_control<="0100";
-						display<=c;
+						display<=ce;
 					when "0100"=> 
 						temp_control<="1000";
-						display<=d;
+						display<=de;
 					when "1000"=> 
 						temp_control<="0001";
-						display<=u;
+						display<=un;
 					when others=>
 						temp_control<="0000";
 					end case;
@@ -154,14 +152,10 @@ ALU_imp :
 			end if;
 	end process;
 	
-	process(state,PC,MAR,MBR,IR,data_bus)
+	process(state,PC,MAR,MBR,IR,data_bus,rpg_out,ACC)
 		begin
 			case state is
 				when reset_pc=>
-					--PC<=(others=>'0');
-					--MAR<=(others=>'0');
-					--MBR<=(others=>'0');
-					--IR<=(others=>'0');
 					next_state<=fetch;
 				when fetch=>
 					MAR<=PC;
@@ -189,18 +183,39 @@ ALU_imp :
 						when others=>
 							next_state<=fetch;
 					end case;
+				when execute_addi=>
+					control<=IR(21 downto 18);
+					rpg_sel<=IR(17 downto 16);
+					next_state<=execute_addi1;
+				when execute_addi1=>
+					A<=rpg_out(11 downto 0);
+					B<=IR(11 downto 0);
+					next_state<=execute_addi2;
+				when execute_addi2=>
+					rpg_in<=ACC;
+					next_state<=fetch;
 				when execute_load=>
 					address_bus<=IR(7 downto 0);
 					rpg_sel<=IR(17 downto 16);
+					next_state<=execute_load1;
+				when execute_load1=>
 					rpg_in<=data_bus;
+					next_state<=fetch;
+				when execute_jump=>
+					PC<=IR(7 downto 0);
+					next_state<=fetch;
+				when execute_display=>
+					rpg_sel<=IR(17 downto 16);
+					next_state<=execute_display1;
+				when execute_display1=>
+					Rdisplay<=rpg_out(13 downto 0);
 					next_state<=fetch;
 				when execute_halt=>
 					next_state<=execute_halt;
 				when others=>
-					MAR<= PC;
 					next_state<=fetch;
 				end case;
 	end process;
 	CI<=IR;
-	Q<="000000"&PC;
+	Q<=Rdisplay;
 end behavior;

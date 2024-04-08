@@ -22,21 +22,21 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-7000HETQFP144
 Target Performance:   5
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.13.0.56.2
-Mapped on:  04/07/24  23:55:25
+Mapped on:  04/08/24  02:00:28
 
 
 <A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
-   Number of registers:    159 out of  7209 (2%)
-      PFU registers:          159 out of  6864 (2%)
+   Number of registers:    252 out of  7209 (3%)
+      PFU registers:          252 out of  6864 (4%)
       PIO registers:            0 out of   345 (0%)
-   Number of SLICEs:       108 out of  3432 (3%)
-      SLICEs as Logic/ROM:    108 out of  3432 (3%)
-      SLICEs as RAM:            0 out of  2574 (0%)
-      SLICEs as Carry:         28 out of  3432 (1%)
-   Number of LUT4s:        214 out of  6864 (3%)
-      Number used as logic LUTs:        158
-      Number used as distributed RAM:     0
-      Number used as ripple logic:       56
+   Number of SLICEs:       299 out of  3432 (9%)
+      SLICEs as Logic/ROM:    287 out of  3432 (8%)
+      SLICEs as RAM:           12 out of  2574 (0%)
+      SLICEs as Carry:         17 out of  3432 (0%)
+   Number of LUT4s:        590 out of  6864 (9%)
+      Number used as logic LUTs:        532
+      Number used as distributed RAM:    24
+      Number used as ripple logic:       34
       Number used as shift registers:     0
    Number of PIO sites used: 36 + 4(JTAG) out of 115 (35%)
    Number of block RAMs:  2 out of 26 (8%)
@@ -63,51 +63,85 @@ Mapped on:  04/07/24  23:55:25
      distributed RAMs) + 2*(Number of ripple logic)
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
-   Number of clocks:  6
-     Net clk: 41 loads, 41 rising, 0 falling (Driver: OSCinst0 )
-     Net CI_23__N_36: 16 loads, 16 rising, 0 falling (Driver: state_FSM__i4 )
-     Net MBR_23__N_90: 12 loads, 12 rising, 0 falling (Driver: state_FSM__i3 )
+   Number of clocks:  15
+     Net clk: 46 loads, 46 rising, 0 falling (Driver: OSCinst0 )
+     Net rpg_in_23__N_131: 7 loads, 7 rising, 0 falling (Driver:
+     i1_2_lut_adj_118 )
 
-     Net clk_0: 17 loads, 17 rising, 0 falling (Driver: clk_0_638 )
-     Net MAR_7__N_65: 4 loads, 4 rising, 0 falling (Driver: i1293_1_lut_3_lut )
-     Net address_bus_7__N_99: 4 loads, 4 rising, 0 falling (Driver:
-     i1_2_lut_adj_57 )
-   Number of Clock Enables:  6
-     Net reset_c: 24 loads, 24 LSLICEs
-     Net clk_enable_52: 4 loads, 4 LSLICEs
-     Net clk_enable_49: 2 loads, 2 LSLICEs
-     Net clk_enable_54: 4 loads, 4 LSLICEs
-     Net clk_enable_67: 3 loads, 3 LSLICEs
-     Net clk_enable_61: 1 loads, 1 LSLICEs
-   Number of LSRs:  16
+     Net address_bus_7__N_143: 4 loads, 4 rising, 0 falling (Driver: i1_2_lut )
+     Net PC_7__N_72: 4 loads, 4 rising, 0 falling (Driver: i1_2_lut_adj_119 )
+     Net A_11__N_156: 12 loads, 12 rising, 0 falling (Driver: state_FSM__i7 )
+     Net control_3__N_173: 2 loads, 2 rising, 0 falling (Driver: state_FSM__i6 )
+     
+     Net control_3__N_173_derived_2: 1 loads, 1 rising, 0 falling (Driver:
+     i2_3_lut_rep_309 )
+     Net MBR_23__N_106: 12 loads, 12 rising, 0 falling (Driver: state_FSM__i3 )
+     Net Rdisplay_13__N_51: 8 loads, 8 rising, 0 falling (Driver: state_FSM__i13
+     )
+     Net MAR_7__N_81: 4 loads, 4 rising, 0 falling (Driver: state_FSM__i2 )
+     Net CI_23__N_36: 12 loads, 12 rising, 0 falling (Driver: state_FSM__i4 )
+     Net clk_0: 25 loads, 25 rising, 0 falling (Driver: clk_0_888 )
+     Net control[3]_derived_24: 19 loads, 19 rising, 0 falling (Driver:
+     ALU_imp/i2_3_lut_rep_270_4_lut )
+     Net ALU_imp/logic_result_11__N_847: 7 loads, 7 rising, 0 falling (Driver:
+     ALU_imp/i5345_1_lut_3_lut_4_lut )
+     Net ALU_imp/substract_N_886: 1 loads, 1 rising, 0 falling (Driver:
+     ALU_imp/i5044_4_lut_4_lut )
+   Number of Clock Enables:  8
+     Net clk_enable_56: 10 loads, 10 LSLICEs
+     Net clk_enable_8: 7 loads, 7 LSLICEs
+     Net clk_enable_9: 1 loads, 1 LSLICEs
+     Net clk_enable_10: 1 loads, 1 LSLICEs
+     Net clk_enable_11: 1 loads, 1 LSLICEs
+     Net clk_enable_46: 2 loads, 2 LSLICEs
+     Net clk_enable_17: 1 loads, 1 LSLICEs
+     Net reset_c: 13 loads, 13 LSLICEs
+   Number of LSRs:  32
+     Net A_11__N_156: 6 loads, 6 LSLICEs
+     Net control_3__N_173: 2 loads, 2 LSLICEs
+     Net control_1: 1 loads, 1 LSLICEs
+     Net control_2: 2 loads, 2 LSLICEs
+     Net n5076: 6 loads, 6 LSLICEs
+     Net n5077: 1 loads, 1 LSLICEs
+     Net MBR_23__N_106: 12 loads, 12 LSLICEs
+     Net n5079: 8 loads, 8 LSLICEs
+     Net MAR_7__N_81: 4 loads, 4 LSLICEs
+     Net CI_23__N_36: 12 loads, 12 LSLICEs
+     Net n1774: 1 loads, 1 LSLICEs
+     Net clk_enable_46: 12 loads, 12 LSLICEs
+     Net n9237: 2 loads, 2 LSLICEs
      Net reset_c: 2 loads, 0 LSLICEs
-     Net n3073: 13 loads, 13 LSLICEs
-     Net CI_23__N_36: 16 loads, 16 LSLICEs
-     Net MBR_23__N_90: 12 loads, 12 LSLICEs
-     Net n3802: 4 loads, 4 LSLICEs
-     Net clk_enable_49: 10 loads, 10 LSLICEs
-     Net n2992: 1 loads, 1 LSLICEs
-     Net n2973: 1 loads, 1 LSLICEs
-     Net n3803: 1 loads, 1 LSLICEs
-     Net n3757: 2 loads, 2 LSLICEs
-     Net n2915: 1 loads, 1 LSLICEs
-     Net n3777: 1 loads, 1 LSLICEs
-     Net n3755: 2 loads, 2 LSLICEs
-     Net n3759: 1 loads, 1 LSLICEs
-     Net n3070: 1 loads, 1 LSLICEs
-     Net n3013: 1 loads, 1 LSLICEs
+     Net n6451: 1 loads, 1 LSLICEs
+     Net n5113: 1 loads, 1 LSLICEs
+     Net n4830: 1 loads, 1 LSLICEs
+     Net n9257: 2 loads, 2 LSLICEs
+     Net n9407: 1 loads, 1 LSLICEs
+     Net n4480: 1 loads, 1 LSLICEs
+     Net n4382: 1 loads, 1 LSLICEs
+     Net n9250: 2 loads, 2 LSLICEs
+     Net n9236: 2 loads, 2 LSLICEs
+     Net n4241: 1 loads, 1 LSLICEs
+     Net n4276: 1 loads, 1 LSLICEs
+     Net n4820: 1 loads, 1 LSLICEs
+     Net n9264: 1 loads, 1 LSLICEs
+
+     Net ALU_imp/n4535: 7 loads, 7 LSLICEs
+     Net n4812: 1 loads, 1 LSLICEs
+     Net n9254: 1 loads, 1 LSLICEs
+     Net n4838: 1 loads, 1 LSLICEs
+     Net n9241: 1 loads, 1 LSLICEs
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
-     Net reset_c: 66 loads
-     Net ROM_imp/data_out_23__N_457: 24 loads
-     Net n3073: 13 loads
-     Net bcd_out_15__N_415: 12 loads
-     Net clk_enable_49: 12 loads
-     Net imp_binBCD/bcd_out_15__N_369: 12 loads
-     Net n3778: 12 loads
-     Net n1473: 11 loads
-     Net Q_0: 11 loads
-     Net Q_4: 11 loads
+     Net reset_c: 75 loads
+     Net control_1: 51 loads
+     Net control_2: 50 loads
+     Net control_0: 39 loads
+     Net control_3: 29 loads
+     Net ROM_imp/data_out_23__N_488: 24 loads
+     Net rpg_sel_0: 24 loads
+     Net rpg_sel_1: 23 loads
+     Net ALU_imp/substract: 22 loads
+     Net n9409: 22 loads
 
 
 
@@ -127,8 +161,6 @@ WARNING - map: IO buffer missing for top level port stop_run...logic will be
 
 
 
-
-
 <A name="mrp_ioa"></A><B><U><big>IO (PIO) Attributes</big></U></B>
 
 +---------------------+-----------+-----------+------------+
@@ -137,127 +169,160 @@ WARNING - map: IO buffer missing for top level port stop_run...logic will be
 +---------------------+-----------+-----------+------------+
 | display[5]          | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
-| reset               | INPUT     | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[0]               | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[1]               | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[2]               | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[3]               | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[4]               | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[5]               | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[6]               | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[7]               | OUTPUT    | LVCMOS25  |            |
+| display[6]          | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
 | display[4]          | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
-| CI[8]               | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[9]               | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[10]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[11]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[12]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[13]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| display[6]          | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[14]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[15]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[16]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[17]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[18]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[19]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[20]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[21]              | OUTPUT    | LVCMOS25  |            |
-
-+---------------------+-----------+-----------+------------+
-| CI[22]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| CI[23]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| sel[0]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| sel[1]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| sel[2]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| sel[3]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| display[0]          | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
-| display[1]          | OUTPUT    | LVCMOS25  |            |
+| display[3]          | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
 | display[2]          | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
-| display[3]          | OUTPUT    | LVCMOS25  |            |
+| display[1]          | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
+| display[0]          | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| sel[3]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| sel[2]              | OUTPUT    | LVCMOS25  |            |
+
++---------------------+-----------+-----------+------------+
+| sel[1]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| sel[0]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[23]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[22]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[21]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[20]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[19]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[18]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[17]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[16]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[15]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[14]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[13]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[12]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[11]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[10]              | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[9]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[8]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[7]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[6]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[5]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[4]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[3]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[2]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[1]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[0]               | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| reset               | INPUT     | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+
 
 
 
 <A name="mrp_rm"></A><B><U><big>Removed logic</big></U></B>
 
-Signal n3068 was merged into signal CI_23__N_36
-Signal n3067 was merged into signal MBR_23__N_90
-Signal clk_enable_65 was merged into signal reset_c
+Block rpg_in_23__I_0_i16 undriven or does not drive anything - clipped.
+Block rpg_in_23__I_0_i15 undriven or does not drive anything - clipped.
+Block selector_1__I_02/RAM1 undriven or does not drive anything - clipped.
+Signal clk_enable_43 was merged into signal reset_c
+Signal n4965 was merged into signal control_1
+Signal n5081 was merged into signal CI_23__N_36
+Signal n5080 was merged into signal MAR_7__N_81
+Signal n5078 was merged into signal MBR_23__N_106
+Signal n5082 was merged into signal n1774
+Signal n5075 was merged into signal control_3__N_173
+Signal n5074 was merged into signal A_11__N_156
+Signal n9442 was merged into signal control_2
 Signal GND_net undriven or does not drive anything - clipped.
 Signal VCC_net undriven or does not drive anything - clipped.
-Signal n3888 undriven or does not drive anything - clipped.
-Signal Q_7__I_0_1/S0 undriven or does not drive anything - clipped.
-Signal Q_7__I_0_1/CI undriven or does not drive anything - clipped.
-Signal Q_7__I_0_9/S1 undriven or does not drive anything - clipped.
-Signal Q_7__I_0_9/CO undriven or does not drive anything - clipped.
-Signal ALU_imp.count_1370_add_4_1/S0 undriven or does not drive anything -
-     clipped.
-Signal ALU_imp.count_1370_add_4_1/CI undriven or does not drive anything -
-     clipped.
-Signal ALU_imp.count_1370_add_4_19/S1 undriven or does not drive anything -
-     clipped.
-Signal ALU_imp.count_1370_add_4_19/CO undriven or does not drive anything -
-     clipped.
-Signal ALU_imp.count1_1368_add_4_25/CO undriven or does not drive anything -
-     clipped.
-Signal ALU_imp.count1_1368_add_4_1/S0 undriven or does not drive anything -
-     clipped.
-Signal ALU_imp.count1_1368_add_4_1/CI undriven or does not drive anything -
-     clipped.
-Block i1937_1_lut was optimized away.
-Block i1936_1_lut was optimized away.
-Block i1803_1_lut_rep_94 was optimized away.
+Signal n9750 undriven or does not drive anything - clipped.
+Signal PC_7__I_0_1/S0 undriven or does not drive anything - clipped.
+Signal PC_7__I_0_1/CI undriven or does not drive anything - clipped.
+Signal selector_1__I_02/DO2 undriven or does not drive anything - clipped.
+Signal selector_1__I_02/DO3 undriven or does not drive anything - clipped.
+Signal PC_7__I_0_9/S1 undriven or does not drive anything - clipped.
+Signal PC_7__I_0_9/CO undriven or does not drive anything - clipped.
+Signal count_1937_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal count_1937_add_4_1/CI undriven or does not drive anything - clipped.
+Signal count_1937_add_4_23/S1 undriven or does not drive anything - clipped.
+Signal count_1937_add_4_23/CO undriven or does not drive anything - clipped.
+Block i3156_1_lut_rep_282 was optimized away.
+Block i3809_1_lut was optimized away.
+Block i3925_1_lut was optimized away.
+Block i3924_1_lut was optimized away.
+Block i3922_1_lut was optimized away.
+Block i3926_1_lut was optimized away.
+Block i3919_1_lut was optimized away.
+Block i3918_1_lut was optimized away.
+Block i3227_1_lut_rep_308 was optimized away.
 Block i1 was optimized away.
 Block i2 was optimized away.
 Block m0_lut was optimized away.
 
 
 
-
 <A name="mrp_mem"></A><B><U><big>Memory Usage</big></U></B>
 
+/:
+    EBRs: 0
+    RAM SLICEs: 8
+    Logic SLICEs: 119
+    PFU Registers: 214
 /ROM_imp:
     EBRs: 2
     RAM SLICEs: 0
+    Logic SLICEs: 1
+    PFU Registers: 1
+    -Contains EBR mux_1694:  TYPE= PDPW8KC,  Width= 6,  Depth_R= 256,  REGMODE=
+         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+    -Contains EBR mux_1693:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 256,  REGMODE=
+         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+
+/selector_1__I_02:
+    EBRs: 0
+    RAM SLICEs: 1
     Logic SLICEs: 0
     PFU Registers: 0
-    -Contains EBR mux_1117:  TYPE= PDPW8KC,  Width= 6,  Depth_R= 256,  REGMODE=
-         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
-    -Contains EBR mux_1116:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 256,  REGMODE=
-         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+/selector_1__I_03:
+    EBRs: 0
+    RAM SLICEs: 1
+    Logic SLICEs: 0
+    PFU Registers: 0
+/selector_1__I_04:
+    EBRs: 0
+    RAM SLICEs: 1
+    Logic SLICEs: 0
+    PFU Registers: 0
+/selector_1__I_05:
+    EBRs: 0
+    RAM SLICEs: 1
+    Logic SLICEs: 0
+    PFU Registers: 0
 
      
 
@@ -278,9 +343,9 @@ OSC 1:                                     Pin/Node Value
 
 Instance Name: OSCinst0
          Type: OSCH
-Instance Name: ROM_imp/mux_1117
+Instance Name: ROM_imp/mux_1694
          Type: PDPW8KC
-Instance Name: ROM_imp/mux_1116
+Instance Name: ROM_imp/mux_1693
          Type: PDPW8KC
 
 
@@ -299,6 +364,7 @@ GSR Component:
         not.
         
 
+
      Components with disabled GSR Property
 -------------------------------------
 
@@ -306,44 +372,58 @@ GSR Component:
      not respond to the reset signal 'reset_c' via the GSR component.
 
      Type and number of components of the type: 
-   Register = 127 
+   Register = 201 
    PDPW8KC = 2
 
-
      Type and instance name of component: 
-   Register : ALU_imp.count1_1368__i21
-   Register : clk_0_638
-   Register : ALU_imp.count1_1368__i12
-   Register : MAR_7__I_0_i1
-   Register : ALU_imp.count1_1368__i14
-   Register : ALU_imp.count1_1368__i5
-   Register : ALU_imp.count1_1368__i9
-   Register : ALU_imp.count1_1368__i13
-   Register : ALU_imp.count_1370__i0
-   Register : ALU_imp.count_1370__i1
-   Register : CI_23__I_0_822_i1
-   Register : sel_i0_i1
-   Register : ALU_imp.count1_1368__i15
-   Register : ALU_imp.count1_1368__i17
-   Register : ALU_imp.count_1370__i2
-   Register : ALU_imp.count1_1368__i6
-   Register : ALU_imp.count_1370__i3
    Register : display_i0_i7
-   Register : ALU_imp.count_1370__i4
    Register : display_i0_i6
    Register : display_i0_i5
    Register : display_i0_i4
-   Register : ALU_imp.count_1370__i5
    Register : display_i0_i3
-   Register : ALU_imp.count_1370__i6
-   Register : ALU_imp.count1_1368__i7
-   Register : ALU_imp.count_1370__i7
-   Register : ALU_imp.count1_1368__i16
-   Register : ALU_imp.count_1370__i8
-   Register : ALU_imp.count1_1368__i19
-   Register : ALU_imp.count_1370__i9
-   Register : ALU_imp.count1_1368__i0
-   Register : ALU_imp.count_1370__i10
+   Register : rpg_in_23__I_0_i1
+   Register : address_bus_7__I_0_i1
+   Register : PC_7__I_0_1193_i1
+   Register : display_i0_i1
+   Register : display_i0_i2
+   Register : B_11__I_0_i2
+   Register : B_11__I_0_i3
+   Register : B_11__I_0_i4
+   Register : B_11__I_0_i5
+   Register : B_11__I_0_i6
+   Register : B_11__I_0_i7
+   Register : B_11__I_0_i8
+   Register : B_11__I_0_i9
+   Register : B_11__I_0_i10
+   Register : B_11__I_0_i11
+   Register : B_11__I_0_i12
+   Register : control_3__I_0_i2
+   Register : control_3__I_0_i3
+   Register : control_3__I_0_i4
+   Register : A_11__I_0_i2
+   Register : A_11__I_0_i3
+   Register : A_11__I_0_i4
+   Register : A_11__I_0_i5
+   Register : A_11__I_0_i6
+   Register : A_11__I_0_i7
+   Register : A_11__I_0_i8
+   Register : A_11__I_0_i9
+   Register : A_11__I_0_i10
+   Register : A_11__I_0_i11
+   Register : A_11__I_0_i12
+   Register : rpg_in_23__I_0_i2
+   Register : rpg_in_23__I_0_i3
+   Register : rpg_in_23__I_0_i4
+   Register : rpg_in_23__I_0_i5
+   Register : rpg_in_23__I_0_i6
+   Register : rpg_in_23__I_0_i7
+   Register : rpg_in_23__I_0_i8
+   Register : rpg_in_23__I_0_i9
+   Register : rpg_in_23__I_0_i10
+
+   Register : rpg_in_23__I_0_i11
+   Register : rpg_in_23__I_0_i12
+   Register : rpg_in_23__I_0_i14
    Register : address_bus_7__I_0_i2
    Register : address_bus_7__I_0_i3
    Register : address_bus_7__I_0_i4
@@ -351,13 +431,7 @@ GSR Component:
    Register : address_bus_7__I_0_i6
    Register : address_bus_7__I_0_i7
    Register : address_bus_7__I_0_i8
-   Register : MAR_7__I_0_i2
-   Register : MAR_7__I_0_i3
-   Register : MAR_7__I_0_i4
-   Register : MAR_7__I_0_i5
-   Register : MAR_7__I_0_i6
-   Register : MAR_7__I_0_i7
-   Register : MAR_7__I_0_i8
+   Register : rpg_sel_1__I_0_i2
    Register : MBR_23__I_0_i2
    Register : MBR_23__I_0_i3
    Register : MBR_23__I_0_i4
@@ -365,7 +439,6 @@ GSR Component:
    Register : MBR_23__I_0_i6
    Register : MBR_23__I_0_i7
    Register : MBR_23__I_0_i8
-
    Register : MBR_23__I_0_i9
    Register : MBR_23__I_0_i10
    Register : MBR_23__I_0_i11
@@ -382,66 +455,133 @@ GSR Component:
    Register : MBR_23__I_0_i22
    Register : MBR_23__I_0_i23
    Register : MBR_23__I_0_i24
-   Register : Q_7__I_0_821_i2
-   Register : Q_7__I_0_821_i3
-   Register : Q_7__I_0_821_i4
-   Register : Q_7__I_0_821_i5
-   Register : Q_7__I_0_821_i6
-   Register : Q_7__I_0_821_i7
-   Register : Q_7__I_0_821_i8
-   Register : CI_23__I_0_822_i2
-   Register : CI_23__I_0_822_i3
-   Register : CI_23__I_0_822_i4
-   Register : CI_23__I_0_822_i5
-   Register : CI_23__I_0_822_i6
-   Register : CI_23__I_0_822_i7
-   Register : CI_23__I_0_822_i8
-   Register : CI_23__I_0_822_i9
-   Register : CI_23__I_0_822_i10
-   Register : CI_23__I_0_822_i11
-   Register : CI_23__I_0_822_i12
-   Register : CI_23__I_0_822_i13
-   Register : CI_23__I_0_822_i14
-   Register : CI_23__I_0_822_i15
-   Register : CI_23__I_0_822_i16
-   Register : CI_23__I_0_822_i17
-   Register : CI_23__I_0_822_i18
-   Register : CI_23__I_0_822_i19
-   Register : CI_23__I_0_822_i20
-   Register : CI_23__I_0_822_i21
-   Register : CI_23__I_0_822_i22
-   Register : CI_23__I_0_822_i23
-   Register : CI_23__I_0_822_i24
-   Register : ALU_imp.count1_1368__i18
-   Register : ALU_imp.count1_1368__i20
-   Register : ALU_imp.count_1370__i11
-   Register : ALU_imp.count1_1368__i22
-   Register : ALU_imp.count1_1368__i24
-   Register : display_i0_i1
-   Register : Q_7__I_0_821_i1
-   Register : address_bus_7__I_0_i1
-   Register : ALU_imp.count_1370__i12
+   Register : Rdisplay_13__I_0_i2
+   Register : Rdisplay_13__I_0_i3
+   Register : Rdisplay_13__I_0_i4
+   Register : Rdisplay_13__I_0_i5
+   Register : Rdisplay_13__I_0_i6
+   Register : Rdisplay_13__I_0_i7
+   Register : Rdisplay_13__I_0_i8
+   Register : Rdisplay_13__I_0_i9
+   Register : Rdisplay_13__I_0_i10
+   Register : Rdisplay_13__I_0_i11
+   Register : Rdisplay_13__I_0_i12
+   Register : Rdisplay_13__I_0_i13
+   Register : Rdisplay_13__I_0_i14
+   Register : MAR_7__I_0_i2
+   Register : MAR_7__I_0_i3
+   Register : MAR_7__I_0_i4
+   Register : MAR_7__I_0_i5
+   Register : MAR_7__I_0_i6
+   Register : MAR_7__I_0_i7
+   Register : MAR_7__I_0_i8
+   Register : PC_7__I_0_1193_i2
+   Register : PC_7__I_0_1193_i3
+
+   Register : PC_7__I_0_1193_i4
+   Register : PC_7__I_0_1193_i5
+   Register : PC_7__I_0_1193_i6
+   Register : PC_7__I_0_1193_i7
+   Register : PC_7__I_0_1193_i8
+   Register : CI_23__I_0_1194_i2
+   Register : CI_23__I_0_1194_i3
+   Register : CI_23__I_0_1194_i4
+   Register : CI_23__I_0_1194_i5
+   Register : CI_23__I_0_1194_i6
+   Register : CI_23__I_0_1194_i7
+   Register : CI_23__I_0_1194_i8
+   Register : CI_23__I_0_1194_i9
+   Register : CI_23__I_0_1194_i10
+   Register : CI_23__I_0_1194_i11
+   Register : CI_23__I_0_1194_i12
+   Register : CI_23__I_0_1194_i13
+   Register : CI_23__I_0_1194_i14
+   Register : CI_23__I_0_1194_i15
+   Register : CI_23__I_0_1194_i16
+   Register : CI_23__I_0_1194_i17
+   Register : CI_23__I_0_1194_i18
+   Register : CI_23__I_0_1194_i19
+   Register : CI_23__I_0_1194_i20
+   Register : CI_23__I_0_1194_i21
+   Register : CI_23__I_0_1194_i22
+   Register : CI_23__I_0_1194_i23
+   Register : CI_23__I_0_1194_i24
+   Register : sel_i0_i1
+   Register : clk_0_888
+   Register : count_1937__i12
+   Register : count_1937__i11
+   Register : count_1937__i21
+   Register : count_1937__i20
+   Register : count_1937__i19
+   Register : count_1937__i10
+   Register : count_1937__i9
+   Register : count_1937__i8
+   Register : count_1937__i7
+   Register : count_1937__i18
+   Register : count_1937__i17
+   Register : count_1937__i16
+   Register : count_1937__i15
+   Register : count_1937__i6
+   Register : count_1937__i5
+   Register : count_1937__i14
+   Register : count_1937__i13
+   Register : count_1937__i4
+   Register : count_1937__i3
+   Register : count_1937__i2
+   Register : count_1937__i1
+   Register : count_1937__i0
+   Register : rpg_in_23__I_0_i13
+   Register : sel_i0_i2
+   Register : sel_i0_i3
    Register : sel_i0_i4
 
+   Register : CI_23__I_0_1194_i1
+   Register : MAR_7__I_0_i1
+   Register : Rdisplay_13__I_0_i1
    Register : MBR_23__I_0_i1
-   Register : ALU_imp.count1_1368__i8
-   Register : sel_i0_i3
-   Register : ALU_imp.count_1370__i13
-   Register : sel_i0_i2
-   Register : ALU_imp.count_1370__i14
-   Register : ALU_imp.count1_1368__i10
-   Register : ALU_imp.count_1370__i15
-   Register : display_i0_i2
-   Register : ALU_imp.count_1370__i16
-   Register : ALU_imp.count1_1368__i23
-   Register : ALU_imp.count1_1368__i11
-   Register : ALU_imp.count_1370__i17
-   Register : ALU_imp.count1_1368__i1
-   Register : ALU_imp.count1_1368__i2
-   Register : ALU_imp.count1_1368__i3
-   Register : ALU_imp.count1_1368__i4
-   PDPW8KC : ROM_imp/mux_1117
-   PDPW8KC : ROM_imp/mux_1116
+   Register : rpg_sel_1__I_0_i1
+   Register : A_11__I_0_i1
+   Register : control_3__I_0_i1
+   Register : B_11__I_0_i1
+   Register : ALU_imp/A_temp_11__I_0_i1
+   Register : ALU_imp/B_temp_11__I_0_i1
+   Register : ALU_imp/logic_result_11__I_0_i1
+   Register : ALU_imp/substract_I_0
+   Register : ALU_imp/A_temp_11__I_0_i2
+   Register : ALU_imp/A_temp_11__I_0_i3
+   Register : ALU_imp/A_temp_11__I_0_i4
+   Register : ALU_imp/A_temp_11__I_0_i5
+   Register : ALU_imp/A_temp_11__I_0_i6
+   Register : ALU_imp/A_temp_11__I_0_i7
+   Register : ALU_imp/A_temp_11__I_0_i8
+   Register : ALU_imp/A_temp_11__I_0_i9
+   Register : ALU_imp/A_temp_11__I_0_i10
+   Register : ALU_imp/A_temp_11__I_0_i11
+   Register : ALU_imp/A_temp_11__I_0_i12
+   Register : ALU_imp/B_temp_11__I_0_i2
+   Register : ALU_imp/B_temp_11__I_0_i3
+   Register : ALU_imp/B_temp_11__I_0_i4
+   Register : ALU_imp/B_temp_11__I_0_i5
+   Register : ALU_imp/B_temp_11__I_0_i6
+   Register : ALU_imp/B_temp_11__I_0_i7
+   Register : ALU_imp/B_temp_11__I_0_i8
+   Register : ALU_imp/B_temp_11__I_0_i9
+   Register : ALU_imp/B_temp_11__I_0_i10
+   Register : ALU_imp/B_temp_11__I_0_i11
+   Register : ALU_imp/B_temp_11__I_0_i12
+   Register : ALU_imp/logic_result_11__I_0_i2
+   Register : ALU_imp/logic_result_11__I_0_i3
+   Register : ALU_imp/logic_result_11__I_0_i4
+   Register : ALU_imp/logic_result_11__I_0_i5
+   Register : ALU_imp/logic_result_11__I_0_i6
+   Register : ALU_imp/logic_result_11__I_0_i7
+   Register : ALU_imp/logic_result_11__I_0_i8
+   Register : ALU_imp/logic_result_11__I_0_i9
+   Register : ALU_imp/logic_result_11__I_0_i10
+   Register : ALU_imp/logic_result_11__I_0_i11
+   Register : ALU_imp/logic_result_11__I_0_i12
+   PDPW8KC : ROM_imp/mux_1694
+   PDPW8KC : ROM_imp/mux_1693
 
      Components with synchronous local reset also reset by asynchronous GSR
 ----------------------------------------------------------------------
@@ -451,22 +591,33 @@ GSR Component:
      and to the unrelated asynchronous reset signal 'reset_c' via the GSR
      component.
 
+
      Type and number of components of the type: 
-   Register = 12 
+   Register = 22 
 
      Type and instance name of component: 
+   Register : state_FSM__i12
+   Register : state_FSM__i6
    Register : unidades/DISPLAY_i0
-   Register : unidades/DISPLAY_i1
-   Register : unidades/DISPLAY_i2
-   Register : unidades/DISPLAY_i5
    Register : unidades/DISPLAY_i3
+   Register : unidades/DISPLAY_i5
+   Register : unidades/DISPLAY_i2
+   Register : unidades/DISPLAY_i1
+   Register : decenas/DISPLAY_i0
+   Register : decenas/DISPLAY_i3
+   Register : decenas/DISPLAY_i5
+   Register : decenas/DISPLAY_i2
+   Register : decenas/DISPLAY_i1
+   Register : centenas/DISPLAY_i0
+   Register : centenas/DISPLAY_i3
+   Register : centenas/DISPLAY_i5
    Register : centenas/DISPLAY_i2
    Register : centenas/DISPLAY_i1
-   Register : decenas/DISPLAY_i0
-   Register : decenas/DISPLAY_i1
-   Register : decenas/DISPLAY_i5
-   Register : decenas/DISPLAY_i3
-   Register : decenas/DISPLAY_i2
+   Register : millar/DISPLAY_i0
+   Register : millar/DISPLAY_i2
+   Register : millar/DISPLAY_i1
+   Register : millar/DISPLAY_i3
+   Register : millar/DISPLAY_i5
 
 
 
@@ -475,8 +626,26 @@ GSR Component:
 
    Total CPU Time: 0 secs  
    Total REAL Time: 0 secs  
-   Peak Memory Usage: 61 MB
+   Peak Memory Usage: 63 MB
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

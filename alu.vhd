@@ -25,12 +25,6 @@ architecture a_alu of alu is
     );
 	end component;
 
-	component divi6 is port(
-        clk: in std_logic;
-        A, B: in std_logic_vector(11 downto 0);
-        result: out std_logic_vector(11 downto 0)
-	);
-	end component;
 	constant two : std_logic_vector(11 downto 0):="000000000010";
 	constant one : std_logic_vector(11 downto 0):="000000000001";
 	constant zero: std_logic_vector(11 downto 0):="000000000000";
@@ -46,7 +40,7 @@ architecture a_alu of alu is
 begin
     imp_add_sub_12: add_sub_12 port map(A_temp,B_temp,substract,sum_result,overflow);
 	imp_multi: multi6 port map(A_temp,B_temp,multi_result);
-	imp_div: divi6 port map(clk,A_temp,B_temp,div_result);
+	--imp_div: divi6 port map(clk,A_temp,B_temp,div_result);
 	input_process:process(A,B,control)
 	begin
 		case control is

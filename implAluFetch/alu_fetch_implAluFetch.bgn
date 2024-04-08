@@ -4,7 +4,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
-Sun Apr 07 23:55:34 2024
+Mon Apr 08 02:00:41 2024
 
 
 Command: bitgen -g RamCfg:Reset -path C:/Users/Cassandra/Desktop/Arqui2 -w -jedec -gui alu_fetch_implAluFetch.ncd alu_fetch_implAluFetch.prf 
@@ -88,9 +88,9 @@ Initialized UFM Pages:                     0 Page.
 =========
 Padding summary
 =========
-Padded 1201280 bits for this design
+Padded 1167744 bits for this design
 
 
 Total CPU Time: 1 secs 
-Total REAL Time: 2 secs 
-Peak Memory Usage: 290 MB
+Total REAL Time: 3 secs 
+Peak Memory Usage: 292 MB
