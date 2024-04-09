@@ -37,3 +37,4 @@ LOCATE COMP "sel[1]" SITE "74" ;
 LOCATE COMP "sel[2]" SITE "75" ;
 LOCATE COMP "sel[3]" SITE "76" ;
 LOCATE COMP "stop_run" SITE "3" ;
+LOCATE COMP "led" SITE "61" ;

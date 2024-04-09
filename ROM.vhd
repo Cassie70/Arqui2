@@ -48,6 +48,7 @@ architecture a_ROM of ROM is
 		1 => OP_LOAD&"00"&"0000000011110111",--LOAD W,RA
 		2 => OP_ADDI&"00"&"0000000000000101",--ADDI RA,5
 		3 => OP_DPLY&"00"&"0000000000000000",--Rdisplay<- RA
+		4 => OP_HALT&"000000000000000000",
 		247 => x"0003EB", -- 1003 en decimal W
 		248 => x"000065", -- 101 en decimal X
 		249 => x"000046", -- 70 en decimal Y 

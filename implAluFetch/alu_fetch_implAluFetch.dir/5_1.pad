@@ -6,7 +6,7 @@ Performance Grade:      5
 PACKAGE:          TQFP144
 Package Status:                     Final          Version 1.39
 
-Mon Apr 08 02:00:33 2024
+Mon Apr 08 23:22:29 2024
 
 Pinout by Port Name:
 +------------+----------+--------------+-------+-----------+-----------+--------------------------------------+
@@ -43,11 +43,13 @@ Pinout by Port Name:
 | display[4] | 83/1     | LVCMOS25_OUT | PR17B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
 | display[5] | 84/1     | LVCMOS25_OUT | PR17A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
 | display[6] | 85/1     | LVCMOS25_OUT | PR16B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
+| led        | 61/2     | LVCMOS25_OUT | PB31A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
 | reset      | 1/5      | LVCMOS25_IN  | PL3A  |           |           | PULL:DOWN CLAMP:ON HYSTERESIS:SMALL  |
 | sel[0]     | 73/1     | LVCMOS25_OUT | PR24B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
 | sel[1]     | 74/1     | LVCMOS25_OUT | PR24A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
 | sel[2]     | 75/1     | LVCMOS25_OUT | PR23B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
 | sel[3]     | 76/1     | LVCMOS25_OUT | PR23A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
+| stop_run   | 3/5      | LVCMOS25_IN  | PL4A  |           |           | PULL:DOWN CLAMP:ON HYSTERESIS:SMALL  |
 +------------+----------+--------------+-------+-----------+-----------+--------------------------------------+
 
 Vccio by Bank:
@@ -71,7 +73,7 @@ Pinout by Pin Number:
 +----------+-----------------------+------------+--------------+-------+----------------+-----------+-----------+
 | 1/5      | reset                 | LOCATED    | LVCMOS25_IN  | PL3A  | L_GPLLT_FB     |           |           |
 | 2/5      |     unused, PULL:DOWN |            |              | PL3B  | L_GPLLC_FB     |           |           |
-| 3/5      |     unused, PULL:DOWN |            |              | PL4A  | L_GPLLT_IN     |           |           |
+| 3/5      | stop_run              | LOCATED    | LVCMOS25_IN  | PL4A  | L_GPLLT_IN     |           |           |
 | 4/5      |     unused, PULL:DOWN |            |              | PL4B  | L_GPLLC_IN     |           |           |
 | 5/5      |     unused, PULL:DOWN |            |              | PL6A  | PCLKT5_0       |           |           |
 | 6/5      |     unused, PULL:DOWN |            |              | PL6B  | PCLKC5_0       |           |           |
@@ -118,7 +120,7 @@ Pinout by Pin Number:
 | 58/2     |     unused, PULL:DOWN |            |              | PB26B |                |           |           |
 | 59/2     | CI[23]                | LOCATED    | LVCMOS25_OUT | PB29A |                |           |           |
 | 60/2     |     unused, PULL:DOWN |            |              | PB29B |                |           |           |
-| 61/2     |     unused, PULL:DOWN |            |              | PB31A |                |           |           |
+| 61/2     | led                   | LOCATED    | LVCMOS25_OUT | PB31A |                |           |           |
 | 62/2     |     unused, PULL:DOWN |            |              | PB31B |                |           |           |
 | 63/2     |     unused, PULL:DOWN |            |              | PB31D |                |           |           |
 | 65/2     |     unused, PULL:DOWN |            |              | PB35A |                |           |           |
@@ -454,11 +456,13 @@ LOCATE  COMP  "display[3]"  SITE  "82";
 LOCATE  COMP  "display[4]"  SITE  "83";
 LOCATE  COMP  "display[5]"  SITE  "84";
 LOCATE  COMP  "display[6]"  SITE  "85";
+LOCATE  COMP  "led"  SITE  "61";
 LOCATE  COMP  "reset"  SITE  "1";
 LOCATE  COMP  "sel[0]"  SITE  "73";
 LOCATE  COMP  "sel[1]"  SITE  "74";
 LOCATE  COMP  "sel[2]"  SITE  "75";
 LOCATE  COMP  "sel[3]"  SITE  "76";
+LOCATE  COMP  "stop_run"  SITE  "3";
 
 
 
@@ -470,5 +474,5 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
-Mon Apr 08 02:00:34 2024
+Mon Apr 08 23:22:29 2024
 

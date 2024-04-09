@@ -80,6 +80,24 @@ prj_project close
 
 
 
+<A name="pn240408120237"></A><B><U><big>pn240408120237</big></U></B>
+#Start recording tcl command: 4/8/2024 11:42:20
+#Project Location: C:/Users/Cassandra/Desktop/Arqui2; Project name: alu_fetch
+prj_project open "C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.ldf"
+prj_run Synthesis -impl implAluFetch -task Lattice_Synthesis
+prj_run Synthesis -impl implAluFetch -task Lattice_Synthesis
+prj_run Synthesis -impl implAluFetch -task Lattice_Synthesis
+prj_run PAR -impl implAluFetch -task PARTrace
+prj_run Export -impl implAluFetch -task Jedecgen
+pgr_project open "C:/Users/Cassandra/Desktop/Arqui2/implAluFetch/implAluFetch.xcf"
+pgr_program run
+prj_run Synthesis -impl implAluFetch -task Lattice_Synthesis -forceAll
+pgr_project save "C:/Users/Cassandra/Desktop/Arqui2/implAluFetch/implAluFetch.xcf"
+pgr_project close
+#Stop recording: 4/8/2024 12:02:37
+
+
+
 <BR>
 <BR>
 <BR>
