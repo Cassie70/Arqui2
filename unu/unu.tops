@@ -1,0 +1,4 @@
+ROM,/,C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd
+bcdDisplay,/,C:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd
+Bin2BCD,/,C:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd
+registrosPG,/,C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd

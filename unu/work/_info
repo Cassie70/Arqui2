@@ -1,0 +1,185 @@
+m255
+K4
+z2
+!s11e vcom 2023.3 2023.07, Jul 18 2023
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Cassandra/Desktop/Arqui2/unu
+Ebcddisplay
+Z1 w1712397847
+Z2 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z3 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+!i122 1
+R0
+Z4 8C:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd
+Z5 FC:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd
+l0
+L4 1
+Va?=gdlVROkWJV7_jIihV;1
+!s100 ^@IQhOh3_6WMTJn<cSH;23
+Z6 OT;C;2023.3;77
+32
+Z7 !s110 1712733073
+!i10b 1
+Z8 !s108 1712733073.000000
+Z9 !s90 -reportprogress|300|-work|work|C:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd|
+Z10 !s107 C:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd|
+!i113 1
+Z11 o-work work -O0
+Z12 tExplicit 1 CvgOpt 0
+Abehavior
+R2
+R3
+DEx4 work 10 bcddisplay 0 22 a?=gdlVROkWJV7_jIihV;1
+!i122 1
+l24
+L13 32
+V41N35?ePnoMMH?g=XD22@3
+!s100 lndfmX_mbGDE187Xd`FM41
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Ebin2bcd
+Z13 w1712397843
+Z14 DPx4 ieee 18 std_logic_unsigned 0 22 o4hn5gYc0WVo72BSL@Ta50
+Z15 DPx4 ieee 15 std_logic_arith 0 22 B[jVX6I8iRX2o6WYW0BB>3
+R2
+R3
+!i122 2
+R0
+Z16 8C:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd
+Z17 FC:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd
+l0
+L6 1
+VgVVnHkDmA?Yf0Y5[<ZBQ?3
+!s100 M:[<];O^=Y:_ocY9YWM_71
+R6
+32
+R7
+!i10b 1
+R8
+Z18 !s90 -reportprogress|300|-work|work|C:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd|
+Z19 !s107 C:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R14
+R15
+R2
+R3
+DEx4 work 7 bin2bcd 0 22 gVVnHkDmA?Yf0Y5[<ZBQ?3
+!i122 2
+l15
+L14 31
+V4mz_4gGT]nZ7]ac=[]eOb1
+!s100 G6gXM2H2V`a@=zbA9;He13
+R6
+32
+R7
+!i10b 1
+R8
+R18
+R19
+!i113 1
+R11
+R12
+Eregistrospg
+Z20 w1712639264
+Z21 DPx4 ieee 11 numeric_std 0 22 F8@]:i<mFK7<TjIzKcTGi0
+R2
+R3
+!i122 3
+R0
+Z22 8C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd
+Z23 FC:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd
+l0
+L5 1
+VNN_fk<>b8:aOB75I0Gc@O1
+!s100 M=1>n^:ZlaR7G^=>Y2CiY2
+R6
+32
+R7
+!i10b 1
+R8
+Z24 !s90 -reportprogress|300|-work|work|C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd|
+!s107 C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R21
+R2
+R3
+DEx4 work 11 registrospg 0 22 NN_fk<>b8:aOB75I0Gc@O1
+!i122 3
+l17
+L14 32
+VzPGVoi4MlG6`Z=e1FH@9V1
+!s100 `o]B9<X9f;i6l5DVc275j2
+R6
+32
+R7
+!i10b 1
+R8
+R24
+Z25 !s107 C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd|
+!i113 1
+R11
+R12
+Erom
+Z26 w1712597005
+R14
+R15
+R2
+R3
+!i122 0
+R0
+Z27 8C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd
+Z28 FC:/Users/Cassandra/Desktop/Arqui2/ROM.vhd
+l0
+L6 1
+VmIEBV0GJ5eGmbJ7Od[L>[2
+!s100 gBf<b@P8`PCOlV<]nD2_C2
+R6
+32
+R7
+!i10b 1
+R8
+Z29 !s90 -reportprogress|300|-work|work|C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd|
+Z30 !s107 C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd|
+!i113 1
+R11
+R12
+Aa_rom
+R14
+R15
+R2
+R3
+DEx4 work 3 rom 0 22 mIEBV0GJ5eGmbJ7Od[L>[2
+!i122 0
+l63
+L16 63
+VMe=?6QMdkWd]F7f>o6Q[10
+!s100 dSbZ5lY>CjJ>_<zX[aL6I3
+R6
+32
+R7
+!i10b 1
+R8
+R29
+R30
+!i113 1
+R11
+R12

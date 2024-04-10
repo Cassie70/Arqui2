@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
-Tue Apr 09 22:26:06 2024
+Wed Apr 10 03:16:31 2024
 
 
 Command Line:  synthesis -f alu_fetch_implAluFetch_lattice.synproj -gui -msgset C:/Users/Cassandra/Desktop/Arqui2/promote.xml 
@@ -65,11 +65,7 @@ The -syn option is FALSE.
 -p C:/Users/Cassandra/Desktop/Arqui2/implAluFetch (searchpath added)
 -p C:/Users/Cassandra/Desktop/Arqui2 (searchpath added)
 VHDL library = work
-VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/AdderSub12.vhd
-VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/alu.vhd
 VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.vhd
-VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/FA.vhd
-VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/multi6.vhd
 VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd
 VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd
 VHDL design file = C:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd
@@ -84,36 +80,13 @@ Technology check ok...
 Analyzing Verilog file C:/lscc/diamond/3.13/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
 Compile design.
 Compile Design Begin
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(134): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
 WARNING - synthesis: Setting alu_fetch as the top-level module. To specify the top-level module explicitly, use the -top option.
 INFO - synthesis: The default VHDL library search path is now "C:/Users/Cassandra/Desktop/Arqui2/implAluFetch". VHDL-1504
-Analyzing VHDL file c:/users/cassandra/desktop/arqui2/addersub12.vhd. VHDL-1481
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/addersub12.vhd(4): analyzing entity add_sub_12. VHDL-1012
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/addersub12.vhd(12): analyzing architecture a_add_sub_12. VHDL-1010
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/addersub12.vhd(28): actual for formal port b is neither a static name nor a globally static expression. VHDL-1443
-unit alu_fetch is not yet analyzed. VHDL-1485
-unit alu_fetch is not yet analyzed. VHDL-1485
-Analyzing VHDL file c:/users/cassandra/desktop/arqui2/alu.vhd. VHDL-1481
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu.vhd(4): analyzing entity alu. VHDL-1012
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu.vhd(13): analyzing architecture a_alu. VHDL-1010
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu.vhd(13): overwriting existing secondary unit a_alu. VHDL-1178
-unit alu_fetch is not yet analyzed. VHDL-1485
-unit alu_fetch is not yet analyzed. VHDL-1485
 Analyzing VHDL file c:/users/cassandra/desktop/arqui2/alu_fetch.vhd. VHDL-1481
 WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(7): 'components' is not compiled in library lattice. VHDL-1240
 INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(11): analyzing entity alu_fetch. VHDL-1012
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(21): analyzing architecture behavior. VHDL-1010
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(21): overwriting existing secondary unit behavior. VHDL-1178
-unit alu_fetch is not yet analyzed. VHDL-1485
-unit alu_fetch is not yet analyzed. VHDL-1485
-Analyzing VHDL file c:/users/cassandra/desktop/arqui2/fa.vhd. VHDL-1481
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/fa.vhd(4): analyzing entity fa. VHDL-1012
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/fa.vhd(10): analyzing architecture a_fa. VHDL-1010
-unit alu_fetch is not yet analyzed. VHDL-1485
-unit alu_fetch is not yet analyzed. VHDL-1485
-Analyzing VHDL file c:/users/cassandra/desktop/arqui2/multi6.vhd. VHDL-1481
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/multi6.vhd(4): analyzing entity multi6. VHDL-1012
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/multi6.vhd(10): analyzing architecture a_multi6. VHDL-1010
+INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(20): analyzing architecture behavior. VHDL-1010
+WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(20): overwriting existing secondary unit behavior. VHDL-1178
 unit alu_fetch is not yet analyzed. VHDL-1485
 unit alu_fetch is not yet analyzed. VHDL-1485
 Analyzing VHDL file c:/users/cassandra/desktop/arqui2/rom.vhd. VHDL-1481
@@ -136,31 +109,10 @@ INFO - synthesis: c:/users/cassandra/desktop/arqui2/rpg24_4.vhd(5): analyzing en
 INFO - synthesis: c:/users/cassandra/desktop/arqui2/rpg24_4.vhd(14): analyzing architecture behavioral. VHDL-1010
 unit alu_fetch is not yet analyzed. VHDL-1485
 unit alu_fetch is not yet analyzed. VHDL-1485
-Analyzing VHDL file c:/users/cassandra/desktop/arqui2/addersub12.vhd. VHDL-1481
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/addersub12.vhd(4): analyzing entity add_sub_12. VHDL-1012
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/addersub12.vhd(12): analyzing architecture a_add_sub_12. VHDL-1010
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/addersub12.vhd(28): actual for formal port b is neither a static name nor a globally static expression. VHDL-1443
-unit alu_fetch is not yet analyzed. VHDL-1485
-unit alu_fetch is not yet analyzed. VHDL-1485
-Analyzing VHDL file c:/users/cassandra/desktop/arqui2/alu.vhd. VHDL-1481
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu.vhd(4): analyzing entity alu. VHDL-1012
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu.vhd(13): analyzing architecture a_alu. VHDL-1010
-unit alu_fetch is not yet analyzed. VHDL-1485
-unit alu_fetch is not yet analyzed. VHDL-1485
 Analyzing VHDL file c:/users/cassandra/desktop/arqui2/alu_fetch.vhd. VHDL-1481
 WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(7): 'components' is not compiled in library lattice. VHDL-1240
 INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(11): analyzing entity alu_fetch. VHDL-1012
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(21): analyzing architecture behavior. VHDL-1010
-unit alu_fetch is not yet analyzed. VHDL-1485
-unit alu_fetch is not yet analyzed. VHDL-1485
-Analyzing VHDL file c:/users/cassandra/desktop/arqui2/fa.vhd. VHDL-1481
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/fa.vhd(4): analyzing entity fa. VHDL-1012
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/fa.vhd(10): analyzing architecture a_fa. VHDL-1010
-unit alu_fetch is not yet analyzed. VHDL-1485
-unit alu_fetch is not yet analyzed. VHDL-1485
-Analyzing VHDL file c:/users/cassandra/desktop/arqui2/multi6.vhd. VHDL-1481
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/multi6.vhd(4): analyzing entity multi6. VHDL-1012
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/multi6.vhd(10): analyzing architecture a_multi6. VHDL-1010
+INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(20): analyzing architecture behavior. VHDL-1010
 unit alu_fetch is not yet analyzed. VHDL-1485
 unit alu_fetch is not yet analyzed. VHDL-1485
 Analyzing VHDL file c:/users/cassandra/desktop/arqui2/rom.vhd. VHDL-1481
@@ -183,14 +135,15 @@ INFO - synthesis: c:/users/cassandra/desktop/arqui2/rpg24_4.vhd(5): analyzing en
 INFO - synthesis: c:/users/cassandra/desktop/arqui2/rpg24_4.vhd(14): analyzing architecture behavioral. VHDL-1010
 unit alu_fetch is not yet analyzed. VHDL-1485
 unit alu_fetch is not yet analyzed. VHDL-1485
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(134): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
 unit alu_fetch is not yet analyzed. VHDL-1485
 c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(11): executing alu_fetch(behavior)
 
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(93): using initial value "000000000000000000000000" for rpg_in since it is never assigned. VHDL-1303
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(95): using initial value "00" for rpg_sel since it is never assigned. VHDL-1303
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(134): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(19): replacing existing netlist alu_fetch(behavior). VHDL-1205
+WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(83): using initial value "000000000000000000000000" for rpg_in since it is never assigned. VHDL-1303
+WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(85): using initial value "00" for rpg_sel since it is never assigned. VHDL-1303
+WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(126): clk_1 should be on the sensitivity list of the process. VHDL-1251
+INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(174): others clause is never selected. VHDL-1172
+WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(177): incomplete sensitivity list specified, assuming completeness. VHDL-1613
+WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(18): replacing existing netlist alu_fetch(behavior). VHDL-1205
 Top module name (VHDL): alu_fetch
 Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/xo2c00a/data/xo2alib.ngl'...
 Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/xo2c00/data/xo2clib.ngl'...
@@ -199,14 +152,28 @@ Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/or5g00/data/orc5glib.ngl'...
 Loading device for application map from file 'xo2c7000.nph' in environment: C:/lscc/diamond/3.13/ispfpga.
 Package Status:                     Final          Version 1.39.
 Top-level module name = alu_fetch.
-INFO - synthesis: Extracted state machine for register 'global_state' with gray encoding
-original encoding -> new encoding (gray encoding)
+INFO - synthesis: Extracted state machine for register 'global_state' with one-hot encoding
+original encoding -> new encoding (one-hot encoding)
 
- 00 -> 00
+ 0000 -> 0000000001
 
- 01 -> 01
+ 0001 -> 0000000010
 
- 10 -> 11
+ 0010 -> 0000000100
+
+ 0011 -> 0000001000
+
+ 0100 -> 0000010000
+
+ 0101 -> 0000100000
+
+ 0110 -> 0001000000
+
+ 0111 -> 0010000000
+
+ 1000 -> 0100000000
+
+ 1001 -> 1000000000
 
 INFO - synthesis: Extracted state machine for register 'temp_control' with one-hot encoding
 original encoding -> new encoding (one-hot encoding)
@@ -224,13 +191,13 @@ original encoding -> new encoding (one-hot encoding)
 
 
 
-WARNING - synthesis: Bit 6 of Register \millar/DISPLAY is stuck at Zero
-WARNING - synthesis: Bit 1 of Register \millar/DISPLAY is stuck at One
-WARNING - synthesis: Bit 5 of Register \millar/DISPLAY is stuck at One
-WARNING - synthesis: Bit 3 of Register \millar/DISPLAY is stuck at One
-WARNING - synthesis: Bit 2 of Register \millar/DISPLAY is stuck at One
-WARNING - synthesis: Bit 1 of Register \centenas/DISPLAY is stuck at One
-GSR instance connected to net n1536.
+WARNING - synthesis: Bit 15 of Register global_state_FSM is stuck at Zero
+WARNING - synthesis: Bit 14 of Register global_state_FSM is stuck at Zero
+WARNING - synthesis: Bit 13 of Register global_state_FSM is stuck at Zero
+WARNING - synthesis: Bit 12 of Register global_state_FSM is stuck at Zero
+WARNING - synthesis: Bit 11 of Register global_state_FSM is stuck at Zero
+WARNING - synthesis: Bit 10 of Register global_state_FSM is stuck at Zero
+GSR instance connected to net n1434.
 Applying 200.000000 MHz constraint to all clocks
 
 WARNING - synthesis: No user .sdc file.
@@ -243,19 +210,21 @@ All blocks are expanded and NGD expansion is successful.
 Writing NGD file alu_fetch_implAluFetch.ngd.
 
 ################### Begin Area Report (alu_fetch)######################
-Number of register bits => 155 of 7209 (2 % )
-CCU2D => 28
-FD1P3AX => 13
-FD1P3IX => 107
-FD1S3AX => 18
+Number of register bits => 170 of 7209 (2 % )
+CCU2D => 27
+FD1P3AX => 93
+FD1P3AY => 1
+FD1P3IX => 40
+FD1S3AX => 11
 FD1S3AY => 5
-FD1S3JX => 12
+FD1S3JX => 20
 GSR => 1
 IB => 2
-LUT4 => 149
-OB => 36
+LUT4 => 308
+OB => 11
+OBZ => 24
 PDPW8KC => 2
-PFUMX => 6
+PFUMX => 24
 ################### End Area Report ##################
 
 ################### Begin BlackBox Report ######################
@@ -266,29 +235,33 @@ TSALL => 1
 ################### Begin Clock Report ######################
 Clock Nets
 Number of Clocks: 3
-  Net : led_c, loads : 79
+  Net : clk_1, loads : 84
+  Net : clk_0, loads : 45
   Net : clk, loads : 45
-  Net : clk_0, loads : 36
 Clock Enable Nets
-Number of Clock Enables: 5
-Top 5 highest fanout Clock Enables:
-  Net : led_c_enable_64, loads : 56
-  Net : clk_enable_43, loads : 48
-  Net : led_c_enable_62, loads : 8
+Number of Clock Enables: 9
+Top 9 highest fanout Clock Enables:
+  Net : clk_enable_40, loads : 45
+  Net : clk_1_enable_54, loads : 20
+  Net : clk_1_enable_26, loads : 20
+  Net : clk_1_enable_76, loads : 14
+  Net : clk_1_enable_35, loads : 10
+  Net : clk_1_enable_63, loads : 8
+  Net : clk_1_enable_83, loads : 8
   Net : clk_0_enable_11, loads : 7
-  Net : stop_run_N_93, loads : 2
+  Net : clk_1_enable_56, loads : 3
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : led_c_enable_64, loads : 56
-  Net : n3680, loads : 50
-  Net : clk_enable_43, loads : 48
-  Net : reset_c, loads : 46
-  Net : n2908, loads : 25
-  Net : ROM_imp/data_out_23__N_501, loads : 24
-  Net : n2996, loads : 18
-  Net : Q_1, loads : 16
-  Net : imp_binBCD/bcd_out_15__N_463, loads : 12
-  Net : imp_binBCD/bcd_out_15__N_459, loads : 11
+  Net : reset_c, loads : 69
+  Net : clk_enable_40, loads : 45
+  Net : ROM_imp/data_out_23__N_517, loads : 25
+  Net : n3175, loads : 24
+  Net : n3865, loads : 22
+  Net : clk_1_enable_54, loads : 20
+  Net : clk_1_enable_26, loads : 20
+  Net : n3888, loads : 18
+  Net : clk_1_enable_76, loads : 14
+  Net : Q_1, loads : 13
 ################### End Clock Report ##################
 
 Timing Report Summary
@@ -298,22 +271,22 @@ Constraint                              |   Constraint|       Actual|Levels
 --------------------------------------------------------------------------------
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk2 [get_nets clk]                     |  200.000 MHz|  101.194 MHz|     7 *
+clk2 [get_nets clk_0]                   |  200.000 MHz|  209.556 MHz|     3  
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk1 [get_nets clk_0]                   |  200.000 MHz|  228.102 MHz|     3  
+clk1 [get_nets clk]                     |  200.000 MHz|  101.256 MHz|     7 *
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk0 [get_nets led_c]                   |  200.000 MHz|  195.389 MHz|     3 *
+clk0 [get_nets clk_1]                   |  200.000 MHz|  205.888 MHz|     3  
                                         |             |             |
 --------------------------------------------------------------------------------
 
 
-2 constraints not met.
+1 constraints not met.
 
 
-Peak Memory Usage: 91.664  MB
+Peak Memory Usage: 99.012  MB
 
 --------------------------------------------------------------
-Elapsed CPU time for LSE flow : 0.469  secs
+Elapsed CPU time for LSE flow : 1.047  secs
 --------------------------------------------------------------

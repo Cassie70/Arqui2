@@ -1,0 +1,23 @@
+if {![file exists "C:/Users/Cassandra/Desktop/Arqui2/unu/unu.mpf"]} { 
+	project new "C:/Users/Cassandra/Desktop/Arqui2/unu" unu
+	project addfile "C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd"
+	project addfile "C:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd"
+	project addfile "C:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd"
+	project addfile "C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd"
+	project addfile "C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.vhd"
+	vlib  work
+	vdel -lib work -all 
+	vlib work
+	vcom -work work "C:/Users/Cassandra/Desktop/Arqui2/ROM.vhd"
+	vcom -work work "C:/Users/Cassandra/Desktop/Arqui2/bcdDisplay.vhd"
+	vcom -work work "C:/Users/Cassandra/Desktop/Arqui2/binarioBCD.vhd"
+	vcom -work work "C:/Users/Cassandra/Desktop/Arqui2/RPG24_4.vhd"
+	vcom -work work "C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.vhd"
+} else {
+	project open "C:/Users/Cassandra/Desktop/Arqui2/unu/unu"
+	project compileoutofdate
+}
+vsim -L work -L pmi_work -L ovi_machxo2  ROM
+view wave
+add wave /*
+run 1000ns

@@ -1,959 +1,1051 @@
 // Verilog netlist produced by program LSE :  version Diamond (64-bit) 3.13.0.56.2
-// Netlist written on Tue Apr 09 22:26:09 2024
+// Netlist written on Wed Apr 10 03:16:33 2024
 //
 // Verilog Description of module alu_fetch
 //
 
-module alu_fetch (reset, stop_run, display, sel, CI, led);   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(11[8:17])
+module alu_fetch (reset, stop_run, display, sel, CI);   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(11[8:17])
     input reset;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
     input stop_run;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(13[2:10])
     output [6:0]display;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(14[2:9])
     output [3:0]sel;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(15[2:5])
     output [23:0]CI;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    output led;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(17[2:5])
     
-    wire led_c /* synthesis is_clock=1, SET_AS_NETWORK=led_c */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(17[2:5])
-    wire clk /* synthesis SET_AS_NETWORK=clk, is_clock=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(74[8:11])
-    wire clk_0 /* synthesis is_clock=1, SET_AS_NETWORK=clk_0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(75[8:13])
+    wire clk /* synthesis SET_AS_NETWORK=clk, is_clock=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(64[8:11])
+    wire clk_0 /* synthesis is_clock=1, SET_AS_NETWORK=clk_0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(65[8:13])
+    wire clk_1 /* synthesis SET_AS_NETWORK=clk_1, is_clock=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(66[8:13])
     
     wire GND_net, VCC_net, reset_c, stop_run_c, display_c_6, display_c_5, 
         display_c_4, display_c_3, display_c_2, display_c_1, display_c_0, 
-        sel_c_3, sel_c_2, sel_c_1, sel_c_0, CI_c_23, CI_c_22, CI_c_21, 
-        CI_c_20, CI_c_19, CI_c_18, CI_c_17, CI_c_16, CI_c_15, CI_c_14, 
-        CI_c_13, CI_c_12, CI_c_11, CI_c_10, CI_c_9, CI_c_8, CI_c_7, 
-        CI_c_6, CI_c_5, CI_c_4, CI_c_3, CI_c_2, CI_c_1, CI_c_0;
-    wire [13:0]Q;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(77[8:9])
-    wire [3:0]temp_control;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(79[8:20])
-    wire [6:0]un;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(80[8:10])
-    wire [6:0]de;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(80[11:13])
-    wire [6:0]ce;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(80[14:16])
-    wire [7:0]MAR;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(84[8:11])
-    wire [23:0]MBR;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(85[8:11])
-    wire [7:0]address_bus;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(91[8:19])
+        sel_c_3, sel_c_2, sel_c_1, sel_c_0, n3534, n10353, n3357, 
+        n10352, n10366;
+    wire [13:0]Q;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(67[8:9])
+    wire [15:0]Qbcd;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(68[8:12])
+    wire [3:0]temp_control;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(69[8:20])
+    wire [6:0]un;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(70[8:10])
+    wire [6:0]de;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(70[11:13])
+    wire [6:0]ce;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(70[14:16])
+    wire [6:0]mi;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(70[17:19])
+    wire [7:0]PC;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(73[8:10])
+    wire [7:0]MAR;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(74[8:11])
+    wire [23:0]MBR;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(75[8:11])
     
-    wire n2639, n3311, n3310, n2611, n2612;
-    wire [1:0]global_state;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(102[8:20])
+    wire n3337, n3336;
+    wire [23:0]IR;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(76[8:10])
     
-    wire stop_run_N_93, n182, n183, n184, n185, n186, n187, n188, 
-        n189, n2646, n2953, n3272;
-    wire [1:0]global_state_1__N_90;
-    wire [7:0]address_bus_7__N_80;
+    wire n10350, n10162;
+    wire [2:0]instruction;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(95[8:19])
     
-    wire n2662, n2635, n2913, n3561, n2568;
-    wire [17:0]count;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(199[11:16])
-    wire [24:0]count1;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(200[11:17])
+    wire n10322, n3529, n3531, n3444, n10313, n10343, n10341, 
+        n7323, n10365, n3334, n10145, n7319, n7317, n3415, n22, 
+        n21, n20, n19, n18, n17, n10364, n1985, n45, n44, 
+        n43, n42, n41, n40, n39, n38;
+    wire [17:0]count;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(209[11:16])
     
-    wire clk_0_enable_11, n3588, n18, n130, n3270, n3320, n95, 
-        clk_0_N_261, n82, n81, n108, n17, n129, n22, led_N_259, 
-        n3260, n113, n3609, n3560, n94, n15, n16, n21, n114, 
-        n115, n116, n128, n3248, n3557, n3245, n123, bcd_out_15__N_380, 
-        bcd_out_15__N_382, n3585, n112, n106, n107, n2720, n25, 
-        n2718, n2716, n2714, n3680, bcd_out_15__N_437, n2712, n2711, 
-        bcd_out_15__N_463, bcd_out_15__N_479, bcd_out_15__N_483, n3677, 
-        bcd_out_15__N_455, bcd_out_15__N_459;
-    wire [6:0]DISPLAY_6__N_493;
+    wire n10436, n3347;
+    wire [21:0]count1;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(210[11:17])
     
-    wire n3535, n3584;
-    wire [6:0]DISPLAY_6__N_493_adj_627;
-    wire [6:0]DISPLAY_6__N_493_adj_631;
+    wire n3532, n10332, n3530, n3528, n3526, clk_0_N_275, n3524, 
+        n3523, n3666, clk_1_N_277, n7294, n10330, n10400, n10398, 
+        bcd_out_15__N_289, bcd_out_15__N_299, bcd_out_15__N_298, bcd_out_15__N_328, 
+        bcd_out_15__N_332, n115, n114, bcd_out_15__N_327, n113, n112, 
+        n111, n110, n109, bcd_out_15__N_281, bcd_out_15__N_374, bcd_out_15__N_378, 
+        n108, n107, n106, n105, bcd_out_15__N_479, bcd_out_15__N_495, 
+        bcd_out_15__N_499, n104, bcd_out_15__N_446, bcd_out_15__N_475, 
+        n103, bcd_out_15__N_442, n102, bcd_out_15__N_280, n101, n100, 
+        n99, n98, n10354;
+    wire [6:0]DISPLAY_6__N_509;
+    wire [6:0]DISPLAY_6__N_509_adj_653;
+    wire [6:0]DISPLAY_6__N_509_adj_657;
+    wire [6:0]DISPLAY_6__N_509_adj_661;
     
-    wire n93;
-    wire [23:0]data_out_23__N_500;
+    wire n10323;
+    wire [23:0]data_out_23__N_516;
     
-    wire n3318, n110, n109, n90, n3583, n78, n3579, n79, n88, 
-        n3236, n80, n3317, n3582, n85, n86, n83, n3581, n3578, 
-        n3580, n87, n3316, n84, n3555, n111, n89, n20, n91, 
-        n92, n3612, n23, n117, n118, n119, n120, n121, n122, 
-        n127, n124, n3321, n125, n126, n3315, n3314, n3313, 
-        n3312, n3319, n3308, n3307, n3306, n3305, n3173, n3576, 
-        n3171, n19, n18_adj_621, n2934, n2791, n2787, n2996, n3573, 
-        n2719, n3572, n3304, n3303, n3302, n3301, n3300, n3299, 
-        n3571, n3465, n3679, n3298, n3297, n3569, n6, n1347, 
-        n2717, n2715, n2713, n3556, n3558, n1363, n3568, n3567, 
-        n3566, n4, n3614, n6_adj_622, n2908, n3564, n5, n3613, 
-        n3296, n3295, n3294, n24, n3293, clk_enable_43, n3604, 
-        led_c_enable_62, led_c_enable_64, n3538, n3600, n3463, n3536, 
-        n3599, n3611, n3610, n3678, n3562, n6_adj_623;
+    wire n977, n3489, n10321, n1014, n3525, n3527, n95, n94, 
+        n93, n92, n91, n90, n89, n84, n83, n82, n986, n81, 
+        n985, n984, n80, n983, n982, n79, n981, n980, n78, 
+        n979, n978, n10505, n3351, n9768, n9758, n9757, n3888, 
+        n3533, n10314, n9767, clk_1_enable_76, clk_1_enable_54, n3865, 
+        n3648, n9756, n1337, n10312, n1353, n10363, n10309, n10397, 
+        n9766, n9755, n3618, n18_adj_645, n17_adj_646, n16, n15, 
+        n14, n9765, n1984, n10396, clk_0_enable_11, n10395, n3349, 
+        clk_1_enable_83, n2123, n10392, n2119, n10302, n10362, n10390, 
+        n9784, n10389, n97, n96, n95_adj_647, n2097, n94_adj_648, 
+        n10301, n1983, n3625, n2081, n2069, n10388, n10387, n10295, 
+        n10160, n10294, n10386, n1982, n10263, n10361, n10360, 
+        n10292, n1981, n1987, n1986, clk_1_enable_56, clk_1_enable_26, 
+        n10385, n10384, n10164, n10383, n10519, n3175, n10291, 
+        clk_1_enable_35, clk_enable_40, n10513, clk_1_enable_63, n10512, 
+        n85, n86, n87, n88, n9785, n7374, n9782, n10381, n7366, 
+        n10486, n10684, n10380, n10683, n6, n9754, n10378, n9748, 
+        n10377, n9764, n10376, n10507, n10477, n10375, n10308, 
+        n10374, n10359, n10358, n10475, n10342, n6_adj_649, n9763, 
+        n9753, n9752, n7201, n10331, n9762, n9751, n9747, n9761, 
+        n9750, n9760, n9749, n10506, n23, n10357, n10410, n10138, 
+        n9759, n10373, n8, n7, n10372, n10371, n8_adj_650, n10158, 
+        n10369, n10274, n10368, n10447, n10367, n9770, n9769, 
+        n10356, n10446, n10406, n10405, n10355, n10404, n10269;
     
     VHI i2 (.Z(VCC_net));
-    LUT4 i1301_2_lut_3_lut_4_lut (.A(global_state[0]), .B(stop_run_c), .C(global_state[1]), 
-         .D(reset_c), .Z(n2953)) /* synthesis lut_function=(!(A+(B+((D)+!C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1301_2_lut_3_lut_4_lut.init = 16'h0010;
-    OSCH OSCinst0 (.STDBY(GND_net), .OSC(clk)) /* synthesis NOM_FREQ="26.60", syn_instantiated=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(113[11:15])
+    LUT4 i705_2_lut_rep_166_4_lut (.A(n2119), .B(n2123), .C(n10477), .D(bcd_out_15__N_327), 
+         .Z(n10446)) /* synthesis lut_function=(A (B+((D)+!C))+!A (B (C+(D))+!B (D))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i705_2_lut_rep_166_4_lut.init = 16'hffca;
+    OSCH OSCinst0 (.STDBY(GND_net), .OSC(clk)) /* synthesis NOM_FREQ="26.60", syn_instantiated=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(103[11:15])
     defparam OSCinst0.NOM_FREQ = "26.60";
-    IB reset_pad (.I(reset), .O(reset_c));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    FD1S3AX address_bus_i0 (.D(address_bus_7__N_80[0]), .CK(led_c), .Q(address_bus[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam address_bus_i0.GSR = "DISABLED";
-    FD1P3AX display_i0_i1 (.D(n2612), .SP(clk_0_enable_11), .CK(clk_0), 
-            .Q(display_c_0));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(173[3] 195[10])
-    defparam display_i0_i1.GSR = "DISABLED";
-    FD1P3AX sel_i0_i1 (.D(temp_control[0]), .SP(clk_enable_43), .CK(clk_0), 
-            .Q(sel_c_0));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(173[3] 195[10])
-    defparam sel_i0_i1.GSR = "DISABLED";
-    FD1P3AX global_state_i0_i0 (.D(n3604), .SP(stop_run_N_93), .CK(led_c), 
-            .Q(global_state[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam global_state_i0_i0.GSR = "ENABLED";
-    FD1S3AX clk_0_81 (.D(clk_0_N_261), .CK(clk), .Q(clk_0)) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(202[3] 219[10])
-    defparam clk_0_81.GSR = "ENABLED";
-    OB led_pad (.I(led_c), .O(led));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(17[2:5])
-    OB CI_pad_0 (.I(CI_c_0), .O(CI[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    FD1S3AX clk_1_82 (.D(led_N_259), .CK(clk), .Q(led_c)) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(202[3] 219[10])
-    defparam clk_1_82.GSR = "ENABLED";
-    OB CI_pad_1 (.I(CI_c_1), .O(CI[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_2 (.I(CI_c_2), .O(CI[2]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_3 (.I(CI_c_3), .O(CI[3]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_4 (.I(CI_c_4), .O(CI[4]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_5 (.I(CI_c_5), .O(CI[5]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_6 (.I(CI_c_6), .O(CI[6]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_7 (.I(CI_c_7), .O(CI[7]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_8 (.I(CI_c_8), .O(CI[8]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_9 (.I(CI_c_9), .O(CI[9]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_10 (.I(CI_c_10), .O(CI[10]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_11 (.I(CI_c_11), .O(CI[11]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_12 (.I(CI_c_12), .O(CI[12]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_13 (.I(CI_c_13), .O(CI[13]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_14 (.I(CI_c_14), .O(CI[14]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_15 (.I(CI_c_15), .O(CI[15]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_16 (.I(CI_c_16), .O(CI[16]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
+    FD1P3AX Rdisplay__i0 (.D(IR[0]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i0.GSR = "DISABLED";
+    FD1P3IX count1_585__i15 (.D(n100), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[15])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i15.GSR = "DISABLED";
     OB display_pad_4 (.I(display_c_4), .O(display[4]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(14[2:9])
-    OB CI_pad_17 (.I(CI_c_17), .O(CI[17]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_18 (.I(CI_c_18), .O(CI[18]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_19 (.I(CI_c_19), .O(CI[19]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_20 (.I(CI_c_20), .O(CI[20]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_21 (.I(CI_c_21), .O(CI[21]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_22 (.I(CI_c_22), .O(CI[22]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB CI_pad_23 (.I(CI_c_23), .O(CI[23]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(16[2:4])
-    OB sel_pad_0 (.I(sel_c_0), .O(sel[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(15[2:5])
-    OB sel_pad_1 (.I(sel_c_1), .O(sel[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(15[2:5])
-    OB sel_pad_2 (.I(sel_c_2), .O(sel[2]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(15[2:5])
-    OB sel_pad_3 (.I(sel_c_3), .O(sel[3]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(15[2:5])
-    OB display_pad_0 (.I(display_c_0), .O(display[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(14[2:9])
-    FD1S3AY temp_control_FSM_i1 (.D(n3677), .CK(clk_0), .Q(n1347));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
+    FD1P3AX MAR__i0 (.D(PC[0]), .SP(clk_1_enable_63), .CK(clk_1), .Q(MAR[0])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MAR__i0.GSR = "ENABLED";
+    FD1P3AX instruction__i0 (.D(n10309), .SP(clk_1_enable_56), .CK(clk_1), 
+            .Q(instruction[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam instruction__i0.GSR = "DISABLED";
+    FD1P3AX sel_i0_i1 (.D(temp_control[0]), .SP(clk_enable_40), .CK(clk_0), 
+            .Q(sel_c_0));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(183[3] 205[10])
+    defparam sel_i0_i1.GSR = "DISABLED";
+    FD1P3AX MBR__i0 (.D(data_out_23__N_516[0]), .SP(clk_1_enable_54), .CK(clk_1), 
+            .Q(MBR[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i0.GSR = "ENABLED";
+    FD1P3AY global_state_FSM__i1 (.D(n10683), .SP(clk_1_enable_35), .CK(clk_1), 
+            .Q(n986));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(127[4] 175[13])
+    defparam global_state_FSM__i1.GSR = "ENABLED";
+    FD1P3AX IR__i0 (.D(MBR[0]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i0.GSR = "ENABLED";
+    FD1S3AX clk_0_82 (.D(clk_0_N_275), .CK(clk), .Q(clk_0)) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(212[3] 229[10])
+    defparam clk_0_82.GSR = "ENABLED";
+    FD1S3AX clk_1_83 (.D(clk_1_N_277), .CK(clk), .Q(clk_1)) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(212[3] 229[10])
+    defparam clk_1_83.GSR = "ENABLED";
+    FD1S3AY temp_control_FSM_i1 (.D(n10683), .CK(clk_0), .Q(n1337));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
     defparam temp_control_FSM_i1.GSR = "ENABLED";
-    OB display_pad_1 (.I(display_c_1), .O(display[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(14[2:9])
-    OB display_pad_2 (.I(display_c_2), .O(display[2]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(14[2:9])
+    FD1P3IX count1_585__i16 (.D(n99), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[16])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i16.GSR = "DISABLED";
+    FD1P3IX count1_585__i14 (.D(n101), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[14])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i14.GSR = "DISABLED";
+    FD1P3IX count1_585__i17 (.D(n98), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[17])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i17.GSR = "DISABLED";
+    PFUMX i1840 (.BLUT(n1983), .ALUT(n3529), .C0(n10145), .Z(n3530));
     OB display_pad_3 (.I(display_c_3), .O(display[3]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(14[2:9])
-    IB stop_run_pad (.I(stop_run), .O(stop_run_c));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(13[2:10])
-    FD1P3IX IR_i0_i3 (.D(MBR[2]), .SP(led_c_enable_64), .CD(n3680), .CK(led_c), 
-            .Q(CI_c_2));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i3.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i20 (.D(data_out_23__N_500[20]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[20]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i20.GSR = "DISABLED";
     OB display_pad_5 (.I(display_c_5), .O(display[5]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(14[2:9])
-    FD1P3IX count_438__i0 (.D(n95), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(n18)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i0.GSR = "DISABLED";
-    CCU2D count_438_add_4_1 (.A0(GND_net), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(n18), .B1(GND_net), .C1(GND_net), .D1(GND_net), 
-          .COUT(n3310), .S1(n95));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438_add_4_1.INIT0 = 16'hF000;
-    defparam count_438_add_4_1.INIT1 = 16'h0555;
-    defparam count_438_add_4_1.INJECT1_0 = "NO";
-    defparam count_438_add_4_1.INJECT1_1 = "NO";
     OB display_pad_6 (.I(display_c_6), .O(display[6]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(14[2:9])
-    FD1S3AX temp_control_FSM_i5 (.D(temp_control[2]), .CK(clk_0), .Q(temp_control[3]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
+    FD1P3IX count_583__i14 (.D(n81), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(count[14])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i14.GSR = "DISABLED";
+    FD1S3AX temp_control_FSM_i5 (.D(temp_control[2]), .CK(clk_0), .Q(temp_control[3]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
     defparam temp_control_FSM_i5.GSR = "ENABLED";
-    FD1S3AX temp_control_FSM_i4 (.D(temp_control[1]), .CK(clk_0), .Q(temp_control[2]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
+    FD1S3AX temp_control_FSM_i4 (.D(temp_control[1]), .CK(clk_0), .Q(temp_control[2]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
     defparam temp_control_FSM_i4.GSR = "ENABLED";
-    FD1S3AX temp_control_FSM_i3 (.D(temp_control[0]), .CK(clk_0), .Q(temp_control[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
+    FD1S3AX temp_control_FSM_i3 (.D(temp_control[0]), .CK(clk_0), .Q(temp_control[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
     defparam temp_control_FSM_i3.GSR = "ENABLED";
-    FD1S3AX temp_control_FSM_i2 (.D(n1363), .CK(clk_0), .Q(temp_control[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
+    FD1S3AX temp_control_FSM_i2 (.D(n1353), .CK(clk_0), .Q(temp_control[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
     defparam temp_control_FSM_i2.GSR = "ENABLED";
-    FD1P3IX IR_i0_i4 (.D(MBR[3]), .SP(led_c_enable_64), .CD(n3680), .CK(led_c), 
-            .Q(CI_c_3));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i4.GSR = "DISABLED";
-    FD1P3IX IR_i0_i5 (.D(MBR[4]), .SP(led_c_enable_64), .CD(n3680), .CK(led_c), 
-            .Q(CI_c_4));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i5.GSR = "DISABLED";
-    FD1P3AX global_state_i0_i1 (.D(global_state_1__N_90[1]), .SP(stop_run_N_93), 
-            .CK(led_c), .Q(global_state[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam global_state_i0_i1.GSR = "ENABLED";
-    FD1P3AX sel_i0_i4 (.D(temp_control[3]), .SP(clk_enable_43), .CK(clk_0), 
-            .Q(sel_c_3));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(173[3] 195[10])
+    FD1P3AX PC_586__i0 (.D(n45), .SP(clk_1_enable_83), .CK(clk_1), .Q(PC[0])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam PC_586__i0.GSR = "ENABLED";
+    FD1P3IX count_583__i13 (.D(n82), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(count[13])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i13.GSR = "DISABLED";
+    FD1P3IX count_583__i12 (.D(n83), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(count[12])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i12.GSR = "DISABLED";
+    FD1P3IX count_583__i11 (.D(n84), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(count[11])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i11.GSR = "DISABLED";
+    FD1P3IX count_583__i10 (.D(n85), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(count[10])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i10.GSR = "DISABLED";
+    FD1P3IX count_583__i9 (.D(n86), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(count[9])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i9.GSR = "DISABLED";
+    FD1P3IX count_583__i8 (.D(n87), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(count[8])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i8.GSR = "DISABLED";
+    FD1P3IX count_583__i7 (.D(n88), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(count[7])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i7.GSR = "DISABLED";
+    FD1P3IX count_583__i6 (.D(n89), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(count[6])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i6.GSR = "DISABLED";
+    FD1P3IX count_583__i5 (.D(n90), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(count[5])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i5.GSR = "DISABLED";
+    FD1P3IX count_583__i4 (.D(n91), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(n14)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i4.GSR = "DISABLED";
+    FD1P3IX count_583__i3 (.D(n92), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(n15)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i3.GSR = "DISABLED";
+    FD1P3IX count_583__i2 (.D(n93), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(n16)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i2.GSR = "DISABLED";
+    FD1P3IX count_583__i1 (.D(n94), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(n17_adj_646)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i1.GSR = "DISABLED";
+    FD1P3IX count1_585__i18 (.D(n97), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[18])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i18.GSR = "DISABLED";
+    FD1P3IX count1_585__i19 (.D(n96), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[19])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i19.GSR = "DISABLED";
+    FD1P3IX count1_585__i20 (.D(n95_adj_647), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[20])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i20.GSR = "DISABLED";
+    FD1P3AX IR__i23 (.D(MBR[23]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[23]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i23.GSR = "ENABLED";
+    FD1P3IX count1_585__i21 (.D(n94_adj_648), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[21])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i21.GSR = "DISABLED";
+    FD1P3IX count1_585__i0 (.D(n115), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(n22)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i0.GSR = "DISABLED";
+    FD1P3AX IR__i22 (.D(MBR[22]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[22]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i22.GSR = "ENABLED";
+    FD1P3AX IR__i21 (.D(MBR[21]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[21]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i21.GSR = "ENABLED";
+    FD1P3AX IR__i20 (.D(MBR[20]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[20]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i20.GSR = "ENABLED";
+    FD1P3AX IR__i19 (.D(MBR[19]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[19]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i19.GSR = "ENABLED";
+    FD1P3IX count1_585__i1 (.D(n114), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(n21)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i1.GSR = "DISABLED";
+    FD1P3AX IR__i18 (.D(MBR[18]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[18]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i18.GSR = "ENABLED";
+    FD1P3AX display_i0_i1 (.D(n3337), .SP(clk_0_enable_11), .CK(clk_0), 
+            .Q(display_c_0));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(183[3] 205[10])
+    defparam display_i0_i1.GSR = "DISABLED";
+    FD1P3AX IR__i13 (.D(MBR[13]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[13]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i13.GSR = "ENABLED";
+    FD1P3IX count1_585__i2 (.D(n113), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(n20)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i2.GSR = "DISABLED";
+    FD1P3AX IR__i12 (.D(MBR[12]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[12]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i12.GSR = "ENABLED";
+    FD1P3AX IR__i11 (.D(MBR[11]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[11]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i11.GSR = "ENABLED";
+    FD1P3AX IR__i10 (.D(MBR[10]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[10]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i10.GSR = "ENABLED";
+    FD1P3AX IR__i9 (.D(MBR[9]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[9]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i9.GSR = "ENABLED";
+    FD1P3AX IR__i8 (.D(MBR[8]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[8]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i8.GSR = "ENABLED";
+    FD1P3AX IR__i7 (.D(MBR[7]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[7]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i7.GSR = "ENABLED";
+    FD1P3AX IR__i6 (.D(MBR[6]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[6]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i6.GSR = "ENABLED";
+    FD1P3AX IR__i5 (.D(MBR[5]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[5]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i5.GSR = "ENABLED";
+    FD1P3AX IR__i4 (.D(MBR[4]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[4]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i4.GSR = "ENABLED";
+    FD1P3AX IR__i3 (.D(MBR[3]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[3]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i3.GSR = "ENABLED";
+    FD1P3AX IR__i2 (.D(MBR[2]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[2]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i2.GSR = "ENABLED";
+    FD1P3AX IR__i1 (.D(MBR[1]), .SP(clk_1_enable_26), .CK(clk_1), .Q(IR[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam IR__i1.GSR = "ENABLED";
+    FD1P3AX global_state_FSM__i10 (.D(n978), .SP(clk_1_enable_35), .CK(clk_1), 
+            .Q(n977));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(127[4] 175[13])
+    defparam global_state_FSM__i10.GSR = "ENABLED";
+    FD1P3IX count1_585__i3 (.D(n112), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(n19)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i3.GSR = "DISABLED";
+    FD1P3AX global_state_FSM__i9 (.D(n979), .SP(clk_1_enable_35), .CK(clk_1), 
+            .Q(n978));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(127[4] 175[13])
+    defparam global_state_FSM__i9.GSR = "ENABLED";
+    FD1P3AX global_state_FSM__i8 (.D(n980), .SP(clk_1_enable_35), .CK(clk_1), 
+            .Q(n979));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(127[4] 175[13])
+    defparam global_state_FSM__i8.GSR = "ENABLED";
+    FD1P3AX global_state_FSM__i7 (.D(n981), .SP(clk_1_enable_35), .CK(clk_1), 
+            .Q(n980));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(127[4] 175[13])
+    defparam global_state_FSM__i7.GSR = "ENABLED";
+    FD1P3AX global_state_FSM__i6 (.D(n982), .SP(clk_1_enable_35), .CK(clk_1), 
+            .Q(n981));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(127[4] 175[13])
+    defparam global_state_FSM__i6.GSR = "ENABLED";
+    FD1P3AX global_state_FSM__i5 (.D(n983), .SP(clk_1_enable_35), .CK(clk_1), 
+            .Q(n982));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(127[4] 175[13])
+    defparam global_state_FSM__i5.GSR = "ENABLED";
+    FD1P3AX global_state_FSM__i4 (.D(n984), .SP(clk_1_enable_35), .CK(clk_1), 
+            .Q(n983));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(127[4] 175[13])
+    defparam global_state_FSM__i4.GSR = "ENABLED";
+    FD1P3AX global_state_FSM__i3 (.D(n985), .SP(clk_1_enable_35), .CK(clk_1), 
+            .Q(n984));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(127[4] 175[13])
+    defparam global_state_FSM__i3.GSR = "ENABLED";
+    FD1P3AX global_state_FSM__i2 (.D(n1014), .SP(clk_1_enable_35), .CK(clk_1), 
+            .Q(n985));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(127[4] 175[13])
+    defparam global_state_FSM__i2.GSR = "ENABLED";
+    FD1P3AX MBR__i23 (.D(data_out_23__N_516[23]), .SP(clk_1_enable_54), 
+            .CK(clk_1), .Q(MBR[23]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i23.GSR = "ENABLED";
+    FD1P3AX MBR__i22 (.D(data_out_23__N_516[22]), .SP(clk_1_enable_54), 
+            .CK(clk_1), .Q(MBR[22]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i22.GSR = "ENABLED";
+    FD1P3AX MBR__i21 (.D(data_out_23__N_516[21]), .SP(clk_1_enable_54), 
+            .CK(clk_1), .Q(MBR[21]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i21.GSR = "ENABLED";
+    FD1P3AX MBR__i20 (.D(data_out_23__N_516[20]), .SP(clk_1_enable_54), 
+            .CK(clk_1), .Q(MBR[20]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i20.GSR = "ENABLED";
+    FD1P3AX MBR__i19 (.D(data_out_23__N_516[19]), .SP(clk_1_enable_54), 
+            .CK(clk_1), .Q(MBR[19]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i19.GSR = "ENABLED";
+    FD1P3AX MBR__i18 (.D(data_out_23__N_516[18]), .SP(clk_1_enable_54), 
+            .CK(clk_1), .Q(MBR[18]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i18.GSR = "ENABLED";
+    FD1P3AX MBR__i13 (.D(data_out_23__N_516[13]), .SP(clk_1_enable_54), 
+            .CK(clk_1), .Q(MBR[13]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i13.GSR = "ENABLED";
+    FD1P3AX MBR__i12 (.D(data_out_23__N_516[12]), .SP(clk_1_enable_54), 
+            .CK(clk_1), .Q(MBR[12]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i12.GSR = "ENABLED";
+    FD1P3AX MBR__i11 (.D(data_out_23__N_516[11]), .SP(clk_1_enable_54), 
+            .CK(clk_1), .Q(MBR[11]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i11.GSR = "ENABLED";
+    FD1P3AX MBR__i10 (.D(data_out_23__N_516[10]), .SP(clk_1_enable_54), 
+            .CK(clk_1), .Q(MBR[10]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i10.GSR = "ENABLED";
+    FD1P3AX MBR__i9 (.D(data_out_23__N_516[9]), .SP(clk_1_enable_54), .CK(clk_1), 
+            .Q(MBR[9]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i9.GSR = "ENABLED";
+    FD1P3AX MBR__i8 (.D(data_out_23__N_516[8]), .SP(clk_1_enable_54), .CK(clk_1), 
+            .Q(MBR[8]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i8.GSR = "ENABLED";
+    FD1P3AX MBR__i7 (.D(data_out_23__N_516[7]), .SP(clk_1_enable_54), .CK(clk_1), 
+            .Q(MBR[7]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i7.GSR = "ENABLED";
+    FD1P3AX MBR__i6 (.D(data_out_23__N_516[6]), .SP(clk_1_enable_54), .CK(clk_1), 
+            .Q(MBR[6]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i6.GSR = "ENABLED";
+    FD1P3AX MBR__i5 (.D(data_out_23__N_516[5]), .SP(clk_1_enable_54), .CK(clk_1), 
+            .Q(MBR[5]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i5.GSR = "ENABLED";
+    FD1P3AX MBR__i4 (.D(data_out_23__N_516[4]), .SP(clk_1_enable_54), .CK(clk_1), 
+            .Q(MBR[4]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i4.GSR = "ENABLED";
+    FD1P3AX MBR__i3 (.D(data_out_23__N_516[3]), .SP(clk_1_enable_54), .CK(clk_1), 
+            .Q(MBR[3]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i3.GSR = "ENABLED";
+    FD1P3AX MBR__i2 (.D(data_out_23__N_516[2]), .SP(clk_1_enable_54), .CK(clk_1), 
+            .Q(MBR[2]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i2.GSR = "ENABLED";
+    FD1P3AX MBR__i1 (.D(data_out_23__N_516[1]), .SP(clk_1_enable_54), .CK(clk_1), 
+            .Q(MBR[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MBR__i1.GSR = "ENABLED";
+    FD1P3AX sel_i0_i4 (.D(temp_control[3]), .SP(clk_enable_40), .CK(clk_0), 
+            .Q(sel_c_3));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(183[3] 205[10])
     defparam sel_i0_i4.GSR = "DISABLED";
-    FD1P3AX sel_i0_i3 (.D(temp_control[2]), .SP(clk_enable_43), .CK(clk_0), 
-            .Q(sel_c_2));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(173[3] 195[10])
+    FD1P3AX sel_i0_i3 (.D(temp_control[2]), .SP(clk_enable_40), .CK(clk_0), 
+            .Q(sel_c_2));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(183[3] 205[10])
     defparam sel_i0_i3.GSR = "DISABLED";
-    FD1P3AX sel_i0_i2 (.D(temp_control[1]), .SP(clk_enable_43), .CK(clk_0), 
-            .Q(sel_c_1));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(173[3] 195[10])
+    FD1P3AX sel_i0_i2 (.D(temp_control[1]), .SP(clk_enable_40), .CK(clk_0), 
+            .Q(sel_c_1));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(183[3] 205[10])
     defparam sel_i0_i2.GSR = "DISABLED";
-    FD1P3AX display_i0_i7 (.D(n2720), .SP(clk_0_enable_11), .CK(clk_0), 
-            .Q(display_c_6));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(173[3] 195[10])
-    defparam display_i0_i7.GSR = "DISABLED";
-    FD1P3AX display_i0_i6 (.D(n2718), .SP(clk_0_enable_11), .CK(clk_0), 
-            .Q(display_c_5));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(173[3] 195[10])
-    defparam display_i0_i6.GSR = "DISABLED";
-    FD1P3AX display_i0_i5 (.D(n2716), .SP(clk_0_enable_11), .CK(clk_0), 
-            .Q(display_c_4));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(173[3] 195[10])
-    defparam display_i0_i5.GSR = "DISABLED";
-    FD1P3AX display_i0_i4 (.D(n2714), .SP(clk_0_enable_11), .CK(clk_0), 
-            .Q(display_c_3));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(173[3] 195[10])
-    defparam display_i0_i4.GSR = "DISABLED";
-    FD1P3AX display_i0_i3 (.D(n2712), .SP(clk_0_enable_11), .CK(clk_0), 
-            .Q(display_c_2));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(173[3] 195[10])
-    defparam display_i0_i3.GSR = "DISABLED";
-    FD1S3AX address_bus_i7 (.D(address_bus_7__N_80[7]), .CK(led_c), .Q(address_bus[7]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam address_bus_i7.GSR = "DISABLED";
-    FD1S3AX address_bus_i6 (.D(address_bus_7__N_80[6]), .CK(led_c), .Q(address_bus[6]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam address_bus_i6.GSR = "DISABLED";
-    FD1S3AX address_bus_i5 (.D(address_bus_7__N_80[5]), .CK(led_c), .Q(address_bus[5]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam address_bus_i5.GSR = "DISABLED";
-    FD1S3AX address_bus_i4 (.D(address_bus_7__N_80[4]), .CK(led_c), .Q(address_bus[4]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam address_bus_i4.GSR = "DISABLED";
-    FD1S3AX address_bus_i3 (.D(address_bus_7__N_80[3]), .CK(led_c), .Q(address_bus[3]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam address_bus_i3.GSR = "DISABLED";
-    FD1S3AX address_bus_i2 (.D(address_bus_7__N_80[2]), .CK(led_c), .Q(address_bus[2]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam address_bus_i2.GSR = "DISABLED";
-    FD1P3IX IR_i0_i6 (.D(MBR[5]), .SP(led_c_enable_64), .CD(n2953), .CK(led_c), 
-            .Q(CI_c_5));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i6.GSR = "DISABLED";
-    FD1S3AX address_bus_i1 (.D(address_bus_7__N_80[1]), .CK(led_c), .Q(address_bus[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam address_bus_i1.GSR = "DISABLED";
-    FD1P3IX IR_i0_i7 (.D(MBR[6]), .SP(led_c_enable_64), .CD(n3680), .CK(led_c), 
-            .Q(CI_c_6));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i7.GSR = "DISABLED";
-    FD1P3IX IR_i0_i8 (.D(MBR[7]), .SP(led_c_enable_64), .CD(n3680), .CK(led_c), 
-            .Q(CI_c_7));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i8.GSR = "DISABLED";
-    FD1P3IX IR_i0_i9 (.D(MBR[8]), .SP(led_c_enable_64), .CD(n3680), .CK(led_c), 
-            .Q(CI_c_8));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i9.GSR = "DISABLED";
-    FD1P3IX IR_i0_i10 (.D(MBR[9]), .SP(led_c_enable_64), .CD(n3680), .CK(led_c), 
-            .Q(CI_c_9));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i10.GSR = "DISABLED";
-    CCU2D count_438_add_4_19 (.A0(count[17]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(GND_net), .B1(GND_net), .C1(GND_net), .D1(GND_net), 
-          .CIN(n3318), .S0(n78));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438_add_4_19.INIT0 = 16'hfaaa;
-    defparam count_438_add_4_19.INIT1 = 16'h0000;
-    defparam count_438_add_4_19.INJECT1_0 = "NO";
-    defparam count_438_add_4_19.INJECT1_1 = "NO";
-    CCU2D count_438_add_4_17 (.A0(count[15]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count[16]), .B1(GND_net), .C1(GND_net), 
-          .D1(GND_net), .CIN(n3317), .COUT(n3318), .S0(n80), .S1(n79));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438_add_4_17.INIT0 = 16'hfaaa;
-    defparam count_438_add_4_17.INIT1 = 16'hfaaa;
-    defparam count_438_add_4_17.INJECT1_0 = "NO";
-    defparam count_438_add_4_17.INJECT1_1 = "NO";
-    CCU2D count_438_add_4_15 (.A0(count[13]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count[14]), .B1(GND_net), .C1(GND_net), 
-          .D1(GND_net), .CIN(n3316), .COUT(n3317), .S0(n82), .S1(n81));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438_add_4_15.INIT0 = 16'hfaaa;
-    defparam count_438_add_4_15.INIT1 = 16'hfaaa;
-    defparam count_438_add_4_15.INJECT1_0 = "NO";
-    defparam count_438_add_4_15.INJECT1_1 = "NO";
-    FD1P3IX IR_i0_i11 (.D(MBR[10]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_10));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i11.GSR = "DISABLED";
-    CCU2D count_438_add_4_13 (.A0(count[11]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count[12]), .B1(GND_net), .C1(GND_net), 
-          .D1(GND_net), .CIN(n3315), .COUT(n3316), .S0(n84), .S1(n83));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438_add_4_13.INIT0 = 16'hfaaa;
-    defparam count_438_add_4_13.INIT1 = 16'hfaaa;
-    defparam count_438_add_4_13.INJECT1_0 = "NO";
-    defparam count_438_add_4_13.INJECT1_1 = "NO";
-    CCU2D count_438_add_4_11 (.A0(count[9]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count[10]), .B1(GND_net), .C1(GND_net), 
-          .D1(GND_net), .CIN(n3314), .COUT(n3315), .S0(n86), .S1(n85));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438_add_4_11.INIT0 = 16'hfaaa;
-    defparam count_438_add_4_11.INIT1 = 16'hfaaa;
-    defparam count_438_add_4_11.INJECT1_0 = "NO";
-    defparam count_438_add_4_11.INJECT1_1 = "NO";
-    CCU2D count_438_add_4_9 (.A0(count[7]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count[8]), .B1(GND_net), .C1(GND_net), .D1(GND_net), 
-          .CIN(n3313), .COUT(n3314), .S0(n88), .S1(n87));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438_add_4_9.INIT0 = 16'hfaaa;
-    defparam count_438_add_4_9.INIT1 = 16'hfaaa;
-    defparam count_438_add_4_9.INJECT1_0 = "NO";
-    defparam count_438_add_4_9.INJECT1_1 = "NO";
-    CCU2D count_438_add_4_7 (.A0(count[5]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count[6]), .B1(GND_net), .C1(GND_net), .D1(GND_net), 
-          .CIN(n3312), .COUT(n3313), .S0(n90), .S1(n89));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438_add_4_7.INIT0 = 16'hfaaa;
-    defparam count_438_add_4_7.INIT1 = 16'hfaaa;
-    defparam count_438_add_4_7.INJECT1_0 = "NO";
-    defparam count_438_add_4_7.INJECT1_1 = "NO";
-    FD1P3IX IR_i0_i12 (.D(MBR[11]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_11));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i12.GSR = "DISABLED";
-    FD1P3IX IR_i0_i13 (.D(MBR[12]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_12));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i13.GSR = "DISABLED";
-    CCU2D count_438_add_4_5 (.A0(n15), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
-          .A1(count[4]), .B1(GND_net), .C1(GND_net), .D1(GND_net), .CIN(n3311), 
-          .COUT(n3312), .S0(n92), .S1(n91));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438_add_4_5.INIT0 = 16'hfaaa;
-    defparam count_438_add_4_5.INIT1 = 16'hfaaa;
-    defparam count_438_add_4_5.INJECT1_0 = "NO";
-    defparam count_438_add_4_5.INJECT1_1 = "NO";
-    FD1P3IX MBR_i0_i22 (.D(data_out_23__N_500[22]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[22]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i22.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i23 (.D(data_out_23__N_500[23]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[23]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i23.GSR = "DISABLED";
-    FD1P3IX IR_i0_i2 (.D(MBR[1]), .SP(led_c_enable_64), .CD(n3680), .CK(led_c), 
-            .Q(CI_c_1));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i2.GSR = "DISABLED";
-    FD1P3IX IR_i0_i14 (.D(MBR[13]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_13));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i14.GSR = "DISABLED";
-    FD1P3IX IR_i0_i15 (.D(MBR[14]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_14));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i15.GSR = "DISABLED";
-    CCU2D count_438_add_4_3 (.A0(n17), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
-          .A1(n16), .B1(GND_net), .C1(GND_net), .D1(GND_net), .CIN(n3310), 
-          .COUT(n3311), .S0(n94), .S1(n93));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438_add_4_3.INIT0 = 16'hfaaa;
-    defparam count_438_add_4_3.INIT1 = 16'hfaaa;
-    defparam count_438_add_4_3.INJECT1_0 = "NO";
-    defparam count_438_add_4_3.INJECT1_1 = "NO";
-    FD1P3IX IR_i0_i16 (.D(MBR[15]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_15));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i16.GSR = "DISABLED";
-    LUT4 i1301_2_lut_3_lut_4_lut_rep_107 (.A(global_state[0]), .B(stop_run_c), 
-         .C(global_state[1]), .D(reset_c), .Z(n3680)) /* synthesis lut_function=(!(A+(B+((D)+!C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1301_2_lut_3_lut_4_lut_rep_107.init = 16'h0010;
-    LUT4 i1784_2_lut (.A(n1347), .B(reset_c), .Z(clk_0_enable_11)) /* synthesis lut_function=(!(A+(B))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(173[3] 195[10])
-    defparam i1784_2_lut.init = 16'h1111;
-    LUT4 i1752_2_lut_3_lut_4_lut_4_lut_4_lut_then_3_lut (.A(reset_c), .B(bcd_out_15__N_463), 
-         .C(bcd_out_15__N_459), .Z(n3610)) /* synthesis lut_function=(A+(B+!(C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1752_2_lut_3_lut_4_lut_4_lut_4_lut_then_3_lut.init = 16'hefef;
-    LUT4 i1752_2_lut_3_lut_4_lut_4_lut_4_lut_else_3_lut (.A(reset_c), .B(bcd_out_15__N_463), 
-         .C(bcd_out_15__N_459), .D(bcd_out_15__N_455), .Z(n3609)) /* synthesis lut_function=(A+((C+(D))+!B)) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1752_2_lut_3_lut_4_lut_4_lut_4_lut_else_3_lut.init = 16'hfffb;
-    LUT4 i1301_2_lut_3_lut_4_lut_rep_106 (.A(global_state[0]), .B(stop_run_c), 
-         .C(global_state[1]), .D(reset_c), .Z(n3679)) /* synthesis lut_function=(!(A+(B+((D)+!C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1301_2_lut_3_lut_4_lut_rep_106.init = 16'h0010;
-    LUT4 i935_3_lut (.A(n2611), .B(un[0]), .C(temp_control[3]), .Z(n2612)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam i935_3_lut.init = 16'hcaca;
-    LUT4 i1756_4_lut_4_lut_4_lut_then_3_lut (.A(reset_c), .B(n3585), .C(Q[1]), 
-         .Z(n3613)) /* synthesis lut_function=(A+((C)+!B)) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1756_4_lut_4_lut_4_lut_then_3_lut.init = 16'hfbfb;
-    LUT4 i1756_4_lut_4_lut_4_lut_else_3_lut (.A(reset_c), .B(n3585), .C(Q[1]), 
-         .D(bcd_out_15__N_479), .Z(n3612)) /* synthesis lut_function=(A+(B+((D)+!C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1756_4_lut_4_lut_4_lut_else_3_lut.init = 16'hffef;
-    LUT4 i1770_2_lut (.A(reset_c), .B(n3270), .Z(n2996)) /* synthesis lut_function=(!(A+!(B))) */ ;
-    defparam i1770_2_lut.init = 16'h4444;
-    LUT4 reduce_or_159_i1_2_lut (.A(temp_control[3]), .B(n1347), .Z(n1363)) /* synthesis lut_function=(A+(B)) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam reduce_or_159_i1_2_lut.init = 16'heeee;
-    LUT4 i1040_3_lut (.A(n2719), .B(un[6]), .C(temp_control[3]), .Z(n2720)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam i1040_3_lut.init = 16'hcaca;
-    LUT4 i1039_4_lut (.A(ce[6]), .B(de[6]), .C(temp_control[2]), .D(temp_control[1]), 
-         .Z(n2719)) /* synthesis lut_function=(A (B (C+(D))+!B !(C+!(D)))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam i1039_4_lut.init = 16'hcac0;
-    LUT4 stop_run_I_0_1_lut (.A(stop_run_c), .Z(stop_run_N_93)) /* synthesis lut_function=(!(A)) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(133[33:45])
-    defparam stop_run_I_0_1_lut.init = 16'h5555;
-    LUT4 i1442_4_lut (.A(address_bus[0]), .B(n3679), .C(MAR[0]), .D(n3248), 
-         .Z(address_bus_7__N_80[0])) /* synthesis lut_function=(!(A (B+!(C+(D)))+!A (B+((D)+!C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1442_4_lut.init = 16'h2230;
-    LUT4 i1038_3_lut (.A(n2717), .B(un[5]), .C(temp_control[3]), .Z(n2718)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam i1038_3_lut.init = 16'hcaca;
-    LUT4 i1037_4_lut (.A(ce[5]), .B(de[5]), .C(temp_control[2]), .D(temp_control[1]), 
-         .Z(n2717)) /* synthesis lut_function=(A (B+!(C))+!A (B (C+!(D))+!B !(C+(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam i1037_4_lut.init = 16'hcacf;
-    LUT4 i1_2_lut (.A(clk_0), .B(n3270), .Z(clk_0_N_261)) /* synthesis lut_function=(!(A (B)+!A !(B))) */ ;
-    defparam i1_2_lut.init = 16'h6666;
-    LUT4 i1036_3_lut (.A(n2715), .B(un[4]), .C(temp_control[3]), .Z(n2716)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam i1036_3_lut.init = 16'hcaca;
-    LUT4 i1035_4_lut (.A(ce[4]), .B(de[4]), .C(temp_control[2]), .D(temp_control[1]), 
-         .Z(n2715)) /* synthesis lut_function=(A (B+!(C))+!A (B (C+!(D))+!B !(C+(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam i1035_4_lut.init = 16'hcacf;
-    LUT4 i1576_4_lut (.A(count[16]), .B(count[17]), .C(n3260), .D(count[15]), 
-         .Z(n3270)) /* synthesis lut_function=(A (B)+!A (B (C+(D)))) */ ;
-    defparam i1576_4_lut.init = 16'hccc8;
-    LUT4 i1034_3_lut (.A(n2713), .B(un[3]), .C(temp_control[3]), .Z(n2714)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam i1034_3_lut.init = 16'hcaca;
-    LUT4 i1566_4_lut (.A(count[13]), .B(count[14]), .C(n3245), .D(count[12]), 
-         .Z(n3260)) /* synthesis lut_function=(A (B)+!A (B (C+(D)))) */ ;
-    defparam i1566_4_lut.init = 16'hccc8;
-    LUT4 i1032_3_lut (.A(n2711), .B(un[2]), .C(temp_control[3]), .Z(n2712)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam i1032_3_lut.init = 16'hcaca;
-    LUT4 i1031_4_lut (.A(ce[2]), .B(de[2]), .C(temp_control[2]), .D(temp_control[1]), 
-         .Z(n2711)) /* synthesis lut_function=(A (B+!(C))+!A (B (C+!(D))+!B !(C+(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam i1031_4_lut.init = 16'hcacf;
-    CCU2D count1_440_add_4_25 (.A0(count1[23]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count1[24]), .B1(GND_net), .C1(GND_net), 
-          .D1(GND_net), .CIN(n3308), .S0(n107), .S1(n106));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440_add_4_25.INIT0 = 16'hfaaa;
-    defparam count1_440_add_4_25.INIT1 = 16'hfaaa;
-    defparam count1_440_add_4_25.INJECT1_0 = "NO";
-    defparam count1_440_add_4_25.INJECT1_1 = "NO";
-    CCU2D count1_440_add_4_23 (.A0(count1[21]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count1[22]), .B1(GND_net), .C1(GND_net), 
-          .D1(GND_net), .CIN(n3307), .COUT(n3308), .S0(n109), .S1(n108));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440_add_4_23.INIT0 = 16'hfaaa;
-    defparam count1_440_add_4_23.INIT1 = 16'hfaaa;
-    defparam count1_440_add_4_23.INJECT1_0 = "NO";
-    defparam count1_440_add_4_23.INJECT1_1 = "NO";
-    CCU2D count1_440_add_4_21 (.A0(count1[19]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count1[20]), .B1(GND_net), .C1(GND_net), 
-          .D1(GND_net), .CIN(n3306), .COUT(n3307), .S0(n111), .S1(n110));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440_add_4_21.INIT0 = 16'hfaaa;
-    defparam count1_440_add_4_21.INIT1 = 16'hfaaa;
-    defparam count1_440_add_4_21.INJECT1_0 = "NO";
-    defparam count1_440_add_4_21.INJECT1_1 = "NO";
-    CCU2D count1_440_add_4_19 (.A0(count1[17]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count1[18]), .B1(GND_net), .C1(GND_net), 
-          .D1(GND_net), .CIN(n3305), .COUT(n3306), .S0(n113), .S1(n112));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440_add_4_19.INIT0 = 16'hfaaa;
-    defparam count1_440_add_4_19.INIT1 = 16'hfaaa;
-    defparam count1_440_add_4_19.INJECT1_0 = "NO";
-    defparam count1_440_add_4_19.INJECT1_1 = "NO";
-    CCU2D count1_440_add_4_17 (.A0(count1[15]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count1[16]), .B1(GND_net), .C1(GND_net), 
-          .D1(GND_net), .CIN(n3304), .COUT(n3305), .S0(n115), .S1(n114));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440_add_4_17.INIT0 = 16'hfaaa;
-    defparam count1_440_add_4_17.INIT1 = 16'hfaaa;
-    defparam count1_440_add_4_17.INJECT1_0 = "NO";
-    defparam count1_440_add_4_17.INJECT1_1 = "NO";
-    LUT4 i14_4_lut (.A(de[1]), .B(un[1]), .C(temp_control[3]), .D(temp_control[2]), 
-         .Z(n6_adj_623)) /* synthesis lut_function=(A (B+!(C))+!A (B (C+!(D))+!B !(C+(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam i14_4_lut.init = 16'hcacf;
-    LUT4 i1750_2_lut (.A(reset_c), .B(n3272), .Z(n2908)) /* synthesis lut_function=(!(A+!(B))) */ ;
-    defparam i1750_2_lut.init = 16'h4444;
-    CCU2D count1_440_add_4_15 (.A0(count1[13]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count1[14]), .B1(GND_net), .C1(GND_net), 
-          .D1(GND_net), .CIN(n3303), .COUT(n3304), .S0(n117), .S1(n116));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440_add_4_15.INIT0 = 16'hfaaa;
-    defparam count1_440_add_4_15.INIT1 = 16'hfaaa;
-    defparam count1_440_add_4_15.INJECT1_0 = "NO";
-    defparam count1_440_add_4_15.INJECT1_1 = "NO";
-    LUT4 i1553_4_lut (.A(count[10]), .B(count[11]), .C(n3320), .D(count[9]), 
-         .Z(n3245)) /* synthesis lut_function=(A (B)+!A (B (C+(D)))) */ ;
-    defparam i1553_4_lut.init = 16'hccc8;
-    FD1P3IX IR_i0_i17 (.D(MBR[16]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_16));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i17.GSR = "DISABLED";
-    LUT4 i4_4_lut (.A(count[6]), .B(count[8]), .C(count[7]), .D(n6), 
-         .Z(n3320)) /* synthesis lut_function=(A (B (C (D)))) */ ;
-    defparam i4_4_lut.init = 16'h8000;
-    LUT4 i1_2_lut_adj_54 (.A(count[4]), .B(count[5]), .Z(n6)) /* synthesis lut_function=(A (B)) */ ;
-    defparam i1_2_lut_adj_54.init = 16'h8888;
-    LUT4 i1_2_lut_adj_55 (.A(led_c), .B(n3272), .Z(led_N_259)) /* synthesis lut_function=(!(A (B)+!A !(B))) */ ;
-    defparam i1_2_lut_adj_55.init = 16'h6666;
-    LUT4 i1578_4_lut (.A(count1[23]), .B(count1[24]), .C(n3319), .D(count1[22]), 
-         .Z(n3272)) /* synthesis lut_function=(A (B)+!A (B (C+(D)))) */ ;
-    defparam i1578_4_lut.init = 16'hccc8;
-    CCU2D count1_440_add_4_13 (.A0(count1[11]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count1[12]), .B1(GND_net), .C1(GND_net), 
-          .D1(GND_net), .CIN(n3302), .COUT(n3303), .S0(n119), .S1(n118));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440_add_4_13.INIT0 = 16'hfaaa;
-    defparam count1_440_add_4_13.INIT1 = 16'hfaaa;
-    defparam count1_440_add_4_13.INJECT1_0 = "NO";
-    defparam count1_440_add_4_13.INJECT1_1 = "NO";
-    FD1P3IX MBR_i0_i19 (.D(data_out_23__N_500[19]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[19]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i19.GSR = "DISABLED";
-    LUT4 i2_4_lut (.A(count1[21]), .B(n5), .C(count1[20]), .D(n6_adj_622), 
-         .Z(n3319)) /* synthesis lut_function=(A (B (C)+!B (C (D)))) */ ;
-    defparam i2_4_lut.init = 16'ha080;
-    LUT4 i1_4_lut (.A(count1[15]), .B(count1[19]), .C(count1[16]), .D(n4), 
-         .Z(n5)) /* synthesis lut_function=(A (B+(C))+!A (B+(C (D)))) */ ;
-    defparam i1_4_lut.init = 16'hfcec;
-    LUT4 i1556_2_lut_3_lut_4_lut (.A(global_state[0]), .B(stop_run_c), .C(global_state[1]), 
-         .D(reset_c), .Z(n3248)) /* synthesis lut_function=(A+(B+(C+(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1556_2_lut_3_lut_4_lut.init = 16'hfffe;
-    LUT4 i1252_2_lut_3_lut (.A(global_state[0]), .B(stop_run_c), .C(global_state[1]), 
-         .Z(n2934)) /* synthesis lut_function=(!(A+(B+!(C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1252_2_lut_3_lut.init = 16'h1010;
-    LUT4 i1781_2_lut_rep_101_3_lut (.A(global_state[0]), .B(stop_run_c), 
-         .C(reset_c), .Z(led_c_enable_64)) /* synthesis lut_function=(!(A+(B+(C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1781_2_lut_rep_101_3_lut.init = 16'h0101;
-    LUT4 i934_3_lut_4_lut (.A(ce[3]), .B(temp_control[1]), .C(temp_control[2]), 
-         .D(de[0]), .Z(n2611)) /* synthesis lut_function=(A ((D)+!C)+!A (B (C (D))+!B ((D)+!C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam i934_3_lut_4_lut.init = 16'hfb0b;
-    LUT4 i1033_3_lut_4_lut (.A(ce[3]), .B(temp_control[1]), .C(temp_control[2]), 
-         .D(de[3]), .Z(n2713)) /* synthesis lut_function=(A ((D)+!C)+!A (B (C (D))+!B ((D)+!C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(176[4] 193[13])
-    defparam i1033_3_lut_4_lut.init = 16'hfb0b;
-    LUT4 i807_1_lut_rep_104 (.A(global_state[1]), .Z(n3604)) /* synthesis lut_function=(!(A)) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(134[4] 165[13])
-    defparam i807_1_lut_rep_104.init = 16'h5555;
-    LUT4 i1402_2_lut_2_lut (.A(global_state[1]), .B(global_state[0]), .Z(global_state_1__N_90[1])) /* synthesis lut_function=(!(A+!(B))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(134[4] 165[13])
-    defparam i1402_2_lut_2_lut.init = 16'h4444;
-    LUT4 i203_1_lut_rep_105 (.A(reset_c), .Z(clk_enable_43)) /* synthesis lut_function=(!(A)) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i203_1_lut_rep_105.init = 16'h5555;
-    LUT4 i1486_2_lut_3_lut_4_lut_4_lut (.A(reset_c), .B(n3568), .C(n3580), 
-         .D(bcd_out_15__N_463), .Z(n3173)) /* synthesis lut_function=(!(A+((C (D)+!C !(D))+!B))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1486_2_lut_3_lut_4_lut_4_lut.init = 16'h0440;
-    FD1P3IX IR_i0_i18 (.D(MBR[17]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_17));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i18.GSR = "DISABLED";
-    LUT4 i1509_2_lut_rep_81_3_lut_4_lut_4_lut (.A(reset_c), .B(n3599), .C(n3588), 
-         .D(bcd_out_15__N_437), .Z(n3581)) /* synthesis lut_function=(!(A+!(B (C+(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1509_2_lut_rep_81_3_lut_4_lut_4_lut.init = 16'h4440;
-    LUT4 i1501_2_lut_rep_64_3_lut_3_lut (.A(reset_c), .B(n3583), .C(Q[1]), 
-         .Z(n3564)) /* synthesis lut_function=(!(A+(B (C)+!B !(C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1501_2_lut_rep_64_3_lut_3_lut.init = 16'h1414;
-    CCU2D count1_440_add_4_11 (.A0(count1[9]), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count1[10]), .B1(GND_net), .C1(GND_net), 
-          .D1(GND_net), .CIN(n3301), .COUT(n3302), .S0(n121), .S1(n120));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440_add_4_11.INIT0 = 16'hfaaa;
-    defparam count1_440_add_4_11.INIT1 = 16'hfaaa;
-    defparam count1_440_add_4_11.INJECT1_0 = "NO";
-    defparam count1_440_add_4_11.INJECT1_1 = "NO";
-    LUT4 i1502_2_lut_rep_66_4_lut_4_lut (.A(reset_c), .B(Q[1]), .C(n3583), 
-         .D(n3585), .Z(n3566)) /* synthesis lut_function=(!(A+!(B (D)+!B !(C (D)+!C !(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1502_2_lut_rep_66_4_lut_4_lut.init = 16'h4510;
-    CCU2D count1_440_add_4_9 (.A0(n18_adj_621), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(count1[8]), .B1(GND_net), .C1(GND_net), 
-          .D1(GND_net), .CIN(n3300), .COUT(n3301), .S0(n123), .S1(n122));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440_add_4_9.INIT0 = 16'hfaaa;
-    defparam count1_440_add_4_9.INIT1 = 16'hfaaa;
-    defparam count1_440_add_4_9.INJECT1_0 = "NO";
-    defparam count1_440_add_4_9.INJECT1_1 = "NO";
-    CCU2D count1_440_add_4_7 (.A0(n20), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
-          .A1(n19), .B1(GND_net), .C1(GND_net), .D1(GND_net), .CIN(n3299), 
-          .COUT(n3300), .S0(n125), .S1(n124));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440_add_4_7.INIT0 = 16'hfaaa;
-    defparam count1_440_add_4_7.INIT1 = 16'hfaaa;
-    defparam count1_440_add_4_7.INJECT1_0 = "NO";
-    defparam count1_440_add_4_7.INJECT1_1 = "NO";
-    FD1P3IX IR_i0_i19 (.D(MBR[18]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_18));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i19.GSR = "DISABLED";
-    FD1P3IX IR_i0_i20 (.D(MBR[19]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_19));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i20.GSR = "DISABLED";
-    FD1P3IX IR_i0_i21 (.D(MBR[20]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_20));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i21.GSR = "DISABLED";
-    LUT4 n1536_bdd_4_lut_4_lut_4_lut (.A(reset_c), .B(n3572), .C(Q[0]), 
-         .D(n3573), .Z(n3555)) /* synthesis lut_function=(A+!(B (C+!(D))+!B !((D)+!C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam n1536_bdd_4_lut_4_lut_4_lut.init = 16'hbfab;
-    FD1P3IX IR_i0_i22 (.D(MBR[21]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_21));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i22.GSR = "DISABLED";
-    LUT4 i1528_3_lut_4_lut_4_lut (.A(reset_c), .B(n3569), .C(n3576), .D(bcd_out_15__N_459), 
-         .Z(n2791)) /* synthesis lut_function=(!(A+!(B+!(C (D)+!C !(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1528_3_lut_4_lut_4_lut.init = 16'h4554;
-    FD1P3IX IR_i0_i23 (.D(MBR[22]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_22));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i23.GSR = "DISABLED";
-    CCU2D count1_440_add_4_5 (.A0(n22), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
-          .A1(n21), .B1(GND_net), .C1(GND_net), .D1(GND_net), .CIN(n3298), 
-          .COUT(n3299), .S0(n127), .S1(n126));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440_add_4_5.INIT0 = 16'hfaaa;
-    defparam count1_440_add_4_5.INIT1 = 16'hfaaa;
-    defparam count1_440_add_4_5.INJECT1_0 = "NO";
-    defparam count1_440_add_4_5.INJECT1_1 = "NO";
-    LUT4 i1504_2_lut_rep_60_4_lut_4_lut_4_lut (.A(reset_c), .B(bcd_out_15__N_483), 
-         .C(bcd_out_15__N_479), .D(n3582), .Z(n3560)) /* synthesis lut_function=(!(A+(B (C (D)+!C !(D))+!B !(C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1504_2_lut_rep_60_4_lut_4_lut_4_lut.init = 16'h1450;
-    FD1P3IX MBR_i0_i16 (.D(data_out_23__N_500[16]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[16]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i16.GSR = "DISABLED";
-    LUT4 i1758_2_lut_3_lut_3_lut_4_lut_4_lut_4_lut (.A(reset_c), .B(bcd_out_15__N_483), 
-         .C(n3578), .D(n3573), .Z(n2662)) /* synthesis lut_function=(A+!(B (C (D))+!B !(C+!(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1758_2_lut_3_lut_3_lut_4_lut_4_lut_4_lut.init = 16'hbeff;
-    FD1P3IX IR_i0_i24 (.D(MBR[23]), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(CI_c_23));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i24.GSR = "DISABLED";
-    FD1P3AX display_i0_i2 (.D(n6_adj_623), .SP(clk_0_enable_11), .CK(clk_0), 
-            .Q(display_c_1));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(173[3] 195[10])
+    FD1P3AX instruction__i2 (.D(n10355), .SP(clk_1_enable_56), .CK(clk_1), 
+            .Q(instruction[2]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam instruction__i2.GSR = "DISABLED";
+    FD1P3AX instruction__i1 (.D(n10353), .SP(clk_1_enable_56), .CK(clk_1), 
+            .Q(instruction[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam instruction__i1.GSR = "DISABLED";
+    FD1P3AX MAR__i7 (.D(PC[7]), .SP(clk_1_enable_63), .CK(clk_1), .Q(MAR[7])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MAR__i7.GSR = "ENABLED";
+    FD1P3AX MAR__i6 (.D(PC[6]), .SP(clk_1_enable_63), .CK(clk_1), .Q(MAR[6])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MAR__i6.GSR = "ENABLED";
+    FD1P3AX MAR__i5 (.D(PC[5]), .SP(clk_1_enable_63), .CK(clk_1), .Q(MAR[5])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MAR__i5.GSR = "ENABLED";
+    FD1P3AX MAR__i4 (.D(PC[4]), .SP(clk_1_enable_63), .CK(clk_1), .Q(MAR[4])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MAR__i4.GSR = "ENABLED";
+    FD1P3AX MAR__i3 (.D(PC[3]), .SP(clk_1_enable_63), .CK(clk_1), .Q(MAR[3])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MAR__i3.GSR = "ENABLED";
+    FD1P3AX MAR__i2 (.D(PC[2]), .SP(clk_1_enable_63), .CK(clk_1), .Q(MAR[2])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MAR__i2.GSR = "ENABLED";
+    FD1P3AX MAR__i1 (.D(PC[1]), .SP(clk_1_enable_63), .CK(clk_1), .Q(MAR[1])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam MAR__i1.GSR = "ENABLED";
+    FD1P3AX Rdisplay__i13 (.D(IR[13]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[13]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i13.GSR = "DISABLED";
+    FD1P3AX Rdisplay__i12 (.D(IR[12]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[12]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i12.GSR = "DISABLED";
+    FD1P3AX Rdisplay__i11 (.D(IR[11]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[11]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i11.GSR = "DISABLED";
+    FD1P3AX Rdisplay__i10 (.D(IR[10]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[10]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i10.GSR = "DISABLED";
+    FD1P3AX Rdisplay__i9 (.D(IR[9]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[9]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i9.GSR = "DISABLED";
+    FD1P3AX Rdisplay__i8 (.D(IR[8]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[8]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i8.GSR = "DISABLED";
+    FD1P3AX Rdisplay__i7 (.D(IR[7]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[7]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i7.GSR = "DISABLED";
+    FD1P3AX Rdisplay__i6 (.D(IR[6]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[6]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i6.GSR = "DISABLED";
+    FD1P3AX Rdisplay__i5 (.D(IR[5]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[5]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i5.GSR = "DISABLED";
+    FD1P3AX Rdisplay__i4 (.D(IR[4]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[4]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i4.GSR = "DISABLED";
+    FD1P3AX Rdisplay__i3 (.D(IR[3]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[3]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i3.GSR = "DISABLED";
+    FD1P3AX Rdisplay__i2 (.D(IR[2]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[2]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i2.GSR = "DISABLED";
+    FD1P3AX Rdisplay__i1 (.D(IR[1]), .SP(clk_1_enable_76), .CK(clk_1), 
+            .Q(Q[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam Rdisplay__i1.GSR = "DISABLED";
+    FD1P3IX count1_585__i4 (.D(n111), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(n18)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i4.GSR = "DISABLED";
+    OB display_pad_2 (.I(display_c_2), .O(display[2]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(14[2:9])
+    OB display_pad_1 (.I(display_c_1), .O(display[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(14[2:9])
+    OB display_pad_0 (.I(display_c_0), .O(display[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(14[2:9])
+    OB sel_pad_3 (.I(sel_c_3), .O(sel[3]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(15[2:5])
+    OB sel_pad_2 (.I(sel_c_2), .O(sel[2]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(15[2:5])
+    OB sel_pad_1 (.I(sel_c_1), .O(sel[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(15[2:5])
+    OB sel_pad_0 (.I(sel_c_0), .O(sel[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(15[2:5])
+    OBZ CI_pad_23 (.I(data_out_23__N_516[23]), .T(n3175), .O(CI[23]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    FD1P3IX count1_585__i5 (.D(n110), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(n17)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i5.GSR = "DISABLED";
+    OBZ CI_pad_22 (.I(data_out_23__N_516[22]), .T(n3175), .O(CI[22]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    FD1P3IX count_583__i0 (.D(n95), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(n18_adj_645)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i0.GSR = "DISABLED";
+    OBZ CI_pad_21 (.I(data_out_23__N_516[21]), .T(n3175), .O(CI[21]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    FD1P3IX count1_585__i6 (.D(n109), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[6])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i6.GSR = "DISABLED";
+    OBZ CI_pad_20 (.I(data_out_23__N_516[20]), .T(n3175), .O(CI[20]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    FD1P3IX count1_585__i7 (.D(n108), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[7])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i7.GSR = "DISABLED";
+    OBZ CI_pad_19 (.I(data_out_23__N_516[19]), .T(n3175), .O(CI[19]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    FD1P3IX count1_585__i8 (.D(n107), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[8])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i8.GSR = "DISABLED";
+    OBZ CI_pad_18 (.I(data_out_23__N_516[18]), .T(n3175), .O(CI[18]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    FD1P3IX count1_585__i9 (.D(n106), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[9])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i9.GSR = "DISABLED";
+    OBZ CI_pad_17 (.I(data_out_23__N_516[17]), .T(n3175), .O(CI[17]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    FD1P3IX count1_585__i10 (.D(n105), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[10])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i10.GSR = "DISABLED";
+    OBZ CI_pad_16 (.I(data_out_23__N_516[16]), .T(n3175), .O(CI[16]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    FD1P3IX count1_585__i11 (.D(n104), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[11])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i11.GSR = "DISABLED";
+    OBZ CI_pad_15 (.I(data_out_23__N_516[15]), .T(n3175), .O(CI[15]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    FD1P3IX count1_585__i12 (.D(n103), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[12])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i12.GSR = "DISABLED";
+    OBZ CI_pad_14 (.I(data_out_23__N_516[14]), .T(n3175), .O(CI[14]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    FD1P3IX count1_585__i13 (.D(n102), .SP(clk_enable_40), .CD(n3865), 
+            .CK(clk), .Q(count1[13])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585__i13.GSR = "DISABLED";
+    OBZ CI_pad_13 (.I(data_out_23__N_516[13]), .T(n3175), .O(CI[13]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    OBZ CI_pad_12 (.I(data_out_23__N_516[12]), .T(n3175), .O(CI[12]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    GSR GSR_INST (.GSR(clk_enable_40));
+    OBZ CI_pad_11 (.I(data_out_23__N_516[11]), .T(n3175), .O(CI[11]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    OBZ CI_pad_10 (.I(data_out_23__N_516[10]), .T(n3175), .O(CI[10]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    OBZ CI_pad_9 (.I(data_out_23__N_516[9]), .T(n3175), .O(CI[9]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    OBZ CI_pad_8 (.I(data_out_23__N_516[8]), .T(n3175), .O(CI[8]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    OBZ CI_pad_7 (.I(data_out_23__N_516[7]), .T(n3175), .O(CI[7]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    OBZ CI_pad_6 (.I(data_out_23__N_516[6]), .T(n3175), .O(CI[6]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    OBZ CI_pad_5 (.I(data_out_23__N_516[5]), .T(n3175), .O(CI[5]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    OBZ CI_pad_4 (.I(data_out_23__N_516[4]), .T(n3175), .O(CI[4]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    OBZ CI_pad_3 (.I(data_out_23__N_516[3]), .T(n3175), .O(CI[3]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    OBZ CI_pad_2 (.I(data_out_23__N_516[2]), .T(n3175), .O(CI[2]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    OBZ CI_pad_1 (.I(data_out_23__N_516[1]), .T(n3175), .O(CI[1]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    OBZ CI_pad_0 (.I(data_out_23__N_516[0]), .T(n3175), .O(CI[0]));   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    IB reset_pad (.I(reset), .O(reset_c));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    IB stop_run_pad (.I(stop_run), .O(stop_run_c));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(13[2:10])
+    FD1P3AX PC_586__i1 (.D(n44), .SP(clk_1_enable_83), .CK(clk_1), .Q(PC[1])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam PC_586__i1.GSR = "ENABLED";
+    FD1P3AX PC_586__i2 (.D(n43), .SP(clk_1_enable_83), .CK(clk_1), .Q(PC[2])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam PC_586__i2.GSR = "ENABLED";
+    FD1P3AX PC_586__i3 (.D(n42), .SP(clk_1_enable_83), .CK(clk_1), .Q(PC[3])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam PC_586__i3.GSR = "ENABLED";
+    FD1P3AX PC_586__i4 (.D(n41), .SP(clk_1_enable_83), .CK(clk_1), .Q(PC[4])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam PC_586__i4.GSR = "ENABLED";
+    FD1P3AX PC_586__i5 (.D(n40), .SP(clk_1_enable_83), .CK(clk_1), .Q(PC[5])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam PC_586__i5.GSR = "ENABLED";
+    FD1P3AX PC_586__i6 (.D(n39), .SP(clk_1_enable_83), .CK(clk_1), .Q(PC[6])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam PC_586__i6.GSR = "ENABLED";
+    FD1P3AX PC_586__i7 (.D(n38), .SP(clk_1_enable_83), .CK(clk_1), .Q(PC[7])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam PC_586__i7.GSR = "ENABLED";
+    FD1P3AX display_i0_i2 (.D(n3524), .SP(clk_0_enable_11), .CK(clk_0), 
+            .Q(display_c_1));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(183[3] 205[10])
     defparam display_i0_i2.GSR = "DISABLED";
-    CCU2D count1_440_add_4_3 (.A0(n24), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
-          .A1(n23), .B1(GND_net), .C1(GND_net), .D1(GND_net), .CIN(n3297), 
-          .COUT(n3298), .S0(n129), .S1(n128));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440_add_4_3.INIT0 = 16'hfaaa;
-    defparam count1_440_add_4_3.INIT1 = 16'hfaaa;
-    defparam count1_440_add_4_3.INJECT1_0 = "NO";
-    defparam count1_440_add_4_3.INJECT1_1 = "NO";
-    LUT4 i1792_2_lut_rep_103 (.A(global_state[0]), .B(stop_run_c), .Z(led_c_enable_62)) /* synthesis lut_function=(!(A+(B))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1792_2_lut_rep_103.init = 16'h1111;
-    LUT4 i1525_3_lut_4_lut_4_lut (.A(reset_c), .B(n3572), .C(n3578), .D(bcd_out_15__N_483), 
-         .Z(n2787)) /* synthesis lut_function=(!(A+!(B+!(C (D)+!C !(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1525_3_lut_4_lut_4_lut.init = 16'h4554;
-    FD1P3IX MAR_i0_i7 (.D(bcd_out_15__N_380), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(MAR[7])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MAR_i0_i7.GSR = "DISABLED";
-    FD1P3IX MAR_i0_i6 (.D(bcd_out_15__N_382), .SP(led_c_enable_64), .CD(n3680), 
-            .CK(led_c), .Q(MAR[6])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MAR_i0_i6.GSR = "DISABLED";
-    FD1P3IX MAR_i0_i5 (.D(Q[5]), .SP(led_c_enable_64), .CD(n3680), .CK(led_c), 
-            .Q(MAR[5])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MAR_i0_i5.GSR = "DISABLED";
-    FD1P3IX MAR_i0_i4 (.D(Q[4]), .SP(led_c_enable_64), .CD(n3680), .CK(led_c), 
-            .Q(MAR[4])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MAR_i0_i4.GSR = "DISABLED";
-    LUT4 i1754_2_lut_3_lut_4_lut_4_lut (.A(reset_c), .B(n3562), .C(n3576), 
-         .D(bcd_out_15__N_459), .Z(n2635)) /* synthesis lut_function=(A (B)+!A (B+!(C (D)+!C !(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1754_2_lut_3_lut_4_lut_4_lut.init = 16'hcddc;
-    LUT4 i1745_2_lut_3_lut_3_lut_3_lut_3_lut (.A(reset_c), .B(n3573), .C(Q[0]), 
-         .Z(n3463)) /* synthesis lut_function=(A+(B (C)+!B !(C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1745_2_lut_3_lut_3_lut_3_lut_3_lut.init = 16'hebeb;
-    FD1P3IX MAR_i0_i3 (.D(Q[3]), .SP(led_c_enable_64), .CD(n3680), .CK(led_c), 
-            .Q(MAR[3])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MAR_i0_i3.GSR = "DISABLED";
-    FD1P3IX MAR_i0_i2 (.D(Q[2]), .SP(led_c_enable_64), .CD(n2953), .CK(led_c), 
-            .Q(MAR[2])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MAR_i0_i2.GSR = "DISABLED";
-    FD1P3IX MAR_i0_i1 (.D(Q[1]), .SP(led_c_enable_64), .CD(n2953), .CK(led_c), 
-            .Q(MAR[1])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MAR_i0_i1.GSR = "DISABLED";
-    FD1P3IX count1_440__i20 (.D(n110), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[20])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i20.GSR = "DISABLED";
-    CCU2D count1_440_add_4_1 (.A0(GND_net), .B0(GND_net), .C0(GND_net), 
-          .D0(GND_net), .A1(n25), .B1(GND_net), .C1(GND_net), .D1(GND_net), 
-          .COUT(n3297), .S1(n130));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440_add_4_1.INIT0 = 16'hF000;
-    defparam count1_440_add_4_1.INIT1 = 16'h0555;
-    defparam count1_440_add_4_1.INJECT1_0 = "NO";
-    defparam count1_440_add_4_1.INJECT1_1 = "NO";
-    FD1P3IX count1_440__i21 (.D(n109), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[21])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i21.GSR = "DISABLED";
-    FD1P3IX count1_440__i22 (.D(n108), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[22])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i22.GSR = "DISABLED";
-    LUT4 i1428_2_lut_3_lut_3_lut (.A(reset_c), .B(n2646), .C(Q[0]), .Z(DISPLAY_6__N_493[4])) /* synthesis lut_function=(A (B)+!A !((C)+!B)) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1428_2_lut_3_lut_3_lut.init = 16'h8c8c;
-    LUT4 i1226_1_lut_2_lut_3_lut_4_lut_4_lut (.A(reset_c), .B(n3599), .C(n3588), 
-         .D(bcd_out_15__N_437), .Z(n2913)) /* synthesis lut_function=(A+!(B (C+(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1226_1_lut_2_lut_3_lut_4_lut_4_lut.init = 16'hbbbf;
-    FD1P3IX count1_440__i23 (.D(n107), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[23])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i23.GSR = "DISABLED";
-    FD1P3IX count_438__i17 (.D(n78), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[17])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i17.GSR = "DISABLED";
-    FD1P3IX count1_440__i24 (.D(n106), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[24])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i24.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i21 (.D(data_out_23__N_500[21]), .SP(led_c_enable_64), 
-            .CD(n2953), .CK(led_c), .Q(MBR[21]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i21.GSR = "DISABLED";
-    LUT4 Qbcd_7__bdd_4_lut_1797_4_lut (.A(reset_c), .B(n3569), .C(n3567), 
-         .D(n3568), .Z(n3535)) /* synthesis lut_function=(!(A (B+(C))+!A (B+(C+(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam Qbcd_7__bdd_4_lut_1797_4_lut.init = 16'h0203;
-    FD1P3IX PC__i2 (.D(n188), .SP(led_c_enable_62), .CD(n2934), .CK(led_c), 
-            .Q(Q[1])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam PC__i2.GSR = "ENABLED";
-    LUT4 i2_2_lut (.A(count1[17]), .B(count1[18]), .Z(n6_adj_622)) /* synthesis lut_function=(A+(B)) */ ;
-    defparam i2_2_lut.init = 16'heeee;
-    LUT4 i1484_2_lut_3_lut_4_lut_4_lut (.A(reset_c), .B(Q[1]), .C(n3583), 
-         .D(Q[0]), .Z(n3171)) /* synthesis lut_function=(!(A+(B (C+!(D))+!B !(C (D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1484_2_lut_3_lut_4_lut_4_lut.init = 16'h1400;
-    FD1P3IX PC__i3 (.D(n187), .SP(led_c_enable_62), .CD(n2934), .CK(led_c), 
-            .Q(Q[2])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam PC__i3.GSR = "ENABLED";
-    LUT4 n1536_bdd_4_lut_1801_4_lut (.A(reset_c), .B(n3568), .C(n3569), 
-         .D(n3562), .Z(n3538)) /* synthesis lut_function=(A+!(B (C+(D))+!B (C (D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam n1536_bdd_4_lut_1801_4_lut.init = 16'habbf;
-    LUT4 i1_4_lut_adj_56 (.A(n3321), .B(count1[14]), .C(count1[13]), .D(count1[12]), 
-         .Z(n4)) /* synthesis lut_function=(A (B+(C))+!A (B+(C (D)))) */ ;
-    defparam i1_4_lut_adj_56.init = 16'hfcec;
-    CCU2D add_7_9 (.A0(bcd_out_15__N_380), .B0(GND_net), .C0(GND_net), 
+    FD1P3IX count_583__i17 (.D(n78), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(count[17])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i17.GSR = "DISABLED";
+    FD1P3IX count_583__i16 (.D(n79), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(count[16])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i16.GSR = "DISABLED";
+    FD1P3AX display_i0_i3 (.D(n3526), .SP(clk_0_enable_11), .CK(clk_0), 
+            .Q(display_c_2));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(183[3] 205[10])
+    defparam display_i0_i3.GSR = "DISABLED";
+    FD1P3AX display_i0_i4 (.D(n3528), .SP(clk_0_enable_11), .CK(clk_0), 
+            .Q(display_c_3));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(183[3] 205[10])
+    defparam display_i0_i4.GSR = "DISABLED";
+    FD1P3AX display_i0_i5 (.D(n3530), .SP(clk_0_enable_11), .CK(clk_0), 
+            .Q(display_c_4));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(183[3] 205[10])
+    defparam display_i0_i5.GSR = "DISABLED";
+    FD1P3AX display_i0_i6 (.D(n3532), .SP(clk_0_enable_11), .CK(clk_0), 
+            .Q(display_c_5));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(183[3] 205[10])
+    defparam display_i0_i6.GSR = "DISABLED";
+    FD1P3AX display_i0_i7 (.D(n3534), .SP(clk_0_enable_11), .CK(clk_0), 
+            .Q(display_c_6));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(183[3] 205[10])
+    defparam display_i0_i7.GSR = "DISABLED";
+    FD1P3IX count_583__i15 (.D(n80), .SP(clk_enable_40), .CD(n3888), .CK(clk), 
+            .Q(count[15])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583__i15.GSR = "DISABLED";
+    CCU2D count_583_add_4_9 (.A0(count[7]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(count[8]), .B1(GND_net), .C1(GND_net), .D1(GND_net), 
+          .CIN(n9765), .COUT(n9766), .S0(n88), .S1(n87));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583_add_4_9.INIT0 = 16'hfaaa;
+    defparam count_583_add_4_9.INIT1 = 16'hfaaa;
+    defparam count_583_add_4_9.INJECT1_0 = "NO";
+    defparam count_583_add_4_9.INJECT1_1 = "NO";
+    CCU2D count1_585_add_4_23 (.A0(count1[21]), .B0(GND_net), .C0(GND_net), 
           .D0(GND_net), .A1(GND_net), .B1(GND_net), .C1(GND_net), .D1(GND_net), 
-          .CIN(n3296), .S0(n182));   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_unsi.vhd(118[20:31])
-    defparam add_7_9.INIT0 = 16'h5aaa;
-    defparam add_7_9.INIT1 = 16'h0000;
-    defparam add_7_9.INJECT1_0 = "NO";
-    defparam add_7_9.INJECT1_1 = "NO";
-    FD1P3IX MBR_i0_i17 (.D(data_out_23__N_500[17]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[17]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i17.GSR = "DISABLED";
-    FD1P3IX count_438__i16 (.D(n79), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[16])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i16.GSR = "DISABLED";
-    FD1P3IX count_438__i15 (.D(n80), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[15])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i15.GSR = "DISABLED";
-    CCU2D add_7_7 (.A0(Q[5]), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
-          .A1(bcd_out_15__N_382), .B1(GND_net), .C1(GND_net), .D1(GND_net), 
-          .CIN(n3295), .COUT(n3296), .S0(n184), .S1(n183));   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_unsi.vhd(118[20:31])
-    defparam add_7_7.INIT0 = 16'h5aaa;
-    defparam add_7_7.INIT1 = 16'h5aaa;
-    defparam add_7_7.INJECT1_0 = "NO";
-    defparam add_7_7.INJECT1_1 = "NO";
-    LUT4 i1445_2_lut_rep_100_2_lut (.A(reset_c), .B(Q[0]), .Z(n3600)) /* synthesis lut_function=(!(A+!(B))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1445_2_lut_rep_100_2_lut.init = 16'h4444;
-    CCU2D add_7_5 (.A0(Q[3]), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
-          .A1(Q[4]), .B1(GND_net), .C1(GND_net), .D1(GND_net), .CIN(n3294), 
-          .COUT(n3295), .S0(n186), .S1(n185));   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_unsi.vhd(118[20:31])
-    defparam add_7_5.INIT0 = 16'h5aaa;
-    defparam add_7_5.INIT1 = 16'h5aaa;
-    defparam add_7_5.INJECT1_0 = "NO";
-    defparam add_7_5.INJECT1_1 = "NO";
-    FD1P3IX PC__i4 (.D(n186), .SP(led_c_enable_62), .CD(n2934), .CK(led_c), 
-            .Q(Q[3])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam PC__i4.GSR = "ENABLED";
-    FD1P3IX PC__i5 (.D(n185), .SP(led_c_enable_62), .CD(n2934), .CK(led_c), 
-            .Q(Q[4])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam PC__i5.GSR = "ENABLED";
-    LUT4 Qbcd_7__bdd_4_lut_1800_4_lut (.A(reset_c), .B(n3569), .C(n3562), 
-         .D(n3568), .Z(n3536)) /* synthesis lut_function=(A (C)+!A !(B (D)+!B ((D)+!C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam Qbcd_7__bdd_4_lut_1800_4_lut.init = 16'ha0f4;
-    FD1P3IX PC__i6 (.D(n184), .SP(led_c_enable_62), .CD(n2934), .CK(led_c), 
-            .Q(Q[5])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam PC__i6.GSR = "ENABLED";
-    LUT4 i1747_2_lut_2_lut_3_lut_4_lut_3_lut (.A(reset_c), .B(n3568), .C(n3567), 
-         .Z(n3465)) /* synthesis lut_function=(A+(B (C)+!B !(C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1747_2_lut_2_lut_3_lut_4_lut_3_lut.init = 16'hebeb;
-    FD1P3IX PC__i7 (.D(n183), .SP(led_c_enable_62), .CD(n2934), .CK(led_c), 
-            .Q(bcd_out_15__N_382)) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam PC__i7.GSR = "ENABLED";
-    FD1P3IX PC__i8 (.D(n182), .SP(led_c_enable_62), .CD(n2934), .CK(led_c), 
-            .Q(bcd_out_15__N_380)) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam PC__i8.GSR = "ENABLED";
-    LUT4 i1503_2_lut_rep_58_3_lut_4_lut_4_lut_4_lut (.A(reset_c), .B(bcd_out_15__N_483), 
-         .C(bcd_out_15__N_479), .D(n3582), .Z(n3558)) /* synthesis lut_function=(!(A+(B (D)+!B !(C (D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1503_2_lut_rep_58_3_lut_4_lut_4_lut_4_lut.init = 16'h1044;
-    FD1P3IX count1_440__i4 (.D(n126), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(n21)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i4.GSR = "DISABLED";
-    FD1P3IX count1_440__i5 (.D(n125), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(n20)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i5.GSR = "DISABLED";
-    LUT4 i1505_2_lut_rep_61_3_lut_3_lut (.A(reset_c), .B(n3580), .C(bcd_out_15__N_463), 
-         .Z(n3561)) /* synthesis lut_function=(!(A+(B (C)+!B !(C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1505_2_lut_rep_61_3_lut_3_lut.init = 16'h1414;
-    FD1P3IX count1_440__i6 (.D(n124), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(n19)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i6.GSR = "DISABLED";
-    LUT4 i961_2_lut_3_lut_3_lut_4_lut_4_lut_4_lut (.A(reset_c), .B(Q[1]), 
-         .C(n3583), .D(n3585), .Z(n2639)) /* synthesis lut_function=(A+!(B (C (D))+!B !(C+!(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i961_2_lut_3_lut_3_lut_4_lut_4_lut_4_lut.init = 16'hbeff;
-    FD1P3IX count1_440__i7 (.D(n123), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(n18_adj_621)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i7.GSR = "DISABLED";
-    FD1P3IX count1_440__i8 (.D(n122), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[8])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i8.GSR = "DISABLED";
-    FD1P3IX count1_440__i9 (.D(n121), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[9])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i9.GSR = "DISABLED";
-    FD1P3IX count1_440__i10 (.D(n120), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[10])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i10.GSR = "DISABLED";
-    FD1P3IX count1_440__i11 (.D(n119), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[11])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i11.GSR = "DISABLED";
-    LUT4 i377_1_lut_2_lut_4_lut_4_lut_4_lut (.A(reset_c), .B(bcd_out_15__N_459), 
-         .C(bcd_out_15__N_455), .D(n3579), .Z(DISPLAY_6__N_493_adj_631[4])) /* synthesis lut_function=(A+(B (C (D)+!C !(D))+!B !(C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i377_1_lut_2_lut_4_lut_4_lut_4_lut.init = 16'hebaf;
-    LUT4 i1508_2_lut_rep_57_4_lut_4_lut_4_lut (.A(reset_c), .B(bcd_out_15__N_459), 
-         .C(bcd_out_15__N_455), .D(n3579), .Z(n3557)) /* synthesis lut_function=(!(A+(B (C (D)+!C !(D))+!B !(C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1508_2_lut_rep_57_4_lut_4_lut_4_lut.init = 16'h1450;
+          .CIN(n9757), .S0(n94_adj_648));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585_add_4_23.INIT0 = 16'hfaaa;
+    defparam count1_585_add_4_23.INIT1 = 16'h0000;
+    defparam count1_585_add_4_23.INJECT1_0 = "NO";
+    defparam count1_585_add_4_23.INJECT1_1 = "NO";
+    CCU2D count1_585_add_4_21 (.A0(count1[19]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(count1[20]), .B1(GND_net), .C1(GND_net), 
+          .D1(GND_net), .CIN(n9756), .COUT(n9757), .S0(n96), .S1(n95_adj_647));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585_add_4_21.INIT0 = 16'hfaaa;
+    defparam count1_585_add_4_21.INIT1 = 16'hfaaa;
+    defparam count1_585_add_4_21.INJECT1_0 = "NO";
+    defparam count1_585_add_4_21.INJECT1_1 = "NO";
+    CCU2D count_583_add_4_7 (.A0(count[5]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(count[6]), .B1(GND_net), .C1(GND_net), .D1(GND_net), 
+          .CIN(n9764), .COUT(n9765), .S0(n90), .S1(n89));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583_add_4_7.INIT0 = 16'hfaaa;
+    defparam count_583_add_4_7.INIT1 = 16'hfaaa;
+    defparam count_583_add_4_7.INJECT1_0 = "NO";
+    defparam count_583_add_4_7.INJECT1_1 = "NO";
+    CCU2D count1_585_add_4_19 (.A0(count1[17]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(count1[18]), .B1(GND_net), .C1(GND_net), 
+          .D1(GND_net), .CIN(n9755), .COUT(n9756), .S0(n98), .S1(n97));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585_add_4_19.INIT0 = 16'hfaaa;
+    defparam count1_585_add_4_19.INIT1 = 16'hfaaa;
+    defparam count1_585_add_4_19.INJECT1_0 = "NO";
+    defparam count1_585_add_4_19.INJECT1_1 = "NO";
+    CCU2D count_583_add_4_5 (.A0(n15), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
+          .A1(n14), .B1(GND_net), .C1(GND_net), .D1(GND_net), .CIN(n9763), 
+          .COUT(n9764), .S0(n92), .S1(n91));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583_add_4_5.INIT0 = 16'hfaaa;
+    defparam count_583_add_4_5.INIT1 = 16'hfaaa;
+    defparam count_583_add_4_5.INJECT1_0 = "NO";
+    defparam count_583_add_4_5.INJECT1_1 = "NO";
+    CCU2D count1_585_add_4_17 (.A0(count1[15]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(count1[16]), .B1(GND_net), .C1(GND_net), 
+          .D1(GND_net), .CIN(n9754), .COUT(n9755), .S0(n100), .S1(n99));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585_add_4_17.INIT0 = 16'hfaaa;
+    defparam count1_585_add_4_17.INIT1 = 16'hfaaa;
+    defparam count1_585_add_4_17.INJECT1_0 = "NO";
+    defparam count1_585_add_4_17.INJECT1_1 = "NO";
+    CCU2D count_583_add_4_3 (.A0(n17_adj_646), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(n16), .B1(GND_net), .C1(GND_net), .D1(GND_net), 
+          .CIN(n9762), .COUT(n9763), .S0(n94), .S1(n93));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583_add_4_3.INIT0 = 16'hfaaa;
+    defparam count_583_add_4_3.INIT1 = 16'hfaaa;
+    defparam count_583_add_4_3.INJECT1_0 = "NO";
+    defparam count_583_add_4_3.INJECT1_1 = "NO";
+    LUT4 i8509_2_lut (.A(n1337), .B(reset_c), .Z(clk_0_enable_11)) /* synthesis lut_function=(!(A+(B))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(183[3] 205[10])
+    defparam i8509_2_lut.init = 16'h1111;
+    LUT4 reduce_or_146_i1_2_lut (.A(n977), .B(n986), .Z(n1014)) /* synthesis lut_function=(A+(B)) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(127[4] 175[13])
+    defparam reduce_or_146_i1_2_lut.init = 16'heeee;
+    CCU2D count1_585_add_4_15 (.A0(count1[13]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(count1[14]), .B1(GND_net), .C1(GND_net), 
+          .D1(GND_net), .CIN(n9753), .COUT(n9754), .S0(n102), .S1(n101));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585_add_4_15.INIT0 = 16'hfaaa;
+    defparam count1_585_add_4_15.INIT1 = 16'hfaaa;
+    defparam count1_585_add_4_15.INJECT1_0 = "NO";
+    defparam count1_585_add_4_15.INJECT1_1 = "NO";
+    CCU2D count1_585_add_4_3 (.A0(n21), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
+          .A1(n20), .B1(GND_net), .C1(GND_net), .D1(GND_net), .CIN(n9747), 
+          .COUT(n9748), .S0(n114), .S1(n113));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585_add_4_3.INIT0 = 16'hfaaa;
+    defparam count1_585_add_4_3.INIT1 = 16'hfaaa;
+    defparam count1_585_add_4_3.INJECT1_0 = "NO";
+    defparam count1_585_add_4_3.INJECT1_1 = "NO";
+    LUT4 n10126_bdd_4_lut_8561 (.A(IR[18]), .B(IR[19]), .C(IR[21]), .D(IR[20]), 
+         .Z(n10352)) /* synthesis lut_function=(!((B (C+!(D))+!B ((D)+!C))+!A)) */ ;
+    defparam n10126_bdd_4_lut_8561.init = 16'h0820;
+    CCU2D count_583_add_4_1 (.A0(GND_net), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(n18_adj_645), .B1(GND_net), .C1(GND_net), 
+          .D1(GND_net), .COUT(n9762), .S1(n95));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583_add_4_1.INIT0 = 16'hF000;
+    defparam count_583_add_4_1.INIT1 = 16'h0555;
+    defparam count_583_add_4_1.INJECT1_0 = "NO";
+    defparam count_583_add_4_1.INJECT1_1 = "NO";
+    LUT4 i1_2_lut (.A(stop_run_c), .B(n985), .Z(clk_1_enable_63)) /* synthesis lut_function=(!(A+!(B))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(13[2:10])
+    defparam i1_2_lut.init = 16'h4444;
+    LUT4 n10126_bdd_4_lut (.A(IR[19]), .B(IR[20]), .C(IR[21]), .D(IR[18]), 
+         .Z(n10354)) /* synthesis lut_function=(A ((C+!(D))+!B)+!A (B+!(C+(D)))) */ ;
+    defparam n10126_bdd_4_lut.init = 16'he6ef;
+    LUT4 bcd_out_15__N_507_bdd_4_lut_4_lut_then_3_lut (.A(reset_c), .B(Q[1]), 
+         .C(bcd_out_15__N_499), .Z(n10506)) /* synthesis lut_function=(A+(B+!(C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam bcd_out_15__N_507_bdd_4_lut_4_lut_then_3_lut.init = 16'hefef;
+    LUT4 bcd_out_15__N_507_bdd_4_lut_4_lut_else_3_lut (.A(reset_c), .B(Q[1]), 
+         .C(bcd_out_15__N_499), .D(bcd_out_15__N_495), .Z(n10505)) /* synthesis lut_function=(A+((C+(D))+!B)) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam bcd_out_15__N_507_bdd_4_lut_4_lut_else_3_lut.init = 16'hfffb;
+    LUT4 mux_1621_i3_then_4_lut (.A(n2069), .B(n2123), .C(bcd_out_15__N_327), 
+         .D(n10436), .Z(n10513)) /* synthesis lut_function=(A (B (C (D))+!B !(C))+!A !(B+(C))) */ ;
+    defparam mux_1621_i3_then_4_lut.init = 16'h8303;
+    LUT4 mux_1621_i3_else_4_lut (.A(n2119), .B(n2069), .C(bcd_out_15__N_327), 
+         .D(n10436), .Z(n10512)) /* synthesis lut_function=(A (B (C+(D)))) */ ;
+    defparam mux_1621_i3_else_4_lut.init = 16'h8880;
+    LUT4 mux_1623_i3_then_4_lut (.A(n2097), .B(Q[13]), .C(Q[11]), .D(Q[10]), 
+         .Z(n10519)) /* synthesis lut_function=(A (B (C (D))+!B (C+(D)))) */ ;
+    defparam mux_1623_i3_then_4_lut.init = 16'ha220;
+    LUT4 i1664_3_lut (.A(de[0]), .B(un[0]), .C(temp_control[3]), .Z(n3336)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam i1664_3_lut.init = 16'hcaca;
+    LUT4 mux_519_i1_3_lut (.A(mi[0]), .B(ce[0]), .C(temp_control[1]), 
+         .Z(n1987)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam mux_519_i1_3_lut.init = 16'hcaca;
+    LUT4 i1843_3_lut (.A(de[6]), .B(un[6]), .C(temp_control[3]), .Z(n3533)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam i1843_3_lut.init = 16'hcaca;
+    LUT4 mux_519_i7_3_lut (.A(mi[6]), .B(ce[6]), .C(temp_control[1]), 
+         .Z(n1981)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam mux_519_i7_3_lut.init = 16'hcaca;
+    LUT4 i1841_3_lut (.A(de[5]), .B(un[5]), .C(temp_control[3]), .Z(n3531)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam i1841_3_lut.init = 16'hcaca;
+    LUT4 mux_519_i6_3_lut (.A(mi[5]), .B(ce[5]), .C(temp_control[1]), 
+         .Z(n1982)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam mux_519_i6_3_lut.init = 16'hcaca;
+    LUT4 i1839_3_lut (.A(de[4]), .B(un[4]), .C(temp_control[3]), .Z(n3529)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam i1839_3_lut.init = 16'hcaca;
+    LUT4 i1837_3_lut (.A(de[3]), .B(un[3]), .C(temp_control[3]), .Z(n3527)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam i1837_3_lut.init = 16'hcaca;
+    LUT4 mux_519_i4_3_lut (.A(mi[3]), .B(ce[3]), .C(temp_control[1]), 
+         .Z(n1984)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam mux_519_i4_3_lut.init = 16'hcaca;
+    LUT4 i1835_3_lut (.A(de[2]), .B(un[2]), .C(temp_control[3]), .Z(n3525)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam i1835_3_lut.init = 16'hcaca;
+    LUT4 mux_519_i3_3_lut (.A(mi[2]), .B(ce[2]), .C(temp_control[1]), 
+         .Z(n1985)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam mux_519_i3_3_lut.init = 16'hcaca;
+    LUT4 i1833_3_lut (.A(de[1]), .B(un[1]), .C(temp_control[3]), .Z(n3523)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam i1833_3_lut.init = 16'hcaca;
+    LUT4 mux_519_i2_3_lut (.A(mi[1]), .B(ce[1]), .C(temp_control[1]), 
+         .Z(n1986)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam mux_519_i2_3_lut.init = 16'hcaca;
+    PFUMX i8527 (.BLUT(n10302), .ALUT(n10301), .C0(n2097), .Z(bcd_out_15__N_299));
+    LUT4 bcd_out_15__N_284_3__bdd_4_lut (.A(n10477), .B(bcd_out_15__N_289), 
+         .C(bcd_out_15__N_298), .D(n10475), .Z(n10295)) /* synthesis lut_function=(!(A (B (C (D))+!B !(C (D)))+!A (B (C+(D))+!B !(C+(D))))) */ ;
+    defparam bcd_out_15__N_284_3__bdd_4_lut.init = 16'h399c;
+    LUT4 i2_4_lut (.A(n23), .B(bcd_out_15__N_298), .C(n10475), .D(n10477), 
+         .Z(bcd_out_15__N_332)) /* synthesis lut_function=(!(A (B (D)+!B !(D))+!A (B (C (D)+!C !(D))+!B !(C (D)+!C !(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2_4_lut.init = 16'h36c9;
+    bcdDisplay_U0 millar (.mi({mi}), .clk_0(clk_0), .n3666(n3666), .n10158(n10158), 
+            .n10359(n10359), .n10274(n10274), .n3415(n3415), .n3349(n3349), 
+            .n10357(n10357), .n10312(n10312), .\DISPLAY_6__N_509[6] (DISPLAY_6__N_509_adj_661[6]), 
+            .n10314(n10314), .n10313(n10313), .n2081(n2081), .n10361(n10361), 
+            .reset_c(reset_c), .n10385(n10385), .n10384(n10384));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(111[9:19])
+    CCU2D PC_586_add_4_9 (.A0(n978), .B0(PC[7]), .C0(GND_net), .D0(GND_net), 
+          .A1(GND_net), .B1(GND_net), .C1(GND_net), .D1(GND_net), .CIN(n9761), 
+          .S0(n38));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam PC_586_add_4_9.INIT0 = 16'h5666;
+    defparam PC_586_add_4_9.INIT1 = 16'h0000;
+    defparam PC_586_add_4_9.INJECT1_0 = "NO";
+    defparam PC_586_add_4_9.INJECT1_1 = "NO";
+    CCU2D count1_585_add_4_13 (.A0(count1[11]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(count1[12]), .B1(GND_net), .C1(GND_net), 
+          .D1(GND_net), .CIN(n9752), .COUT(n9753), .S0(n104), .S1(n103));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585_add_4_13.INIT0 = 16'hfaaa;
+    defparam count1_585_add_4_13.INIT1 = 16'hfaaa;
+    defparam count1_585_add_4_13.INJECT1_0 = "NO";
+    defparam count1_585_add_4_13.INJECT1_1 = "NO";
+    CCU2D count1_585_add_4_11 (.A0(count1[9]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(count1[10]), .B1(GND_net), .C1(GND_net), 
+          .D1(GND_net), .CIN(n9751), .COUT(n9752), .S0(n106), .S1(n105));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585_add_4_11.INIT0 = 16'hfaaa;
+    defparam count1_585_add_4_11.INIT1 = 16'hfaaa;
+    defparam count1_585_add_4_11.INJECT1_0 = "NO";
+    defparam count1_585_add_4_11.INJECT1_1 = "NO";
+    CCU2D PC_586_add_4_7 (.A0(n978), .B0(PC[5]), .C0(GND_net), .D0(GND_net), 
+          .A1(n978), .B1(PC[6]), .C1(GND_net), .D1(GND_net), .CIN(n9760), 
+          .COUT(n9761), .S0(n40), .S1(n39));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam PC_586_add_4_7.INIT0 = 16'h5666;
+    defparam PC_586_add_4_7.INIT1 = 16'h5666;
+    defparam PC_586_add_4_7.INJECT1_0 = "NO";
+    defparam PC_586_add_4_7.INJECT1_1 = "NO";
+    CCU2D count1_585_add_4_9 (.A0(count1[7]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(count1[8]), .B1(GND_net), .C1(GND_net), 
+          .D1(GND_net), .CIN(n9750), .COUT(n9751), .S0(n108), .S1(n107));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585_add_4_9.INIT0 = 16'hfaaa;
+    defparam count1_585_add_4_9.INIT1 = 16'hfaaa;
+    defparam count1_585_add_4_9.INJECT1_0 = "NO";
+    defparam count1_585_add_4_9.INJECT1_1 = "NO";
+    CCU2D count1_585_add_4_1 (.A0(GND_net), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(n22), .B1(GND_net), .C1(GND_net), .D1(GND_net), 
+          .COUT(n9747), .S1(n115));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585_add_4_1.INIT0 = 16'hF000;
+    defparam count1_585_add_4_1.INIT1 = 16'h0555;
+    defparam count1_585_add_4_1.INJECT1_0 = "NO";
+    defparam count1_585_add_4_1.INJECT1_1 = "NO";
+    LUT4 n10126_bdd_4_lut_8560 (.A(IR[21]), .B(IR[18]), .C(IR[19]), .D(IR[20]), 
+         .Z(n10308)) /* synthesis lut_function=(A (B+(C+(D)))+!A !(B (C))) */ ;
+    defparam n10126_bdd_4_lut_8560.init = 16'hbfbd;
+    CCU2D PC_586_add_4_5 (.A0(n978), .B0(PC[3]), .C0(GND_net), .D0(GND_net), 
+          .A1(n978), .B1(PC[4]), .C1(GND_net), .D1(GND_net), .CIN(n9759), 
+          .COUT(n9760), .S0(n42), .S1(n41));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam PC_586_add_4_5.INIT0 = 16'h5666;
+    defparam PC_586_add_4_5.INIT1 = 16'h5666;
+    defparam PC_586_add_4_5.INJECT1_0 = "NO";
+    defparam PC_586_add_4_5.INJECT1_1 = "NO";
+    CCU2D count1_585_add_4_7 (.A0(n17), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
+          .A1(count1[6]), .B1(GND_net), .C1(GND_net), .D1(GND_net), 
+          .CIN(n9749), .COUT(n9750), .S0(n110), .S1(n109));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585_add_4_7.INIT0 = 16'hfaaa;
+    defparam count1_585_add_4_7.INIT1 = 16'hfaaa;
+    defparam count1_585_add_4_7.INJECT1_0 = "NO";
+    defparam count1_585_add_4_7.INJECT1_1 = "NO";
+    LUT4 i4_4_lut (.A(instruction[2]), .B(instruction[0]), .C(n978), .D(n6), 
+         .Z(clk_1_enable_76)) /* synthesis lut_function=(!(A+!(B (C (D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i4_4_lut.init = 16'h4000;
+    CCU2D PC_586_add_4_3 (.A0(n978), .B0(PC[1]), .C0(GND_net), .D0(GND_net), 
+          .A1(n978), .B1(PC[2]), .C1(GND_net), .D1(GND_net), .CIN(n9758), 
+          .COUT(n9759), .S0(n44), .S1(n43));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam PC_586_add_4_3.INIT0 = 16'h5666;
+    defparam PC_586_add_4_3.INIT1 = 16'h5666;
+    defparam PC_586_add_4_3.INJECT1_0 = "NO";
+    defparam PC_586_add_4_3.INJECT1_1 = "NO";
+    CCU2D count1_585_add_4_5 (.A0(n19), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
+          .A1(n18), .B1(GND_net), .C1(GND_net), .D1(GND_net), .CIN(n9748), 
+          .COUT(n9749), .S0(n112), .S1(n111));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(224[15:21])
+    defparam count1_585_add_4_5.INIT0 = 16'hfaaa;
+    defparam count1_585_add_4_5.INIT1 = 16'hfaaa;
+    defparam count1_585_add_4_5.INJECT1_0 = "NO";
+    defparam count1_585_add_4_5.INJECT1_1 = "NO";
+    PFUMX i8523 (.BLUT(n10295), .ALUT(n10294), .C0(n23), .Z(bcd_out_15__N_328));
+    bcdDisplay_U2 centenas (.ce({ce}), .clk_0(clk_0), .n3618(n3618), .n10160(n10160), 
+            .n10365(n10365), .n10269(n10269), .n3444(n3444), .n3347(n3347), 
+            .n10356(n10356), .n10321(n10321), .\DISPLAY_6__N_509[6] (DISPLAY_6__N_509_adj_657[6]), 
+            .n10323(n10323), .n10322(n10322), .n10376(n10376), .n10369(n10369), 
+            .reset_c(reset_c), .n10395(n10395), .bcd_out_15__N_446(bcd_out_15__N_446));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(110[11:21])
+    LUT4 i1_2_lut_adj_54 (.A(stop_run_c), .B(n983), .Z(clk_1_enable_54)) /* synthesis lut_function=(!(A+!(B))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(13[2:10])
+    defparam i1_2_lut_adj_54.init = 16'h4444;
+    LUT4 i2_4_lut_adj_55 (.A(bcd_out_15__N_327), .B(n10447), .C(n2069), 
+         .D(n10436), .Z(bcd_out_15__N_378)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B !((D)+!C))+!A !(B ((D)+!C)+!B !((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2_4_lut_adj_55.init = 16'h6696;
+    CCU2D PC_586_add_4_1 (.A0(GND_net), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
+          .A1(n978), .B1(n982), .C1(PC[0]), .D1(GND_net), .COUT(n9758), 
+          .S1(n45));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[3] 176[10])
+    defparam PC_586_add_4_1.INIT0 = 16'hF000;
+    defparam PC_586_add_4_1.INIT1 = 16'h1e1e;
+    defparam PC_586_add_4_1.INJECT1_0 = "NO";
+    defparam PC_586_add_4_1.INJECT1_1 = "NO";
+    LUT4 i269_1_lut_rep_208 (.A(reset_c), .Z(clk_enable_40)) /* synthesis lut_function=(!(A)) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i269_1_lut_rep_208.init = 16'h5555;
+    LUT4 n1434_bdd_4_lut_8544_4_lut (.A(reset_c), .B(n10369), .C(n10371), 
+         .D(n10367), .Z(n10321)) /* synthesis lut_function=(A+!(B (C+(D))+!B (C (D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam n1434_bdd_4_lut_8544_4_lut.init = 16'habbf;
+    LUT4 i5539_2_lut_rep_77_4_lut_4_lut (.A(reset_c), .B(n10375), .C(n2081), 
+         .D(bcd_out_15__N_280), .Z(n10357)) /* synthesis lut_function=(!(A+(B (C (D)+!C !(D))+!B !(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5539_2_lut_rep_77_4_lut_4_lut.init = 16'h1540;
+    LUT4 i5535_2_lut_rep_76_3_lut_4_lut_4_lut_4_lut (.A(reset_c), .B(bcd_out_15__N_442), 
+         .C(n10386), .D(n10387), .Z(n10356)) /* synthesis lut_function=(!(A+(B (D)+!B !(C (D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5535_2_lut_rep_76_3_lut_4_lut_4_lut_4_lut.init = 16'h1044;
+    LUT4 i5536_2_lut_rep_79_4_lut_4_lut_4_lut (.A(reset_c), .B(bcd_out_15__N_442), 
+         .C(n10386), .D(n10387), .Z(n10359)) /* synthesis lut_function=(!(A+(B (C (D)+!C !(D))+!B !(C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5536_2_lut_rep_79_4_lut_4_lut_4_lut.init = 16'h1450;
+    LUT4 i8428_2_lut_2_lut_3_lut_4_lut_3_lut (.A(reset_c), .B(n10369), .C(n10368), 
+         .Z(n10160)) /* synthesis lut_function=(A+(B (C)+!B !(C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i8428_2_lut_2_lut_3_lut_4_lut_3_lut.init = 16'hebeb;
+    LUT4 i5532_2_lut_rep_85_4_lut_4_lut_4_lut (.A(reset_c), .B(bcd_out_15__N_475), 
+         .C(n10396), .D(n10397), .Z(n10365)) /* synthesis lut_function=(!(A+(B (C (D)+!C !(D))+!B !(C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5532_2_lut_rep_85_4_lut_4_lut_4_lut.init = 16'h1450;
+    LUT4 i8498_2_lut_3_lut_4_lut_4_lut (.A(reset_c), .B(n10373), .C(n10389), 
+         .D(bcd_out_15__N_475), .Z(n3334)) /* synthesis lut_function=(A (B)+!A (B+!(C (D)+!C !(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i8498_2_lut_3_lut_4_lut_4_lut.init = 16'hcddc;
+    LUT4 i8426_2_lut_2_lut_3_lut_4_lut_3_lut (.A(reset_c), .B(n10364), .C(n10361), 
+         .Z(n10158)) /* synthesis lut_function=(A+(B (C)+!B !(C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i8426_2_lut_2_lut_3_lut_4_lut_3_lut.init = 16'hebeb;
+    LUT4 i8501_2_lut_3_lut_4_lut_4_lut (.A(reset_c), .B(n10367), .C(n10377), 
+         .D(bcd_out_15__N_442), .Z(n3444)) /* synthesis lut_function=(A (B)+!A (B+!(C (D)+!C !(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i8501_2_lut_3_lut_4_lut_4_lut.init = 16'hcddc;
+    LUT4 i5531_2_lut_rep_80_3_lut_4_lut_4_lut_4_lut (.A(reset_c), .B(bcd_out_15__N_475), 
+         .C(n10396), .D(n10397), .Z(n10360)) /* synthesis lut_function=(!(A+(B (D)+!B !(C (D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5531_2_lut_rep_80_3_lut_4_lut_4_lut_4_lut.init = 16'h1044;
+    LUT4 i5528_2_lut_rep_101_4_lut_4_lut_4_lut (.A(reset_c), .B(bcd_out_15__N_499), 
+         .C(bcd_out_15__N_495), .D(n10405), .Z(n10381)) /* synthesis lut_function=(!(A+(B (C (D)+!C !(D))+!B !(C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5528_2_lut_rep_101_4_lut_4_lut_4_lut.init = 16'h1450;
+    LUT4 i8504_2_lut_3_lut_4_lut_3_lut (.A(reset_c), .B(n10362), .C(n10364), 
+         .Z(n3415)) /* synthesis lut_function=(A+(B+!(C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i8504_2_lut_3_lut_4_lut_3_lut.init = 16'hefef;
+    LUT4 i8490_2_lut_3_lut_4_lut_4_lut (.A(reset_c), .B(n10383), .C(n10400), 
+         .D(bcd_out_15__N_499), .Z(n3357)) /* synthesis lut_function=(A (B)+!A (B+!(C (D)+!C !(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i8490_2_lut_3_lut_4_lut_4_lut.init = 16'hcddc;
+    LUT4 i5592_3_lut_4_lut_4_lut (.A(reset_c), .B(n10371), .C(n10377), 
+         .D(bcd_out_15__N_442), .Z(n3618)) /* synthesis lut_function=(!(A+!(B+!(C (D)+!C !(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5592_3_lut_4_lut_4_lut.init = 16'h4554;
+    LUT4 i5426_3_lut_4_lut_4_lut (.A(reset_c), .B(n10362), .C(n2081), 
+         .D(n10384), .Z(n3666)) /* synthesis lut_function=(!(A+!(B+!(C (D)+!C !(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5426_3_lut_4_lut_4_lut.init = 16'h4554;
+    LUT4 bcd_out_15__N_437_bdd_4_lut_8531_4_lut (.A(reset_c), .B(n10363), 
+         .C(n10364), .D(n10361), .Z(n10313)) /* synthesis lut_function=(!(A (B+(C))+!A (B+(C+(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam bcd_out_15__N_437_bdd_4_lut_8531_4_lut.init = 16'h0203;
+    LUT4 i5525_2_lut_3_lut_3_lut (.A(reset_c), .B(n10406), .C(Q[1]), .Z(Qbcd[1])) /* synthesis lut_function=(!(A+(B (C)+!B !(C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5525_2_lut_3_lut_3_lut.init = 16'h1414;
+    LUT4 i5485_2_lut_3_lut_4_lut_4_lut (.A(reset_c), .B(Q[1]), .C(n10406), 
+         .D(Q[0]), .Z(n7201)) /* synthesis lut_function=(!(A+(B (C+!(D))+!B !(C (D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5485_2_lut_3_lut_4_lut_4_lut.init = 16'h1400;
+    LUT4 i8432_2_lut_2_lut_3_lut_4_lut_3_lut (.A(reset_c), .B(n10398), .C(Q[0]), 
+         .Z(n10164)) /* synthesis lut_function=(A+(B (C)+!B !(C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i8432_2_lut_2_lut_3_lut_4_lut_3_lut.init = 16'hebeb;
+    LUT4 Qbcd_11__bdd_4_lut_8538_4_lut (.A(reset_c), .B(n10371), .C(n10368), 
+         .D(n10369), .Z(n10322)) /* synthesis lut_function=(!(A (B+(C))+!A (B+(C+(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam Qbcd_11__bdd_4_lut_8538_4_lut.init = 16'h0203;
+    LUT4 Qbcd_11__bdd_4_lut_4_lut (.A(reset_c), .B(n10371), .C(n10367), 
+         .D(n10369), .Z(n10323)) /* synthesis lut_function=(A (C)+!A !(B (D)+!B ((D)+!C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam Qbcd_11__bdd_4_lut_4_lut.init = 16'ha0f4;
+    LUT4 i5603_2_lut_3_lut_4_lut_4_lut (.A(reset_c), .B(n10369), .C(n10376), 
+         .D(bcd_out_15__N_446), .Z(n7319)) /* synthesis lut_function=(!(A+((C (D)+!C !(D))+!B))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5603_2_lut_3_lut_4_lut_4_lut.init = 16'h0440;
+    LUT4 i5527_2_lut_rep_94_3_lut_4_lut_4_lut_4_lut (.A(reset_c), .B(bcd_out_15__N_499), 
+         .C(bcd_out_15__N_495), .D(n10405), .Z(n10374)) /* synthesis lut_function=(!(A+(B (D)+!B !(C (D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5527_2_lut_rep_94_3_lut_4_lut_4_lut_4_lut.init = 16'h1044;
+    LUT4 n1434_bdd_4_lut_8551_4_lut (.A(reset_c), .B(n10390), .C(n10380), 
+         .D(n10373), .Z(n10330)) /* synthesis lut_function=(A+!(B (C+(D))+!B (C (D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam n1434_bdd_4_lut_8551_4_lut.init = 16'habbf;
+    LUT4 Qbcd_7__bdd_4_lut_8545_4_lut (.A(reset_c), .B(n10380), .C(n10378), 
+         .D(n10390), .Z(n10331)) /* synthesis lut_function=(!(A (B+(C))+!A (B+(C+(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam Qbcd_7__bdd_4_lut_8545_4_lut.init = 16'h0203;
+    LUT4 Qbcd_7__bdd_4_lut_4_lut (.A(reset_c), .B(n10380), .C(n10373), 
+         .D(n10390), .Z(n10332)) /* synthesis lut_function=(A (C)+!A !(B (D)+!B ((D)+!C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam Qbcd_7__bdd_4_lut_4_lut.init = 16'ha0f4;
+    LUT4 i5529_2_lut_3_lut_3_lut (.A(reset_c), .B(n10388), .C(bcd_out_15__N_479), 
+         .Z(Qbcd[5])) /* synthesis lut_function=(!(A+(B (C)+!B !(C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5529_2_lut_3_lut_3_lut.init = 16'h1414;
+    LUT4 n1434_bdd_4_lut_4_lut (.A(reset_c), .B(Q[0]), .C(n10392), .D(n10383), 
+         .Z(n10341)) /* synthesis lut_function=(A+!(B (C+(D))+!B (C (D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam n1434_bdd_4_lut_4_lut.init = 16'habbf;
+    LUT4 Qbcd_3__bdd_4_lut_8552_4_lut (.A(reset_c), .B(n10392), .C(n10398), 
+         .D(Q[0]), .Z(n10342)) /* synthesis lut_function=(!(A (B+(C))+!A (B+(C+(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam Qbcd_3__bdd_4_lut_8552_4_lut.init = 16'h0203;
+    LUT4 Qbcd_3__bdd_4_lut_4_lut (.A(reset_c), .B(n10392), .C(n10383), 
+         .D(Q[0]), .Z(n10343)) /* synthesis lut_function=(A (C)+!A !(B (D)+!B ((D)+!C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam Qbcd_3__bdd_4_lut_4_lut.init = 16'ha0f4;
+    LUT4 bcd_out_15__N_435_bdd_4_lut_4_lut (.A(reset_c), .B(n10362), .C(n10358), 
+         .D(n10363), .Z(n10274)) /* synthesis lut_function=(A+(B+!(C (D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam bcd_out_15__N_435_bdd_4_lut_4_lut.init = 16'hefff;
+    LUT4 bcd_out_15__N_468_bdd_4_lut_4_lut (.A(reset_c), .B(n10366), .C(n10367), 
+         .D(n10371), .Z(n10269)) /* synthesis lut_function=(A+(B+!(C (D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam bcd_out_15__N_468_bdd_4_lut_4_lut.init = 16'hefff;
+    LUT4 bcd_out_15__N_492_bdd_4_lut_4_lut (.A(reset_c), .B(n10372), .C(n10373), 
+         .D(n10380), .Z(n10263)) /* synthesis lut_function=(A+(B+!(C (D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam bcd_out_15__N_492_bdd_4_lut_4_lut.init = 16'hefff;
+    LUT4 i8430_2_lut_2_lut_3_lut_4_lut_3_lut (.A(reset_c), .B(n10378), .C(n10390), 
+         .Z(n10162)) /* synthesis lut_function=(A+(B (C)+!B !(C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i8430_2_lut_2_lut_3_lut_4_lut_3_lut.init = 16'hebeb;
+    LUT4 n1434_bdd_4_lut_8537_4_lut (.A(reset_c), .B(n10361), .C(n10363), 
+         .D(n10358), .Z(n10312)) /* synthesis lut_function=(A+!(B (C+(D))+!B (C (D)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam n1434_bdd_4_lut_8537_4_lut.init = 16'habbf;
+    LUT4 bcd_out_15__N_437_bdd_4_lut_4_lut (.A(reset_c), .B(n10363), .C(n10358), 
+         .D(n10361), .Z(n10314)) /* synthesis lut_function=(A (C)+!A !(B (D)+!B ((D)+!C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam bcd_out_15__N_437_bdd_4_lut_4_lut.init = 16'ha0f4;
+    LUT4 i5607_2_lut_3_lut_4_lut_4_lut (.A(reset_c), .B(n10361), .C(n2081), 
+         .D(n10384), .Z(n7323)) /* synthesis lut_function=(!(A+((C (D)+!C !(D))+!B))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5607_2_lut_3_lut_4_lut_4_lut.init = 16'h0440;
+    LUT4 i5593_3_lut_4_lut_4_lut (.A(reset_c), .B(n10380), .C(n10389), 
+         .D(bcd_out_15__N_475), .Z(n3625)) /* synthesis lut_function=(!(A+!(B+!(C (D)+!C !(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5593_3_lut_4_lut_4_lut.init = 16'h4554;
+    LUT4 i5533_2_lut_3_lut_3_lut (.A(reset_c), .B(n10376), .C(bcd_out_15__N_446), 
+         .Z(Qbcd[9])) /* synthesis lut_function=(!(A+(B (C)+!B !(C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5533_2_lut_3_lut_3_lut.init = 16'h1414;
+    LUT4 i5601_2_lut_3_lut_4_lut_4_lut (.A(reset_c), .B(bcd_out_15__N_479), 
+         .C(n10388), .D(n10390), .Z(n7317)) /* synthesis lut_function=(!(A+(B (C+!(D))+!B !(C (D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5601_2_lut_3_lut_4_lut_4_lut.init = 16'h1400;
+    LUT4 i5599_3_lut_4_lut_4_lut (.A(reset_c), .B(n10392), .C(n10400), 
+         .D(bcd_out_15__N_499), .Z(n3648)) /* synthesis lut_function=(!(A+!(B+!(C (D)+!C !(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5599_3_lut_4_lut_4_lut.init = 16'h4554;
+    LUT4 i5439_2_lut_rep_206_2_lut (.A(reset_c), .B(Q[0]), .Z(n10486)) /* synthesis lut_function=(!(A+!(B))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5439_2_lut_rep_206_2_lut.init = 16'h4444;
+    LUT4 i5537_2_lut_3_lut_3_lut (.A(reset_c), .B(n2081), .C(n10384), 
+         .Z(Qbcd[13])) /* synthesis lut_function=(!(A+(B (C)+!B !(C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
+    defparam i5537_2_lut_3_lut_3_lut.init = 16'h1414;
+    LUT4 stop_run_I_0_1_lut_rep_209 (.A(stop_run_c), .Z(clk_1_enable_35)) /* synthesis lut_function=(!(A)) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(126[33:45])
+    defparam stop_run_I_0_1_lut_rep_209.init = 16'h5555;
+    LUT4 i1_2_lut_2_lut (.A(stop_run_c), .B(n982), .Z(clk_1_enable_26)) /* synthesis lut_function=(!(A+!(B))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(126[33:45])
+    defparam i1_2_lut_2_lut.init = 16'h4444;
+    LUT4 i1_4_lut_4_lut (.A(stop_run_c), .B(n10138), .C(instruction[2]), 
+         .D(n978), .Z(clk_1_enable_83)) /* synthesis lut_function=(!(A+(B (D)+!B !(C+!(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(126[33:45])
+    defparam i1_4_lut_4_lut.init = 16'h1055;
+    LUT4 n915_bdd_2_lut_3_lut (.A(IR[22]), .B(IR[23]), .C(n10352), .Z(n10353)) /* synthesis lut_function=(!((B+!(C))+!A)) */ ;
+    defparam n915_bdd_2_lut_3_lut.init = 16'h2020;
+    LUT4 n916_bdd_2_lut_3_lut (.A(IR[22]), .B(IR[23]), .C(n10354), .Z(n10355)) /* synthesis lut_function=((B+(C))+!A) */ ;
+    defparam n916_bdd_2_lut_3_lut.init = 16'hfdfd;
+    LUT4 n916_bdd_2_lut_8562_3_lut (.A(IR[22]), .B(IR[23]), .C(n10308), 
+         .Z(n10309)) /* synthesis lut_function=((B+(C))+!A) */ ;
+    defparam n916_bdd_2_lut_8562_3_lut.init = 16'hfdfd;
+    LUT4 i1_2_lut_3_lut (.A(stop_run_c), .B(reset_c), .C(instruction[1]), 
+         .Z(n6)) /* synthesis lut_function=(!(A+(B+!(C)))) */ ;
+    defparam i1_2_lut_3_lut.init = 16'h1010;
+    LUT4 i1_2_lut_3_lut_adj_56 (.A(stop_run_c), .B(reset_c), .C(n980), 
+         .Z(clk_1_enable_56)) /* synthesis lut_function=(!(A+(B+!(C)))) */ ;
+    defparam i1_2_lut_3_lut_adj_56.init = 16'h1010;
+    LUT4 mux_519_i5_3_lut (.A(mi[4]), .B(ce[4]), .C(temp_control[1]), 
+         .Z(n1983)) /* synthesis lut_function=(A (B+!(C))+!A (B (C))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam mux_519_i5_3_lut.init = 16'hcaca;
+    PFUMX i1834 (.BLUT(n1986), .ALUT(n3523), .C0(n10145), .Z(n3524));
+    PFUMX i1836 (.BLUT(n1985), .ALUT(n3525), .C0(n10145), .Z(n3526));
+    LUT4 i8492_2_lut (.A(reset_c), .B(n7374), .Z(n3888)) /* synthesis lut_function=(!(A+!(B))) */ ;
+    defparam i8492_2_lut.init = 16'h4444;
+    LUT4 reduce_or_216_i1_2_lut (.A(temp_control[3]), .B(n1337), .Z(n1353)) /* synthesis lut_function=(A+(B)) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam reduce_or_216_i1_2_lut.init = 16'heeee;
+    LUT4 i8388_2_lut (.A(instruction[0]), .B(instruction[1]), .Z(n10138)) /* synthesis lut_function=(A+(B)) */ ;
+    defparam i8388_2_lut.init = 16'heeee;
+    LUT4 i1_2_lut_adj_57 (.A(clk_0), .B(n7374), .Z(clk_0_N_275)) /* synthesis lut_function=(!(A (B)+!A !(B))) */ ;
+    defparam i1_2_lut_adj_57.init = 16'h6666;
+    LUT4 i8442_2_lut (.A(reset_c), .B(n9784), .Z(n3865)) /* synthesis lut_function=(!(A+!(B))) */ ;
+    defparam i8442_2_lut.init = 16'h4444;
+    LUT4 i5646_4_lut (.A(count[16]), .B(count[17]), .C(n9785), .D(count[15]), 
+         .Z(n7374)) /* synthesis lut_function=(A (B+(C (D)))+!A (B)) */ ;
+    defparam i5646_4_lut.init = 16'heccc;
+    LUT4 i2_4_lut_adj_58 (.A(count1[21]), .B(n7), .C(count1[20]), .D(n8), 
+         .Z(n9784)) /* synthesis lut_function=(A+(B (C+(D))+!B (C))) */ ;
+    defparam i2_4_lut_adj_58.init = 16'hfefa;
+    LUT4 i2_2_lut (.A(count1[17]), .B(count1[18]), .Z(n7)) /* synthesis lut_function=(A (B)) */ ;
+    defparam i2_2_lut.init = 16'h8888;
+    LUT4 i3_4_lut (.A(count1[19]), .B(n7366), .C(count1[16]), .D(count1[15]), 
+         .Z(n8)) /* synthesis lut_function=(A (B (C)+!B (C (D)))) */ ;
+    defparam i3_4_lut.init = 16'ha080;
+    PFUMX i1838 (.BLUT(n1984), .ALUT(n3527), .C0(n10145), .Z(n3528));
+    CCU2D count_583_add_4_19 (.A0(count[17]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(GND_net), .B1(GND_net), .C1(GND_net), .D1(GND_net), 
+          .CIN(n9770), .S0(n78));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583_add_4_19.INIT0 = 16'hfaaa;
+    defparam count_583_add_4_19.INIT1 = 16'h0000;
+    defparam count_583_add_4_19.INJECT1_0 = "NO";
+    defparam count_583_add_4_19.INJECT1_1 = "NO";
+    LUT4 i5638_4_lut (.A(count1[11]), .B(count1[14]), .C(n8_adj_650), 
+         .D(count1[12]), .Z(n7366)) /* synthesis lut_function=(A (B)+!A (B (C+(D)))) */ ;
+    defparam i5638_4_lut.init = 16'hccc8;
+    LUT4 i4_4_lut_adj_59 (.A(count[12]), .B(count[14]), .C(count[13]), 
+         .D(n6_adj_649), .Z(n9785)) /* synthesis lut_function=(A+(B+(C+(D)))) */ ;
+    defparam i4_4_lut_adj_59.init = 16'hfffe;
+    LUT4 i1_4_lut (.A(count[10]), .B(count[11]), .C(n7294), .D(count[9]), 
+         .Z(n6_adj_649)) /* synthesis lut_function=(A (B+(C (D)))+!A (B)) */ ;
+    defparam i1_4_lut.init = 16'heccc;
+    LUT4 i5578_4_lut (.A(count[5]), .B(count[8]), .C(count[7]), .D(count[6]), 
+         .Z(n7294)) /* synthesis lut_function=(A (B+(C))+!A (B+(C (D)))) */ ;
+    defparam i5578_4_lut.init = 16'hfcec;
+    LUT4 i1_2_lut_adj_60 (.A(clk_1), .B(n9784), .Z(clk_1_N_277)) /* synthesis lut_function=(!(A (B)+!A !(B))) */ ;
+    defparam i1_2_lut_adj_60.init = 16'h6666;
+    LUT4 i8515_2_lut (.A(temp_control[3]), .B(temp_control[2]), .Z(n10145)) /* synthesis lut_function=(A+(B)) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(186[4] 203[13])
+    defparam i8515_2_lut.init = 16'heeee;
+    LUT4 i3_4_lut_adj_61 (.A(count1[13]), .B(n9782), .C(count1[10]), .D(count1[9]), 
+         .Z(n8_adj_650)) /* synthesis lut_function=(A+(B (C+(D))+!B (C))) */ ;
+    defparam i3_4_lut_adj_61.init = 16'hfefa;
+    LUT4 i2_3_lut (.A(count1[8]), .B(count1[6]), .C(count1[7]), .Z(n9782)) /* synthesis lut_function=(A+(B+(C))) */ ;
+    defparam i2_3_lut.init = 16'hfefe;
+    PFUMX i1842 (.BLUT(n1982), .ALUT(n3531), .C0(n10145), .Z(n3532));
+    PFUMX i1844 (.BLUT(n1981), .ALUT(n3533), .C0(n10145), .Z(n3534));
+    PFUMX i1665 (.BLUT(n1987), .ALUT(n3336), .C0(n10145), .Z(n3337));
+    PFUMX i8521 (.BLUT(n10292), .ALUT(n10291), .C0(n2069), .Z(bcd_out_15__N_374));
+    CCU2D count_583_add_4_17 (.A0(count[15]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(count[16]), .B1(GND_net), .C1(GND_net), 
+          .D1(GND_net), .CIN(n9769), .COUT(n9770), .S0(n80), .S1(n79));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583_add_4_17.INIT0 = 16'hfaaa;
+    defparam count_583_add_4_17.INIT1 = 16'hfaaa;
+    defparam count_583_add_4_17.INJECT1_0 = "NO";
+    defparam count_583_add_4_17.INJECT1_1 = "NO";
+    CCU2D count_583_add_4_15 (.A0(count[13]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(count[14]), .B1(GND_net), .C1(GND_net), 
+          .D1(GND_net), .CIN(n9768), .COUT(n9769), .S0(n82), .S1(n81));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583_add_4_15.INIT0 = 16'hfaaa;
+    defparam count_583_add_4_15.INIT1 = 16'hfaaa;
+    defparam count_583_add_4_15.INJECT1_0 = "NO";
+    defparam count_583_add_4_15.INJECT1_1 = "NO";
+    PFUMX i8579 (.BLUT(n10350), .ALUT(n10519), .C0(Q[12]), .Z(bcd_out_15__N_289));
+    CCU2D count_583_add_4_13 (.A0(count[11]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(count[12]), .B1(GND_net), .C1(GND_net), 
+          .D1(GND_net), .CIN(n9767), .COUT(n9768), .S0(n84), .S1(n83));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583_add_4_13.INIT0 = 16'hfaaa;
+    defparam count_583_add_4_13.INIT1 = 16'hfaaa;
+    defparam count_583_add_4_13.INJECT1_0 = "NO";
+    defparam count_583_add_4_13.INJECT1_1 = "NO";
+    LUT4 i998_2_lut_rep_167_3_lut (.A(n2123), .B(n10477), .C(bcd_out_15__N_327), 
+         .Z(n10447)) /* synthesis lut_function=(A (B)+!A (B (C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i998_2_lut_rep_167_3_lut.init = 16'hc8c8;
+    bcdDisplay unidades (.un({un}), .clk_0(clk_0), .n3648(n3648), .n10164(n10164), 
+            .n10343(n10343), .n10342(n10342), .n10374(n10374), .n10486(n10486), 
+            .n10507(n10507), .n3357(n3357), .n3489(n3489), .n10341(n10341), 
+            .\DISPLAY_6__N_509[6] (DISPLAY_6__N_509[6]), .n10406(n10406), 
+            .\Q[0] (Q[0]), .reset_c(reset_c), .n10410(n10410), .\Q[1] (Q[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(108[11:21])
+    CCU2D count_583_add_4_11 (.A0(count[9]), .B0(GND_net), .C0(GND_net), 
+          .D0(GND_net), .A1(count[10]), .B1(GND_net), .C1(GND_net), 
+          .D1(GND_net), .CIN(n9766), .COUT(n9767), .S0(n86), .S1(n85));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(217[14:19])
+    defparam count_583_add_4_11.INIT0 = 16'hfaaa;
+    defparam count_583_add_4_11.INIT1 = 16'hfaaa;
+    defparam count_583_add_4_11.INJECT1_0 = "NO";
+    defparam count_583_add_4_11.INJECT1_1 = "NO";
+    PFUMX i8575 (.BLUT(n10512), .ALUT(n10513), .C0(n10477), .Z(bcd_out_15__N_281));
+    LUT4 bcd_out_15__N_307_3__bdd_3_lut_4_lut_3_lut_4_lut (.A(n2119), .B(n2123), 
+         .C(n10477), .D(bcd_out_15__N_327), .Z(n10292)) /* synthesis lut_function=(A (B ((D)+!C)+!B !(C))+!A (B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam bcd_out_15__N_307_3__bdd_3_lut_4_lut_3_lut_4_lut.init = 16'hca0a;
     VLO i1 (.Z(GND_net));
-    LUT4 i1494_4_lut (.A(address_bus[1]), .B(n3679), .C(MAR[1]), .D(n3248), 
-         .Z(address_bus_7__N_80[1])) /* synthesis lut_function=(!(A (B+!(C+(D)))+!A (B+((D)+!C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1494_4_lut.init = 16'h2230;
-    LUT4 i1507_2_lut_rep_56_3_lut_4_lut_4_lut_4_lut (.A(reset_c), .B(bcd_out_15__N_459), 
-         .C(bcd_out_15__N_455), .D(n3579), .Z(n3556)) /* synthesis lut_function=(!(A+(B (D)+!B !(C (D))))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(12[2:7])
-    defparam i1507_2_lut_rep_56_3_lut_4_lut_4_lut_4_lut.init = 16'h1044;
-    LUT4 i2_4_lut_adj_57 (.A(count1[11]), .B(count1[8]), .C(count1[10]), 
-         .D(count1[9]), .Z(n3321)) /* synthesis lut_function=(A (B (C)+!B (C (D)))) */ ;
-    defparam i2_4_lut_adj_57.init = 16'ha080;
-    FD1P3IX count_438__i14 (.D(n81), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[14])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i14.GSR = "DISABLED";
-    FD1P3IX count_438__i13 (.D(n82), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[13])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i13.GSR = "DISABLED";
-    FD1P3IX count_438__i12 (.D(n83), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[12])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i12.GSR = "DISABLED";
-    FD1P3IX count_438__i11 (.D(n84), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[11])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i11.GSR = "DISABLED";
-    FD1P3IX count_438__i10 (.D(n85), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[10])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i10.GSR = "DISABLED";
-    FD1P3IX count_438__i9 (.D(n86), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[9])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i9.GSR = "DISABLED";
-    FD1P3IX count_438__i8 (.D(n87), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[8])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i8.GSR = "DISABLED";
-    FD1P3IX count_438__i7 (.D(n88), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[7])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i7.GSR = "DISABLED";
-    FD1P3IX count_438__i6 (.D(n89), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[6])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i6.GSR = "DISABLED";
-    FD1P3IX count_438__i5 (.D(n90), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[5])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i5.GSR = "DISABLED";
-    FD1P3IX count_438__i4 (.D(n91), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(count[4])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i4.GSR = "DISABLED";
-    FD1P3IX count_438__i3 (.D(n92), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(n15)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i3.GSR = "DISABLED";
-    FD1P3IX count_438__i2 (.D(n93), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(n16)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i2.GSR = "DISABLED";
-    FD1P3IX count_438__i1 (.D(n94), .SP(clk_enable_43), .CD(n2996), .CK(clk), 
-            .Q(n17)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(207[14:19])
-    defparam count_438__i1.GSR = "DISABLED";
-    FD1P3IX MAR_i0_i0 (.D(Q[0]), .SP(led_c_enable_64), .CD(n3680), .CK(led_c), 
-            .Q(MAR[0])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MAR_i0_i0.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i2 (.D(data_out_23__N_500[2]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[2]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i2.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i3 (.D(data_out_23__N_500[3]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[3]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i3.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i4 (.D(data_out_23__N_500[4]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[4]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i4.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i5 (.D(data_out_23__N_500[5]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[5]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i5.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i6 (.D(data_out_23__N_500[6]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[6]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i6.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i7 (.D(data_out_23__N_500[7]), .SP(led_c_enable_64), 
-            .CD(n2953), .CK(led_c), .Q(MBR[7]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i7.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i8 (.D(data_out_23__N_500[8]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[8]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i8.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i9 (.D(data_out_23__N_500[9]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[9]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i9.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i10 (.D(data_out_23__N_500[10]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[10]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i10.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i11 (.D(data_out_23__N_500[11]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[11]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i11.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i12 (.D(data_out_23__N_500[12]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[12]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i12.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i13 (.D(data_out_23__N_500[13]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[13]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i13.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i14 (.D(data_out_23__N_500[14]), .SP(led_c_enable_64), 
-            .CD(n2953), .CK(led_c), .Q(MBR[14]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i14.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i18 (.D(data_out_23__N_500[18]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[18]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i18.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i15 (.D(data_out_23__N_500[15]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[15]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i15.GSR = "DISABLED";
+    PFUMX i8571 (.BLUT(n10505), .ALUT(n10506), .C0(n10410), .Z(n10507));
     TSALL TSALL_INST (.TSALL(GND_net));
-    LUT4 i1495_4_lut (.A(address_bus[2]), .B(n3679), .C(MAR[2]), .D(n3248), 
-         .Z(address_bus_7__N_80[2])) /* synthesis lut_function=(!(A (B+!(C+(D)))+!A (B+((D)+!C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1495_4_lut.init = 16'h2230;
-    LUT4 i1496_4_lut (.A(address_bus[3]), .B(n3679), .C(MAR[3]), .D(n3248), 
-         .Z(address_bus_7__N_80[3])) /* synthesis lut_function=(!(A (B+!(C+(D)))+!A (B+((D)+!C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1496_4_lut.init = 16'h2230;
-    CCU2D add_7_3 (.A0(Q[1]), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
-          .A1(Q[2]), .B1(GND_net), .C1(GND_net), .D1(GND_net), .CIN(n3293), 
-          .COUT(n3294), .S0(n188), .S1(n187));   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_unsi.vhd(118[20:31])
-    defparam add_7_3.INIT0 = 16'h5aaa;
-    defparam add_7_3.INIT1 = 16'h5aaa;
-    defparam add_7_3.INJECT1_0 = "NO";
-    defparam add_7_3.INJECT1_1 = "NO";
-    LUT4 i1497_4_lut (.A(address_bus[4]), .B(n3679), .C(MAR[4]), .D(n3248), 
-         .Z(address_bus_7__N_80[4])) /* synthesis lut_function=(!(A (B+!(C+(D)))+!A (B+((D)+!C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1497_4_lut.init = 16'h2230;
-    FD1P3IX count1_440__i12 (.D(n118), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[12])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i12.GSR = "DISABLED";
-    FD1P3IX count1_440__i13 (.D(n117), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[13])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i13.GSR = "DISABLED";
-    LUT4 i1498_4_lut (.A(address_bus[5]), .B(n3679), .C(MAR[5]), .D(n3248), 
-         .Z(address_bus_7__N_80[5])) /* synthesis lut_function=(!(A (B+!(C+(D)))+!A (B+((D)+!C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1498_4_lut.init = 16'h2230;
-    FD1P3IX MBR_i0_i1 (.D(data_out_23__N_500[1]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[1]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i1.GSR = "DISABLED";
-    FD1P3IX count1_440__i14 (.D(n116), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[14])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i14.GSR = "DISABLED";
-    FD1P3IX count1_440__i15 (.D(n115), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[15])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i15.GSR = "DISABLED";
-    FD1P3IX count1_440__i16 (.D(n114), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[16])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i16.GSR = "DISABLED";
-    FD1P3IX count1_440__i17 (.D(n113), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[17])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i17.GSR = "DISABLED";
-    FD1P3IX count1_440__i18 (.D(n112), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[18])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i18.GSR = "DISABLED";
-    FD1P3IX count1_440__i19 (.D(n111), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(count1[19])) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i19.GSR = "DISABLED";
-    ROM ROM_imp (.led_c(led_c), .n3678(n3678), .address_bus_7__N_80({address_bus_7__N_80}), 
-        .reset_c(reset_c), .GND_net(GND_net), .VCC_net(VCC_net), .data_out_23__N_500({data_out_23__N_500}));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(124[10:13])
-    FD1P3IX count1_440__i0 (.D(n130), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(n25)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i0.GSR = "DISABLED";
-    FD1P3IX count1_440__i1 (.D(n129), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(n24)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i1.GSR = "DISABLED";
-    FD1P3IX count1_440__i2 (.D(n128), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(n23)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i2.GSR = "DISABLED";
-    LUT4 i1499_4_lut (.A(address_bus[6]), .B(n3679), .C(MAR[6]), .D(n3248), 
-         .Z(address_bus_7__N_80[6])) /* synthesis lut_function=(!(A (B+!(C+(D)))+!A (B+((D)+!C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1499_4_lut.init = 16'h2230;
-    FD1P3IX count1_440__i3 (.D(n127), .SP(clk_enable_43), .CD(n2908), 
-            .CK(clk), .Q(n22)) /* synthesis syn_use_carry_chain=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(214[15:21])
-    defparam count1_440__i3.GSR = "DISABLED";
-    LUT4 i1500_4_lut (.A(address_bus[7]), .B(n3679), .C(MAR[7]), .D(n3248), 
-         .Z(address_bus_7__N_80[7])) /* synthesis lut_function=(!(A (B+!(C+(D)))+!A (B+((D)+!C)))) */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam i1500_4_lut.init = 16'h2230;
-    FD1P3IX PC__i1 (.D(n189), .SP(led_c_enable_62), .CD(n2934), .CK(led_c), 
-            .Q(Q[0])) /* synthesis lse_init_val=0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam PC__i1.GSR = "ENABLED";
-    Bin2BCD imp_binBCD (.bcd_out_15__N_382(bcd_out_15__N_382), .\Q[5] (Q[5]), 
-            .bcd_out_15__N_380(bcd_out_15__N_380), .n3588(n3588), .bcd_out_15__N_437(bcd_out_15__N_437), 
-            .bcd_out_15__N_455(bcd_out_15__N_455), .n3599(n3599), .\Q[3] (Q[3]), 
-            .bcd_out_15__N_463(bcd_out_15__N_463), .n3584(n3584), .bcd_out_15__N_459(bcd_out_15__N_459), 
-            .n3576(n3576), .n3569(n3569), .n3580(n3580), .reset_c(reset_c), 
-            .n3562(n3562), .n3567(n3567), .\Q[1] (Q[1]), .n3585(n3585), 
-            .bcd_out_15__N_483(bcd_out_15__N_483), .bcd_out_15__N_479(bcd_out_15__N_479), 
-            .n3568(n3568), .n3578(n3578), .n3572(n3572), .n3583(n3583), 
-            .n3573(n3573), .n3236(n3236), .n2568(n2568), .\DISPLAY_6__N_493[5] (DISPLAY_6__N_493_adj_631[5]), 
-            .\Q[2] (Q[2]), .n3582(n3582), .\Q[0] (Q[0]), .n3571(n3571), 
-            .n3579(n3579), .n3173(n3173), .n3556(n3556), .n3561(n3561), 
-            .\DISPLAY_6__N_493[6] (DISPLAY_6__N_493_adj_627[6]), .\Q[4] (Q[4]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(116[13:20])
-    FD1P3IX IR_i0_i1 (.D(MBR[0]), .SP(led_c_enable_64), .CD(n3680), .CK(led_c), 
-            .Q(CI_c_0));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam IR_i0_i1.GSR = "DISABLED";
-    FD1P3IX MBR_i0_i0 (.D(data_out_23__N_500[0]), .SP(led_c_enable_64), 
-            .CD(n3680), .CK(led_c), .Q(MBR[0]));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(130[3] 166[10])
-    defparam MBR_i0_i0.GSR = "DISABLED";
+    Bin2BCD imp_binBCD (.Q({Q}), .bcd_out_15__N_475(bcd_out_15__N_475), 
+            .n10397(n10397), .n10372(n10372), .n10388(n10388), .bcd_out_15__N_446(bcd_out_15__N_446), 
+            .n10387(n10387), .n10369(n10369), .n10389(n10389), .bcd_out_15__N_479(bcd_out_15__N_479), 
+            .n10404(n10404), .n10396(n10396), .n10380(n10380), .n10410(n10410), 
+            .n10406(n10406), .reset_c(reset_c), .n10383(n10383), .n10375(n10375), 
+            .n10447(n10447), .bcd_out_15__N_281(bcd_out_15__N_281), .n2081(n2081), 
+            .n10477(n10477), .n10446(n10446), .n10385(n10385), .bcd_out_15__N_280(bcd_out_15__N_280), 
+            .n929({bcd_out_15__N_289, Open_0, Open_1, Open_2}), .bcd_out_15__N_298(bcd_out_15__N_298), 
+            .n2123(n2123), .n10378(n10378), .n2097(n2097), .n10475(n10475), 
+            .n10294(n10294), .n2119(n2119), .n10436(n10436), .n10373(n10373), 
+            .n7317(n7317), .n10360(n10360), .\Qbcd[5] (Qbcd[5]), .\DISPLAY_6__N_509[6] (DISPLAY_6__N_509_adj_653[6]), 
+            .n10395(n10395), .n10376(n10376), .n10367(n10367), .n7319(n7319), 
+            .n10356(n10356), .\Qbcd[9] (Qbcd[9]), .\DISPLAY_6__N_509[6]_adj_1 (DISPLAY_6__N_509_adj_657[6]), 
+            .bcd_out_15__N_299(bcd_out_15__N_299), .bcd_out_15__N_499(bcd_out_15__N_499), 
+            .bcd_out_15__N_495(bcd_out_15__N_495), .n10392(n10392), .bcd_out_15__N_332(bcd_out_15__N_332), 
+            .bcd_out_15__N_328(bcd_out_15__N_328), .n10390(n10390), .n23(n23), 
+            .n10400(n10400), .n10398(n10398), .n10358(n10358), .n7323(n7323), 
+            .n10357(n10357), .\Qbcd[13] (Qbcd[13]), .\DISPLAY_6__N_509[6]_adj_2 (DISPLAY_6__N_509_adj_661[6]), 
+            .n3347(n3347), .bcd_out_15__N_378(bcd_out_15__N_378), .n10384(n10384), 
+            .n10361(n10361), .n3349(n3349), .n10386(n10386), .n10405(n10405), 
+            .bcd_out_15__N_374(bcd_out_15__N_374), .bcd_out_15__N_442(bcd_out_15__N_442), 
+            .bcd_out_15__N_327(bcd_out_15__N_327), .n10302(n10302), .n3351(n3351), 
+            .n7201(n7201), .n10374(n10374), .\Qbcd[1] (Qbcd[1]), .\DISPLAY_6__N_509[6]_adj_3 (DISPLAY_6__N_509[6]), 
+            .n10301(n10301), .n10364(n10364), .n10366(n10366), .n10377(n10377), 
+            .n10371(n10371), .n2069(n2069), .n10291(n10291), .n10363(n10363), 
+            .n3489(n3489), .n10368(n10368), .n10362(n10362), .n10350(n10350));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(106[13:20])
     PUR PUR_INST (.PUR(VCC_net));
     defparam PUR_INST.RST_PULSE = 1;
-    GSR GSR_INST (.GSR(clk_enable_43));
-    bcdDisplay_U1 centenas (.\ce[6] (ce[6]), .clk_0(clk_0), .n3581(n3581), 
-            .\ce[5] (ce[5]), .\DISPLAY_6__N_493[5] (DISPLAY_6__N_493_adj_631[5]), 
-            .\ce[4] (ce[4]), .\DISPLAY_6__N_493[4] (DISPLAY_6__N_493_adj_631[4]), 
-            .\ce[3] (ce[3]), .\ce[2] (ce[2]), .n2913(n2913), .n3557(n3557));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(120[11:21])
-    bcdDisplay unidades (.un({un}), .clk_0(clk_0), .n2787(n2787), .n3463(n3463), 
-            .n3558(n3558), .n3555(n3555), .\DISPLAY_6__N_493[4] (DISPLAY_6__N_493[4]), 
-            .n2662(n2662), .n3571(n3571), .n3564(n3564), .n3566(n3566), 
-            .n3600(n3600), .n3614(n3614), .n2639(n2639), .n3236(n3236), 
-            .n2646(n2646), .n3171(n3171));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(118[11:21])
-    CCU2D add_7_1 (.A0(GND_net), .B0(GND_net), .C0(GND_net), .D0(GND_net), 
-          .A1(Q[0]), .B1(GND_net), .C1(GND_net), .D1(GND_net), .COUT(n3293), 
-          .S1(n189));   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_unsi.vhd(118[20:31])
-    defparam add_7_1.INIT0 = 16'hF000;
-    defparam add_7_1.INIT1 = 16'h5555;
-    defparam add_7_1.INJECT1_0 = "NO";
-    defparam add_7_1.INJECT1_1 = "NO";
-    PFUMX i1806 (.BLUT(n3612), .ALUT(n3613), .C0(bcd_out_15__N_483), .Z(n3614));
-    LUT4 m0_lut (.Z(n3677)) /* synthesis lut_function=0, syn_instantiated=1 */ ;
-    defparam m0_lut.init = 16'h0000;
-    PFUMX i1804 (.BLUT(n3609), .ALUT(n3610), .C0(n3584), .Z(n3611));
-    LUT4 m1_lut (.Z(n3678)) /* synthesis lut_function=1, syn_instantiated=1 */ ;
+    ROM ROM_imp (.clk(clk), .n10684(n10684), .MAR({MAR}), .reset_c(reset_c), 
+        .GND_net(GND_net), .VCC_net(VCC_net), .data_out_23__N_516({data_out_23__N_516}), 
+        .n3175(n3175));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(114[10:13])
+    LUT4 m1_lut (.Z(n10684)) /* synthesis lut_function=1, syn_instantiated=1 */ ;
     defparam m1_lut.init = 16'hffff;
-    bcdDisplay_U0 decenas (.de({de}), .clk_0(clk_0), .\DISPLAY_6__N_493[6] (DISPLAY_6__N_493_adj_627[6]), 
-            .n3556(n3556), .n3538(n3538), .n2791(n2791), .n3465(n3465), 
-            .n3580(n3580), .n3568(n3568), .reset_c(reset_c), .n3584(n3584), 
-            .n3536(n3536), .n3535(n3535), .n2635(n2635), .n2568(n2568), 
-            .n3560(n3560), .n3611(n3611), .bcd_out_15__N_463(bcd_out_15__N_463));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(119[10:20])
+    LUT4 m0_lut (.Z(n10683)) /* synthesis lut_function=0, syn_instantiated=1 */ ;
+    defparam m0_lut.init = 16'h0000;
+    bcdDisplay_U1 decenas (.de({de}), .clk_0(clk_0), .n3625(n3625), .n10162(n10162), 
+            .n10381(n10381), .n10263(n10263), .n3334(n3334), .n3351(n3351), 
+            .n10332(n10332), .n10331(n10331), .n10360(n10360), .n10330(n10330), 
+            .\DISPLAY_6__N_509[6] (DISPLAY_6__N_509_adj_653[6]), .bcd_out_15__N_479(bcd_out_15__N_479), 
+            .n10388(n10388), .n10390(n10390), .reset_c(reset_c), .n10404(n10404));   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(109[10:20])
     
 endmodule
 //
@@ -962,413 +1054,831 @@ endmodule
 //
 
 //
+// Verilog Description of module bcdDisplay_U0
+//
+
+module bcdDisplay_U0 (mi, clk_0, n3666, n10158, n10359, n10274, 
+            n3415, n3349, n10357, n10312, \DISPLAY_6__N_509[6] , n10314, 
+            n10313, n2081, n10361, reset_c, n10385, n10384);
+    output [6:0]mi;
+    input clk_0;
+    input n3666;
+    input n10158;
+    input n10359;
+    input n10274;
+    input n3415;
+    input n3349;
+    input n10357;
+    input n10312;
+    input \DISPLAY_6__N_509[6] ;
+    input n10314;
+    input n10313;
+    input n2081;
+    input n10361;
+    input reset_c;
+    input n10385;
+    input n10384;
+    
+    wire clk_0 /* synthesis is_clock=1, SET_AS_NETWORK=clk_0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(65[8:13])
+    
+    wire n10504;
+    wire [6:0]DISPLAY_6__N_509;
+    
+    wire n10503, n10502;
+    
+    FD1S3JX DISPLAY_i0 (.D(n10158), .CK(clk_0), .PD(n3666), .Q(mi[0])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=9, LSE_RCOL=19, LSE_LLINE=111, LSE_RLINE=111 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i0.GSR = "ENABLED";
+    FD1S3JX DISPLAY_i2 (.D(n10274), .CK(clk_0), .PD(n10359), .Q(mi[2])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=9, LSE_RCOL=19, LSE_LLINE=111, LSE_RLINE=111 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i2.GSR = "ENABLED";
+    FD1S3JX DISPLAY_i1 (.D(n3349), .CK(clk_0), .PD(n3415), .Q(mi[1])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=9, LSE_RCOL=19, LSE_LLINE=111, LSE_RLINE=111 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i1.GSR = "ENABLED";
+    FD1S3JX DISPLAY_i3 (.D(n10504), .CK(clk_0), .PD(n10357), .Q(mi[3])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=9, LSE_RCOL=19, LSE_LLINE=111, LSE_RLINE=111 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i3.GSR = "ENABLED";
+    FD1S3AY DISPLAY_i4 (.D(DISPLAY_6__N_509[4]), .CK(clk_0), .Q(mi[4])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=9, LSE_RCOL=19, LSE_LLINE=111, LSE_RLINE=111 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i4.GSR = "ENABLED";
+    FD1S3JX DISPLAY_i5 (.D(n10312), .CK(clk_0), .PD(n10357), .Q(mi[5])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=9, LSE_RCOL=19, LSE_LLINE=111, LSE_RLINE=111 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i5.GSR = "ENABLED";
+    FD1S3AX DISPLAY_i6 (.D(\DISPLAY_6__N_509[6] ), .CK(clk_0), .Q(mi[6])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=9, LSE_RCOL=19, LSE_LLINE=111, LSE_RLINE=111 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i6.GSR = "ENABLED";
+    PFUMX i8532 (.BLUT(n10314), .ALUT(n10313), .C0(n10357), .Z(DISPLAY_6__N_509[4]));
+    LUT4 i8535_then_4_lut (.A(n2081), .B(n10361), .C(reset_c), .D(n10385), 
+         .Z(n10503)) /* synthesis lut_function=(A (B (C+(D))+!B (C+!(D)))+!A ((C+!(D))+!B)) */ ;
+    defparam i8535_then_4_lut.init = 16'hf9f7;
+    LUT4 i8535_else_4_lut (.A(n2081), .B(n10361), .C(reset_c), .D(n10385), 
+         .Z(n10502)) /* synthesis lut_function=(A ((C+(D))+!B)+!A (B (C+(D))+!B (C+!(D)))) */ ;
+    defparam i8535_else_4_lut.init = 16'hfef3;
+    PFUMX i8569 (.BLUT(n10502), .ALUT(n10503), .C0(n10384), .Z(n10504));
+    
+endmodule
+//
+// Verilog Description of module bcdDisplay_U2
+//
+
+module bcdDisplay_U2 (ce, clk_0, n3618, n10160, n10365, n10269, 
+            n3444, n3347, n10356, n10321, \DISPLAY_6__N_509[6] , n10323, 
+            n10322, n10376, n10369, reset_c, n10395, bcd_out_15__N_446);
+    output [6:0]ce;
+    input clk_0;
+    input n3618;
+    input n10160;
+    input n10365;
+    input n10269;
+    input n3444;
+    input n3347;
+    input n10356;
+    input n10321;
+    input \DISPLAY_6__N_509[6] ;
+    input n10323;
+    input n10322;
+    input n10376;
+    input n10369;
+    input reset_c;
+    input n10395;
+    input bcd_out_15__N_446;
+    
+    wire clk_0 /* synthesis is_clock=1, SET_AS_NETWORK=clk_0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(65[8:13])
+    
+    wire n10501;
+    wire [6:0]DISPLAY_6__N_509;
+    
+    wire n10499, n10500;
+    
+    FD1S3JX DISPLAY_i0 (.D(n10160), .CK(clk_0), .PD(n3618), .Q(ce[0])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=110, LSE_RLINE=110 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i0.GSR = "ENABLED";
+    FD1S3JX DISPLAY_i2 (.D(n10269), .CK(clk_0), .PD(n10365), .Q(ce[2])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=110, LSE_RLINE=110 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i2.GSR = "ENABLED";
+    FD1S3JX DISPLAY_i1 (.D(n3347), .CK(clk_0), .PD(n3444), .Q(ce[1])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=110, LSE_RLINE=110 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i1.GSR = "ENABLED";
+    FD1S3JX DISPLAY_i3 (.D(n10501), .CK(clk_0), .PD(n10356), .Q(ce[3])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=110, LSE_RLINE=110 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i3.GSR = "ENABLED";
+    FD1S3AY DISPLAY_i4 (.D(DISPLAY_6__N_509[4]), .CK(clk_0), .Q(ce[4])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=110, LSE_RLINE=110 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i4.GSR = "ENABLED";
+    FD1S3JX DISPLAY_i5 (.D(n10321), .CK(clk_0), .PD(n10356), .Q(ce[5])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=110, LSE_RLINE=110 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i5.GSR = "ENABLED";
+    FD1S3AX DISPLAY_i6 (.D(\DISPLAY_6__N_509[6] ), .CK(clk_0), .Q(ce[6])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=110, LSE_RLINE=110 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i6.GSR = "ENABLED";
+    PFUMX i8539 (.BLUT(n10323), .ALUT(n10322), .C0(n10356), .Z(DISPLAY_6__N_509[4]));
+    LUT4 i8542_else_4_lut (.A(n10376), .B(n10369), .C(reset_c), .D(n10395), 
+         .Z(n10499)) /* synthesis lut_function=(A ((C+(D))+!B)+!A (B (C+(D))+!B (C+!(D)))) */ ;
+    defparam i8542_else_4_lut.init = 16'hfef3;
+    LUT4 i8542_then_4_lut (.A(n10376), .B(n10369), .C(reset_c), .D(n10395), 
+         .Z(n10500)) /* synthesis lut_function=(A (B (C+(D))+!B (C+!(D)))+!A ((C+!(D))+!B)) */ ;
+    defparam i8542_then_4_lut.init = 16'hf9f7;
+    PFUMX i8567 (.BLUT(n10499), .ALUT(n10500), .C0(bcd_out_15__N_446), 
+          .Z(n10501));
+    
+endmodule
+//
+// Verilog Description of module bcdDisplay
+//
+
+module bcdDisplay (un, clk_0, n3648, n10164, n10343, n10342, n10374, 
+            n10486, n10507, n3357, n3489, n10341, \DISPLAY_6__N_509[6] , 
+            n10406, \Q[0] , reset_c, n10410, \Q[1] );
+    output [6:0]un;
+    input clk_0;
+    input n3648;
+    input n10164;
+    input n10343;
+    input n10342;
+    input n10374;
+    input n10486;
+    input n10507;
+    input n3357;
+    input n3489;
+    input n10341;
+    input \DISPLAY_6__N_509[6] ;
+    input n10406;
+    input \Q[0] ;
+    input reset_c;
+    input n10410;
+    input \Q[1] ;
+    
+    wire clk_0 /* synthesis is_clock=1, SET_AS_NETWORK=clk_0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(65[8:13])
+    wire [6:0]DISPLAY_6__N_509;
+    
+    wire n10495, n10493, n10494;
+    
+    FD1S3JX DISPLAY_i0 (.D(n10164), .CK(clk_0), .PD(n3648), .Q(un[0])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=108, LSE_RLINE=108 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i0.GSR = "ENABLED";
+    PFUMX i8553 (.BLUT(n10343), .ALUT(n10342), .C0(n10374), .Z(DISPLAY_6__N_509[4]));
+    FD1S3JX DISPLAY_i2 (.D(n10507), .CK(clk_0), .PD(n10486), .Q(un[2])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=108, LSE_RLINE=108 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i2.GSR = "ENABLED";
+    FD1S3JX DISPLAY_i1 (.D(n3489), .CK(clk_0), .PD(n3357), .Q(un[1])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=108, LSE_RLINE=108 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i1.GSR = "ENABLED";
+    FD1S3JX DISPLAY_i3 (.D(n10495), .CK(clk_0), .PD(n10374), .Q(un[3])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=108, LSE_RLINE=108 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i3.GSR = "ENABLED";
+    FD1S3AY DISPLAY_i4 (.D(DISPLAY_6__N_509[4]), .CK(clk_0), .Q(un[4])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=108, LSE_RLINE=108 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i4.GSR = "ENABLED";
+    FD1S3JX DISPLAY_i5 (.D(n10341), .CK(clk_0), .PD(n10374), .Q(un[5])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=108, LSE_RLINE=108 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i5.GSR = "ENABLED";
+    FD1S3AX DISPLAY_i6 (.D(\DISPLAY_6__N_509[6] ), .CK(clk_0), .Q(un[6])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=108, LSE_RLINE=108 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i6.GSR = "ENABLED";
+    LUT4 i8556_else_4_lut (.A(n10406), .B(\Q[0] ), .C(reset_c), .D(n10410), 
+         .Z(n10493)) /* synthesis lut_function=(A ((C+(D))+!B)+!A (B (C+(D))+!B (C+!(D)))) */ ;
+    defparam i8556_else_4_lut.init = 16'hfef3;
+    PFUMX i8563 (.BLUT(n10493), .ALUT(n10494), .C0(\Q[1] ), .Z(n10495));
+    LUT4 i8556_then_4_lut (.A(n10406), .B(\Q[0] ), .C(reset_c), .D(n10410), 
+         .Z(n10494)) /* synthesis lut_function=(A (B (C+(D))+!B (C+!(D)))+!A ((C+!(D))+!B)) */ ;
+    defparam i8556_then_4_lut.init = 16'hf9f7;
+    
+endmodule
+//
 // Verilog Description of module TSALL
 // module not written out since it is a black-box. 
 //
 
 //
-// Verilog Description of module ROM
-//
-
-module ROM (led_c, n3678, address_bus_7__N_80, reset_c, GND_net, VCC_net, 
-            data_out_23__N_500);
-    input led_c;
-    input n3678;
-    input [7:0]address_bus_7__N_80;
-    input reset_c;
-    input GND_net;
-    input VCC_net;
-    output [23:0]data_out_23__N_500;
-    
-    wire led_c /* synthesis is_clock=1, SET_AS_NETWORK=led_c */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(17[2:5])
-    
-    wire data_out_23__N_501;
-    wire [23:0]data_out_23__N_549;
-    
-    FD1S3AX data_out (.D(n3678), .CK(led_c), .Q(data_out_23__N_501));   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam data_out.GSR = "ENABLED";
-    PDPW8KC mux_169 (.DI0(GND_net), .DI1(GND_net), .DI2(GND_net), .DI3(GND_net), 
-            .DI4(GND_net), .DI5(GND_net), .DI6(GND_net), .DI7(GND_net), 
-            .DI8(GND_net), .DI9(GND_net), .DI10(GND_net), .DI11(GND_net), 
-            .DI12(GND_net), .DI13(GND_net), .DI14(GND_net), .DI15(GND_net), 
-            .DI16(GND_net), .DI17(GND_net), .ADW0(GND_net), .ADW1(GND_net), 
-            .ADW2(GND_net), .ADW3(GND_net), .ADW4(GND_net), .ADW5(GND_net), 
-            .ADW6(GND_net), .ADW7(GND_net), .ADW8(GND_net), .BE0(GND_net), 
-            .BE1(GND_net), .CEW(VCC_net), .CLKW(GND_net), .CSW0(GND_net), 
-            .CSW1(GND_net), .CSW2(GND_net), .ADR0(GND_net), .ADR1(GND_net), 
-            .ADR2(GND_net), .ADR3(GND_net), .ADR4(address_bus_7__N_80[0]), 
-            .ADR5(address_bus_7__N_80[1]), .ADR6(address_bus_7__N_80[2]), 
-            .ADR7(address_bus_7__N_80[3]), .ADR8(address_bus_7__N_80[4]), 
-            .ADR9(address_bus_7__N_80[5]), .ADR10(address_bus_7__N_80[6]), 
-            .ADR11(address_bus_7__N_80[7]), .ADR12(GND_net), .CER(VCC_net), 
-            .OCER(VCC_net), .CLKR(led_c), .CSR0(GND_net), .CSR1(GND_net), 
-            .CSR2(GND_net), .RST(reset_c), .DO9(data_out_23__N_549[18]), 
-            .DO10(data_out_23__N_549[19]), .DO11(data_out_23__N_549[20]), 
-            .DO12(data_out_23__N_549[21]), .DO13(data_out_23__N_549[22]), 
-            .DO14(data_out_23__N_549[23]));
-    defparam mux_169.DATA_WIDTH_W = 18;
-    defparam mux_169.DATA_WIDTH_R = 18;
-    defparam mux_169.REGMODE = "OUTREG";
-    defparam mux_169.CSDECODE_W = "0b000";
-    defparam mux_169.CSDECODE_R = "0b000";
-    defparam mux_169.GSR = "DISABLED";
-    defparam mux_169.RESETMODE = "ASYNC";
-    defparam mux_169.ASYNC_RESET_RELEASE = "SYNC";
-    defparam mux_169.INIT_DATA = "STATIC";
-    defparam mux_169.INITVAL_00 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0001300018000090001100019";
-    defparam mux_169.INITVAL_01 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_02 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_03 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_04 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_05 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_06 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_07 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_08 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_09 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_0A = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_0B = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_0C = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_0D = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_0E = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_0F = "0x0000000000000000000000000000000000000000000000003F0003F0003F0003F0003F0003F0003F";
-    defparam mux_169.INITVAL_10 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_11 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_12 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_13 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_14 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_15 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_16 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_17 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_18 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_19 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_1A = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_1B = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_1C = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_1D = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_1E = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_169.INITVAL_1F = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    PDPW8KC mux_168 (.DI0(GND_net), .DI1(GND_net), .DI2(GND_net), .DI3(GND_net), 
-            .DI4(GND_net), .DI5(GND_net), .DI6(GND_net), .DI7(GND_net), 
-            .DI8(GND_net), .DI9(GND_net), .DI10(GND_net), .DI11(GND_net), 
-            .DI12(GND_net), .DI13(GND_net), .DI14(GND_net), .DI15(GND_net), 
-            .DI16(GND_net), .DI17(GND_net), .ADW0(GND_net), .ADW1(GND_net), 
-            .ADW2(GND_net), .ADW3(GND_net), .ADW4(GND_net), .ADW5(GND_net), 
-            .ADW6(GND_net), .ADW7(GND_net), .ADW8(GND_net), .BE0(GND_net), 
-            .BE1(GND_net), .CEW(VCC_net), .CLKW(GND_net), .CSW0(GND_net), 
-            .CSW1(GND_net), .CSW2(GND_net), .ADR0(GND_net), .ADR1(GND_net), 
-            .ADR2(GND_net), .ADR3(GND_net), .ADR4(address_bus_7__N_80[0]), 
-            .ADR5(address_bus_7__N_80[1]), .ADR6(address_bus_7__N_80[2]), 
-            .ADR7(address_bus_7__N_80[3]), .ADR8(address_bus_7__N_80[4]), 
-            .ADR9(address_bus_7__N_80[5]), .ADR10(address_bus_7__N_80[6]), 
-            .ADR11(address_bus_7__N_80[7]), .ADR12(GND_net), .CER(VCC_net), 
-            .OCER(VCC_net), .CLKR(led_c), .CSR0(GND_net), .CSR1(GND_net), 
-            .CSR2(GND_net), .RST(reset_c), .DO0(data_out_23__N_549[9]), 
-            .DO1(data_out_23__N_549[10]), .DO2(data_out_23__N_549[11]), 
-            .DO3(data_out_23__N_549[12]), .DO4(data_out_23__N_549[13]), 
-            .DO5(data_out_23__N_549[14]), .DO6(data_out_23__N_549[15]), 
-            .DO7(data_out_23__N_549[16]), .DO8(data_out_23__N_549[17]), 
-            .DO9(data_out_23__N_549[0]), .DO10(data_out_23__N_549[1]), .DO11(data_out_23__N_549[2]), 
-            .DO12(data_out_23__N_549[3]), .DO13(data_out_23__N_549[4]), 
-            .DO14(data_out_23__N_549[5]), .DO15(data_out_23__N_549[6]), 
-            .DO16(data_out_23__N_549[7]), .DO17(data_out_23__N_549[8]));
-    defparam mux_168.DATA_WIDTH_W = 18;
-    defparam mux_168.DATA_WIDTH_R = 18;
-    defparam mux_168.REGMODE = "OUTREG";
-    defparam mux_168.CSDECODE_W = "0b000";
-    defparam mux_168.CSDECODE_R = "0b000";
-    defparam mux_168.GSR = "DISABLED";
-    defparam mux_168.RESETMODE = "ASYNC";
-    defparam mux_168.ASYNC_RESET_RELEASE = "SYNC";
-    defparam mux_168.INIT_DATA = "STATIC";
-    defparam mux_168.INITVAL_00 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF000000000000005000F70000D";
-    defparam mux_168.INITVAL_01 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_02 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_03 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_04 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_05 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_06 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_07 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_08 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_09 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_0A = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_0B = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_0C = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_0D = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_0E = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_0F = "0x0004D00037000170000700012000320004600065003EB3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
-    defparam mux_168.INITVAL_10 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_11 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_12 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_13 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_14 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_15 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_16 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_17 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_18 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_19 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_1A = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_1B = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_1C = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_1D = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_1E = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    defparam mux_168.INITVAL_1F = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    LUT4 i194_2_lut (.A(data_out_23__N_549[20]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[20])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i194_2_lut.init = 16'h8888;
-    LUT4 i196_2_lut (.A(data_out_23__N_549[22]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[22])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i196_2_lut.init = 16'h8888;
-    LUT4 i197_2_lut (.A(data_out_23__N_549[23]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[23])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i197_2_lut.init = 16'h8888;
-    LUT4 i193_2_lut (.A(data_out_23__N_549[19]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[19])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i193_2_lut.init = 16'h8888;
-    LUT4 i190_2_lut (.A(data_out_23__N_549[16]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[16])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i190_2_lut.init = 16'h8888;
-    LUT4 i195_2_lut (.A(data_out_23__N_549[21]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[21])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i195_2_lut.init = 16'h8888;
-    LUT4 i191_2_lut (.A(data_out_23__N_549[17]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[17])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i191_2_lut.init = 16'h8888;
-    LUT4 i176_2_lut (.A(data_out_23__N_549[2]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[2])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i176_2_lut.init = 16'h8888;
-    LUT4 i177_2_lut (.A(data_out_23__N_549[3]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[3])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i177_2_lut.init = 16'h8888;
-    LUT4 i178_2_lut (.A(data_out_23__N_549[4]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[4])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i178_2_lut.init = 16'h8888;
-    LUT4 i179_2_lut (.A(data_out_23__N_549[5]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[5])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i179_2_lut.init = 16'h8888;
-    LUT4 i180_2_lut (.A(data_out_23__N_549[6]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[6])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i180_2_lut.init = 16'h8888;
-    LUT4 i181_2_lut (.A(data_out_23__N_549[7]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[7])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i181_2_lut.init = 16'h8888;
-    LUT4 i182_2_lut (.A(data_out_23__N_549[8]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[8])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i182_2_lut.init = 16'h8888;
-    LUT4 i183_2_lut (.A(data_out_23__N_549[9]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[9])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i183_2_lut.init = 16'h8888;
-    LUT4 i184_2_lut (.A(data_out_23__N_549[10]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[10])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i184_2_lut.init = 16'h8888;
-    LUT4 i185_2_lut (.A(data_out_23__N_549[11]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[11])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i185_2_lut.init = 16'h8888;
-    LUT4 i186_2_lut (.A(data_out_23__N_549[12]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[12])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i186_2_lut.init = 16'h8888;
-    LUT4 i187_2_lut (.A(data_out_23__N_549[13]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[13])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i187_2_lut.init = 16'h8888;
-    LUT4 i188_2_lut (.A(data_out_23__N_549[14]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[14])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i188_2_lut.init = 16'h8888;
-    LUT4 i192_2_lut (.A(data_out_23__N_549[18]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[18])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i192_2_lut.init = 16'h8888;
-    LUT4 i189_2_lut (.A(data_out_23__N_549[15]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[15])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i189_2_lut.init = 16'h8888;
-    LUT4 i175_2_lut (.A(data_out_23__N_549[1]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[1])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i175_2_lut.init = 16'h8888;
-    LUT4 i174_2_lut (.A(data_out_23__N_549[0]), .B(data_out_23__N_501), 
-         .Z(data_out_23__N_500[0])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
-    defparam i174_2_lut.init = 16'h8888;
-    
-endmodule
-//
 // Verilog Description of module Bin2BCD
 //
 
-module Bin2BCD (bcd_out_15__N_382, \Q[5] , bcd_out_15__N_380, n3588, 
-            bcd_out_15__N_437, bcd_out_15__N_455, n3599, \Q[3] , bcd_out_15__N_463, 
-            n3584, bcd_out_15__N_459, n3576, n3569, n3580, reset_c, 
-            n3562, n3567, \Q[1] , n3585, bcd_out_15__N_483, bcd_out_15__N_479, 
-            n3568, n3578, n3572, n3583, n3573, n3236, n2568, \DISPLAY_6__N_493[5] , 
-            \Q[2] , n3582, \Q[0] , n3571, n3579, n3173, n3556, 
-            n3561, \DISPLAY_6__N_493[6] , \Q[4] );
-    input bcd_out_15__N_382;
-    input \Q[5] ;
-    input bcd_out_15__N_380;
-    output n3588;
-    output bcd_out_15__N_437;
-    output bcd_out_15__N_455;
-    output n3599;
-    input \Q[3] ;
-    output bcd_out_15__N_463;
-    output n3584;
-    output bcd_out_15__N_459;
-    output n3576;
-    output n3569;
-    output n3580;
-    input reset_c;
-    output n3562;
-    output n3567;
-    input \Q[1] ;
-    output n3585;
-    output bcd_out_15__N_483;
+module Bin2BCD (Q, bcd_out_15__N_475, n10397, n10372, n10388, bcd_out_15__N_446, 
+            n10387, n10369, n10389, bcd_out_15__N_479, n10404, n10396, 
+            n10380, n10410, n10406, reset_c, n10383, n10375, n10447, 
+            bcd_out_15__N_281, n2081, n10477, n10446, n10385, bcd_out_15__N_280, 
+            n929, bcd_out_15__N_298, n2123, n10378, n2097, n10475, 
+            n10294, n2119, n10436, n10373, n7317, n10360, \Qbcd[5] , 
+            \DISPLAY_6__N_509[6] , n10395, n10376, n10367, n7319, 
+            n10356, \Qbcd[9] , \DISPLAY_6__N_509[6]_adj_1 , bcd_out_15__N_299, 
+            bcd_out_15__N_499, bcd_out_15__N_495, n10392, bcd_out_15__N_332, 
+            bcd_out_15__N_328, n10390, n23, n10400, n10398, n10358, 
+            n7323, n10357, \Qbcd[13] , \DISPLAY_6__N_509[6]_adj_2 , 
+            n3347, bcd_out_15__N_378, n10384, n10361, n3349, n10386, 
+            n10405, bcd_out_15__N_374, bcd_out_15__N_442, bcd_out_15__N_327, 
+            n10302, n3351, n7201, n10374, \Qbcd[1] , \DISPLAY_6__N_509[6]_adj_3 , 
+            n10301, n10364, n10366, n10377, n10371, n2069, n10291, 
+            n10363, n3489, n10368, n10362, n10350);
+    input [13:0]Q;
+    output bcd_out_15__N_475;
+    output n10397;
+    output n10372;
+    output n10388;
+    output bcd_out_15__N_446;
+    output n10387;
+    output n10369;
+    output n10389;
     output bcd_out_15__N_479;
-    output n3568;
-    output n3578;
-    output n3572;
-    output n3583;
-    output n3573;
-    output n3236;
-    output n2568;
-    output \DISPLAY_6__N_493[5] ;
-    input \Q[2] ;
-    output n3582;
-    input \Q[0] ;
-    output n3571;
-    output n3579;
-    input n3173;
-    input n3556;
-    input n3561;
-    output \DISPLAY_6__N_493[6] ;
-    input \Q[4] ;
+    output n10404;
+    output n10396;
+    output n10380;
+    output n10410;
+    output n10406;
+    input reset_c;
+    output n10383;
+    output n10375;
+    input n10447;
+    input bcd_out_15__N_281;
+    output n2081;
+    output n10477;
+    input n10446;
+    output n10385;
+    output bcd_out_15__N_280;
+    input [3:0]n929;
+    output bcd_out_15__N_298;
+    output n2123;
+    output n10378;
+    output n2097;
+    output n10475;
+    output n10294;
+    output n2119;
+    output n10436;
+    output n10373;
+    input n7317;
+    input n10360;
+    input \Qbcd[5] ;
+    output \DISPLAY_6__N_509[6] ;
+    output n10395;
+    output n10376;
+    output n10367;
+    input n7319;
+    input n10356;
+    input \Qbcd[9] ;
+    output \DISPLAY_6__N_509[6]_adj_1 ;
+    input bcd_out_15__N_299;
+    output bcd_out_15__N_499;
+    output bcd_out_15__N_495;
+    output n10392;
+    input bcd_out_15__N_332;
+    input bcd_out_15__N_328;
+    output n10390;
+    output n23;
+    output n10400;
+    output n10398;
+    output n10358;
+    input n7323;
+    input n10357;
+    input \Qbcd[13] ;
+    output \DISPLAY_6__N_509[6]_adj_2 ;
+    output n3347;
+    input bcd_out_15__N_378;
+    output n10384;
+    output n10361;
+    output n3349;
+    output n10386;
+    output n10405;
+    input bcd_out_15__N_374;
+    output bcd_out_15__N_442;
+    output bcd_out_15__N_327;
+    output n10302;
+    output n3351;
+    input n7201;
+    input n10374;
+    input \Qbcd[1] ;
+    output \DISPLAY_6__N_509[6]_adj_3 ;
+    output n10301;
+    output n10364;
+    output n10366;
+    output n10377;
+    output n10371;
+    output n2069;
+    output n10291;
+    output n10363;
+    output n3489;
+    output n10368;
+    output n10362;
+    output n10350;
     
-    wire [3:0]n927;
     
-    wire n3602, n3598, n3606, n3563, n3608, n3589, n3591;
+    wire n10440, n10432;
+    wire [3:0]n944;
+    
+    wire n10403, n10401;
+    wire [3:0]n936;
+    
+    wire n10450;
+    wire [3:0]n938;
+    
+    wire n10438, n10433, n10422, n10424, n10434;
+    wire [3:0]n937;
+    
+    wire n10443, n10437, n10430;
+    wire [3:0]n945;
+    wire [3:0]n935;
+    
+    wire n10449;
+    wire [3:0]n941;
+    
+    wire n10451, n10445, n10492, n4;
+    wire [3:0]n943;
+    
+    wire n10409, n2096, n10484, n29, n10439, n32;
+    wire [3:0]n930;
+    wire [3:0]n929_c;
+    
+    wire n10509, n10508, n10516, n10515, n10465, n10459, n10455, 
+        n10464, n10466, n2088, n10453, n10456, n10463;
+    wire [3:0]n931;
+    
+    wire n10472;
     wire [3:0]n933;
     
-    wire n3595;
-    wire [3:0]n930;
+    wire n10468, n10462, n10431;
+    wire [3:0]n940;
     
-    wire n3607;
+    wire n10458, n10470, n10467, n10461, n10471, n10168, n10474, 
+        n10473, n10457, n4_adj_637, n4_adj_638, n10480, n10476, 
+        n10411, n10408, n10479, n10460, n10482, n10481, n10483, 
+        n10452, n10444, n10435, n10402, n10412, n10407, n10491, 
+        n4_adj_640, n3723, n10415, n2077, n10420, n10416, n10414, 
+        n10393, n10417, n10413, n10349, n10421, n10427, n10419, 
+        n10426, n10418, n10423, n10425, n10454, n10428;
     
-    LUT4 i1212_2_lut_3_lut (.A(bcd_out_15__N_382), .B(\Q[5] ), .C(bcd_out_15__N_380), 
-         .Z(n927[2])) /* synthesis lut_function=(!(A+(B+!(C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i1212_2_lut_3_lut.init = 16'h1010;
-    LUT4 i727_3_lut_4_lut_3_lut (.A(bcd_out_15__N_382), .B(\Q[5] ), .C(bcd_out_15__N_380), 
-         .Z(n927[1])) /* synthesis lut_function=(A (B+!(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i727_3_lut_4_lut_3_lut.init = 16'h8a8a;
-    LUT4 i1210_2_lut_3_lut_4_lut (.A(n3602), .B(bcd_out_15__N_380), .C(n3588), 
-         .D(bcd_out_15__N_437), .Z(bcd_out_15__N_455)) /* synthesis lut_function=(!(((C+(D))+!B)+!A)) */ ;
-    defparam i1210_2_lut_3_lut_4_lut.init = 16'h0008;
-    LUT4 i567_2_lut_rep_99_3_lut (.A(bcd_out_15__N_382), .B(\Q[5] ), .C(bcd_out_15__N_380), 
-         .Z(n3599)) /* synthesis lut_function=(A (C)+!A (B (C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i567_2_lut_rep_99_3_lut.init = 16'he0e0;
-    LUT4 i719_2_lut_rep_98_3_lut_3_lut (.A(bcd_out_15__N_382), .B(\Q[5] ), 
-         .C(bcd_out_15__N_380), .Z(n3598)) /* synthesis lut_function=(!(A (B (C)+!B !(C))+!A ((C)+!B))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i719_2_lut_rep_98_3_lut_3_lut.init = 16'h2c2c;
-    LUT4 i732_2_lut_rep_102 (.A(bcd_out_15__N_382), .B(\Q[5] ), .Z(n3602)) /* synthesis lut_function=(A+(B)) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i732_2_lut_rep_102.init = 16'heeee;
-    LUT4 i620_2_lut_rep_86_4_lut_4_lut_else_4_lut (.A(n927[2]), .B(n927[1]), 
-         .C(n3598), .D(\Q[3] ), .Z(n3606)) /* synthesis lut_function=(!(A (B (C))+!A !(B+(C (D))))) */ ;
-    defparam i620_2_lut_rep_86_4_lut_4_lut_else_4_lut.init = 16'h7e6e;
-    LUT4 i769_3_lut_rep_63_4_lut_3_lut_4_lut (.A(bcd_out_15__N_463), .B(n3584), 
-         .C(bcd_out_15__N_459), .D(bcd_out_15__N_455), .Z(n3563)) /* synthesis lut_function=(!(A (C (D)+!C !(D))+!A (B (C (D)+!C !(D))+!B !(D)))) */ ;
-    defparam i769_3_lut_rep_63_4_lut_3_lut_4_lut.init = 16'h1fe0;
-    LUT4 i1198_2_lut_rep_76_4_lut (.A(bcd_out_15__N_463), .B(n3584), .C(bcd_out_15__N_459), 
-         .D(bcd_out_15__N_455), .Z(n3576)) /* synthesis lut_function=(A (C+(D))+!A (B (C+(D)))) */ ;
-    defparam i1198_2_lut_rep_76_4_lut.init = 16'heee0;
-    LUT4 i747_2_lut_rep_69_4_lut_4_lut (.A(bcd_out_15__N_463), .B(n3584), 
-         .C(bcd_out_15__N_459), .D(bcd_out_15__N_455), .Z(n3569)) /* synthesis lut_function=(!(A (C+(D))+!A !(B (C+(D))+!B (D)))) */ ;
-    defparam i747_2_lut_rep_69_4_lut_4_lut.init = 16'h554a;
-    LUT4 i524_3_lut_rep_80 (.A(bcd_out_15__N_463), .B(n3584), .C(bcd_out_15__N_459), 
-         .D(bcd_out_15__N_455), .Z(n3580)) /* synthesis lut_function=(A (C+(D))+!A (B (C+(D))+!B (D))) */ ;
-    defparam i524_3_lut_rep_80.init = 16'hffe0;
-    LUT4 i1777_2_lut_rep_62_4_lut (.A(n3584), .B(n3580), .C(bcd_out_15__N_463), 
-         .D(reset_c), .Z(n3562)) /* synthesis lut_function=(A (B ((D)+!C)+!B (D))+!A ((C+(D))+!B)) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i1777_2_lut_rep_62_4_lut.init = 16'hff59;
-    LUT4 i755_3_lut_rep_67_4_lut (.A(bcd_out_15__N_463), .B(n3584), .C(bcd_out_15__N_459), 
-         .D(bcd_out_15__N_455), .Z(n3567)) /* synthesis lut_function=(A (B)+!A !(B (C+(D))+!B !(D))) */ ;
-    defparam i755_3_lut_rep_67_4_lut.init = 16'h998c;
-    LUT4 i601_3_lut_rep_68_4_lut_3_lut_4_lut (.A(\Q[1] ), .B(n3585), .C(bcd_out_15__N_483), 
-         .D(bcd_out_15__N_479), .Z(n3568)) /* synthesis lut_function=(!(A (C (D)+!C !(D))+!A (B (C (D)+!C !(D))+!B !(D)))) */ ;
-    defparam i601_3_lut_rep_68_4_lut_3_lut_4_lut.init = 16'h1fe0;
-    LUT4 i1200_2_lut_rep_78_4_lut (.A(\Q[1] ), .B(n3585), .C(bcd_out_15__N_483), 
-         .D(bcd_out_15__N_479), .Z(n3578)) /* synthesis lut_function=(A (C+(D))+!A (B (C+(D)))) */ ;
-    defparam i1200_2_lut_rep_78_4_lut.init = 16'heee0;
-    LUT4 i579_2_lut_rep_72_4_lut_4_lut (.A(\Q[1] ), .B(n3585), .C(bcd_out_15__N_483), 
-         .D(bcd_out_15__N_479), .Z(n3572)) /* synthesis lut_function=(!(A (C+(D))+!A !(B (C+(D))+!B (D)))) */ ;
-    defparam i579_2_lut_rep_72_4_lut_4_lut.init = 16'h554a;
-    LUT4 i512_3_lut_rep_83 (.A(\Q[1] ), .B(n3585), .C(bcd_out_15__N_483), 
-         .D(bcd_out_15__N_479), .Z(n3583)) /* synthesis lut_function=(A (C+(D))+!A (B (C+(D))+!B (D))) */ ;
-    defparam i512_3_lut_rep_83.init = 16'hffe0;
-    LUT4 i587_3_lut_rep_73_4_lut (.A(\Q[1] ), .B(n3585), .C(bcd_out_15__N_483), 
-         .D(bcd_out_15__N_479), .Z(n3573)) /* synthesis lut_function=(A (B)+!A !(B (C+(D))+!B !(D))) */ ;
-    defparam i587_3_lut_rep_73_4_lut.init = 16'h998c;
-    LUT4 i1545_2_lut_3_lut_3_lut_4_lut (.A(\Q[1] ), .B(n3585), .C(bcd_out_15__N_483), 
-         .D(bcd_out_15__N_479), .Z(n3236)) /* synthesis lut_function=(!(A (B+!(C+(D)))+!A (B+(D)))) */ ;
-    defparam i1545_2_lut_3_lut_3_lut_4_lut.init = 16'h2231;
-    LUT4 i1766_3_lut_4_lut (.A(bcd_out_15__N_463), .B(n3580), .C(reset_c), 
-         .D(n3568), .Z(n2568)) /* synthesis lut_function=(A (B (C+!(D))+!B (C+(D)))+!A (B (C+(D))+!B (C+!(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i1766_3_lut_4_lut.init = 16'hf6f9;
-    LUT4 i1786_3_lut_4_lut (.A(n3608), .B(n3599), .C(n3563), .D(reset_c), 
-         .Z(\DISPLAY_6__N_493[5] )) /* synthesis lut_function=(A (B (D)+!B ((D)+!C))+!A ((D)+!C)) */ ;
-    defparam i1786_3_lut_4_lut.init = 16'hff07;
-    LUT4 i535_2_lut_rep_82_3_lut (.A(\Q[2] ), .B(n3589), .C(\Q[1] ), .Z(n3582)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i535_2_lut_rep_82_3_lut.init = 16'hf6f6;
-    LUT4 i1761_3_lut_rep_71_4_lut (.A(\Q[1] ), .B(n3583), .C(reset_c), 
-         .D(\Q[0] ), .Z(n3571)) /* synthesis lut_function=(A (B (C+!(D))+!B (C+(D)))+!A (B (C+(D))+!B (C+!(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i1761_3_lut_rep_71_4_lut.init = 16'hf6f9;
-    LUT4 i534_2_lut_rep_79_3_lut_4_lut_4_lut (.A(bcd_out_15__N_437), .B(n3588), 
-         .C(bcd_out_15__N_463), .D(n3599), .Z(n3579)) /* synthesis lut_function=(A (B (C+!(D))+!B (C+(D)))+!A (B (C+!(D))+!B (C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i534_2_lut_rep_79_3_lut_4_lut_4_lut.init = 16'hf2fc;
-    LUT4 i650_2_lut_3_lut_3_lut_4_lut (.A(\Q[2] ), .B(n3591), .C(n933[1]), 
-         .D(n933[2]), .Z(bcd_out_15__N_479)) /* synthesis lut_function=(!(A (C+!(D))+!A (B (C+!(D))+!B !(C)))) */ ;
-    defparam i650_2_lut_3_lut_3_lut_4_lut.init = 16'h1e10;
-    LUT4 i657_3_lut_4_lut_3_lut_4_lut (.A(\Q[2] ), .B(n3591), .C(n933[1]), 
-         .D(n933[2]), .Z(bcd_out_15__N_463)) /* synthesis lut_function=(!(A (C (D)+!C !(D))+!A (B (C (D)+!C !(D))+!B !(D)))) */ ;
-    defparam i657_3_lut_4_lut_3_lut_4_lut.init = 16'h1fe0;
-    LUT4 i635_2_lut_rep_85_4_lut_4_lut (.A(\Q[2] ), .B(n3591), .C(n933[1]), 
-         .D(n933[2]), .Z(n3585)) /* synthesis lut_function=(!(A (C+(D))+!A !(B (C+(D))+!B (D)))) */ ;
-    defparam i635_2_lut_rep_85_4_lut_4_lut.init = 16'h554a;
-    LUT4 i510_3_lut_rep_89 (.A(\Q[2] ), .B(n3591), .C(n933[1]), .D(n933[2]), 
-         .Z(n3589)) /* synthesis lut_function=(A (C+(D))+!A (B (C+(D))+!B (D))) */ ;
-    defparam i510_3_lut_rep_89.init = 16'hffe0;
-    LUT4 i643_3_lut_4_lut (.A(\Q[2] ), .B(n3591), .C(n933[1]), .D(n933[2]), 
-         .Z(bcd_out_15__N_483)) /* synthesis lut_function=(A (B)+!A !(B (C+(D))+!B !(D))) */ ;
-    defparam i643_3_lut_4_lut.init = 16'h998c;
-    LUT4 i1418_4_lut_4_lut (.A(n3562), .B(n3173), .C(n3556), .D(n3561), 
-         .Z(\DISPLAY_6__N_493[6] )) /* synthesis lut_function=(A (C+(D))+!A ((C)+!B)) */ ;   // c:/users/cassandra/desktop/arqui2/binariobcd.vhd(19[9] 42[16])
-    defparam i1418_4_lut_4_lut.init = 16'hfbf1;
-    LUT4 i663_2_lut_rep_91_4_lut_4_lut (.A(\Q[3] ), .B(n3595), .C(n930[1]), 
-         .D(n930[2]), .Z(n3591)) /* synthesis lut_function=(!(A (C+(D))+!A !(B (C+(D))+!B (D)))) */ ;
-    defparam i663_2_lut_rep_91_4_lut_4_lut.init = 16'h554a;
-    LUT4 i678_2_lut_3_lut_3_lut_4_lut (.A(\Q[3] ), .B(n3595), .C(n930[1]), 
-         .D(n930[2]), .Z(n933[2])) /* synthesis lut_function=(!(A (C+!(D))+!A (B (C+!(D))+!B !(C)))) */ ;
-    defparam i678_2_lut_3_lut_3_lut_4_lut.init = 16'h1e10;
-    LUT4 i685_3_lut_rep_88_4_lut_3_lut_4_lut (.A(\Q[3] ), .B(n3595), .C(n930[1]), 
-         .D(n930[2]), .Z(n3588)) /* synthesis lut_function=(!(A (C (D)+!C !(D))+!A (B (C (D)+!C !(D))+!B !(D)))) */ ;
-    defparam i685_3_lut_rep_88_4_lut_3_lut_4_lut.init = 16'h1fe0;
-    LUT4 i620_2_lut_rep_86_4_lut_4_lut_then_4_lut (.A(n927[2]), .B(n927[1]), 
-         .C(n3598), .D(\Q[3] ), .Z(n3607)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C))) */ ;
-    defparam i620_2_lut_rep_86_4_lut_4_lut_then_4_lut.init = 16'hf676;
-    LUT4 i671_3_lut_4_lut (.A(\Q[3] ), .B(n3595), .C(n930[1]), .D(n930[2]), 
-         .Z(n933[1])) /* synthesis lut_function=(A (B)+!A !(B (C+(D))+!B !(D))) */ ;
-    defparam i671_3_lut_4_lut.init = 16'h998c;
-    LUT4 i713_3_lut_4_lut_3_lut_4_lut (.A(n3598), .B(\Q[4] ), .C(n927[1]), 
-         .D(n927[2]), .Z(bcd_out_15__N_437)) /* synthesis lut_function=(!(A (C (D)+!C !(D))+!A (B (C (D)+!C !(D))+!B !(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i713_3_lut_4_lut_3_lut_4_lut.init = 16'h1fe0;
-    LUT4 i691_2_lut_rep_95_4_lut_4_lut (.A(n3598), .B(\Q[4] ), .C(n927[1]), 
-         .D(n927[2]), .Z(n3595)) /* synthesis lut_function=(!(A (B (C+(D))+!B !(C+(D)))+!A (B (C+(D))+!B !(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i691_2_lut_rep_95_4_lut_4_lut.init = 16'h332c;
-    LUT4 i706_2_lut_3_lut_3_lut_4_lut (.A(n3598), .B(\Q[4] ), .C(n927[1]), 
-         .D(n927[2]), .Z(n930[2])) /* synthesis lut_function=(!(A (C+!(D))+!A (B (C+!(D))+!B !(C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i706_2_lut_3_lut_3_lut_4_lut.init = 16'h1e10;
-    LUT4 i699_3_lut_4_lut (.A(n3598), .B(\Q[4] ), .C(n927[1]), .D(n927[2]), 
-         .Z(n930[1])) /* synthesis lut_function=(A (B+!(C+(D)))+!A !(B+!(D))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
-    defparam i699_3_lut_4_lut.init = 16'h998a;
-    LUT4 i607_2_lut_rep_84_3_lut_3_lut_4_lut (.A(n3602), .B(bcd_out_15__N_380), 
-         .C(n3588), .D(bcd_out_15__N_437), .Z(n3584)) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C))+!A !(C))) */ ;
-    defparam i607_2_lut_rep_84_3_lut_3_lut_4_lut.init = 16'h7870;
-    LUT4 i615_3_lut_4_lut_3_lut_4_lut (.A(n3602), .B(bcd_out_15__N_380), 
-         .C(n3588), .D(bcd_out_15__N_437), .Z(bcd_out_15__N_459)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (D)) */ ;
-    defparam i615_3_lut_4_lut_3_lut_4_lut.init = 16'hf700;
-    PFUMX i1802 (.BLUT(n3606), .ALUT(n3607), .C0(\Q[4] ), .Z(n3608));
+    LUT4 i836_2_lut_rep_152_3_lut (.A(Q[4]), .B(n10440), .C(Q[3]), .Z(n10432)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i836_2_lut_rep_152_3_lut.init = 16'hf6f6;
+    LUT4 i1537_2_lut_rep_92_3_lut_3_lut_4_lut (.A(n944[1]), .B(n10403), 
+         .C(bcd_out_15__N_475), .D(n10397), .Z(n10372)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1537_2_lut_rep_92_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i672_3_lut_rep_108_4_lut (.A(n944[1]), .B(n10403), .C(bcd_out_15__N_475), 
+         .D(n10397), .Z(n10388)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i672_3_lut_rep_108_4_lut.init = 16'hf666;
+    LUT4 i692_2_lut_rep_107_3_lut (.A(n944[3]), .B(n10401), .C(bcd_out_15__N_446), 
+         .Z(n10387)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i692_2_lut_rep_107_3_lut.init = 16'hf6f6;
+    LUT4 i682_3_lut_rep_153_4_lut (.A(n936[1]), .B(n10450), .C(n938[1]), 
+         .D(n10438), .Z(n10433)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i682_3_lut_rep_153_4_lut.init = 16'hf666;
+    LUT4 i1264_3_lut_rep_142_4_lut_3_lut_4_lut (.A(n936[1]), .B(n10450), 
+         .C(n938[1]), .D(n10438), .Z(n10422)) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1264_3_lut_rep_142_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i1257_2_lut_rep_144_3_lut_3_lut_4_lut (.A(n936[1]), .B(n10450), 
+         .C(n938[1]), .D(n10438), .Z(n10424)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1257_2_lut_rep_144_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i1544_3_lut_rep_89_4_lut_3_lut_4_lut (.A(n944[1]), .B(n10403), 
+         .C(bcd_out_15__N_475), .D(n10397), .Z(n10369)) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1544_3_lut_rep_89_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i2022_2_lut_rep_109_4_lut (.A(n944[1]), .B(n10403), .C(bcd_out_15__N_475), 
+         .D(n10397), .Z(n10389)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2022_2_lut_rep_109_4_lut.init = 16'hf600;
+    LUT4 i1992_2_lut_rep_154_4_lut (.A(n936[1]), .B(n10450), .C(n938[1]), 
+         .D(n10438), .Z(n10434)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1992_2_lut_rep_154_4_lut.init = 16'hf600;
+    LUT4 i1522_2_lut_rep_100_4_lut_4_lut (.A(bcd_out_15__N_479), .B(n10404), 
+         .C(bcd_out_15__N_475), .D(n10396), .Z(n10380)) /* synthesis lut_function=(!(A (C+(D))+!A !(B (C+(D))+!B (D)))) */ ;
+    defparam i1522_2_lut_rep_100_4_lut_4_lut.init = 16'h554a;
+    LUT4 i1242_2_lut_rep_150_4_lut_4_lut (.A(n937[3]), .B(n10443), .C(n938[1]), 
+         .D(n10437), .Z(n10430)) /* synthesis lut_function=(!(A (C+(D))+!A !(B (C+(D))+!B (D)))) */ ;
+    defparam i1242_2_lut_rep_150_4_lut_4_lut.init = 16'h554a;
+    LUT4 i8488_2_lut_rep_103_4_lut (.A(n10410), .B(n10406), .C(Q[1]), 
+         .D(reset_c), .Z(n10383)) /* synthesis lut_function=(A (B ((D)+!C)+!B (D))+!A ((C+(D))+!B)) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i8488_2_lut_rep_103_4_lut.init = 16'hff59;
+    LUT4 n3715_bdd_4_lut (.A(n10375), .B(n10447), .C(bcd_out_15__N_281), 
+         .D(n945[3]), .Z(n2081)) /* synthesis lut_function=(A (B (C (D)+!C !(D))+!B (C))+!A !((C+(D))+!B)) */ ;
+    defparam n3715_bdd_4_lut.init = 16'ha02c;
+    LUT4 i703_2_lut_rep_158_3_lut (.A(n935[3]), .B(n10449), .C(n937[3]), 
+         .Z(n10438)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i703_2_lut_rep_158_3_lut.init = 16'hf6f6;
+    LUT4 i1250_3_lut_4_lut (.A(n935[3]), .B(n10449), .C(n937[3]), .D(n10433), 
+         .Z(n941[1])) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1250_3_lut_4_lut.init = 16'h6966;
+    LUT4 i774_2_lut_rep_105_3_lut_4_lut_4_lut (.A(n10477), .B(n10446), .C(n945[3]), 
+         .D(bcd_out_15__N_281), .Z(n10385)) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C))+!A !(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i774_2_lut_rep_105_3_lut_4_lut_4_lut.init = 16'h7870;
+    LUT4 i683_3_lut_rep_160_4_lut (.A(n935[1]), .B(n10451), .C(n937[1]), 
+         .D(n10445), .Z(n10440)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i683_3_lut_rep_160_4_lut.init = 16'hf666;
+    LUT4 i782_3_lut_4_lut_3_lut (.A(bcd_out_15__N_281), .B(n945[3]), .C(n10447), 
+         .Z(bcd_out_15__N_280)) /* synthesis lut_function=(A (B+!(C))) */ ;
+    defparam i782_3_lut_4_lut_3_lut.init = 16'h8a8a;
+    LUT4 i2_4_lut_4_lut (.A(n929[3]), .B(bcd_out_15__N_298), .C(n10492), 
+         .D(n4), .Z(n2123)) /* synthesis lut_function=(A (B (C (D)+!C !(D))+!B !(C))+!A !(B (C)+!B (C (D)+!C !(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2_4_lut_4_lut.init = 16'h871e;
+    LUT4 i693_2_lut_rep_117_3_lut (.A(n943[3]), .B(n10409), .C(bcd_out_15__N_479), 
+         .Z(n10397)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i693_2_lut_rep_117_3_lut.init = 16'hf6f6;
+    LUT4 i1530_3_lut_rep_98_4_lut (.A(n943[3]), .B(n10409), .C(bcd_out_15__N_479), 
+         .D(n10388), .Z(n10378)) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1530_3_lut_rep_98_4_lut.init = 16'h6966;
+    LUT4 i2009_2_lut_rep_204_3_lut_4_lut (.A(Q[10]), .B(n2097), .C(Q[9]), 
+         .D(n2096), .Z(n10484)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2009_2_lut_rep_204_3_lut_4_lut.init = 16'hf600;
+    LUT4 i1_2_lut_3_lut_4_lut_4_lut (.A(n10492), .B(n929[3]), .C(bcd_out_15__N_298), 
+         .D(n10475), .Z(n29)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (D))+!A (C+(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1_2_lut_3_lut_4_lut_4_lut.init = 16'h00a7;
+    LUT4 i2029_2_lut_rep_159_3_lut_4_lut (.A(n935[1]), .B(n10451), .C(n937[1]), 
+         .D(n10445), .Z(n10439)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2029_2_lut_rep_159_3_lut_4_lut.init = 16'hf600;
+    LUT4 bcd_out_15__N_284_3__bdd_3_lut_4_lut_3_lut (.A(n10492), .B(n929[3]), 
+         .C(bcd_out_15__N_298), .Z(n10294)) /* synthesis lut_function=(A (B (C))+!A (B)) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam bcd_out_15__N_284_3__bdd_3_lut_4_lut_3_lut.init = 16'hc4c4;
+    LUT4 i1_4_lut_4_lut (.A(n929[3]), .B(bcd_out_15__N_298), .C(n10492), 
+         .D(n10475), .Z(n32)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B !(C+!(D)))+!A !(B (C)))) */ ;
+    defparam i1_4_lut_4_lut.init = 16'h60e2;
+    LUT4 i1474_3_lut_4_lut (.A(Q[10]), .B(n2097), .C(n2096), .D(Q[9]), 
+         .Z(n930[1])) /* synthesis lut_function=(!(A (B ((D)+!C)+!B !((D)+!C))+!A !(B ((D)+!C)+!B !((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1474_3_lut_4_lut.init = 16'h6696;
+    LUT4 i1158_2_lut (.A(Q[10]), .B(n2097), .Z(n929_c[0])) /* synthesis lut_function=(!(A (B)+!A !(B))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1158_2_lut.init = 16'h6666;
+    LUT4 i690_4_lut_then_4_lut (.A(n2123), .B(n2119), .C(n10477), .D(n10436), 
+         .Z(n10509)) /* synthesis lut_function=(A (B ((D)+!C)+!B (C (D)))+!A !((C)+!B)) */ ;
+    defparam i690_4_lut_then_4_lut.init = 16'hac0c;
+    LUT4 i690_4_lut_else_4_lut (.A(n2123), .B(n2119), .C(n10477), .D(n10436), 
+         .Z(n10508)) /* synthesis lut_function=(!(A ((C+!(D))+!B)+!A !(B (C+(D))+!B (C)))) */ ;
+    defparam i690_4_lut_else_4_lut.init = 16'h5c50;
+    LUT4 i5495_4_lut_4_lut (.A(n10373), .B(n7317), .C(n10360), .D(\Qbcd[5] ), 
+         .Z(\DISPLAY_6__N_509[6] )) /* synthesis lut_function=(A (C+(D))+!A ((C)+!B)) */ ;   // c:/users/cassandra/desktop/arqui2/binariobcd.vhd(19[9] 42[16])
+    defparam i5495_4_lut_4_lut.init = 16'hfbf1;
+    LUT4 Q_11__bdd_4_lut_8641 (.A(Q[11]), .B(Q[13]), .C(Q[12]), .D(Q[10]), 
+         .Z(n929_c[1])) /* synthesis lut_function=(!(A (B+!((D)+!C))+!A !(B (C+!(D))))) */ ;
+    defparam Q_11__bdd_4_lut_8641.init = 16'h6246;
+    LUT4 i8474_2_lut_rep_87_4_lut (.A(n10395), .B(n10376), .C(bcd_out_15__N_446), 
+         .D(reset_c), .Z(n10367)) /* synthesis lut_function=(A (B ((D)+!C)+!B (D))+!A ((C+(D))+!B)) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i8474_2_lut_rep_87_4_lut.init = 16'hff59;
+    LUT4 i5483_4_lut_4_lut (.A(n10367), .B(n7319), .C(n10356), .D(\Qbcd[9] ), 
+         .Z(\DISPLAY_6__N_509[6]_adj_1 )) /* synthesis lut_function=(A (C+(D))+!A ((C)+!B)) */ ;   // c:/users/cassandra/desktop/arqui2/binariobcd.vhd(19[9] 42[16])
+    defparam i5483_4_lut_4_lut.init = 16'hfbf1;
+    LUT4 i1488_3_lut_4_lut_then_4_lut (.A(Q[10]), .B(n929_c[1]), .C(bcd_out_15__N_299), 
+         .D(Q[9]), .Z(n10516)) /* synthesis lut_function=(!(A (B (C (D)+!C !(D))+!B !(C))+!A (B (C)+!B !(C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1488_3_lut_4_lut_then_4_lut.init = 16'h3cb4;
+    LUT4 i1488_3_lut_4_lut_else_4_lut (.A(Q[10]), .B(n929_c[1]), .C(bcd_out_15__N_299), 
+         .D(Q[9]), .Z(n10515)) /* synthesis lut_function=(!(A (B (C)+!B !(C))+!A (B (C (D)+!C !(D))+!B !(C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1488_3_lut_4_lut_else_4_lut.init = 16'h3c78;
+    LUT4 i795_2_lut_rep_112_4_lut_4_lut (.A(Q[1]), .B(n10410), .C(bcd_out_15__N_499), 
+         .D(bcd_out_15__N_495), .Z(n10392)) /* synthesis lut_function=(!(A (C+(D))+!A !(B (C+(D))+!B (D)))) */ ;
+    defparam i795_2_lut_rep_112_4_lut_4_lut.init = 16'h554a;
+    LUT4 i1339_2_lut_rep_179_3_lut (.A(Q[6]), .B(n10465), .C(Q[5]), .Z(n10459)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1339_2_lut_rep_179_3_lut.init = 16'hf6f6;
+    LUT4 i1334_3_lut_4_lut (.A(Q[6]), .B(n10465), .C(Q[5]), .D(n10455), 
+         .Z(n937[1])) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1334_3_lut_4_lut.init = 16'h6966;
+    LUT4 i1369_2_lut_rep_173_3_lut_4_lut (.A(n10464), .B(n10466), .C(bcd_out_15__N_332), 
+         .D(n2088), .Z(n10453)) /* synthesis lut_function=(!(A (C (D)+!C !(D))+!A (B (C (D)+!C !(D))+!B !(C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1369_2_lut_rep_173_3_lut_4_lut.init = 16'h1ef0;
+    LUT4 i678_3_lut_4_lut (.A(n10464), .B(n10466), .C(bcd_out_15__N_332), 
+         .D(bcd_out_15__N_328), .Z(n2088)) /* synthesis lut_function=(A (C+(D))+!A (B (C+(D))+!B (D))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i678_3_lut_4_lut.init = 16'hffe0;
+    LUT4 i817_3_lut_rep_110_4_lut_3_lut_4_lut (.A(Q[1]), .B(n10410), .C(bcd_out_15__N_499), 
+         .D(bcd_out_15__N_495), .Z(n10390)) /* synthesis lut_function=(!(A (C (D)+!C !(D))+!A (B (C (D)+!C !(D))+!B !(D)))) */ ;
+    defparam i817_3_lut_rep_110_4_lut_3_lut_4_lut.init = 16'h1fe0;
+    LUT4 i2021_2_lut_rep_176_3_lut_4_lut (.A(n10475), .B(n23), .C(n2088), 
+         .D(n10466), .Z(n10456)) /* synthesis lut_function=(A (B (C)+!B (C (D)))+!A (B (C (D))+!B (C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2021_2_lut_rep_176_3_lut_4_lut.init = 16'hf090;
+    LUT4 i1367_2_lut_rep_183_3_lut (.A(n10475), .B(n23), .C(n10466), .Z(n10463)) /* synthesis lut_function=(A (B+(C))+!A ((C)+!B)) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1367_2_lut_rep_183_3_lut.init = 16'hf9f9;
+    LUT4 i1990_2_lut_rep_120_4_lut (.A(Q[1]), .B(n10410), .C(bcd_out_15__N_499), 
+         .D(bcd_out_15__N_495), .Z(n10400)) /* synthesis lut_function=(A (C+(D))+!A (B (C+(D)))) */ ;
+    defparam i1990_2_lut_rep_120_4_lut.init = 16'heee0;
+    LUT4 i1362_3_lut_4_lut (.A(n10475), .B(n23), .C(n10466), .D(n2088), 
+         .Z(n936[1])) /* synthesis lut_function=(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1362_3_lut_4_lut.init = 16'h9699;
+    LUT4 i679_3_lut_rep_185_4_lut (.A(n931[1]), .B(n10472), .C(n933[1]), 
+         .D(n10468), .Z(n10465)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i679_3_lut_rep_185_4_lut.init = 16'hf666;
+    LUT4 i2016_2_lut_rep_182_3_lut_4_lut (.A(n931[1]), .B(n10472), .C(n933[1]), 
+         .D(n10468), .Z(n10462)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2016_2_lut_rep_182_3_lut_4_lut.init = 16'hf600;
+    LUT4 i1285_2_lut_rep_151_3_lut_3_lut_4_lut (.A(n935[1]), .B(n10451), 
+         .C(n937[1]), .D(n10445), .Z(n10431)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1285_2_lut_rep_151_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i1292_3_lut_4_lut_3_lut_4_lut (.A(n935[1]), .B(n10451), .C(n937[1]), 
+         .D(n10445), .Z(n940[3])) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1292_3_lut_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i1397_2_lut_rep_178_3_lut_3_lut_4_lut (.A(n931[1]), .B(n10472), 
+         .C(n933[1]), .D(n10468), .Z(n10458)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1397_2_lut_rep_178_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i1404_3_lut_4_lut_3_lut_4_lut (.A(n931[1]), .B(n10472), .C(n933[1]), 
+         .D(n10468), .Z(n935[3])) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1404_3_lut_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i1382_2_lut_rep_181_4_lut_4_lut (.A(n10470), .B(Q[6]), .C(n933[1]), 
+         .D(n10467), .Z(n10461)) /* synthesis lut_function=(!(A (B (C+(D))+!B !(C+(D)))+!A (B (C+(D))+!B !(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1382_2_lut_rep_181_4_lut_4_lut.init = 16'h332c;
+    LUT4 i1395_2_lut_rep_188_3_lut (.A(Q[7]), .B(n10471), .C(Q[6]), .Z(n10468)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1395_2_lut_rep_188_3_lut.init = 16'hf6f6;
+    LUT4 i1390_3_lut_4_lut (.A(Q[7]), .B(n10471), .C(Q[6]), .D(n10465), 
+         .Z(n935[1])) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1390_3_lut_4_lut.init = 16'h6966;
+    LUT4 i669_3_lut_rep_126 (.A(Q[1]), .B(n10410), .C(bcd_out_15__N_499), 
+         .D(bcd_out_15__N_495), .Z(n10406)) /* synthesis lut_function=(A (C+(D))+!A (B (C+(D))+!B (D))) */ ;
+    defparam i669_3_lut_rep_126.init = 16'hffe0;
+    LUT4 i1_4_lut (.A(n32), .B(n10492), .C(n29), .D(n10168), .Z(n23)) /* synthesis lut_function=(A+!(B+!(C+!(D)))) */ ;
+    defparam i1_4_lut.init = 16'hbabb;
+    LUT4 i1354_2_lut_rep_177_4_lut_4_lut (.A(n10474), .B(n10473), .C(n931[1]), 
+         .D(n2088), .Z(n10457)) /* synthesis lut_function=(A (B (C (D)+!C !(D))+!B !(C (D)+!C !(D)))+!A !(B (D)+!B !(D))) */ ;
+    defparam i1354_2_lut_rep_177_4_lut_4_lut.init = 16'h936c;
+    LUT4 i803_3_lut_rep_118_4_lut (.A(Q[1]), .B(n10410), .C(bcd_out_15__N_499), 
+         .D(bcd_out_15__N_495), .Z(n10398)) /* synthesis lut_function=(A (B)+!A !(B (C+(D))+!B !(D))) */ ;
+    defparam i803_3_lut_rep_118_4_lut.init = 16'h998c;
+    LUT4 i942_2_lut (.A(n929[3]), .B(bcd_out_15__N_298), .Z(n4_adj_637)) /* synthesis lut_function=(A+(B)) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i942_2_lut.init = 16'heeee;
+    LUT4 i2010_3_lut (.A(n2097), .B(Q[11]), .C(Q[10]), .Z(n4_adj_638)) /* synthesis lut_function=(A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2010_3_lut.init = 16'ha8a8;
+    LUT4 i2015_2_lut_rep_192_4_lut (.A(n930[1]), .B(n10480), .C(n931[1]), 
+         .D(n10474), .Z(n10472)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2015_2_lut_rep_192_4_lut.init = 16'hf600;
+    LUT4 i1425_2_lut_rep_187_3_lut_3_lut_4_lut (.A(n930[1]), .B(n10480), 
+         .C(n931[1]), .D(n10474), .Z(n10467)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1425_2_lut_rep_187_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i1432_3_lut_rep_186_4_lut_3_lut_4_lut (.A(n930[1]), .B(n10480), 
+         .C(n931[1]), .D(n10474), .Z(n10466)) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1432_3_lut_rep_186_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i5472_4_lut_4_lut (.A(n10358), .B(n7323), .C(n10357), .D(\Qbcd[13] ), 
+         .Z(\DISPLAY_6__N_509[6]_adj_2 )) /* synthesis lut_function=(A (C+(D))+!A ((C)+!B)) */ ;   // c:/users/cassandra/desktop/arqui2/binariobcd.vhd(19[9] 42[16])
+    defparam i5472_4_lut_4_lut.init = 16'hfbf1;
+    LUT4 i670_3_lut_rep_191_4_lut (.A(n930[1]), .B(n10480), .C(n931[1]), 
+         .D(n10474), .Z(n10471)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i670_3_lut_rep_191_4_lut.init = 16'hf666;
+    LUT4 i1410_2_lut_rep_190_4_lut_4_lut (.A(n10476), .B(Q[7]), .C(n931[1]), 
+         .D(n10473), .Z(n10470)) /* synthesis lut_function=(!(A (B (C+(D))+!B !(C+(D)))+!A (B (C+(D))+!B !(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1410_2_lut_rep_190_4_lut_4_lut.init = 16'h332c;
+    LUT4 i8449_3_lut_4_lut (.A(bcd_out_15__N_446), .B(n10376), .C(reset_c), 
+         .D(n10369), .Z(n3347)) /* synthesis lut_function=(A (B (C+!(D))+!B (C+(D)))+!A (B (C+(D))+!B (C+!(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i8449_3_lut_4_lut.init = 16'hf6f9;
+    LUT4 i8481_2_lut_rep_93_4_lut (.A(n10404), .B(n10388), .C(bcd_out_15__N_479), 
+         .D(reset_c), .Z(n10373)) /* synthesis lut_function=(A (B ((D)+!C)+!B (D))+!A ((C+(D))+!B)) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i8481_2_lut_rep_93_4_lut.init = 16'hff59;
+    LUT4 i686_3_lut_rep_121_4_lut (.A(bcd_out_15__N_378), .B(n10411), .C(n945[1]), 
+         .D(n10408), .Z(n10401)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i686_3_lut_rep_121_4_lut.init = 16'hf666;
+    LUT4 i8452_3_lut_4_lut (.A(n10384), .B(n2081), .C(reset_c), .D(n10361), 
+         .Z(n3349)) /* synthesis lut_function=(A (B (C+!(D))+!B (C+(D)))+!A (B (C+(D))+!B (C+!(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i8452_3_lut_4_lut.init = 16'hf6f9;
+    LUT4 i1423_2_lut_rep_194_3_lut (.A(Q[8]), .B(n10479), .C(Q[7]), .Z(n10474)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1423_2_lut_rep_194_3_lut.init = 16'hf6f6;
+    LUT4 i1418_3_lut_4_lut (.A(Q[8]), .B(n10479), .C(Q[7]), .D(n10471), 
+         .Z(n933[1])) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1418_3_lut_4_lut.init = 16'h6966;
+    LUT4 i8467_2_lut_rep_78_4_lut (.A(n10385), .B(n2081), .C(n10384), 
+         .D(reset_c), .Z(n10358)) /* synthesis lut_function=(A (B ((D)+!C)+!B (D))+!A ((C+(D))+!B)) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i8467_2_lut_rep_78_4_lut.init = 16'hff59;
+    LUT4 mux_1624_i3_3_lut_rep_180_4_lut (.A(n10492), .B(n4_adj_637), .C(n2123), 
+         .D(n2119), .Z(n10460)) /* synthesis lut_function=(A (B (C)+!B (D))+!A (D)) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam mux_1624_i3_3_lut_rep_180_4_lut.init = 16'hf780;
+    LUT4 i746_2_lut_rep_184_4_lut_4_lut (.A(n10482), .B(n10481), .C(n930[1]), 
+         .D(n23), .Z(n10464)) /* synthesis lut_function=(!(A (B (C (D)+!C !(D))+!B !(C (D)+!C !(D)))+!A !(B (D)+!B !(D)))) */ ;
+    defparam i746_2_lut_rep_184_4_lut_4_lut.init = 16'h6c93;
+    LUT4 i671_3_lut_rep_199_4_lut (.A(n929_c[1]), .B(n10484), .C(n930[1]), 
+         .D(n10482), .Z(n10479)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i671_3_lut_rep_199_4_lut.init = 16'hf666;
+    LUT4 i1460_3_lut_rep_195_4_lut_3_lut_4_lut (.A(n929_c[1]), .B(n10484), 
+         .C(n930[1]), .D(n10482), .Z(n10475)) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1460_3_lut_rep_195_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i1124_2_lut_rep_106_3_lut_3_lut_4_lut (.A(bcd_out_15__N_378), .B(n10411), 
+         .C(n945[1]), .D(n10408), .Z(n10386)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1124_2_lut_rep_106_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i2013_2_lut_rep_200_4_lut (.A(n929_c[1]), .B(n10484), .C(n930[1]), 
+         .D(n10482), .Z(n10480)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2013_2_lut_rep_200_4_lut.init = 16'hf600;
+    LUT4 i1453_2_lut_rep_193_3_lut_3_lut_4_lut (.A(n929_c[1]), .B(n10484), 
+         .C(n930[1]), .D(n10482), .Z(n10473)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1453_2_lut_rep_193_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i1438_2_lut_rep_196_4_lut_4_lut (.A(n10483), .B(Q[8]), .C(n930[1]), 
+         .D(n10481), .Z(n10476)) /* synthesis lut_function=(!(A (B (C+(D))+!B !(C+(D)))+!A (B (C+(D))+!B !(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1438_2_lut_rep_196_4_lut_4_lut.init = 16'h332c;
+    LUT4 i1270_2_lut_rep_155_4_lut_4_lut (.A(Q[4]), .B(n10452), .C(n937[1]), 
+         .D(n10444), .Z(n10435)) /* synthesis lut_function=(!(A (C+(D))+!A !(B (C+(D))+!B (D)))) */ ;
+    defparam i1270_2_lut_rep_155_4_lut_4_lut.init = 16'h554a;
+    LUT4 i1466_2_lut_rep_203 (.A(Q[9]), .B(n2096), .Z(n10483)) /* synthesis lut_function=(!(A (B)+!A !(B))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1466_2_lut_rep_203.init = 16'h6666;
+    LUT4 i1446_3_lut_4_lut (.A(Q[9]), .B(n2096), .C(Q[8]), .D(n10479), 
+         .Z(n931[1])) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1446_3_lut_4_lut.init = 16'h6966;
+    LUT4 i1451_2_lut_rep_202_3_lut (.A(Q[9]), .B(n2096), .C(Q[8]), .Z(n10482)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1451_2_lut_rep_202_3_lut.init = 16'hf6f6;
+    LUT4 i1131_3_lut_rep_104_4_lut_3_lut_4_lut (.A(bcd_out_15__N_378), .B(n10411), 
+         .C(n945[1]), .D(n10408), .Z(n10384)) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1131_3_lut_rep_104_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i8436_2_lut_3_lut (.A(Q[12]), .B(n4_adj_638), .C(Q[13]), .Z(n10168)) /* synthesis lut_function=(!(A (B (C)+!B !(C))+!A !(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i8436_2_lut_3_lut.init = 16'h7878;
+    LUT4 i2017_2_lut_rep_122_4_lut (.A(bcd_out_15__N_378), .B(n10411), .C(n945[1]), 
+         .D(n10408), .Z(n10402)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2017_2_lut_rep_122_4_lut.init = 16'hf600;
+    LUT4 i674_3_lut_4_lut (.A(n929_c[0]), .B(Q[9]), .C(n929_c[1]), .D(bcd_out_15__N_299), 
+         .Z(n2096)) /* synthesis lut_function=(A (C+(D))+!A (B (C+(D))+!B (D))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i674_3_lut_4_lut.init = 16'hffe0;
+    LUT4 i1481_2_lut_rep_201_3_lut_4_lut (.A(n929_c[0]), .B(Q[9]), .C(n929_c[1]), 
+         .D(n2096), .Z(n10481)) /* synthesis lut_function=(!(A (C (D)+!C !(D))+!A (B (C (D)+!C !(D))+!B !(C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1481_2_lut_rep_201_3_lut_4_lut.init = 16'h1ef0;
+    LUT4 i1109_2_lut_rep_115_4_lut_4_lut (.A(n10412), .B(n944[3]), .C(n945[1]), 
+         .D(n10407), .Z(n10395)) /* synthesis lut_function=(!(A (B (C+(D))+!B !(C+(D)))+!A (B (C+(D))+!B !(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1109_2_lut_rep_115_4_lut_4_lut.init = 16'h332c;
+    LUT4 i768_3_lut_4_lut (.A(Q[13]), .B(n10491), .C(n4_adj_640), .D(n929[3]), 
+         .Z(n2119)) /* synthesis lut_function=(!(A (B (C (D))+!B !(C (D)))+!A !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i768_3_lut_4_lut.init = 16'h7888;
+    LUT4 i2024_3_lut (.A(n23), .B(bcd_out_15__N_298), .C(n10475), .Z(n4_adj_640)) /* synthesis lut_function=(!(A+!(B+(C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2024_3_lut.init = 16'h5454;
+    LUT4 i2008_3_lut (.A(n23), .B(bcd_out_15__N_298), .C(n10475), .Z(n4)) /* synthesis lut_function=(!(A+!((C)+!B))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2008_3_lut.init = 16'h5151;
+    LUT4 i787_2_lut (.A(bcd_out_15__N_281), .B(n945[3]), .Z(n3723)) /* synthesis lut_function=(A+(B)) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i787_2_lut.init = 16'heeee;
+    LUT4 i716_2_lut_rep_211 (.A(Q[11]), .B(Q[12]), .Z(n10491)) /* synthesis lut_function=(A+(B)) */ ;
+    defparam i716_2_lut_rep_211.init = 16'heeee;
+    LUT4 i694_2_lut_rep_125_3_lut (.A(Q[2]), .B(n10415), .C(Q[1]), .Z(n10405)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i694_2_lut_rep_125_3_lut.init = 16'hf6f6;
+    LUT4 i1047_3_lut_4_lut (.A(n2077), .B(n10420), .C(bcd_out_15__N_378), 
+         .D(bcd_out_15__N_374), .Z(n945[3])) /* synthesis lut_function=(!(A (B (C (D)+!C !(D))+!B !(D))+!A !(D))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1047_3_lut_4_lut.init = 16'h7f80;
+    LUT4 i1122_2_lut_rep_128_3_lut (.A(n10422), .B(n2077), .C(n944[3]), 
+         .Z(n10408)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1122_2_lut_rep_128_3_lut.init = 16'hf6f6;
+    LUT4 i1117_3_lut_4_lut (.A(n10422), .B(n2077), .C(n944[3]), .D(n10401), 
+         .Z(bcd_out_15__N_442)) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1117_3_lut_4_lut.init = 16'h6966;
+    LUT4 i685_3_lut_rep_129_4_lut (.A(n941[1]), .B(n10416), .C(n944[1]), 
+         .D(n10414), .Z(n10409)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i685_3_lut_rep_129_4_lut.init = 16'hf666;
+    LUT4 i2020_2_lut_rep_123_3_lut_4_lut (.A(n941[1]), .B(n10416), .C(n944[1]), 
+         .D(n10414), .Z(n10403)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2020_2_lut_rep_123_3_lut_4_lut.init = 16'hf600;
+    LUT4 i1103_3_lut_4_lut_3_lut_4_lut (.A(n941[1]), .B(n10416), .C(n944[1]), 
+         .D(n10414), .Z(bcd_out_15__N_446)) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1103_3_lut_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i717_2_lut_rep_113_3_lut_4_lut (.A(bcd_out_15__N_327), .B(n10460), 
+         .C(n3723), .D(n10477), .Z(n10393)) /* synthesis lut_function=(A (C (D))+!A (B (C (D)))) */ ;
+    defparam i717_2_lut_rep_113_3_lut_4_lut.init = 16'he000;
+    LUT4 i947_2_lut_rep_197_3_lut_4_lut (.A(Q[11]), .B(Q[12]), .C(n4_adj_637), 
+         .D(Q[13]), .Z(n10477)) /* synthesis lut_function=(A (C (D))+!A (B (C (D)))) */ ;
+    defparam i947_2_lut_rep_197_3_lut_4_lut.init = 16'he000;
+    LUT4 bcd_out_15__N_287_3__bdd_3_lut_4_lut_3_lut (.A(Q[11]), .B(Q[12]), 
+         .C(Q[13]), .Z(n10302)) /* synthesis lut_function=(A (B)+!A !((C)+!B)) */ ;
+    defparam bcd_out_15__N_287_3__bdd_3_lut_4_lut_3_lut.init = 16'h8c8c;
+    LUT4 i1096_2_lut_rep_116_3_lut_3_lut_4_lut (.A(n941[1]), .B(n10416), 
+         .C(n944[1]), .D(n10414), .Z(n10396)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1096_2_lut_rep_116_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i1081_2_lut_rep_124_4_lut_4_lut (.A(n943[3]), .B(n10417), .C(n944[1]), 
+         .D(n10413), .Z(n10404)) /* synthesis lut_function=(!(A (C+(D))+!A !(B (C+(D))+!B (D)))) */ ;
+    defparam i1081_2_lut_rep_124_4_lut_4_lut.init = 16'h554a;
+    LUT4 Q_10__bdd_4_lut_4_lut_3_lut (.A(Q[11]), .B(Q[10]), .C(Q[13]), 
+         .Z(n10349)) /* synthesis lut_function=(A (B+!(C))+!A !((C)+!B)) */ ;
+    defparam Q_10__bdd_4_lut_4_lut_3_lut.init = 16'h8e8e;
+    LUT4 i8455_3_lut_4_lut (.A(bcd_out_15__N_479), .B(n10388), .C(reset_c), 
+         .D(n10390), .Z(n3351)) /* synthesis lut_function=(A (B (C+!(D))+!B (C+(D)))+!A (B (C+(D))+!B (C+!(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i8455_3_lut_4_lut.init = 16'hf6f9;
+    LUT4 i5462_4_lut_4_lut (.A(n10383), .B(n7201), .C(n10374), .D(\Qbcd[1] ), 
+         .Z(\DISPLAY_6__N_509[6]_adj_3 )) /* synthesis lut_function=(A (C+(D))+!A ((C)+!B)) */ ;   // c:/users/cassandra/desktop/arqui2/binariobcd.vhd(19[9] 42[16])
+    defparam i5462_4_lut_4_lut.init = 16'hfbf1;
+    LUT4 i1021_2_lut_rep_212 (.A(Q[11]), .B(Q[12]), .C(Q[13]), .Z(n10492)) /* synthesis lut_function=(A (C)+!A (B (C))) */ ;
+    defparam i1021_2_lut_rep_212.init = 16'he0e0;
+    LUT4 bcd_out_15__N_287_3__bdd_4_lut_8530_4_lut (.A(Q[11]), .B(Q[12]), 
+         .C(Q[13]), .D(Q[10]), .Z(n10301)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B !((D)+!C))+!A !(B (C+!(D))+!B (D)))) */ ;
+    defparam bcd_out_15__N_287_3__bdd_4_lut_8530_4_lut.init = 16'h73c6;
+    LUT4 i697_2_lut_rep_134_3_lut (.A(n940[3]), .B(n10421), .C(n943[3]), 
+         .Z(n10414)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i697_2_lut_rep_134_3_lut.init = 16'hf6f6;
+    LUT4 i1089_3_lut_4_lut (.A(n940[3]), .B(n10421), .C(n943[3]), .D(n10409), 
+         .Z(bcd_out_15__N_475)) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1089_3_lut_4_lut.init = 16'h6966;
+    LUT4 i1145_3_lut_rep_84_4_lut (.A(n945[3]), .B(n10393), .C(n10384), 
+         .D(n2081), .Z(n10364)) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1145_3_lut_rep_84_4_lut.init = 16'h6966;
+    LUT4 i673_3_lut_rep_96_4_lut (.A(n945[1]), .B(n10402), .C(bcd_out_15__N_442), 
+         .D(n10387), .Z(n10376)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i673_3_lut_rep_96_4_lut.init = 16'hf666;
+    LUT4 i684_3_lut_rep_135_4_lut (.A(n940[1]), .B(n10427), .C(n943[1]), 
+         .D(n10419), .Z(n10415)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i684_3_lut_rep_135_4_lut.init = 16'hf666;
+    LUT4 i1516_3_lut_rep_81_4_lut_3_lut_4_lut (.A(n945[1]), .B(n10402), 
+         .C(bcd_out_15__N_442), .D(n10387), .Z(n10361)) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1516_3_lut_rep_81_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i1509_2_lut_rep_86_3_lut_3_lut_4_lut (.A(n945[1]), .B(n10402), 
+         .C(bcd_out_15__N_442), .D(n10387), .Z(n10366)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1509_2_lut_rep_86_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i1993_2_lut_rep_97_4_lut (.A(n945[1]), .B(n10402), .C(bcd_out_15__N_442), 
+         .D(n10387), .Z(n10377)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1993_2_lut_rep_97_4_lut.init = 16'hf600;
+    LUT4 i1075_3_lut_4_lut_3_lut_4_lut (.A(n940[1]), .B(n10427), .C(n943[1]), 
+         .D(n10419), .Z(bcd_out_15__N_479)) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1075_3_lut_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i1068_2_lut_3_lut_3_lut_4_lut (.A(n940[1]), .B(n10427), .C(n943[1]), 
+         .D(n10419), .Z(bcd_out_15__N_495)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1068_2_lut_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i1053_2_lut_rep_130_4_lut_4_lut (.A(Q[2]), .B(n10426), .C(n943[1]), 
+         .D(n10418), .Z(n10410)) /* synthesis lut_function=(!(A (C+(D))+!A !(B (C+(D))+!B (D)))) */ ;
+    defparam i1053_2_lut_rep_130_4_lut_4_lut.init = 16'h554a;
+    LUT4 i1040_2_lut_rep_127_3_lut_4_lut (.A(n10422), .B(n10423), .C(bcd_out_15__N_378), 
+         .D(n2077), .Z(n10407)) /* synthesis lut_function=(!(A (C (D)+!C !(D))+!A (B (C (D)+!C !(D))+!B !(C)))) */ ;
+    defparam i1040_2_lut_rep_127_3_lut_4_lut.init = 16'h1ef0;
+    LUT4 i687_3_lut_4_lut (.A(n10422), .B(n10423), .C(bcd_out_15__N_378), 
+         .D(bcd_out_15__N_374), .Z(n2077)) /* synthesis lut_function=(A (C+(D))+!A (B (C+(D))+!B (D))) */ ;
+    defparam i687_3_lut_4_lut.init = 16'hffe0;
+    LUT4 i1494_2_lut_rep_91_4_lut_4_lut (.A(bcd_out_15__N_446), .B(n10395), 
+         .C(bcd_out_15__N_442), .D(n10386), .Z(n10371)) /* synthesis lut_function=(!(A (C+(D))+!A !(B (C+(D))+!B (D)))) */ ;
+    defparam i1494_2_lut_rep_91_4_lut_4_lut.init = 16'h554a;
+    LUT4 i1033_3_lut_4_lut (.A(n10436), .B(n2069), .C(n10422), .D(n2077), 
+         .Z(n945[1])) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1033_3_lut_4_lut.init = 16'h6966;
+    LUT4 i2027_2_lut_rep_131_3_lut_4_lut (.A(n10436), .B(n2069), .C(n2077), 
+         .D(n10422), .Z(n10411)) /* synthesis lut_function=(A (B (C (D))+!B (C))+!A (B (C)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2027_2_lut_rep_131_3_lut_4_lut.init = 16'hf060;
+    LUT4 i2028_2_lut_rep_136_3_lut_4_lut (.A(n938[1]), .B(n10434), .C(n941[1]), 
+         .D(n10425), .Z(n10416)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2028_2_lut_rep_136_3_lut_4_lut.init = 16'hf600;
+    LUT4 bcd_out_15__N_307_3__bdd_4_lut_4_lut (.A(bcd_out_15__N_327), .B(n10460), 
+         .C(n10477), .D(n10436), .Z(n10291)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B !((D)+!C))+!A !(B (C+!(D))+!B (D)))) */ ;
+    defparam bcd_out_15__N_307_3__bdd_4_lut_4_lut.init = 16'h73c6;
+    LUT4 i689_3_lut_rep_141_4_lut (.A(n938[1]), .B(n10434), .C(n941[1]), 
+         .D(n10425), .Z(n10421)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i689_3_lut_rep_141_4_lut.init = 16'hf666;
+    LUT4 i900_2_lut_rep_143_4_lut_4_lut (.A(n10454), .B(n10453), .C(n936[1]), 
+         .D(n2069), .Z(n10423)) /* synthesis lut_function=(A (B (C (D)+!C !(D))+!B !(C (D)+!C !(D)))+!A !(B (D)+!B !(D))) */ ;
+    defparam i900_2_lut_rep_143_4_lut_4_lut.init = 16'h936c;
+    LUT4 i873_3_lut_4_lut_3_lut_4_lut (.A(n938[1]), .B(n10434), .C(n941[1]), 
+         .D(n10425), .Z(n944[3])) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i873_3_lut_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i866_2_lut_rep_133_3_lut_3_lut_4_lut (.A(n938[1]), .B(n10434), 
+         .C(n941[1]), .D(n10425), .Z(n10413)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i866_2_lut_rep_133_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i1137_2_lut_rep_83_4_lut_4_lut (.A(n10408), .B(n10407), .C(n945[1]), 
+         .D(n2081), .Z(n10363)) /* synthesis lut_function=(A (B (C (D)+!C !(D))+!B !(C (D)+!C !(D)))+!A !(B (D)+!B !(D))) */ ;
+    defparam i1137_2_lut_rep_83_4_lut_4_lut.init = 16'h936c;
+    LUT4 i851_2_lut_rep_137_4_lut_4_lut (.A(n940[3]), .B(n10430), .C(n941[1]), 
+         .D(n10424), .Z(n10417)) /* synthesis lut_function=(!(A (C+(D))+!A !(B (C+(D))+!B (D)))) */ ;
+    defparam i851_2_lut_rep_137_4_lut_4_lut.init = 16'h554a;
+    LUT4 i698_2_lut_rep_139_3_lut (.A(Q[3]), .B(n10428), .C(Q[2]), .Z(n10419)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i698_2_lut_rep_139_3_lut.init = 16'hf6f6;
+    LUT4 i1061_3_lut_4_lut (.A(Q[3]), .B(n10428), .C(Q[2]), .D(n10415), 
+         .Z(bcd_out_15__N_499)) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1061_3_lut_4_lut.init = 16'h6966;
+    LUT4 i700_2_lut_rep_145_3_lut (.A(n937[3]), .B(n10433), .C(n940[3]), 
+         .Z(n10425)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i700_2_lut_rep_145_3_lut.init = 16'hf6f6;
+    LUT4 i859_3_lut_4_lut (.A(n937[3]), .B(n10433), .C(n940[3]), .D(n10421), 
+         .Z(n944[1])) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i859_3_lut_4_lut.init = 16'h6966;
+    LUT4 i8460_3_lut_4_lut (.A(Q[1]), .B(n10406), .C(reset_c), .D(Q[0]), 
+         .Z(n3489)) /* synthesis lut_function=(A (B (C+!(D))+!B (C+(D)))+!A (B (C+(D))+!B (C+!(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i8460_3_lut_4_lut.init = 16'hf6f9;
+    LUT4 i2011_2_lut_rep_147_3_lut_4_lut (.A(n937[1]), .B(n10439), .C(n940[1]), 
+         .D(n10432), .Z(n10427)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2011_2_lut_rep_147_3_lut_4_lut.init = 16'hf600;
+    LUT4 i688_3_lut_rep_148_4_lut (.A(n937[1]), .B(n10439), .C(n940[1]), 
+         .D(n10432), .Z(n10428)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i688_3_lut_rep_148_4_lut.init = 16'hf666;
+    LUT4 i838_2_lut_rep_138_3_lut_3_lut_4_lut (.A(n937[1]), .B(n10439), 
+         .C(n940[1]), .D(n10432), .Z(n10418)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i838_2_lut_rep_138_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i1150_2_lut_rep_95_4_lut_4_lut (.A(n10408), .B(n10407), .C(n945[1]), 
+         .D(n10385), .Z(n10375)) /* synthesis lut_function=(A (B ((D)+!C)+!B (C+(D)))+!A (B+(D))) */ ;
+    defparam i1150_2_lut_rep_95_4_lut_4_lut.init = 16'hff6c;
+    LUT4 i704_2_lut_rep_165_3_lut (.A(Q[5]), .B(n10455), .C(Q[4]), .Z(n10445)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i704_2_lut_rep_165_3_lut.init = 16'hf6f6;
+    LUT4 i831_3_lut_4_lut (.A(Q[4]), .B(n10440), .C(Q[3]), .D(n10428), 
+         .Z(n943[1])) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i831_3_lut_4_lut.init = 16'h6966;
+    LUT4 i1278_3_lut_4_lut (.A(Q[5]), .B(n10455), .C(Q[4]), .D(n10440), 
+         .Z(n940[1])) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1278_3_lut_4_lut.init = 16'h6966;
+    LUT4 i676_3_lut_rep_169_4_lut (.A(bcd_out_15__N_332), .B(n10456), .C(n936[1]), 
+         .D(n10454), .Z(n10449)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i676_3_lut_rep_169_4_lut.init = 16'hf666;
+    LUT4 i699_2_lut_rep_140_4_lut_4_lut (.A(n10438), .B(n10437), .C(n938[1]), 
+         .D(n10423), .Z(n10420)) /* synthesis lut_function=(A (B ((D)+!C)+!B (C+(D)))+!A (B+(D))) */ ;
+    defparam i699_2_lut_rep_140_4_lut_4_lut.init = 16'hff6c;
+    LUT4 i1502_3_lut_rep_88_4_lut (.A(n944[3]), .B(n10401), .C(bcd_out_15__N_446), 
+         .D(n10376), .Z(n10368)) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1502_3_lut_rep_88_4_lut.init = 16'h6966;
+    LUT4 i1313_2_lut_rep_157_3_lut_3_lut_4_lut (.A(bcd_out_15__N_332), .B(n10456), 
+         .C(n936[1]), .D(n10454), .Z(n10437)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1313_2_lut_rep_157_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i1320_3_lut_rep_156_4_lut_3_lut_4_lut (.A(bcd_out_15__N_332), .B(n10456), 
+         .C(n936[1]), .D(n10454), .Z(n10436)) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1320_3_lut_rep_156_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i845_3_lut_4_lut_3_lut_4_lut (.A(n937[1]), .B(n10439), .C(n940[1]), 
+         .D(n10432), .Z(n943[3])) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i845_3_lut_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i823_2_lut_rep_146_4_lut_4_lut (.A(n10435), .B(Q[3]), .C(n940[1]), 
+         .D(n10431), .Z(n10426)) /* synthesis lut_function=(!(A (B (C+(D))+!B !(C+(D)))+!A (B (C+(D))+!B !(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i823_2_lut_rep_146_4_lut_4_lut.init = 16'h332c;
+    LUT4 i1152_3_lut_rep_82_4_lut (.A(n10385), .B(n10384), .C(n2081), 
+         .D(bcd_out_15__N_280), .Z(n10362)) /* synthesis lut_function=(!(A (C (D)+!C !(D))+!A (B (C (D)+!C !(D))+!B !(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1152_3_lut_rep_82_4_lut.init = 16'h1fe0;
+    LUT4 i2026_2_lut_rep_170_4_lut (.A(bcd_out_15__N_332), .B(n10456), .C(n936[1]), 
+         .D(n10454), .Z(n10450)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2026_2_lut_rep_170_4_lut.init = 16'hf600;
+    LUT4 i1298_2_lut_rep_163_4_lut_4_lut (.A(n935[3]), .B(n10457), .C(n936[1]), 
+         .D(n10453), .Z(n10443)) /* synthesis lut_function=(!(A (C+(D))+!A !(B (C+(D))+!B (D)))) */ ;
+    defparam i1298_2_lut_rep_163_4_lut_4_lut.init = 16'h554a;
+    LUT4 i1025_2_lut_rep_132_4_lut_4_lut (.A(n10438), .B(n10437), .C(n938[1]), 
+         .D(n2077), .Z(n10412)) /* synthesis lut_function=(A (B (C (D)+!C !(D))+!B !(C (D)+!C !(D)))+!A !(B (D)+!B !(D))) */ ;
+    defparam i1025_2_lut_rep_132_4_lut_4_lut.init = 16'h936c;
+    LUT4 Q_10__bdd_2_lut (.A(Q[13]), .B(Q[11]), .Z(n10350)) /* synthesis lut_function=(!((B)+!A)) */ ;
+    defparam Q_10__bdd_2_lut.init = 16'h2222;
+    LUT4 i1376_3_lut_4_lut (.A(n2088), .B(n10463), .C(bcd_out_15__N_332), 
+         .D(bcd_out_15__N_328), .Z(bcd_out_15__N_327)) /* synthesis lut_function=(!(A (B (C (D)+!C !(D))+!B !(D))+!A !(D))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1376_3_lut_4_lut.init = 16'h7f80;
+    LUT4 i1306_3_lut_4_lut (.A(n10466), .B(n2088), .C(n935[3]), .D(n10449), 
+         .Z(n938[1])) /* synthesis lut_function=(!(A (B (C+!(D))+!B !(C+!(D)))+!A !(B (C+!(D))+!B !(C+!(D))))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1306_3_lut_4_lut.init = 16'h6966;
+    LUT4 i706_2_lut_rep_174_3_lut (.A(n10466), .B(n2088), .C(n935[3]), 
+         .Z(n10454)) /* synthesis lut_function=(A ((C)+!B)+!A (B+(C))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i706_2_lut_rep_174_3_lut.init = 16'hf6f6;
+    LUT4 i2025_2_lut_rep_171_3_lut_4_lut (.A(n933[1]), .B(n10462), .C(n935[1]), 
+         .D(n10459), .Z(n10451)) /* synthesis lut_function=(A (B (C (D))+!B (D))+!A (B (D)+!B (C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i2025_2_lut_rep_171_3_lut_4_lut.init = 16'hf600;
+    LUT4 i677_3_lut_rep_175_4_lut (.A(n933[1]), .B(n10462), .C(n935[1]), 
+         .D(n10459), .Z(n10455)) /* synthesis lut_function=(A ((C (D))+!B)+!A (B+(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i677_3_lut_rep_175_4_lut.init = 16'hf666;
+    LUT4 i1341_2_lut_rep_164_3_lut_3_lut_4_lut (.A(n933[1]), .B(n10462), 
+         .C(n935[1]), .D(n10459), .Z(n10444)) /* synthesis lut_function=(!(A (B ((D)+!C)+!B (C (D)+!C !(D)))+!A (B (C (D)+!C !(D))+!B ((D)+!C)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1341_2_lut_rep_164_3_lut_3_lut_4_lut.init = 16'h06f0;
+    LUT4 i1348_3_lut_4_lut_3_lut_4_lut (.A(n933[1]), .B(n10462), .C(n935[1]), 
+         .D(n10459), .Z(n937[3])) /* synthesis lut_function=(A (B (C (D))+!B !(C (D)))+!A !(B (C (D))+!B !(C (D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1348_3_lut_4_lut_3_lut_4_lut.init = 16'h9666;
+    LUT4 i1326_2_lut_rep_172_4_lut_4_lut (.A(n10461), .B(Q[5]), .C(n935[1]), 
+         .D(n10458), .Z(n10452)) /* synthesis lut_function=(!(A (B (C+(D))+!B !(C+(D)))+!A (B (C+(D))+!B !(D)))) */ ;   // C:/lscc/diamond/3.13/ispfpga/vhdl_packages/syn_arit.vhd(838[41:65])
+    defparam i1326_2_lut_rep_172_4_lut_4_lut.init = 16'h332c;
+    PFUMX i8577 (.BLUT(n10515), .ALUT(n10516), .C0(n2097), .Z(bcd_out_15__N_298));
+    PFUMX i8573 (.BLUT(n10508), .ALUT(n10509), .C0(bcd_out_15__N_327), 
+          .Z(n2069));
+    PFUMX i8558 (.BLUT(n10350), .ALUT(n10349), .C0(Q[12]), .Z(n2097));
     
 endmodule
 //
@@ -1377,143 +1887,277 @@ endmodule
 //
 
 //
+// Verilog Description of module ROM
+//
+
+module ROM (clk, n10684, MAR, reset_c, GND_net, VCC_net, data_out_23__N_516, 
+            n3175);
+    input clk;
+    input n10684;
+    input [7:0]MAR;
+    input reset_c;
+    input GND_net;
+    input VCC_net;
+    output [23:0]data_out_23__N_516;
+    output n3175;
+    
+    wire clk /* synthesis SET_AS_NETWORK=clk, is_clock=1 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(64[8:11])
+    
+    wire data_out_23__N_517;
+    wire [23:0]data_out_23__N_565;
+    
+    FD1S3AX data_out (.D(n10684), .CK(clk), .Q(data_out_23__N_517));   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam data_out.GSR = "ENABLED";
+    PDPW8KC mux_226 (.DI0(GND_net), .DI1(GND_net), .DI2(GND_net), .DI3(GND_net), 
+            .DI4(GND_net), .DI5(GND_net), .DI6(GND_net), .DI7(GND_net), 
+            .DI8(GND_net), .DI9(GND_net), .DI10(GND_net), .DI11(GND_net), 
+            .DI12(GND_net), .DI13(GND_net), .DI14(GND_net), .DI15(GND_net), 
+            .DI16(GND_net), .DI17(GND_net), .ADW0(GND_net), .ADW1(GND_net), 
+            .ADW2(GND_net), .ADW3(GND_net), .ADW4(GND_net), .ADW5(GND_net), 
+            .ADW6(GND_net), .ADW7(GND_net), .ADW8(GND_net), .BE0(GND_net), 
+            .BE1(GND_net), .CEW(VCC_net), .CLKW(GND_net), .CSW0(GND_net), 
+            .CSW1(GND_net), .CSW2(GND_net), .ADR0(GND_net), .ADR1(GND_net), 
+            .ADR2(GND_net), .ADR3(GND_net), .ADR4(MAR[0]), .ADR5(MAR[1]), 
+            .ADR6(MAR[2]), .ADR7(MAR[3]), .ADR8(MAR[4]), .ADR9(MAR[5]), 
+            .ADR10(MAR[6]), .ADR11(MAR[7]), .ADR12(GND_net), .CER(VCC_net), 
+            .OCER(VCC_net), .CLKR(clk), .CSR0(GND_net), .CSR1(GND_net), 
+            .CSR2(GND_net), .RST(reset_c), .DO9(data_out_23__N_565[18]), 
+            .DO10(data_out_23__N_565[19]), .DO11(data_out_23__N_565[20]), 
+            .DO12(data_out_23__N_565[21]), .DO13(data_out_23__N_565[22]), 
+            .DO14(data_out_23__N_565[23]));
+    defparam mux_226.DATA_WIDTH_W = 18;
+    defparam mux_226.DATA_WIDTH_R = 18;
+    defparam mux_226.REGMODE = "NOREG";
+    defparam mux_226.CSDECODE_W = "0b000";
+    defparam mux_226.CSDECODE_R = "0b000";
+    defparam mux_226.GSR = "DISABLED";
+    defparam mux_226.RESETMODE = "ASYNC";
+    defparam mux_226.ASYNC_RESET_RELEASE = "SYNC";
+    defparam mux_226.INIT_DATA = "STATIC";
+    defparam mux_226.INITVAL_00 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0001800009000110001300019";
+    defparam mux_226.INITVAL_01 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_02 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_03 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_04 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_05 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_06 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_07 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_08 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_09 = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_0A = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_0B = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_0C = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_0D = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_0E = "0x0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_0F = "0x0000000000000000000000000000000000000000000000003F0003F0003F0003F0003F0003F0003F";
+    defparam mux_226.INITVAL_10 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_11 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_12 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_13 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_14 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_15 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_16 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_17 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_18 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_19 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_1A = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_1B = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_1C = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_1D = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_1E = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_226.INITVAL_1F = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    PDPW8KC mux_225 (.DI0(GND_net), .DI1(GND_net), .DI2(GND_net), .DI3(GND_net), 
+            .DI4(GND_net), .DI5(GND_net), .DI6(GND_net), .DI7(GND_net), 
+            .DI8(GND_net), .DI9(GND_net), .DI10(GND_net), .DI11(GND_net), 
+            .DI12(GND_net), .DI13(GND_net), .DI14(GND_net), .DI15(GND_net), 
+            .DI16(GND_net), .DI17(GND_net), .ADW0(GND_net), .ADW1(GND_net), 
+            .ADW2(GND_net), .ADW3(GND_net), .ADW4(GND_net), .ADW5(GND_net), 
+            .ADW6(GND_net), .ADW7(GND_net), .ADW8(GND_net), .BE0(GND_net), 
+            .BE1(GND_net), .CEW(VCC_net), .CLKW(GND_net), .CSW0(GND_net), 
+            .CSW1(GND_net), .CSW2(GND_net), .ADR0(GND_net), .ADR1(GND_net), 
+            .ADR2(GND_net), .ADR3(GND_net), .ADR4(MAR[0]), .ADR5(MAR[1]), 
+            .ADR6(MAR[2]), .ADR7(MAR[3]), .ADR8(MAR[4]), .ADR9(MAR[5]), 
+            .ADR10(MAR[6]), .ADR11(MAR[7]), .ADR12(GND_net), .CER(VCC_net), 
+            .OCER(VCC_net), .CLKR(clk), .CSR0(GND_net), .CSR1(GND_net), 
+            .CSR2(GND_net), .RST(reset_c), .DO0(data_out_23__N_565[9]), 
+            .DO1(data_out_23__N_565[10]), .DO2(data_out_23__N_565[11]), 
+            .DO3(data_out_23__N_565[12]), .DO4(data_out_23__N_565[13]), 
+            .DO5(data_out_23__N_565[14]), .DO6(data_out_23__N_565[15]), 
+            .DO7(data_out_23__N_565[16]), .DO8(data_out_23__N_565[17]), 
+            .DO9(data_out_23__N_565[0]), .DO10(data_out_23__N_565[1]), .DO11(data_out_23__N_565[2]), 
+            .DO12(data_out_23__N_565[3]), .DO13(data_out_23__N_565[4]), 
+            .DO14(data_out_23__N_565[5]), .DO15(data_out_23__N_565[6]), 
+            .DO16(data_out_23__N_565[7]), .DO17(data_out_23__N_565[8]));
+    defparam mux_225.DATA_WIDTH_W = 18;
+    defparam mux_225.DATA_WIDTH_R = 18;
+    defparam mux_225.REGMODE = "NOREG";
+    defparam mux_225.CSDECODE_W = "0b000";
+    defparam mux_225.CSDECODE_R = "0b000";
+    defparam mux_225.GSR = "DISABLED";
+    defparam mux_225.RESETMODE = "ASYNC";
+    defparam mux_225.ASYNC_RESET_RELEASE = "SYNC";
+    defparam mux_225.INIT_DATA = "STATIC";
+    defparam mux_225.INITVAL_00 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF0000000005000F7000000000D";
+    defparam mux_225.INITVAL_01 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_02 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_03 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_04 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_05 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_06 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_07 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_08 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_09 = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_0A = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_0B = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_0C = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_0D = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_0E = "0x3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_0F = "0x0004D00037000170000700012000320004600065003EB3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF3FFFF";
+    defparam mux_225.INITVAL_10 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_11 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_12 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_13 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_14 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_15 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_16 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_17 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_18 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_19 = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_1A = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_1B = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_1C = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_1D = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_1E = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    defparam mux_225.INITVAL_1F = "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+    LUT4 i254_2_lut (.A(data_out_23__N_565[23]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[23])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i254_2_lut.init = 16'h8888;
+    LUT4 i253_2_lut (.A(data_out_23__N_565[22]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[22])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i253_2_lut.init = 16'h8888;
+    LUT4 i252_2_lut (.A(data_out_23__N_565[21]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[21])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i252_2_lut.init = 16'h8888;
+    LUT4 i251_2_lut (.A(data_out_23__N_565[20]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[20])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i251_2_lut.init = 16'h8888;
+    LUT4 i241_2_lut (.A(data_out_23__N_565[10]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[10])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i241_2_lut.init = 16'h8888;
+    LUT4 i240_2_lut (.A(data_out_23__N_565[9]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[9])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i240_2_lut.init = 16'h8888;
+    LUT4 i239_2_lut (.A(data_out_23__N_565[8]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[8])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i239_2_lut.init = 16'h8888;
+    LUT4 i238_2_lut (.A(data_out_23__N_565[7]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[7])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i238_2_lut.init = 16'h8888;
+    LUT4 i237_2_lut (.A(data_out_23__N_565[6]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[6])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i237_2_lut.init = 16'h8888;
+    LUT4 i236_2_lut (.A(data_out_23__N_565[5]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[5])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i236_2_lut.init = 16'h8888;
+    LUT4 i235_2_lut (.A(data_out_23__N_565[4]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[4])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i235_2_lut.init = 16'h8888;
+    LUT4 i234_2_lut (.A(data_out_23__N_565[3]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[3])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i234_2_lut.init = 16'h8888;
+    LUT4 i233_2_lut (.A(data_out_23__N_565[2]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[2])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i233_2_lut.init = 16'h8888;
+    LUT4 i232_2_lut (.A(data_out_23__N_565[1]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[1])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i232_2_lut.init = 16'h8888;
+    LUT4 i1585_1_lut (.A(data_out_23__N_517), .Z(n3175)) /* synthesis lut_function=(!(A)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(64[2] 77[14])
+    defparam i1585_1_lut.init = 16'h5555;
+    LUT4 i248_2_lut (.A(data_out_23__N_565[17]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[17])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i248_2_lut.init = 16'h8888;
+    LUT4 i247_2_lut (.A(data_out_23__N_565[16]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[16])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i247_2_lut.init = 16'h8888;
+    LUT4 i246_2_lut (.A(data_out_23__N_565[15]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[15])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i246_2_lut.init = 16'h8888;
+    LUT4 i245_2_lut (.A(data_out_23__N_565[14]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[14])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i245_2_lut.init = 16'h8888;
+    LUT4 i250_2_lut (.A(data_out_23__N_565[19]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[19])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i250_2_lut.init = 16'h8888;
+    LUT4 i231_2_lut (.A(data_out_23__N_565[0]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[0])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i231_2_lut.init = 16'h8888;
+    LUT4 i249_2_lut (.A(data_out_23__N_565[18]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[18])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i249_2_lut.init = 16'h8888;
+    LUT4 i244_2_lut (.A(data_out_23__N_565[13]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[13])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i244_2_lut.init = 16'h8888;
+    LUT4 i243_2_lut (.A(data_out_23__N_565[12]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[12])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i243_2_lut.init = 16'h8888;
+    LUT4 i242_2_lut (.A(data_out_23__N_565[11]), .B(data_out_23__N_517), 
+         .Z(data_out_23__N_516[11])) /* synthesis lut_function=(A (B)) */ ;   // c:/users/cassandra/desktop/arqui2/rom.vhd(66[3] 76[10])
+    defparam i242_2_lut.init = 16'h8888;
+    
+endmodule
+//
 // Verilog Description of module bcdDisplay_U1
 //
 
-module bcdDisplay_U1 (\ce[6] , clk_0, n3581, \ce[5] , \DISPLAY_6__N_493[5] , 
-            \ce[4] , \DISPLAY_6__N_493[4] , \ce[3] , \ce[2] , n2913, 
-            n3557);
-    output \ce[6] ;
-    input clk_0;
-    input n3581;
-    output \ce[5] ;
-    input \DISPLAY_6__N_493[5] ;
-    output \ce[4] ;
-    input \DISPLAY_6__N_493[4] ;
-    output \ce[3] ;
-    output \ce[2] ;
-    input n2913;
-    input n3557;
-    
-    wire clk_0 /* synthesis is_clock=1, SET_AS_NETWORK=clk_0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(75[8:13])
-    
-    FD1S3AX DISPLAY_i5 (.D(n3581), .CK(clk_0), .Q(\ce[6] )) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=120, LSE_RLINE=120 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i5.GSR = "ENABLED";
-    FD1S3AY DISPLAY_i4 (.D(\DISPLAY_6__N_493[5] ), .CK(clk_0), .Q(\ce[5] )) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=120, LSE_RLINE=120 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i4.GSR = "ENABLED";
-    FD1S3AY DISPLAY_i3 (.D(\DISPLAY_6__N_493[4] ), .CK(clk_0), .Q(\ce[4] )) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=120, LSE_RLINE=120 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i3.GSR = "ENABLED";
-    FD1S3JX DISPLAY_i2 (.D(\DISPLAY_6__N_493[4] ), .CK(clk_0), .PD(n3581), 
-            .Q(\ce[3] )) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=120, LSE_RLINE=120 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i2.GSR = "ENABLED";
-    FD1S3JX DISPLAY_i1 (.D(n3557), .CK(clk_0), .PD(n2913), .Q(\ce[2] )) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=120, LSE_RLINE=120 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i1.GSR = "ENABLED";
-    
-endmodule
-//
-// Verilog Description of module bcdDisplay
-//
-
-module bcdDisplay (un, clk_0, n2787, n3463, n3558, n3555, \DISPLAY_6__N_493[4] , 
-            n2662, n3571, n3564, n3566, n3600, n3614, n2639, n3236, 
-            n2646, n3171);
-    output [6:0]un;
-    input clk_0;
-    input n2787;
-    input n3463;
-    input n3558;
-    input n3555;
-    input \DISPLAY_6__N_493[4] ;
-    input n2662;
-    input n3571;
-    input n3564;
-    input n3566;
-    input n3600;
-    input n3614;
-    input n2639;
-    input n3236;
-    output n2646;
-    input n3171;
-    
-    wire clk_0 /* synthesis is_clock=1, SET_AS_NETWORK=clk_0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(75[8:13])
-    wire [6:0]DISPLAY_6__N_493;
-    
-    wire n7;
-    
-    FD1S3JX DISPLAY_i0 (.D(n3463), .CK(clk_0), .PD(n2787), .Q(un[0])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=118, LSE_RLINE=118 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i0.GSR = "ENABLED";
-    FD1S3AX DISPLAY_i6 (.D(DISPLAY_6__N_493[6]), .CK(clk_0), .Q(un[6])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=118, LSE_RLINE=118 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i6.GSR = "ENABLED";
-    FD1S3JX DISPLAY_i5 (.D(n3555), .CK(clk_0), .PD(n3558), .Q(un[5])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=118, LSE_RLINE=118 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i5.GSR = "ENABLED";
-    FD1S3AY DISPLAY_i4 (.D(\DISPLAY_6__N_493[4] ), .CK(clk_0), .Q(un[4])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=118, LSE_RLINE=118 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i4.GSR = "ENABLED";
-    FD1S3JX DISPLAY_i3 (.D(n7), .CK(clk_0), .PD(n3558), .Q(un[3])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=118, LSE_RLINE=118 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i3.GSR = "ENABLED";
-    FD1S3JX DISPLAY_i1 (.D(n3571), .CK(clk_0), .PD(n2662), .Q(un[1])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=118, LSE_RLINE=118 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i1.GSR = "ENABLED";
-    LUT4 E_3__I_0_Mux_3_i7_4_lut_4_lut (.A(n3571), .B(n3564), .C(n3566), 
-         .D(n3600), .Z(n7)) /* synthesis lut_function=(!(A (B (C)+!B (C+(D)))+!A !(B+(C+!(D))))) */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(30[3] 41[12])
-    defparam E_3__I_0_Mux_3_i7_4_lut_4_lut.init = 16'h5c5f;
-    FD1S3JX DISPLAY_i2 (.D(n3614), .CK(clk_0), .PD(n3600), .Q(un[2])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=11, LSE_RCOL=21, LSE_LLINE=118, LSE_RLINE=118 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i2.GSR = "ENABLED";
-    PFUMX i968 (.BLUT(n2639), .ALUT(n3236), .C0(n3558), .Z(n2646));
-    LUT4 i1424_4_lut (.A(n3564), .B(n3558), .C(n3171), .D(n3566), .Z(DISPLAY_6__N_493[6])) /* synthesis lut_function=(A (B+!(C (D)))+!A (B+!(C+!(D)))) */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(30[3] 41[12])
-    defparam i1424_4_lut.init = 16'hcfee;
-    
-endmodule
-//
-// Verilog Description of module bcdDisplay_U0
-//
-
-module bcdDisplay_U0 (de, clk_0, \DISPLAY_6__N_493[6] , n3556, n3538, 
-            n2791, n3465, n3580, n3568, reset_c, n3584, n3536, 
-            n3535, n2635, n2568, n3560, n3611, bcd_out_15__N_463);
+module bcdDisplay_U1 (de, clk_0, n3625, n10162, n10381, n10263, 
+            n3334, n3351, n10332, n10331, n10360, n10330, \DISPLAY_6__N_509[6] , 
+            bcd_out_15__N_479, n10388, n10390, reset_c, n10404);
     output [6:0]de;
     input clk_0;
-    input \DISPLAY_6__N_493[6] ;
-    input n3556;
-    input n3538;
-    input n2791;
-    input n3465;
-    input n3580;
-    input n3568;
+    input n3625;
+    input n10162;
+    input n10381;
+    input n10263;
+    input n3334;
+    input n3351;
+    input n10332;
+    input n10331;
+    input n10360;
+    input n10330;
+    input \DISPLAY_6__N_509[6] ;
+    input bcd_out_15__N_479;
+    input n10388;
+    input n10390;
     input reset_c;
-    input n3584;
-    input n3536;
-    input n3535;
-    input n2635;
-    input n2568;
-    input n3560;
-    input n3611;
-    input bcd_out_15__N_463;
+    input n10404;
     
-    wire clk_0 /* synthesis is_clock=1, SET_AS_NETWORK=clk_0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(75[8:13])
-    wire [6:0]DISPLAY_6__N_493;
+    wire clk_0 /* synthesis is_clock=1, SET_AS_NETWORK=clk_0 */ ;   // c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(65[8:13])
+    wire [6:0]DISPLAY_6__N_509;
     
-    wire n3617, n3616, n3615;
+    wire n10498, n10496, n10497;
     
-    FD1S3AX DISPLAY_i6 (.D(\DISPLAY_6__N_493[6] ), .CK(clk_0), .Q(de[6])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=119, LSE_RLINE=119 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i6.GSR = "ENABLED";
-    FD1S3JX DISPLAY_i5 (.D(n3538), .CK(clk_0), .PD(n3556), .Q(de[5])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=119, LSE_RLINE=119 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i5.GSR = "ENABLED";
-    FD1S3AY DISPLAY_i4 (.D(DISPLAY_6__N_493[4]), .CK(clk_0), .Q(de[4])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=119, LSE_RLINE=119 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i4.GSR = "ENABLED";
-    FD1S3JX DISPLAY_i3 (.D(n3617), .CK(clk_0), .PD(n3556), .Q(de[3])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=119, LSE_RLINE=119 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i3.GSR = "ENABLED";
-    FD1S3JX DISPLAY_i0 (.D(n3465), .CK(clk_0), .PD(n2791), .Q(de[0])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=119, LSE_RLINE=119 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    FD1S3JX DISPLAY_i0 (.D(n10162), .CK(clk_0), .PD(n3625), .Q(de[0])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=109, LSE_RLINE=109 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
     defparam DISPLAY_i0.GSR = "ENABLED";
-    LUT4 i1795_then_4_lut (.A(n3580), .B(n3568), .C(reset_c), .D(n3584), 
-         .Z(n3616)) /* synthesis lut_function=(A (B (C+(D))+!B (C+!(D)))+!A ((C+!(D))+!B)) */ ;
-    defparam i1795_then_4_lut.init = 16'hf9f7;
-    LUT4 i1795_else_4_lut (.A(n3580), .B(n3568), .C(reset_c), .D(n3584), 
-         .Z(n3615)) /* synthesis lut_function=(A ((C+(D))+!B)+!A (B (C+(D))+!B (C+!(D)))) */ ;
-    defparam i1795_else_4_lut.init = 16'hfef3;
-    PFUMX i1798 (.BLUT(n3536), .ALUT(n3535), .C0(n3556), .Z(DISPLAY_6__N_493[4]));
-    FD1S3JX DISPLAY_i1 (.D(n2568), .CK(clk_0), .PD(n2635), .Q(de[1])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=119, LSE_RLINE=119 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
-    defparam DISPLAY_i1.GSR = "ENABLED";
-    FD1S3JX DISPLAY_i2 (.D(n3611), .CK(clk_0), .PD(n3560), .Q(de[2])) /* synthesis LSE_LINE_FILE_ID=22, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=119, LSE_RLINE=119 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    FD1S3JX DISPLAY_i2 (.D(n10263), .CK(clk_0), .PD(n10381), .Q(de[2])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=109, LSE_RLINE=109 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
     defparam DISPLAY_i2.GSR = "ENABLED";
-    PFUMX i1808 (.BLUT(n3615), .ALUT(n3616), .C0(bcd_out_15__N_463), .Z(n3617));
+    FD1S3JX DISPLAY_i1 (.D(n3351), .CK(clk_0), .PD(n3334), .Q(de[1])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=109, LSE_RLINE=109 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i1.GSR = "ENABLED";
+    PFUMX i8546 (.BLUT(n10332), .ALUT(n10331), .C0(n10360), .Z(DISPLAY_6__N_509[4]));
+    FD1S3JX DISPLAY_i3 (.D(n10498), .CK(clk_0), .PD(n10360), .Q(de[3])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=109, LSE_RLINE=109 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i3.GSR = "ENABLED";
+    FD1S3AY DISPLAY_i4 (.D(DISPLAY_6__N_509[4]), .CK(clk_0), .Q(de[4])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=109, LSE_RLINE=109 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i4.GSR = "ENABLED";
+    FD1S3JX DISPLAY_i5 (.D(n10330), .CK(clk_0), .PD(n10360), .Q(de[5])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=109, LSE_RLINE=109 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i5.GSR = "ENABLED";
+    FD1S3AX DISPLAY_i6 (.D(\DISPLAY_6__N_509[6] ), .CK(clk_0), .Q(de[6])) /* synthesis LSE_LINE_FILE_ID=20, LSE_LCOL=10, LSE_RCOL=20, LSE_LLINE=109, LSE_RLINE=109 */ ;   // c:/users/cassandra/desktop/arqui2/bcddisplay.vhd(27[2] 42[9])
+    defparam DISPLAY_i6.GSR = "ENABLED";
+    PFUMX i8565 (.BLUT(n10496), .ALUT(n10497), .C0(bcd_out_15__N_479), 
+          .Z(n10498));
+    LUT4 i8549_then_4_lut (.A(n10388), .B(n10390), .C(reset_c), .D(n10404), 
+         .Z(n10497)) /* synthesis lut_function=(A (B (C+(D))+!B (C+!(D)))+!A ((C+!(D))+!B)) */ ;
+    defparam i8549_then_4_lut.init = 16'hf9f7;
+    LUT4 i8549_else_4_lut (.A(n10388), .B(n10390), .C(reset_c), .D(n10404), 
+         .Z(n10496)) /* synthesis lut_function=(A ((C+(D))+!B)+!A (B (C+(D))+!B (C+!(D)))) */ ;
+    defparam i8549_else_4_lut.init = 16'hfef3;
     
 endmodule

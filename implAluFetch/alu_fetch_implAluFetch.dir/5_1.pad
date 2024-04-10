@@ -6,36 +6,36 @@ Performance Grade:      5
 PACKAGE:          TQFP144
 Package Status:                     Final          Version 1.39
 
-Tue Apr 09 22:26:17 2024
+Wed Apr 10 03:16:54 2024
 
 Pinout by Port Name:
 +------------+----------+--------------+-------+-----------+-----------+--------------------------------------+
 | Port Name  | Pin/Bank | Buffer Type  | Site  | PG Enable | BC Enable | Properties                           |
 +------------+----------+--------------+-------+-----------+-----------+--------------------------------------+
-| CI[0]      | 97/1     | LVCMOS25_OUT | PR7B  |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[10]     | 44/2     | LVCMOS25_OUT | PB12A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[11]     | 42/2     | LVCMOS25_OUT | PB9A  |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[12]     | 43/2     | LVCMOS25_OUT | PB9B  |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[13]     | 45/2     | LVCMOS25_OUT | PB12B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[14]     | 47/2     | LVCMOS25_OUT | PB13A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[15]     | 49/2     | LVCMOS25_OUT | PB16A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[16]     | 48/2     | LVCMOS25_OUT | PB13B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[17]     | 50/2     | LVCMOS25_OUT | PB16B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[18]     | 52/2     | LVCMOS25_OUT | PB18A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[19]     | 55/2     | LVCMOS25_OUT | PB23A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[1]      | 98/1     | LVCMOS25_OUT | PR7A  |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[20]     | 54/2     | LVCMOS25_OUT | PB18B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[21]     | 56/2     | LVCMOS25_OUT | PB23B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[22]     | 57/2     | LVCMOS25_OUT | PB26A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[23]     | 59/2     | LVCMOS25_OUT | PB29A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[2]      | 95/1     | LVCMOS25_OUT | PR9B  |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[3]      | 96/1     | LVCMOS25_OUT | PR9A  |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[4]      | 94/1     | LVCMOS25_OUT | PR11A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[5]      | 93/1     | LVCMOS25_OUT | PR11B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[6]      | 92/1     | LVCMOS25_OUT | PR12A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[7]      | 91/1     | LVCMOS25_OUT | PR12B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[8]      | 41/2     | LVCMOS25_OUT | PB6B  |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| CI[9]      | 39/2     | LVCMOS25_OUT | PB4B  |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
+| CI[0]      | 97/1     | LVCMOS25_OUT | PR7B  |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[10]     | 44/2     | LVCMOS25_OUT | PB12A |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[11]     | 42/2     | LVCMOS25_OUT | PB9A  |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[12]     | 43/2     | LVCMOS25_OUT | PB9B  |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[13]     | 45/2     | LVCMOS25_OUT | PB12B |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[14]     | 47/2     | LVCMOS25_OUT | PB13A |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[15]     | 49/2     | LVCMOS25_OUT | PB16A |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[16]     | 48/2     | LVCMOS25_OUT | PB13B |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[17]     | 50/2     | LVCMOS25_OUT | PB16B |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[18]     | 52/2     | LVCMOS25_OUT | PB18A |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[19]     | 55/2     | LVCMOS25_OUT | PB23A |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[1]      | 98/1     | LVCMOS25_OUT | PR7A  |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[20]     | 54/2     | LVCMOS25_OUT | PB18B |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[21]     | 56/2     | LVCMOS25_OUT | PB23B |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[22]     | 57/2     | LVCMOS25_OUT | PB26A |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[23]     | 59/2     | LVCMOS25_OUT | PB29A |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[2]      | 95/1     | LVCMOS25_OUT | PR9B  |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[3]      | 96/1     | LVCMOS25_OUT | PR9A  |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[4]      | 94/1     | LVCMOS25_OUT | PR11A |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[5]      | 93/1     | LVCMOS25_OUT | PR11B |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[6]      | 92/1     | LVCMOS25_OUT | PR12A |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[7]      | 91/1     | LVCMOS25_OUT | PR12B |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[8]      | 41/2     | LVCMOS25_OUT | PB6B  |           |           | DRIVE:8mA SLEW:SLOW                  |
+| CI[9]      | 39/2     | LVCMOS25_OUT | PB4B  |           |           | DRIVE:8mA SLEW:SLOW                  |
 | display[0] | 77/1     | LVCMOS25_OUT | PR21B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
 | display[1] | 78/1     | LVCMOS25_OUT | PR21A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
 | display[2] | 81/1     | LVCMOS25_OUT | PR18B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
@@ -43,7 +43,6 @@ Pinout by Port Name:
 | display[4] | 83/1     | LVCMOS25_OUT | PR17B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
 | display[5] | 84/1     | LVCMOS25_OUT | PR17A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
 | display[6] | 85/1     | LVCMOS25_OUT | PR16B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
-| led        | 61/2     | LVCMOS25_OUT | PB31A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
 | reset      | 1/5      | LVCMOS25_IN  | PL3A  |           |           | PULL:DOWN CLAMP:ON HYSTERESIS:SMALL  |
 | sel[0]     | 73/1     | LVCMOS25_OUT | PR24B |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
 | sel[1]     | 74/1     | LVCMOS25_OUT | PR24A |           |           | DRIVE:8mA PULL:DOWN SLEW:SLOW        |
@@ -120,7 +119,7 @@ Pinout by Pin Number:
 | 58/2     |     unused, PULL:DOWN |            |              | PB26B |                |           |           |
 | 59/2     | CI[23]                | LOCATED    | LVCMOS25_OUT | PB29A |                |           |           |
 | 60/2     |     unused, PULL:DOWN |            |              | PB29B |                |           |           |
-| 61/2     | led                   | LOCATED    | LVCMOS25_OUT | PB31A |                |           |           |
+| 61/2     |     unused, PULL:DOWN |            |              | PB31A |                |           |           |
 | 62/2     |     unused, PULL:DOWN |            |              | PB31B |                |           |           |
 | 63/2     |     unused, PULL:DOWN |            |              | PB31D |                |           |           |
 | 65/2     |     unused, PULL:DOWN |            |              | PB35A |                |           |           |
@@ -456,7 +455,6 @@ LOCATE  COMP  "display[3]"  SITE  "82";
 LOCATE  COMP  "display[4]"  SITE  "83";
 LOCATE  COMP  "display[5]"  SITE  "84";
 LOCATE  COMP  "display[6]"  SITE  "85";
-LOCATE  COMP  "led"  SITE  "61";
 LOCATE  COMP  "reset"  SITE  "1";
 LOCATE  COMP  "sel[0]"  SITE  "73";
 LOCATE  COMP  "sel[1]"  SITE  "74";
@@ -474,5 +472,5 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
-Tue Apr 09 22:26:18 2024
+Wed Apr 10 03:16:54 2024
 
