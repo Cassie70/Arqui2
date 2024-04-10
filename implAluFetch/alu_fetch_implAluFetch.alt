@@ -1,10 +1,9 @@
 NOTE Copyright (C), 1992-2010, Lattice Semiconductor Corporation *
 NOTE All Rights Reserved *
-NOTE DATE CREATED: Mon Apr 08 23:23:03 2024 *
+NOTE DATE CREATED: Tue Apr 09 22:26:27 2024 *
 NOTE DESIGN NAME: alu_fetch *
 NOTE DEVICE NAME: LCMXO2-7000HE-5TQFP144 *
 NOTE PIN ASSIGNMENTS *
-NOTE PINS stop_run : 3 : in *
 NOTE PINS reset : 1 : in *
 NOTE PINS led : 61 : out *
 NOTE PINS CI[0] : 97 : out *
@@ -21,12 +20,11 @@ NOTE PINS CI[10] : 44 : out *
 NOTE PINS CI[11] : 42 : out *
 NOTE PINS CI[12] : 43 : out *
 NOTE PINS CI[13] : 45 : out *
-NOTE PINS display[5] : 84 : out *
 NOTE PINS CI[14] : 47 : out *
 NOTE PINS CI[15] : 49 : out *
 NOTE PINS CI[16] : 48 : out *
-NOTE PINS CI[17] : 50 : out *
 NOTE PINS display[4] : 83 : out *
+NOTE PINS CI[17] : 50 : out *
 NOTE PINS CI[18] : 52 : out *
 NOTE PINS CI[19] : 55 : out *
 NOTE PINS CI[20] : 54 : out *
@@ -34,7 +32,6 @@ NOTE PINS CI[21] : 56 : out *
 NOTE PINS CI[22] : 57 : out *
 NOTE PINS CI[23] : 59 : out *
 NOTE PINS sel[0] : 73 : out *
-NOTE PINS display[6] : 85 : out *
 NOTE PINS sel[1] : 74 : out *
 NOTE PINS sel[2] : 75 : out *
 NOTE PINS sel[3] : 76 : out *
@@ -42,5 +39,8 @@ NOTE PINS display[0] : 77 : out *
 NOTE PINS display[1] : 78 : out *
 NOTE PINS display[2] : 81 : out *
 NOTE PINS display[3] : 82 : out *
+NOTE PINS stop_run : 3 : in *
+NOTE PINS display[5] : 84 : out *
+NOTE PINS display[6] : 85 : out *
 NOTE CONFIGURATION MODE: NONE *
 NOTE COMPRESSION: on *

@@ -99,7 +99,7 @@ signal rpg_sel: std_logic_vector(1 downto 0):=(others=>'0');
 
 
 type global_state_type is (fetch, decode, execute, reset_pc); 
-signal global_state,next_global_state: global_state_type;
+signal global_state: global_state_type;
 
 type instruction_type is (i_addi,i_load,i_jump,i_display,i_halt,i_null,i_nop);
 signal instruction: instruction_type;
@@ -129,45 +129,45 @@ RPG : registrosPG port map(clk_1,reset,'1',rpg_in,rpg_sel,rpg_out);
 	begin
 		if (reset = '1') then
 			global_state <= fetch;
-		elsif (rising_edge(clk_1) and stop_run='0') then
-			global_state <= next_global_state;
+			PC<=(others=>'0');
+			MAR<=(others=>'0');
+			MBR<=(others=>'0');
+			IR<=(others=>'0');
+			address_bus<=(others=>'0');
+		elsif (rising_edge(clk_1) and stop_run='0') then			
+			case global_state is
+				when fetch =>
+					MAR<=PC;
+					address_bus<=MAR;
+					MBR<=data_bus;
+					PC<=PC+1;
+					IR<=MBR;
+					global_state<=decode;
+				when decode =>
+					case IR(23 downto 18) is
+						when "011000" =>
+							instruction <= i_addi;
+						when "010001" =>
+							instruction <= i_load;
+						when "010111" =>
+							instruction <= i_jump;
+						when "011001" =>
+							instruction <= i_display;
+						when "010011" =>
+							instruction <= i_halt;
+						when others =>
+							instruction <= i_null;
+					end case;
+						global_state<=execute;
+				when execute =>
+					--case instruction is 
+						--when i_halt =>
+						--	PC<=PC-1;
+						--when others =>
+					--end case;
+					global_state<=fetch;
+			end case;
 		end if;
-	end process;
-
-	process(global_state)
-	begin
-		case global_state is
-			when fetch =>
-				MAR<=PC;
-				address_bus<=MAR;
-				MBR<=data_bus;
-				PC<=PC+1;
-				IR<=MBR;
-				next_global_state<=decode;
-			when decode =>
-				case IR(23 downto 18) is
-					when "011000" =>
-						instruction <= i_addi;
-					when "010001" =>
-						instruction <= i_load;
-					when "010111" =>
-						instruction <= i_jump;
-					when "011001" =>
-						instruction <= i_display;
-					when "010011" =>
-						instruction <= i_halt;
-					when others =>
-						instruction <= i_null;
-				end case;
-					next_global_state<=execute;
-			when execute =>
-				case instruction is 
-					when i_halt =>
-						PC<=PC-1;
-					when others =>
-				end case;
-				next_global_state<=fetch;
-		end case;
 	end process;
 	
 	CI<=IR;

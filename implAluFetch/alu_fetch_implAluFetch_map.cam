@@ -1,37 +1,31 @@
 [ START MERGED ]
-global_state_0_derived_64 global_state_0
-led_c_enable_2 stop_run_c
 clk_enable_43 reset_c
+stop_run_N_93 stop_run_c
 [ END MERGED ]
 [ START CLIPPED ]
 GND_net
 VCC_net
-n4143
-Q_7__I_0_715_1/S0
-Q_7__I_0_715_1/CI
-Q_7__I_0_715_9/S1
-Q_7__I_0_715_9/CO
-add_721_1/S0
-add_721_1/CI
-add_721_9/S1
-add_721_9/CO
-count_1112_add_4_1/S0
-count_1112_add_4_1/CI
-count_1112_add_4_19/S1
-count_1112_add_4_19/CO
-count1_1114_add_4_1/S0
-count1_1114_add_4_1/CI
-count1_1114_add_4_25/CO
+n3677
+add_7_1/S0
+add_7_1/CI
+add_7_9/S1
+add_7_9/CO
+count1_440_add_4_1/S0
+count1_440_add_4_1/CI
+count1_440_add_4_25/CO
+count_438_add_4_19/S1
+count_438_add_4_19/CO
+count_438_add_4_1/S0
+count_438_add_4_1/CI
 [ END CLIPPED ]
 [ START OSC ]
 clk 26.60
 [ END OSC ]
 [ START DESIGN PREFS ]
 SCHEMATIC START ;
-# map:  version Diamond (64-bit) 3.13.0.56.2 -- WARNING: Map write only section -- Mon Apr 08 23:22:25 2024
+# map:  version Diamond (64-bit) 3.13.0.56.2 -- WARNING: Map write only section -- Tue Apr 09 22:26:12 2024
 
 SYSCONFIG SDM_PORT=DISABLE SLAVE_SPI_PORT=DISABLE I2C_PORT=DISABLE MASTER_SPI_PORT=DISABLE COMPRESS_CONFIG=ON CONFIGURATION=CFG MY_ASSP=OFF ONE_TIME_PROGRAM=OFF CONFIG_SECURE=OFF MCCLK_FREQ=2.08 JTAG_PORT=ENABLE ENABLE_TRANSFR=DISABLE SHAREDEBRINIT=DISABLE MUX_CONFIGURATION_PORTS=DISABLE BACKGROUND_RECONFIG=OFF INBUF=ON ;
-LOCATE COMP "stop_run" SITE "3" ;
 LOCATE COMP "reset" SITE "1" ;
 LOCATE COMP "led" SITE "61" ;
 LOCATE COMP "CI[0]" SITE "97" ;
@@ -48,12 +42,11 @@ LOCATE COMP "CI[10]" SITE "44" ;
 LOCATE COMP "CI[11]" SITE "42" ;
 LOCATE COMP "CI[12]" SITE "43" ;
 LOCATE COMP "CI[13]" SITE "45" ;
-LOCATE COMP "display[5]" SITE "84" ;
 LOCATE COMP "CI[14]" SITE "47" ;
 LOCATE COMP "CI[15]" SITE "49" ;
 LOCATE COMP "CI[16]" SITE "48" ;
-LOCATE COMP "CI[17]" SITE "50" ;
 LOCATE COMP "display[4]" SITE "83" ;
+LOCATE COMP "CI[17]" SITE "50" ;
 LOCATE COMP "CI[18]" SITE "52" ;
 LOCATE COMP "CI[19]" SITE "55" ;
 LOCATE COMP "CI[20]" SITE "54" ;
@@ -61,7 +54,6 @@ LOCATE COMP "CI[21]" SITE "56" ;
 LOCATE COMP "CI[22]" SITE "57" ;
 LOCATE COMP "CI[23]" SITE "59" ;
 LOCATE COMP "sel[0]" SITE "73" ;
-LOCATE COMP "display[6]" SITE "85" ;
 LOCATE COMP "sel[1]" SITE "74" ;
 LOCATE COMP "sel[2]" SITE "75" ;
 LOCATE COMP "sel[3]" SITE "76" ;
@@ -69,6 +61,9 @@ LOCATE COMP "display[0]" SITE "77" ;
 LOCATE COMP "display[1]" SITE "78" ;
 LOCATE COMP "display[2]" SITE "81" ;
 LOCATE COMP "display[3]" SITE "82" ;
+LOCATE COMP "stop_run" SITE "3" ;
+LOCATE COMP "display[5]" SITE "84" ;
+LOCATE COMP "display[6]" SITE "85" ;
 FREQUENCY NET "clk" 26.600000 MHz ;
 SCHEMATIC END ;
 [ END DESIGN PREFS ]

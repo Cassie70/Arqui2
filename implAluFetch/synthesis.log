@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
-Mon Apr 08 23:22:19 2024
+Tue Apr 09 22:26:06 2024
 
 
 Command Line:  synthesis -f alu_fetch_implAluFetch_lattice.synproj -gui -msgset C:/Users/Cassandra/Desktop/Arqui2/promote.xml 
@@ -84,7 +84,7 @@ Technology check ok...
 Analyzing Verilog file C:/lscc/diamond/3.13/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
 Compile design.
 Compile Design Begin
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(139): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
+WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(134): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
 WARNING - synthesis: Setting alu_fetch as the top-level module. To specify the top-level module explicitly, use the -top option.
 INFO - synthesis: The default VHDL library search path is now "C:/Users/Cassandra/Desktop/Arqui2/implAluFetch". VHDL-1504
 Analyzing VHDL file c:/users/cassandra/desktop/arqui2/addersub12.vhd. VHDL-1481
@@ -183,22 +183,13 @@ INFO - synthesis: c:/users/cassandra/desktop/arqui2/rpg24_4.vhd(5): analyzing en
 INFO - synthesis: c:/users/cassandra/desktop/arqui2/rpg24_4.vhd(14): analyzing architecture behavioral. VHDL-1010
 unit alu_fetch is not yet analyzed. VHDL-1485
 unit alu_fetch is not yet analyzed. VHDL-1485
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(139): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
+WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(134): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
 unit alu_fetch is not yet analyzed. VHDL-1485
 c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(11): executing alu_fetch(behavior)
 
 WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(93): using initial value "000000000000000000000000" for rpg_in since it is never assigned. VHDL-1303
 WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(95): using initial value "00" for rpg_sel since it is never assigned. VHDL-1303
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(139): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(141): pc should be on the sensitivity list of the process. VHDL-1251
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(142): mar should be on the sensitivity list of the process. VHDL-1251
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(143): data_bus should be on the sensitivity list of the process. VHDL-1251
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(144): pc should be on the sensitivity list of the process. VHDL-1251
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(145): mbr should be on the sensitivity list of the process. VHDL-1251
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(148): ir should be on the sensitivity list of the process. VHDL-1251
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(164): instruction should be on the sensitivity list of the process. VHDL-1251
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(166): pc should be on the sensitivity list of the process. VHDL-1251
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(171): incomplete sensitivity list specified, assuming completeness. VHDL-1613
+WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(134): case statement does not cover all choices. 'others' clause is needed. VHDL-1037
 WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(19): replacing existing netlist alu_fetch(behavior). VHDL-1205
 Top module name (VHDL): alu_fetch
 Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/xo2c00a/data/xo2alib.ngl'...
@@ -235,10 +226,11 @@ original encoding -> new encoding (one-hot encoding)
 
 WARNING - synthesis: Bit 6 of Register \millar/DISPLAY is stuck at Zero
 WARNING - synthesis: Bit 1 of Register \millar/DISPLAY is stuck at One
-WARNING - synthesis: Bit 2 of Register \millar/DISPLAY is stuck at One
 WARNING - synthesis: Bit 5 of Register \millar/DISPLAY is stuck at One
+WARNING - synthesis: Bit 3 of Register \millar/DISPLAY is stuck at One
+WARNING - synthesis: Bit 2 of Register \millar/DISPLAY is stuck at One
 WARNING - synthesis: Bit 1 of Register \centenas/DISPLAY is stuck at One
-GSR instance connected to net n2870.
+GSR instance connected to net n1536.
 Applying 200.000000 MHz constraint to all clocks
 
 WARNING - synthesis: No user .sdc file.
@@ -251,21 +243,19 @@ All blocks are expanded and NGD expansion is successful.
 Writing NGD file alu_fetch_implAluFetch.ngd.
 
 ################### Begin Area Report (alu_fetch)######################
-Number of register bits => 158 of 7209 (2 % )
-CCU2D => 33
+Number of register bits => 155 of 7209 (2 % )
+CCU2D => 28
 FD1P3AX => 13
-FD1P3IX => 43
-FD1S1A => 8
-FD1S1I => 67
-FD1S3AX => 10
+FD1P3IX => 107
+FD1S3AX => 18
 FD1S3AY => 5
 FD1S3JX => 12
 GSR => 1
 IB => 2
-LUT4 => 170
+LUT4 => 149
 OB => 36
 PDPW8KC => 2
-PFUMX => 14
+PFUMX => 6
 ################### End Area Report ##################
 
 ################### Begin BlackBox Report ######################
@@ -275,31 +265,30 @@ TSALL => 1
 
 ################### Begin Clock Report ######################
 Clock Nets
-Number of Clocks: 6
-  Net : global_state_0_derived_64, loads : 64
+Number of Clocks: 3
+  Net : led_c, loads : 79
   Net : clk, loads : 45
   Net : clk_0, loads : 36
-  Net : Q_7__N_69, loads : 8
-  Net : led_c, loads : 7
-  Net : instruction_2__N_123, loads : 3
 Clock Enable Nets
-Number of Clock Enables: 3
-Top 3 highest fanout Clock Enables:
+Number of Clock Enables: 5
+Top 5 highest fanout Clock Enables:
+  Net : led_c_enable_64, loads : 56
   Net : clk_enable_43, loads : 48
+  Net : led_c_enable_62, loads : 8
   Net : clk_0_enable_11, loads : 7
-  Net : led_c_enable_2, loads : 2
+  Net : stop_run_N_93, loads : 2
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
-  Net : n2992, loads : 64
+  Net : led_c_enable_64, loads : 56
+  Net : n3680, loads : 50
   Net : clk_enable_43, loads : 48
-  Net : reset_c, loads : 42
-  Net : n3291, loads : 25
-  Net : ROM_imp/data_out_23__N_467, loads : 24
-  Net : global_state_1, loads : 18
-  Net : global_state_0, loads : 18
-  Net : n3310, loads : 18
-  Net : imp_binBCD/bcd_out_15__N_429, loads : 15
-  Net : Q_4, loads : 13
+  Net : reset_c, loads : 46
+  Net : n2908, loads : 25
+  Net : ROM_imp/data_out_23__N_501, loads : 24
+  Net : n2996, loads : 18
+  Net : Q_1, loads : 16
+  Net : imp_binBCD/bcd_out_15__N_463, loads : 12
+  Net : imp_binBCD/bcd_out_15__N_459, loads : 11
 ################### End Clock Report ##################
 
 Timing Report Summary
@@ -309,16 +298,13 @@ Constraint                              |   Constraint|       Actual|Levels
 --------------------------------------------------------------------------------
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk3 [get_nets clk]                     |  200.000 MHz|  101.194 MHz|     7 *
+clk2 [get_nets clk]                     |  200.000 MHz|  101.194 MHz|     7 *
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk2 [get_nets Q_7__N_69]               |  200.000 MHz|  166.722 MHz|     8 *
+clk1 [get_nets clk_0]                   |  200.000 MHz|  228.102 MHz|     3  
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk1 [get_nets led_c]                   |  200.000 MHz|  224.266 MHz|     2  
-                                        |             |             |
-create_clock -period 5.000000 -name     |             |             |
-clk0 [get_nets clk_0]                   |  200.000 MHz|  228.102 MHz|     3  
+clk0 [get_nets led_c]                   |  200.000 MHz|  195.389 MHz|     3 *
                                         |             |             |
 --------------------------------------------------------------------------------
 
@@ -326,8 +312,8 @@ clk0 [get_nets clk_0]                   |  200.000 MHz|  228.102 MHz|     3
 2 constraints not met.
 
 
-Peak Memory Usage: 91.426  MB
+Peak Memory Usage: 91.664  MB
 
 --------------------------------------------------------------
-Elapsed CPU time for LSE flow : 0.531  secs
+Elapsed CPU time for LSE flow : 0.469  secs
 --------------------------------------------------------------

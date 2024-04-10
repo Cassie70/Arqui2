@@ -15,22 +15,22 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-7000HETQFP144
 Target Performance:   5
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.13.0.56.2
-Mapped on:  04/08/24  23:22:25
+Mapped on:  04/09/24  22:26:11
 
 Design Summary
 --------------
 
-   Number of registers:    158 out of  7209 (2%)
-      PFU registers:          158 out of  6864 (2%)
+   Number of registers:    155 out of  7209 (2%)
+      PFU registers:          155 out of  6864 (2%)
       PIO registers:            0 out of   345 (0%)
-   Number of SLICEs:       118 out of  3432 (3%)
-      SLICEs as Logic/ROM:    118 out of  3432 (3%)
+   Number of SLICEs:       106 out of  3432 (3%)
+      SLICEs as Logic/ROM:    106 out of  3432 (3%)
       SLICEs as RAM:            0 out of  2574 (0%)
-      SLICEs as Carry:         33 out of  3432 (1%)
-   Number of LUT4s:        232 out of  6864 (3%)
-      Number used as logic LUTs:        166
+      SLICEs as Carry:         28 out of  3432 (1%)
+   Number of LUT4s:        202 out of  6864 (3%)
+      Number used as logic LUTs:        146
       Number used as distributed RAM:     0
-      Number used as ripple logic:       66
+      Number used as ripple logic:       56
       Number used as shift registers:     0
    Number of PIO sites used: 38 + 4(JTAG) out of 115 (37%)
    Number of block RAMs:  2 out of 26 (8%)
@@ -57,58 +57,55 @@ Design Summary
      distributed RAMs) + 2*(Number of ripple logic)
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
-   Number of clocks:  6
+   Number of clocks:  3
      Net clk: 25 loads, 25 rising, 0 falling (Driver: OSCinst0 )
-     Net clk_0: 25 loads, 25 rising, 0 falling (Driver: clk_0_610 )
+     Net led_c: 41 loads, 41 rising, 0 falling (Driver: clk_1_82 )
 
                                     Page 1
 
 
 
 
-Design:  alu_fetch                                     Date:  04/08/24  23:22:25
+Design:  alu_fetch                                     Date:  04/09/24  22:26:11
 
 Design Summary (cont)
 ---------------------
-     Net led_c: 4 loads, 4 rising, 0 falling (Driver: clk_1_611 )
-     Net global_state_0: 32 loads, 0 rising, 32 falling (Driver:
-     global_state_i0_i0 )
-     Net Q_7__N_69: 8 loads, 8 rising, 0 falling (Driver: i1_2_lut_3_lut_3_lut )
-     
-     Net instruction_2__N_123: 2 loads, 2 rising, 0 falling (Driver: i1507_2_lut
-     )
-   Number of Clock Enables:  3
-     Net clk_0_enable_11: 4 loads, 4 LSLICEs
+     Net clk_0: 25 loads, 25 rising, 0 falling (Driver: clk_0_81 )
+   Number of Clock Enables:  5
      Net stop_run_c: 1 loads, 1 LSLICEs
      Net reset_c: 25 loads, 25 LSLICEs
-   Number of LSRs:  15
-     Net n2992: 32 loads, 32 LSLICEs
+     Net clk_0_enable_11: 4 loads, 4 LSLICEs
+     Net led_c_enable_64: 28 loads, 28 LSLICEs
+     Net led_c_enable_62: 5 loads, 5 LSLICEs
+   Number of LSRs:  16
      Net reset_c: 2 loads, 0 LSLICEs
-     Net n4015: 2 loads, 2 LSLICEs
-     Net n3183: 1 loads, 1 LSLICEs
-     Net n3010: 1 loads, 1 LSLICEs
-     Net n4062: 1 loads, 1 LSLICEs
-     Net n3284: 2 loads, 2 LSLICEs
-     Net n3291: 13 loads, 13 LSLICEs
-     Net n3310: 10 loads, 10 LSLICEs
-     Net n4036: 1 loads, 1 LSLICEs
-     Net n3296: 1 loads, 1 LSLICEs
-     Net n4011: 1 loads, 1 LSLICEs
-     Net n3199: 1 loads, 1 LSLICEs
-     Net n2939: 1 loads, 1 LSLICEs
-     Net n4009: 2 loads, 2 LSLICEs
+     Net n2953: 3 loads, 3 LSLICEs
+     Net n3680: 25 loads, 25 LSLICEs
+     Net n2996: 10 loads, 10 LSLICEs
+     Net n2908: 13 loads, 13 LSLICEs
+     Net n2934: 5 loads, 5 LSLICEs
+     Net n3581: 1 loads, 1 LSLICEs
+     Net n2791: 1 loads, 1 LSLICEs
+     Net n3560: 1 loads, 1 LSLICEs
+     Net n2662: 1 loads, 1 LSLICEs
+     Net n2787: 1 loads, 1 LSLICEs
+     Net n2635: 1 loads, 1 LSLICEs
+     Net n2913: 1 loads, 1 LSLICEs
+     Net n3600: 1 loads, 1 LSLICEs
+     Net n3558: 2 loads, 2 LSLICEs
+     Net n3556: 2 loads, 2 LSLICEs
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
-     Net reset_c: 66 loads
-     Net n2992: 32 loads
-     Net ROM_imp/data_out_23__N_467: 24 loads
-     Net global_state_1: 18 loads
-     Net bcd_out_15__N_429: 16 loads
-     Net bcd_out_15__N_425: 13 loads
-     Net n3291: 13 loads
-     Net Q_4: 13 loads
-     Net Q_2: 12 loads
-     Net Q_1: 11 loads
+     Net reset_c: 71 loads
+     Net led_c_enable_64: 28 loads
+     Net n3680: 25 loads
+     Net ROM_imp/data_out_23__N_501: 24 loads
+     Net Q_1: 16 loads
+     Net bcd_out_15__N_463: 13 loads
+     Net n2908: 13 loads
+     Net bcd_out_15__N_459: 12 loads
+     Net bcd_out_15__N_483: 11 loads
+     Net n2996: 10 loads
 
 
 
@@ -126,21 +123,19 @@ IO (PIO) Attributes
 -------------------
 
 +---------------------+-----------+-----------+------------+
+| IO Name             | Direction | Levelmode | IO         |
+|                     |           |  IO_TYPE  | Register   |
++---------------------+-----------+-----------+------------+
 
                                     Page 2
 
 
 
 
-Design:  alu_fetch                                     Date:  04/08/24  23:22:25
+Design:  alu_fetch                                     Date:  04/09/24  22:26:11
 
 IO (PIO) Attributes (cont)
 --------------------------
-| IO Name             | Direction | Levelmode | IO         |
-|                     |           |  IO_TYPE  | Register   |
-+---------------------+-----------+-----------+------------+
-| stop_run            | INPUT     | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
 | reset               | INPUT     | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
 | led                 | OUTPUT    | LVCMOS25  |            |
@@ -173,17 +168,15 @@ IO (PIO) Attributes (cont)
 +---------------------+-----------+-----------+------------+
 | CI[13]              | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
-| display[5]          | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
 | CI[14]              | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
 | CI[15]              | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
 | CI[16]              | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
-| CI[17]              | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
 | display[4]          | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| CI[17]              | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
 | CI[18]              | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
@@ -192,16 +185,6 @@ IO (PIO) Attributes (cont)
 | CI[20]              | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
 | CI[21]              | OUTPUT    | LVCMOS25  |            |
-
-                                    Page 3
-
-
-
-
-Design:  alu_fetch                                     Date:  04/08/24  23:22:25
-
-IO (PIO) Attributes (cont)
---------------------------
 +---------------------+-----------+-----------+------------+
 | CI[22]              | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
@@ -209,8 +192,16 @@ IO (PIO) Attributes (cont)
 +---------------------+-----------+-----------+------------+
 | sel[0]              | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
-| display[6]          | OUTPUT    | LVCMOS25  |            |
-+---------------------+-----------+-----------+------------+
+
+                                    Page 3
+
+
+
+
+Design:  alu_fetch                                     Date:  04/09/24  22:26:11
+
+IO (PIO) Attributes (cont)
+--------------------------
 | sel[1]              | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
 | sel[2]              | OUTPUT    | LVCMOS25  |            |
@@ -225,46 +216,37 @@ IO (PIO) Attributes (cont)
 +---------------------+-----------+-----------+------------+
 | display[3]          | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
+| stop_run            | INPUT     | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| display[5]          | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
+| display[6]          | OUTPUT    | LVCMOS25  |            |
++---------------------+-----------+-----------+------------+
 
 Removed logic
 -------------
 
-Signal led_c_enable_2 was merged into signal stop_run_c
-Signal global_state_0_derived_64 was merged into signal global_state_0
 Signal clk_enable_43 was merged into signal reset_c
+Signal stop_run_N_93 was merged into signal stop_run_c
 Signal GND_net undriven or does not drive anything - clipped.
 Signal VCC_net undriven or does not drive anything - clipped.
-Signal n4143 undriven or does not drive anything - clipped.
-Signal Q_7__I_0_715_1/S0 undriven or does not drive anything - clipped.
-Signal Q_7__I_0_715_1/CI undriven or does not drive anything - clipped.
-Signal Q_7__I_0_715_9/S1 undriven or does not drive anything - clipped.
-Signal Q_7__I_0_715_9/CO undriven or does not drive anything - clipped.
-Signal add_721_1/S0 undriven or does not drive anything - clipped.
-Signal add_721_1/CI undriven or does not drive anything - clipped.
-Signal add_721_9/S1 undriven or does not drive anything - clipped.
-Signal add_721_9/CO undriven or does not drive anything - clipped.
-Signal count_1112_add_4_1/S0 undriven or does not drive anything - clipped.
-Signal count_1112_add_4_1/CI undriven or does not drive anything - clipped.
-Signal count_1112_add_4_19/S1 undriven or does not drive anything - clipped.
-Signal count_1112_add_4_19/CO undriven or does not drive anything - clipped.
-Signal count1_1114_add_4_1/S0 undriven or does not drive anything - clipped.
-Signal count1_1114_add_4_1/CI undriven or does not drive anything - clipped.
-Signal count1_1114_add_4_25/CO undriven or does not drive anything - clipped.
-Block i1908_1_lut was optimized away.
-Block i1508_1_lut_rep_103 was optimized away.
-Block i1510_1_lut_rep_101 was optimized away.
+Signal n3677 undriven or does not drive anything - clipped.
+Signal add_7_1/S0 undriven or does not drive anything - clipped.
+Signal add_7_1/CI undriven or does not drive anything - clipped.
+Signal add_7_9/S1 undriven or does not drive anything - clipped.
+Signal add_7_9/CO undriven or does not drive anything - clipped.
+Signal count1_440_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal count1_440_add_4_1/CI undriven or does not drive anything - clipped.
+Signal count1_440_add_4_25/CO undriven or does not drive anything - clipped.
+Signal count_438_add_4_19/S1 undriven or does not drive anything - clipped.
+Signal count_438_add_4_19/CO undriven or does not drive anything - clipped.
+Signal count_438_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal count_438_add_4_1/CI undriven or does not drive anything - clipped.
+Block i203_1_lut_rep_105 was optimized away.
+Block stop_run_I_0_1_lut was optimized away.
 Block i1 was optimized away.
 Block i2 was optimized away.
 Block m0_lut was optimized away.
-
-
-
-                                    Page 4
-
-
-
-
-Design:  alu_fetch                                     Date:  04/08/24  23:22:25
 
 Memory Usage
 ------------
@@ -274,10 +256,20 @@ Memory Usage
     RAM SLICEs: 0
     Logic SLICEs: 0
     PFU Registers: 0
-    -Contains EBR mux_873:  TYPE= PDPW8KC,  Width= 6,  Depth_R= 256,  REGMODE=
-         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
-    -Contains EBR mux_872:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 256,  REGMODE=
-         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+    -Contains EBR mux_169:  TYPE= PDPW8KC,  Width= 6,  Depth_R= 256,  REGMODE=
+         OUTREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+
+                                    Page 4
+
+
+
+
+Design:  alu_fetch                                     Date:  04/09/24  22:26:11
+
+Memory Usage (cont)
+-------------------
+    -Contains EBR mux_168:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 256,  REGMODE=
+         OUTREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
 
      
 
@@ -296,9 +288,9 @@ ASIC Components
 
 Instance Name: OSCinst0
          Type: OSCH
-Instance Name: ROM_imp/mux_873
+Instance Name: ROM_imp/mux_169
          Type: PDPW8KC
-Instance Name: ROM_imp/mux_872
+Instance Name: ROM_imp/mux_168
          Type: PDPW8KC
 
 GSR Usage
@@ -322,171 +314,160 @@ GSR Component:
      not respond to the reset signal 'reset_c' via the GSR component.
 
      Type and number of components of the type: 
-   Register = 129 
+   Register = 118 
    PDPW8KC = 2
+
+     Type and instance name of component: 
+   Register : address_bus_i0
+   Register : display_i0_i1
+   Register : sel_i0_i1
+   Register : IR_i0_i3
+   Register : MBR_i0_i20
+   Register : count_438__i0
 
                                     Page 5
 
 
 
 
-Design:  alu_fetch                                     Date:  04/08/24  23:22:25
+Design:  alu_fetch                                     Date:  04/09/24  22:26:11
 
 GSR Usage (cont)
 ----------------
-
-     Type and instance name of component: 
-   Register : address_bus_7__I_0_i1
-   Register : Q_7__I_0_709_i1
-   Register : MBR_23__I_0_i1
-   Register : MAR_7__I_0_i1
-   Register : CI_23__I_0_710_i1
-   Register : display_i0_i1
+   Register : IR_i0_i4
+   Register : IR_i0_i5
+   Register : sel_i0_i4
+   Register : sel_i0_i3
+   Register : sel_i0_i2
    Register : display_i0_i7
    Register : display_i0_i6
    Register : display_i0_i5
    Register : display_i0_i4
    Register : display_i0_i3
-   Register : instruction_2__I_1_i2
-   Register : count1_1114__i21
-   Register : instruction_2__I_1_i3
-   Register : address_bus_7__I_0_i2
-   Register : address_bus_7__I_0_i3
-   Register : address_bus_7__I_0_i4
-   Register : address_bus_7__I_0_i5
-   Register : address_bus_7__I_0_i6
-   Register : address_bus_7__I_0_i7
-   Register : address_bus_7__I_0_i8
-   Register : Q_7__I_0_709_i2
-   Register : Q_7__I_0_709_i3
-   Register : Q_7__I_0_709_i4
-   Register : Q_7__I_0_709_i5
-   Register : Q_7__I_0_709_i6
-   Register : Q_7__I_0_709_i7
-   Register : Q_7__I_0_709_i8
-   Register : MBR_23__I_0_i2
-   Register : MBR_23__I_0_i3
-   Register : MBR_23__I_0_i4
-   Register : MBR_23__I_0_i5
-   Register : MBR_23__I_0_i6
-   Register : MBR_23__I_0_i7
-   Register : MBR_23__I_0_i8
-   Register : MBR_23__I_0_i9
-   Register : MBR_23__I_0_i10
-   Register : MBR_23__I_0_i11
-   Register : MBR_23__I_0_i12
-   Register : MBR_23__I_0_i13
-   Register : MBR_23__I_0_i14
-   Register : MBR_23__I_0_i15
-   Register : MBR_23__I_0_i16
-   Register : MBR_23__I_0_i17
-   Register : MBR_23__I_0_i18
-   Register : MBR_23__I_0_i19
-   Register : MBR_23__I_0_i20
-   Register : MBR_23__I_0_i21
-   Register : MBR_23__I_0_i22
-   Register : MBR_23__I_0_i23
-   Register : MBR_23__I_0_i24
-   Register : MAR_7__I_0_i2
-   Register : MAR_7__I_0_i3
-   Register : MAR_7__I_0_i4
+   Register : address_bus_i7
+   Register : address_bus_i6
+   Register : address_bus_i5
+   Register : address_bus_i4
+   Register : address_bus_i3
+   Register : address_bus_i2
+   Register : IR_i0_i6
+   Register : address_bus_i1
+   Register : IR_i0_i7
+   Register : IR_i0_i8
+   Register : IR_i0_i9
+   Register : IR_i0_i10
+   Register : IR_i0_i11
+   Register : IR_i0_i12
+   Register : IR_i0_i13
+   Register : MBR_i0_i22
+   Register : MBR_i0_i23
+   Register : IR_i0_i2
+   Register : IR_i0_i14
+   Register : IR_i0_i15
+   Register : IR_i0_i16
+   Register : IR_i0_i17
+   Register : MBR_i0_i19
+   Register : IR_i0_i18
+   Register : IR_i0_i19
+   Register : IR_i0_i20
+   Register : IR_i0_i21
+   Register : IR_i0_i22
+   Register : IR_i0_i23
+   Register : MBR_i0_i16
+   Register : IR_i0_i24
+   Register : display_i0_i2
+   Register : MAR_i0_i7
+   Register : MAR_i0_i6
+   Register : MAR_i0_i5
+   Register : MAR_i0_i4
+   Register : MAR_i0_i3
+   Register : MAR_i0_i2
+   Register : MAR_i0_i1
+   Register : count1_440__i20
+   Register : count1_440__i21
+   Register : count1_440__i22
+   Register : count1_440__i23
+   Register : count_438__i17
+   Register : count1_440__i24
+   Register : MBR_i0_i21
 
                                     Page 6
 
 
 
 
-Design:  alu_fetch                                     Date:  04/08/24  23:22:25
+Design:  alu_fetch                                     Date:  04/09/24  22:26:11
 
 GSR Usage (cont)
 ----------------
-   Register : MAR_7__I_0_i5
-   Register : MAR_7__I_0_i6
-   Register : MAR_7__I_0_i7
-   Register : MAR_7__I_0_i8
-   Register : CI_23__I_0_710_i2
-   Register : CI_23__I_0_710_i3
-   Register : CI_23__I_0_710_i4
-   Register : CI_23__I_0_710_i5
-   Register : CI_23__I_0_710_i6
-   Register : CI_23__I_0_710_i7
-   Register : CI_23__I_0_710_i8
-   Register : CI_23__I_0_710_i9
-   Register : CI_23__I_0_710_i10
-   Register : CI_23__I_0_710_i11
-   Register : CI_23__I_0_710_i12
-   Register : CI_23__I_0_710_i13
-   Register : CI_23__I_0_710_i14
-   Register : CI_23__I_0_710_i15
-   Register : CI_23__I_0_710_i16
-   Register : CI_23__I_0_710_i17
-   Register : CI_23__I_0_710_i18
-   Register : CI_23__I_0_710_i19
-   Register : CI_23__I_0_710_i20
-   Register : CI_23__I_0_710_i21
-   Register : CI_23__I_0_710_i22
-   Register : CI_23__I_0_710_i23
-   Register : CI_23__I_0_710_i24
-   Register : count1_1114__i22
-   Register : count1_1114__i23
-   Register : count1_1114__i24
-   Register : count_1112__i1
-   Register : count_1112__i2
-   Register : count_1112__i3
-   Register : count_1112__i4
-   Register : count_1112__i5
-   Register : count_1112__i6
-   Register : count_1112__i7
-   Register : count_1112__i8
-   Register : count_1112__i9
-   Register : count_1112__i10
-   Register : count_1112__i11
-   Register : count_1112__i12
-   Register : count_1112__i13
-   Register : count_1112__i14
-   Register : count1_1114__i1
-   Register : count1_1114__i2
-   Register : sel_i0_i1
-   Register : count1_1114__i3
-   Register : count1_1114__i4
-   Register : count1_1114__i5
-   Register : sel_i0_i2
-   Register : count_1112__i15
-   Register : count1_1114__i6
-   Register : count_1112__i16
-   Register : sel_i0_i3
-   Register : sel_i0_i4
+   Register : MBR_i0_i17
+   Register : count_438__i16
+   Register : count_438__i15
+   Register : count1_440__i4
+   Register : count1_440__i5
+   Register : count1_440__i6
+   Register : count1_440__i7
+   Register : count1_440__i8
+   Register : count1_440__i9
+   Register : count1_440__i10
+   Register : count1_440__i11
+   Register : count_438__i14
+   Register : count_438__i13
+   Register : count_438__i12
+   Register : count_438__i11
+   Register : count_438__i10
+   Register : count_438__i9
+   Register : count_438__i8
+   Register : count_438__i7
+   Register : count_438__i6
+   Register : count_438__i5
+   Register : count_438__i4
+   Register : count_438__i3
+   Register : count_438__i2
+   Register : count_438__i1
+   Register : MAR_i0_i0
+   Register : MBR_i0_i2
+   Register : MBR_i0_i3
+   Register : MBR_i0_i4
+   Register : MBR_i0_i5
+   Register : MBR_i0_i6
+   Register : MBR_i0_i7
+   Register : MBR_i0_i8
+   Register : MBR_i0_i9
+   Register : MBR_i0_i10
+   Register : MBR_i0_i11
+   Register : MBR_i0_i12
+   Register : MBR_i0_i13
+   Register : MBR_i0_i14
+   Register : MBR_i0_i18
+   Register : MBR_i0_i15
+   Register : count1_440__i12
+   Register : count1_440__i13
+   Register : MBR_i0_i1
+   Register : count1_440__i14
+   Register : count1_440__i15
+   Register : count1_440__i16
+   Register : count1_440__i17
+   Register : count1_440__i18
+   Register : count1_440__i19
+   Register : count1_440__i0
+   Register : count1_440__i1
+   Register : count1_440__i2
+   Register : count1_440__i3
+   Register : IR_i0_i1
+   Register : MBR_i0_i0
 
                                     Page 7
 
 
 
 
-Design:  alu_fetch                                     Date:  04/08/24  23:22:25
+Design:  alu_fetch                                     Date:  04/09/24  22:26:11
 
 GSR Usage (cont)
 ----------------
-   Register : count1_1114__i7
-   Register : count_1112__i17
-   Register : count1_1114__i8
-   Register : count1_1114__i9
-   Register : count1_1114__i10
-   Register : count1_1114__i11
-   Register : count1_1114__i12
-   Register : count1_1114__i13
-   Register : display_i0_i2
-   Register : count1_1114__i14
-   Register : count1_1114__i0
-   Register : count1_1114__i15
-   Register : count1_1114__i16
-   Register : count1_1114__i17
-   Register : count1_1114__i18
-   Register : count1_1114__i19
-   Register : count1_1114__i20
-   Register : count_1112__i0
-   Register : instruction_2__I_1_i1
-   PDPW8KC : ROM_imp/mux_873
-   PDPW8KC : ROM_imp/mux_872
+   PDPW8KC : ROM_imp/mux_169
+   PDPW8KC : ROM_imp/mux_168
 
      Components with synchronous local reset also reset by asynchronous GSR
 ----------------------------------------------------------------------
@@ -497,29 +478,48 @@ GSR Usage (cont)
      component.
 
      Type and number of components of the type: 
-   Register = 12 
+   Register = 20 
 
      Type and instance name of component: 
-   Register : unidades/DISPLAY_i5
-   Register : unidades/DISPLAY_i0
-   Register : unidades/DISPLAY_i1
-   Register : unidades/DISPLAY_i2
-   Register : unidades/DISPLAY_i3
+   Register : PC__i2
+   Register : PC__i3
+   Register : PC__i4
+   Register : PC__i5
+   Register : PC__i6
+   Register : PC__i7
+   Register : PC__i8
+   Register : PC__i1
    Register : centenas/DISPLAY_i2
    Register : centenas/DISPLAY_i1
+   Register : unidades/DISPLAY_i0
+   Register : unidades/DISPLAY_i5
+   Register : unidades/DISPLAY_i3
+   Register : unidades/DISPLAY_i1
+   Register : unidades/DISPLAY_i2
+   Register : decenas/DISPLAY_i5
    Register : decenas/DISPLAY_i3
    Register : decenas/DISPLAY_i0
    Register : decenas/DISPLAY_i1
    Register : decenas/DISPLAY_i2
-   Register : decenas/DISPLAY_i5
 
 Run Time and Memory Usage
 -------------------------
 
    Total CPU Time: 0 secs  
    Total REAL Time: 0 secs  
-   Peak Memory Usage: 61 MB
+   Peak Memory Usage: 60 MB
         
+
+
+
+
+
+
+
+
+
+
+
 
 
 
