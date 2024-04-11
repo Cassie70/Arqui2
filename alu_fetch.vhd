@@ -12,8 +12,7 @@ entity alu_fetch is port(
 	reset: in std_logic;
 	stop_run: in std_logic;
 	display: out std_logic_vector(6 downto 0);
-	sel: out std_logic_vector(3 downto 0);
-	CI: out std_logic_vector(23 downto 0)
+	sel: out std_logic_vector(3 downto 0)
 );
 end alu_fetch;
 
@@ -60,6 +59,14 @@ architecture behavior of alu_fetch is
         bcd_out   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
 	end component;
+	
+	component alu is port(
+		clk: in std_logic;
+		A,B: in std_logic_vector(11 downto 0);
+		control: in std_logic_vector(3 downto 0);
+		result: out std_logic_vector(11 downto 0);
+		C: out std_logic);
+	end component;
 
 signal clk: std_logic;
 signal clk_0: std_logic:='0';
@@ -74,7 +81,7 @@ signal PC: std_logic_vector(7 downto 0):="00000000";
 signal MAR: std_logic_vector(7 downto 0):=(others=>'0');
 signal MBR: std_logic_vector(23 downto 0);
 signal IR: std_logic_vector(23 downto 0);
-signal ACC: std_logic_vector(23 downto 0);
+signal ACC: std_logic_vector(11 downto 0);
 
 
 --entradas,salidas componentes
@@ -83,20 +90,20 @@ signal data_bus: std_logic_vector(23 downto 0);
 signal rpg_in: std_logic_vector(23 downto 0):=(others=>'0');
 signal rpg_out: std_logic_vector(23 downto 0);
 signal rpg_sel: std_logic_vector(1 downto 0):=(others=>'0');
-signal rpg_write: std_logic;
---signal A,B: std_logic_vector(11 downto 0);
---signal control: std_logic_vector(3 downto 0);
---signal C: std_logic;
+signal rpg_write: std_logic:='0';
+signal A,B: std_logic_vector(11 downto 0);
+signal control: std_logic_vector(3 downto 0);
+signal C: std_logic;
 
 
 type global_state_type is (reset_pc,fetch,fetch1,fetch2,fetch3,end_fetch,decode,end_decode, execute,end_execute); 
 signal global_state: global_state_type;
 
-type instruction_type is (i_addi,i_load,i_jump,i_display,i_halt,i_null,i_nop);
+type instruction_type is (i_addi,i_load,i_jump,i_display,i_displayi,i_halt,i_null,i_nop);
 signal instruction: instruction_type;
 
-type execute_type is (initial_state,final_state);
-signal addi_state,halt_state: execute_type;
+type execute_instruction_type is(t0,t1,t2,t3,t4);
+signal execute_instruction: execute_instruction_type;
 
 
 begin
@@ -114,12 +121,12 @@ millar: bcdDisplay port map(clk_0,reset,Qbcd(15 downto 12),mi);
 --clk
 ROM_imp: ROM port map(clk,reset,'1','1',MAR,data_bus);
 RPG : registrosPG port map(clk,reset,rpg_write,rpg_in,rpg_sel,rpg_out);
---ALU_imp : alu port map(clk,A,B,control,ACC(11 downto 0),C);  
-
+ALU_imp : alu port map(clk,A,B,control,ACC(11 downto 0),C);  
 	process(clk, reset, stop_run)
 	begin
 		if (reset = '1') then
 			global_state <= reset_pc;
+			execute_instruction<=t0;
 			PC<=(others=>'0');
 			MAR<=(others=>'0');
 			MBR<=(others=>'0');
@@ -144,14 +151,16 @@ RPG : registrosPG port map(clk,reset,rpg_write,rpg_in,rpg_sel,rpg_out);
 					global_state<=decode;
 				when decode =>
 					case IR(23 downto 18) is
-						when "011000" =>
+						when "001001" =>
 							instruction <= i_addi;
 						when "010001" =>
 							instruction <= i_load;
 						when "010111" =>
 							instruction <= i_jump;
-						when "011001" =>
+						when "011000" =>
 							instruction <= i_display;
+						when "011001" =>
+							instruction <= i_displayi;
 						when "010011" =>
 							instruction <= i_halt;
 						when others =>
@@ -162,13 +171,79 @@ RPG : registrosPG port map(clk,reset,rpg_write,rpg_in,rpg_sel,rpg_out);
 					global_state<=execute;
 				when execute =>
 					case instruction is
+						when i_addi =>
+							case execute_instruction is
+								when t0 =>
+									execute_instruction<=t1;
+								when t1 =>
+									rpg_sel<=IR(17 downto 16);
+									execute_instruction<=t2;
+								when t2 =>
+									control<=IR(3 downto 0);
+									A<=rpg_out(11 downto 0);
+									B<=IR(15 downto 4);
+									execute_instruction<=t3;
+								when t3 =>
+									rpg_write<='1';
+									if(C = '1') then
+										rpg_in<="00000000000"&C&ACC;
+									else
+										rpg_in<="000000000000"&ACC;
+									end if;
+									execute_instruction<=t4;
+								when t4 =>
+									rpg_write<='0';
+									execute_instruction<=t0;
+									global_state<=end_execute;
+							end case;
+						when i_load =>
+							case execute_instruction is 
+								when t0 =>
+									execute_instruction<=t1;
+								when t1 =>
+									MAR<=IR(7 downto 0);
+									execute_instruction<=t2;
+								when t2 =>
+									execute_instruction<=t3;--sincronizar data_bus
+								when t3 =>
+									rpg_write<='1';
+									rpg_sel<=IR(17 downto 16);
+									rpg_in<=data_bus;
+									execute_instruction<=t4;
+								when t4 =>
+									rpg_write<='0';
+									execute_instruction<=t0;
+									global_state<=end_execute;
+							end case;
 						when i_display=>
+							case execute_instruction is
+								when t0 =>
+									execute_instruction<=t1;
+								when t1 =>
+									rpg_sel<=IR(17 downto 16);
+									execute_instruction<=t2;
+								when t2 =>--sincronizar  data_out;
+									execute_instruction<=t3;
+								when t3 =>
+									Rdisplay<=rpg_out(13 downto 0);
+									execute_instruction<=t0;
+									global_state<=end_execute;
+								when others =>
+									execute_instruction<=t0;
+									global_state<=end_execute;
+							end case;
+						when i_displayi=>
 							Rdisplay<=IR(13 downto 0);
+							global_state<=end_execute;
 						when i_halt =>
 							PC<=PC-1;
+							global_state<=end_execute;
+						when i_jump =>
+							PC<=IR(7 downto 0);
+							global_state<=end_execute;
 						when others =>
+							global_state<=end_execute;
 					end case;
-					global_state<=end_execute;
 				when end_execute=>
 					global_state<=fetch;
 				when others =>
@@ -176,8 +251,7 @@ RPG : registrosPG port map(clk,reset,rpg_write,rpg_in,rpg_sel,rpg_out);
 			end case;
 		end if;
 	end process;
-	
-	CI<=data_bus;
+
 	Q<=Rdisplay;
 	process(clk_0, reset)
 	begin

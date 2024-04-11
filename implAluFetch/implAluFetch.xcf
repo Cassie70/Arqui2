@@ -20,8 +20,8 @@
 				<BScanVal>0</BScanVal>
 			</Bypass>
 			<File>C:/Users/Cassandra/Desktop/Arqui2/implAluFetch/alu_fetch_implAluFetch.jed</File>
-			<FileTime>04/10/24 03:17:00</FileTime>
-			<JedecChecksum>0x327F</JedecChecksum>
+			<FileTime>04/10/24 23:19:41</FileTime>
+			<JedecChecksum>0xBA25</JedecChecksum>
 			<Operation>FLASH Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>

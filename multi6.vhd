@@ -8,13 +8,13 @@ entity multi6 is port(
 end multi6;
 
 architecture a_multi6 of multi6 is
-    component add_sub_12 is
-        port (
-            A, B: in std_logic_vector(11 downto 0);
-            sub: in std_logic;
-            S: out std_logic_vector(11 downto 0);
-            cout: out std_logic
-        );
+	component SumRest12Bits is Port (
+			A : in STD_LOGIC_VECTOR(11 downto 0);
+			B : in STD_LOGIC_VECTOR(11 downto 0);
+			Op : in STD_LOGIC;
+			CarryIn : in STD_LOGIC;
+			SumRest : out STD_LOGIC_VECTOR(11 downto 0);
+			CarryOut : out STD_LOGIC);
     end component;
 
     signal v1, v2, v3, v4, v5, v6: std_logic_vector(11 downto 0);
@@ -27,11 +27,11 @@ begin
     v5 <= "00" & (A(5) and B(4)) & (A(4) and B(4)) & (A(3) and B(4)) & (A(2) and B(4)) & (A(1) and B(4)) & (A(0) and B(4)) & "0000";
     v6 <= "0" & (A(5) and B(5)) & (A(4) and B(5)) & (A(3) and B(5)) & (A(2) and B(5)) & (A(1) and B(5)) & (A(0) and B(5)) & "00000";
     
-    adder1: add_sub_12 port map(A => v1, B => v2, sub => '0', S => v12, cout => open);
-    adder2: add_sub_12 port map(A => v3, B => v4, sub => '0', S => v34, cout => open);
-    adder3: add_sub_12 port map(A => v5, B => v6, sub => '0', S => v56, cout => open);
-    adder4: add_sub_12 port map(A => v12, B => v34, sub => '0', S => v12_34, cout => open);
-    adder5: add_sub_12 port map(A => v12_34, B => v56, sub => '0', S => v1234_56, cout => open);
+    adder1: SumRest12Bits port map(A => v1, B => v2, op => '0',CarryIn=>'0' ,SumRest => v12, CarryOut => open);
+    adder2: SumRest12Bits port map(A => v3, B => v4, op => '0',CarryIn=>'0' ,SumRest => v34, CarryOut => open);
+    adder3: SumRest12Bits port map(A => v5, B => v6, op => '0', CarryIn=>'0',SumRest => v56, CarryOut => open);
+    adder4: SumRest12Bits port map(A => v12, B => v34, op => '0',CarryIn=>'0',SumRest => v12_34, CarryOut => open);
+    adder5: SumRest12Bits port map(A => v12_34, B => v56, op => '0',CarryIn=>'0' ,SumRest => v1234_56, CarryOut => open);
 
     result <= v1234_56;
 end a_multi6;

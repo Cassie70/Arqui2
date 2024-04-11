@@ -44,10 +44,10 @@ architecture a_ROM of ROM is
 
 	type ROM_Array is array (0 to 255) of std_logic_vector(23 downto 0);
 	constant content: ROM_Array := (
-		0 => OP_LOAD&"00"&"0000000011110111",--LOAD W,RA
-		1 => OP_DPLY&"00"&"0000000000000000",--Rdisplay<- RA
-		2 => OP_HALT&"000000000000000000",
-		3 => OP_ADDI&"00"&"0000000000000101",--ADDI RA,5
+		0 => OP_LOAD&"000000000011110111",--LOAD W,RA
+		1 => OP_ADDI&"00"&"000000000101"&"0110",--ADDI RA,5
+		2 => OP_DPLY&"00"&"0000000000000000",--Rdisplay<- RA
+		3 => OP_HALT&"000000000000000000",
 		247 => x"0003EB", -- 1003 en decimal W
 		248 => x"000065", -- 101 en decimal X
 		249 => x"000046", -- 70 en decimal Y 

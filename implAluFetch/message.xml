@@ -4,6 +4,198 @@
         <Message>
             <ID>1100679</ID>
             <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(3): Semantic error in &quot;LOCATE COMP &quot;CI[23]&quot; SITE &quot;59&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[23]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>3</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(4): Semantic error in &quot;LOCATE COMP &quot;CI[22]&quot; SITE &quot;57&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[22]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(5): Semantic error in &quot;LOCATE COMP &quot;CI[21]&quot; SITE &quot;56&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[21]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>5</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(6): Semantic error in &quot;LOCATE COMP &quot;CI[20]&quot; SITE &quot;54&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[20]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>6</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(7): Semantic error in &quot;LOCATE COMP &quot;CI[19]&quot; SITE &quot;55&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[19]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>7</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(8): Semantic error in &quot;LOCATE COMP &quot;CI[18]&quot; SITE &quot;52&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[18]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>8</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(9): Semantic error in &quot;LOCATE COMP &quot;CI[17]&quot; SITE &quot;50&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[17]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>9</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(10): Semantic error in &quot;LOCATE COMP &quot;CI[16]&quot; SITE &quot;48&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[16]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>10</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(11): Semantic error in &quot;LOCATE COMP &quot;CI[15]&quot; SITE &quot;49&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[15]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>11</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(12): Semantic error in &quot;LOCATE COMP &quot;CI[14]&quot; SITE &quot;47&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[14]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(13): Semantic error in &quot;LOCATE COMP &quot;CI[13]&quot; SITE &quot;45&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[13]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>13</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(14): Semantic error in &quot;LOCATE COMP &quot;CI[12]&quot; SITE &quot;43&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[12]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>14</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(15): Semantic error in &quot;LOCATE COMP &quot;CI[11]&quot; SITE &quot;42&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[11]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>15</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(16): Semantic error in &quot;LOCATE COMP &quot;CI[10]&quot; SITE &quot;44&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[10]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>16</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(17): Semantic error in &quot;LOCATE COMP &quot;CI[9]&quot; SITE &quot;39&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[9]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>17</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(18): Semantic error in &quot;LOCATE COMP &quot;CI[8]&quot; SITE &quot;41&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[8]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>18</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(19): Semantic error in &quot;LOCATE COMP &quot;CI[7]&quot; SITE &quot;91&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[7]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>19</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(20): Semantic error in &quot;LOCATE COMP &quot;CI[6]&quot; SITE &quot;92&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[6]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>20</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(21): Semantic error in &quot;LOCATE COMP &quot;CI[5]&quot; SITE &quot;93&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[5]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>21</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(22): Semantic error in &quot;LOCATE COMP &quot;CI[4]&quot; SITE &quot;94&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[4]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>22</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(23): Semantic error in &quot;LOCATE COMP &quot;CI[3]&quot; SITE &quot;96&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[3]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>23</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(24): Semantic error in &quot;LOCATE COMP &quot;CI[2]&quot; SITE &quot;95&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[2]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>24</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(25): Semantic error in &quot;LOCATE COMP &quot;CI[1]&quot; SITE &quot;98&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[1]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>25</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(26): Semantic error in &quot;LOCATE COMP &quot;CI[0]&quot; SITE &quot;97&quot; ;&quot;: </Dynamic>
+            <Dynamic>CI[0]</Dynamic>
+            <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
+            <Navigation>26</Navigation>
+        </Message>
+        <Message>
+            <ID>1100679</ID>
+            <Severity>Warning</Severity>
             <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(40): Semantic error in &quot;LOCATE COMP &quot;led&quot; SITE &quot;61&quot; ;&quot;: </Dynamic>
             <Dynamic>led</Dynamic>
             <Navigation>C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf</Navigation>
@@ -31,6 +223,38 @@
             <Dynamic>C:/Users/Cassandra/Desktop/Arqui2/implAluFetch</Dynamic>
         </Message>
         <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/addersub12.vhd(5): </Dynamic>
+            <Dynamic>sumrest12bits</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/addersub12.vhd</Navigation>
+            <Navigation>5</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/addersub12.vhd(16): </Dynamic>
+            <Dynamic>behavioral</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/addersub12.vhd</Navigation>
+            <Navigation>16</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu.vhd(4): </Dynamic>
+            <Dynamic>alu</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu.vhd(13): </Dynamic>
+            <Dynamic>a_alu</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu.vhd</Navigation>
+            <Navigation>13</Navigation>
+        </Message>
+        <Message>
             <ID>35921240</ID>
             <Severity>Warning</Severity>
             <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(7): </Dynamic>
@@ -50,18 +274,34 @@
         <Message>
             <ID>35921010</ID>
             <Severity>Info</Severity>
-            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(20): </Dynamic>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(19): </Dynamic>
             <Dynamic>behavior</Dynamic>
             <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd</Navigation>
-            <Navigation>20</Navigation>
+            <Navigation>19</Navigation>
         </Message>
         <Message>
             <ID>35921178</ID>
             <Severity>Warning</Severity>
-            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(20): </Dynamic>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(19): </Dynamic>
             <Dynamic>behavior</Dynamic>
             <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd</Navigation>
-            <Navigation>20</Navigation>
+            <Navigation>19</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/multi6.vhd(4): </Dynamic>
+            <Dynamic>multi6</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/multi6.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/multi6.vhd(10): </Dynamic>
+            <Dynamic>a_multi6</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/multi6.vhd</Navigation>
+            <Navigation>10</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
@@ -126,6 +366,38 @@
             <Dynamic>behavioral</Dynamic>
             <Navigation>c:/users/cassandra/desktop/arqui2/rpg24_4.vhd</Navigation>
             <Navigation>14</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/addersub12.vhd(5): </Dynamic>
+            <Dynamic>sumrest12bits</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/addersub12.vhd</Navigation>
+            <Navigation>5</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/addersub12.vhd(16): </Dynamic>
+            <Dynamic>behavioral</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/addersub12.vhd</Navigation>
+            <Navigation>16</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu.vhd(4): </Dynamic>
+            <Dynamic>alu</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu.vhd(13): </Dynamic>
+            <Dynamic>a_alu</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/alu.vhd</Navigation>
+            <Navigation>13</Navigation>
         </Message>
         <Message>
             <ID>35921240</ID>
@@ -147,10 +419,26 @@
         <Message>
             <ID>35921010</ID>
             <Severity>Info</Severity>
-            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(20): </Dynamic>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(19): </Dynamic>
             <Dynamic>behavior</Dynamic>
             <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd</Navigation>
-            <Navigation>20</Navigation>
+            <Navigation>19</Navigation>
+        </Message>
+        <Message>
+            <ID>35921012</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/multi6.vhd(4): </Dynamic>
+            <Dynamic>multi6</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/multi6.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35921010</ID>
+            <Severity>Info</Severity>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/multi6.vhd(10): </Dynamic>
+            <Dynamic>a_multi6</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/multi6.vhd</Navigation>
+            <Navigation>10</Navigation>
         </Message>
         <Message>
             <ID>35921012</ID>
@@ -217,59 +505,20 @@
             <Navigation>14</Navigation>
         </Message>
         <Message>
-            <ID>35921303</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(83): </Dynamic>
-            <Dynamic>&quot;000000000000000000000000&quot;</Dynamic>
-            <Dynamic>rpg_in</Dynamic>
-            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd</Navigation>
-            <Navigation>83</Navigation>
-        </Message>
-        <Message>
-            <ID>35921303</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(85): </Dynamic>
-            <Dynamic>&quot;00&quot;</Dynamic>
-            <Dynamic>rpg_sel</Dynamic>
-            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd</Navigation>
-            <Navigation>85</Navigation>
-        </Message>
-        <Message>
-            <ID>35921251</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(126): </Dynamic>
-            <Dynamic>clk_1</Dynamic>
-            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd</Navigation>
-            <Navigation>126</Navigation>
-        </Message>
-        <Message>
             <ID>35921172</ID>
             <Severity>Info</Severity>
-            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(174): </Dynamic>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(250): </Dynamic>
             <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd</Navigation>
-            <Navigation>174</Navigation>
-        </Message>
-        <Message>
-            <ID>35921613</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(177): </Dynamic>
-            <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd</Navigation>
-            <Navigation>177</Navigation>
+            <Navigation>250</Navigation>
         </Message>
         <Message>
             <ID>35921205</ID>
             <Severity>Warning</Severity>
-            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(18): </Dynamic>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(17): </Dynamic>
             <Dynamic>alu_fetch</Dynamic>
             <Dynamic>behavior</Dynamic>
             <Navigation>c:/users/cassandra/desktop/arqui2/alu_fetch.vhd</Navigation>
-            <Navigation>18</Navigation>
-        </Message>
-        <Message>
-            <ID>35001774</ID>
-            <Severity>Info</Severity>
-            <Dynamic>global_state</Dynamic>
-            <Dynamic>one-hot</Dynamic>
+            <Navigation>17</Navigation>
         </Message>
         <Message>
             <ID>35001774</ID>
@@ -278,40 +527,12 @@
             <Dynamic>one-hot</Dynamic>
         </Message>
         <Message>
-            <ID>35001747</ID>
+            <ID>35935013</ID>
             <Severity>Warning</Severity>
-            <Dynamic>15</Dynamic>
-            <Dynamic>global_state_FSM</Dynamic>
-        </Message>
-        <Message>
-            <ID>35001747</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>14</Dynamic>
-            <Dynamic>global_state_FSM</Dynamic>
-        </Message>
-        <Message>
-            <ID>35001747</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>13</Dynamic>
-            <Dynamic>global_state_FSM</Dynamic>
-        </Message>
-        <Message>
-            <ID>35001747</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>12</Dynamic>
-            <Dynamic>global_state_FSM</Dynamic>
-        </Message>
-        <Message>
-            <ID>35001747</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>11</Dynamic>
-            <Dynamic>global_state_FSM</Dynamic>
-        </Message>
-        <Message>
-            <ID>35001747</ID>
-            <Severity>Warning</Severity>
-            <Dynamic>10</Dynamic>
-            <Dynamic>global_state_FSM</Dynamic>
+            <Dynamic>c:/users/cassandra/desktop/arqui2/rpg24_4.vhd(43): </Dynamic>
+            <Dynamic>creset_832</Dynamic>
+            <Navigation>c:/users/cassandra/desktop/arqui2/rpg24_4.vhd</Navigation>
+            <Navigation>43</Navigation>
         </Message>
         <Message>
             <ID>35001611</ID>
@@ -327,6 +548,18 @@
             <Dynamic>reset</Dynamic>
             <Dynamic>1</Dynamic>
             <Dynamic>Secondary</Dynamic>
+        </Message>
+        <Message>
+            <ID>66011008</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>
+   Signal=ALU_imp/substract_N_988 loads=1 clock_loads=1</Dynamic>
+        </Message>
+        <Message>
+            <ID>66011008</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>
+   Signal=ALU_imp/substract_N_988 loads=1 clock_loads=1</Dynamic>
         </Message>
     </Task>
     <Task name="Jedecgen">

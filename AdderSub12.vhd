@@ -1,36 +1,44 @@
-library ieee;
-use ieee.std_logic_1164.all;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity add_sub_12 is port(
-		A,B: in std_logic_vector(11 downto 0);
-		sub: in std_logic;
-		S: inout std_logic_vector(11 downto 0);
-		cout: out std_logic
-	);
-end add_sub_12;
+entity SumRest12Bits is
+    Port (
+        A : in STD_LOGIC_VECTOR(11 downto 0);
+        B : in STD_LOGIC_VECTOR(11 downto 0);
+        SumRest : out STD_LOGIC_VECTOR(11 downto 0);
+        CarryIn : in STD_LOGIC;
+        Op : in STD_LOGIC; 
+        CarryOut : out STD_LOGIC
+    );
+end SumRest12Bits;
 
-architecture A_add_sub_12 of add_sub_12 is
-	
-component FA is
-	port(
-		A,B,cin: in std_logic;
-		S,cout: inout std_logic
-	);
-end component;
+architecture Behavioral of SumRest12Bits is
 
-signal carry: std_logic_vector(12 downto 0);
+signal intermediate_carry : STD_LOGIC_VECTOR(12 downto 0);
+signal B_mod : STD_LOGIC_VECTOR(11 downto 0);
+
 begin
 
-	carry(0)<=sub;
-	gen_addsub : for i in 0 to 11 generate
-		bit_FA: FA port map(
-			A=>A(i),
-			B=>B(i) xor sub,
-			cin=>carry(i),
-			S=>S(i),
-			cout=>carry(i+1)
-		);
-	end generate gen_addsub;
-	cout <= carry(12);
-end A_add_sub_12;
+Process(A, B, Op)
+begin
+    if Op = '1' then  
+        B_mod <= not B;
+    else 
+        B_mod <= B;
+    end if;
+end process;
 
+
+intermediate_carry(0) <= CarryIn;
+
+
+Gen_SumRest: for i in 0 to 11 generate
+begin
+    SumRest(i) <= A(i) xor B_mod(i) xor intermediate_carry(i);
+    intermediate_carry(i+1) <= (A(i) and B_mod(i)) or (A(i) and intermediate_carry(i)) or (B_mod(i) and intermediate_carry(i));
+end generate;
+
+CarryOut <= intermediate_carry(12) xor Op; 
+
+end Behavioral;

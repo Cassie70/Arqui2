@@ -6,17 +6,18 @@ entity alu is port(
 	A,B: in std_logic_vector(11 downto 0);
 	control: in std_logic_vector(3 downto 0);
 	result: out std_logic_vector(11 downto 0);
-	overflow: out std_logic
+	C: out std_logic
 );
 end alu;
 
 architecture a_alu of alu is
-    component add_sub_12 is port (
-            A, B: in std_logic_vector(11 downto 0);
-            sub: in std_logic;
-            S: out std_logic_vector(11 downto 0);
-            cout: out std_logic
-        );
+	component SumRest12Bits is Port (
+			A : in STD_LOGIC_VECTOR(11 downto 0);
+			B : in STD_LOGIC_VECTOR(11 downto 0);
+			Op : in STD_LOGIC;
+			CarryIn : in STD_LOGIC;
+			SumRest : out STD_LOGIC_VECTOR(11 downto 0);
+			CarryOut : out STD_LOGIC);
     end component;
 	
 	component multi6 is port(
@@ -38,7 +39,7 @@ architecture a_alu of alu is
 	signal A_temp,B_temp: std_logic_vector(11 downto 0);
 
 begin
-    imp_add_sub_12: add_sub_12 port map(A_temp,B_temp,substract,sum_result,overflow);
+	imp_add_sub_12: SumRest12Bits port map(A_temp,B_temp,substract,'0',sum_result,C);
 	imp_multi: multi6 port map(A_temp,B_temp,multi_result);
 	--imp_div: divi6 port map(clk,A_temp,B_temp,div_result);
 	input_process:process(A,B,control)
