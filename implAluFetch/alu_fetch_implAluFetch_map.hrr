@@ -3,44 +3,128 @@ Report for cell alu_fetch
    Instance path: alu_fetch
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	     373.00        100.0
-                                  LUT4	     664.00        100.0
+                                  SLIC	     414.00        100.0
+                                  LUT4	     738.00        100.0
                                DISTRAM	      12.00        100.0
                                  IOBUF	         13        100.0
-                                PFUREG	        238        100.0
-                                RIPPLE	         20        100.0
+                                PFUREG	        239        100.0
+                                RIPPLE	         25        100.0
                                    EBR	          2        100.0
 SUB MODULES
                                   cell	      count    SLC Usage(%)
-                            bcdDisplay	          1         0.8
-                         bcdDisplay_U6	          1         1.1
-                         bcdDisplay_U7	          1         1.1
-                         bcdDisplay_U5	          1         1.0
-                                   alu	          1        21.8
-                                   ROM	          1         2.9
-                               Bin2BCD	          1        20.8
+                         bcdDisplay_U6	          1         1.0
+                         bcdDisplay_U7	          1         1.0
+                            bcdDisplay	          1         0.7
+                         bcdDisplay_U5	          1         0.9
+                                   alu	          1        19.8
+                               Bin2BCD	          1        19.5
+                                   ROM	          1         1.7
 ---------------------------------------------------
 Report for cell bcdDisplay_U5
    Instance path: alu_fetch/millar
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	       3.83         1.0
-                                  LUT4	       3.67         0.6
+                                  SLIC	       3.67         0.9
+                                  LUT4	       3.67         0.5
+                                PFUREG	          7         2.9
+---------------------------------------------------
+Report for cell alu
+   Instance path: alu_fetch/ALU_imp
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      82.17        19.8
+                                  LUT4	     157.33        21.3
+                                PFUREG	         37        15.5
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+                                multi6	          1         8.0
+                      SumRest12Bits_U4	          1         2.7
+---------------------------------------------------
+Report for cell multi6
+   Instance path: alu_fetch/ALU_imp/imp_multi
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      33.25         8.0
+                                  LUT4	      67.00         9.1
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+                      SumRest12Bits_U2	          1         0.5
+                      SumRest12Bits_U3	          1         0.8
+                      SumRest12Bits_U0	          1         0.7
+                      SumRest12Bits_U1	          1         0.3
+                         SumRest12Bits	          1         0.6
+---------------------------------------------------
+Report for cell SumRest12Bits
+   Instance path: alu_fetch/ALU_imp/imp_multi/adder5
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       2.50         0.6
+                                  LUT4	       5.00         0.7
+---------------------------------------------------
+Report for cell SumRest12Bits_U0
+   Instance path: alu_fetch/ALU_imp/imp_multi/adder4
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       2.75         0.7
+                                  LUT4	       6.00         0.8
+---------------------------------------------------
+Report for cell SumRest12Bits_U1
+   Instance path: alu_fetch/ALU_imp/imp_multi/adder3
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       1.33         0.3
+                                  LUT4	       2.67         0.4
+---------------------------------------------------
+Report for cell SumRest12Bits_U2
+   Instance path: alu_fetch/ALU_imp/imp_multi/adder2
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       2.00         0.5
+                                  LUT4	       4.00         0.5
+---------------------------------------------------
+Report for cell SumRest12Bits_U3
+   Instance path: alu_fetch/ALU_imp/imp_multi/adder1
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       3.50         0.8
+                                  LUT4	       7.00         0.9
+---------------------------------------------------
+Report for cell SumRest12Bits_U4
+   Instance path: alu_fetch/ALU_imp/imp_add_sub_12
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      11.00         2.7
+                                  LUT4	      22.00         3.0
+---------------------------------------------------
+Report for cell bcdDisplay
+   Instance path: alu_fetch/unidades
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       3.08         0.7
+                                  LUT4	       2.67         0.4
                                 PFUREG	          7         2.9
 ---------------------------------------------------
 Report for cell Bin2BCD
    Instance path: alu_fetch/imp_binBCD
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	      77.67        20.8
-                                  LUT4	     159.83        24.1
+                                  SLIC	      80.92        19.5
+                                  LUT4	     166.83        22.6
+---------------------------------------------------
+Report for cell bcdDisplay_U6
+   Instance path: alu_fetch/decenas
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       4.00         1.0
+                                  LUT4	       3.67         0.5
+                                PFUREG	          7         2.9
 ---------------------------------------------------
 Report for cell ROM
    Instance path: alu_fetch/ROM_imp
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	      10.67         2.9
-                                  LUT4	      29.00         4.4
+                                  SLIC	       7.00         1.7
+                                  LUT4	      24.00         3.3
                                 PFUREG	          1         0.4
                                    EBR	          2        100.0
 ---------------------------------------------------
@@ -48,90 +132,6 @@ Report for cell bcdDisplay_U7
    Instance path: alu_fetch/centenas
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  SLIC	       4.17         1.1
-                                  LUT4	       3.67         0.6
-                                PFUREG	          7         2.9
----------------------------------------------------
-Report for cell alu
-   Instance path: alu_fetch/ALU_imp
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  SLIC	      81.50        21.8
-                                  LUT4	     164.67        24.8
-                                PFUREG	         37        15.5
-SUB MODULES
-                                  cell	      count    SLC Usage(%)
-                                multi6	          1         9.4
-                      SumRest12Bits_U4	          1         2.0
----------------------------------------------------
-Report for cell multi6
-   Instance path: alu_fetch/ALU_imp/imp_multi
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  SLIC	      35.17         9.4
-                                  LUT4	      71.00        10.7
-SUB MODULES
-                                  cell	      count    SLC Usage(%)
-                      SumRest12Bits_U2	          1         0.8
-                      SumRest12Bits_U3	          1         1.2
-                      SumRest12Bits_U0	          1         0.9
-                      SumRest12Bits_U1	          1         0.3
-                         SumRest12Bits	          1         0.7
----------------------------------------------------
-Report for cell SumRest12Bits
-   Instance path: alu_fetch/ALU_imp/imp_multi/adder5
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  SLIC	       2.50         0.7
-                                  LUT4	       5.00         0.8
----------------------------------------------------
-Report for cell SumRest12Bits_U0
-   Instance path: alu_fetch/ALU_imp/imp_multi/adder4
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  SLIC	       3.33         0.9
-                                  LUT4	       7.00         1.1
----------------------------------------------------
-Report for cell SumRest12Bits_U1
-   Instance path: alu_fetch/ALU_imp/imp_multi/adder3
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  SLIC	       1.00         0.3
-                                  LUT4	       2.00         0.3
----------------------------------------------------
-Report for cell SumRest12Bits_U2
-   Instance path: alu_fetch/ALU_imp/imp_multi/adder2
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  SLIC	       3.00         0.8
-                                  LUT4	       6.00         0.9
----------------------------------------------------
-Report for cell SumRest12Bits_U3
-   Instance path: alu_fetch/ALU_imp/imp_multi/adder1
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  SLIC	       4.50         1.2
-                                  LUT4	       9.00         1.4
----------------------------------------------------
-Report for cell SumRest12Bits_U4
-   Instance path: alu_fetch/ALU_imp/imp_add_sub_12
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  SLIC	       7.50         2.0
-                                  LUT4	      15.00         2.3
----------------------------------------------------
-Report for cell bcdDisplay_U6
-   Instance path: alu_fetch/decenas
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  SLIC	       4.00         1.1
-                                  LUT4	       3.67         0.6
-                                PFUREG	          7         2.9
----------------------------------------------------
-Report for cell bcdDisplay
-   Instance path: alu_fetch/unidades
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  SLIC	       3.00         0.8
-                                  LUT4	       2.67         0.4
+                                  SLIC	       4.17         1.0
+                                  LUT4	       3.67         0.5
                                 PFUREG	          7         2.9

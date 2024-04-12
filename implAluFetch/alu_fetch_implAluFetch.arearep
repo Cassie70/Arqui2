@@ -1,12 +1,12 @@
 ----------------------------------------------------------------------
 Report for cell alu_fetch.TECH
-Register bits:  240 of 7209 (3.329%)
+Register bits:  241 of 7209 (3.343%)
 I/O cells:      13
                                   Cell usage:
                                cell     count   Res Usage(%)
-                              CCU2D        20          100.0
-                            FD1P3AX        83          100.0
-                            FD1P3IX        85          100.0
+                              CCU2D        25          100.0
+                            FD1P3AX        73          100.0
+                            FD1P3IX        96          100.0
                              FD1S1A        21          100.0
                              FD1S1I        16          100.0
                             FD1S3AX        10          100.0
@@ -14,8 +14,7 @@ I/O cells:      13
                             FD1S3JX        20          100.0
                                 GSR         1          100.0
                                  IB         2          100.0
-                            L6MUX21        10          100.0
-                               LUT4       660          100.0
+                               LUT4       742          100.0
                                  OB        11          100.0
                             PDPW8KC         2          100.0
                               PFUMX        82          100.0
@@ -35,7 +34,7 @@ SUB MODULES
                       bcdDisplay_U6         1
                       bcdDisplay_U7         1
                              multi6         1
-                              TOTAL      1046
+                              TOTAL      1124
 ----------------------------------------------------------------------
 Report for cell bcdDisplay_U5.v1
 Instance Path : millar
@@ -44,35 +43,7 @@ Instance Path : millar
                             FD1S3AX         1           10.0
                             FD1S3AY         1           20.0
                             FD1S3JX         5           25.0
-                               LUT4         3            0.5
-                              PFUMX         2            2.4
-                              TOTAL        12
-----------------------------------------------------------------------
-Report for cell Bin2BCD.v1
-Instance Path : imp_binBCD
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                               LUT4       164           24.8
-                              PFUMX         4            4.9
-                              TOTAL       168
-----------------------------------------------------------------------
-Report for cell ROM.v1
-Instance Path : ROM_imp
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1S3AX         1           10.0
-                               LUT4        24            3.6
-                            PDPW8KC         2          100.0
-                              TOTAL        27
-----------------------------------------------------------------------
-Report for cell bcdDisplay_U7.v1
-Instance Path : centenas
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1S3AX         1           10.0
-                            FD1S3AY         1           20.0
-                            FD1S3JX         5           25.0
-                               LUT4         3            0.5
+                               LUT4         3            0.4
                               PFUMX         2            2.4
                               TOTAL        12
 ----------------------------------------------------------------------
@@ -82,8 +53,8 @@ Instance Path : ALU_imp
                                cell     count   Res Usage(%)
                              FD1S1A        21          100.0
                              FD1S1I        16          100.0
-                               LUT4       170           25.8
-                              PFUMX        18           22.0
+                               LUT4       148           19.9
+                              PFUMX        25           30.5
 SUB MODULES
                       SumRest12Bits         1
                    SumRest12Bits_U0         1
@@ -92,77 +63,65 @@ SUB MODULES
                    SumRest12Bits_U3         1
                    SumRest12Bits_U4         1
                              multi6         1
-                              TOTAL       232
+                              TOTAL       217
 ----------------------------------------------------------------------
 Report for cell multi6.v1
 Instance Path : ALU_imp.imp_multi
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4        71           10.8
-                              PFUMX         4            4.9
+                               LUT4        68            9.2
+                              PFUMX         2            2.4
 SUB MODULES
                       SumRest12Bits         1
                    SumRest12Bits_U0         1
                    SumRest12Bits_U1         1
                    SumRest12Bits_U2         1
                    SumRest12Bits_U3         1
-                              TOTAL        80
+                              TOTAL        75
 ----------------------------------------------------------------------
 Report for cell SumRest12Bits.v1
 Instance Path : ALU_imp.imp_multi.adder5
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4         5            0.8
+                               LUT4         5            0.7
                               TOTAL         5
 ----------------------------------------------------------------------
 Report for cell SumRest12Bits_U0.v1
 Instance Path : ALU_imp.imp_multi.adder4
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4         7            1.1
-                              TOTAL         7
+                               LUT4         6            0.8
+                              TOTAL         6
 ----------------------------------------------------------------------
 Report for cell SumRest12Bits_U1.v1
 Instance Path : ALU_imp.imp_multi.adder3
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4         2            0.3
-                              TOTAL         2
+                               LUT4         3            0.4
+                              TOTAL         3
 ----------------------------------------------------------------------
 Report for cell SumRest12Bits_U2.v1
 Instance Path : ALU_imp.imp_multi.adder2
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4         6            0.9
-                              PFUMX         2            2.4
-                              TOTAL         8
+                               LUT4         4            0.5
+                              PFUMX         1            1.2
+                              TOTAL         5
 ----------------------------------------------------------------------
 Report for cell SumRest12Bits_U3.v1
 Instance Path : ALU_imp.imp_multi.adder1
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4         9            1.4
-                              PFUMX         2            2.4
-                              TOTAL        11
+                               LUT4         7            0.9
+                              PFUMX         1            1.2
+                              TOTAL         8
 ----------------------------------------------------------------------
 Report for cell SumRest12Bits_U4.v1
 Instance Path : ALU_imp.imp_add_sub_12
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4        15            2.3
-                              PFUMX         1            1.2
-                              TOTAL        16
-----------------------------------------------------------------------
-Report for cell bcdDisplay_U6.v1
-Instance Path : decenas
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1S3AX         1           10.0
-                            FD1S3AY         1           20.0
-                            FD1S3JX         5           25.0
-                               LUT4         3            0.5
-                              PFUMX         2            2.4
-                              TOTAL        12
+                               LUT4        22            3.0
+                              TOTAL        22
 ----------------------------------------------------------------------
 Report for cell bcdDisplay.v1
 Instance Path : unidades
@@ -174,3 +133,42 @@ Instance Path : unidades
                                LUT4         2            0.3
                               PFUMX         2            2.4
                               TOTAL        11
+----------------------------------------------------------------------
+Report for cell Bin2BCD.v1
+Instance Path : imp_binBCD
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4       171           23.0
+                              PFUMX         2            2.4
+                              TOTAL       173
+----------------------------------------------------------------------
+Report for cell bcdDisplay_U6.v1
+Instance Path : decenas
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1S3AX         1           10.0
+                            FD1S3AY         1           20.0
+                            FD1S3JX         5           25.0
+                               LUT4         3            0.4
+                              PFUMX         2            2.4
+                              TOTAL        12
+----------------------------------------------------------------------
+Report for cell ROM.v1
+Instance Path : ROM_imp
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1S3AX         1           10.0
+                               LUT4        24            3.2
+                            PDPW8KC         2          100.0
+                              TOTAL        27
+----------------------------------------------------------------------
+Report for cell bcdDisplay_U7.v1
+Instance Path : centenas
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1S3AX         1           10.0
+                            FD1S3AY         1           20.0
+                            FD1S3JX         5           25.0
+                               LUT4         3            0.4
+                              PFUMX         2            2.4
+                              TOTAL        12

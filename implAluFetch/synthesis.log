@@ -5,7 +5,7 @@ Copyright (c) 1995 AT&T Corp.   All rights reserved.
 Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
 Copyright (c) 2001 Agere Systems   All rights reserved.
 Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
-Wed Apr 10 23:19:14 2024
+Thu Apr 11 03:25:08 2024
 
 
 Command Line:  synthesis -f alu_fetch_implAluFetch_lattice.synproj -gui -msgset C:/Users/Cassandra/Desktop/Arqui2/promote.xml 
@@ -171,7 +171,7 @@ unit alu_fetch is not yet analyzed. VHDL-1485
 unit alu_fetch is not yet analyzed. VHDL-1485
 c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(11): executing alu_fetch(behavior)
 
-INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(250): others clause is never selected. VHDL-1172
+INFO - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(284): others clause is never selected. VHDL-1172
 WARNING - synthesis: c:/users/cassandra/desktop/arqui2/alu_fetch.vhd(17): replacing existing netlist alu_fetch(behavior). VHDL-1205
 Top module name (VHDL): alu_fetch
 Loading NGL library 'C:/lscc/diamond/3.13/ispfpga/xo2c00a/data/xo2alib.ngl'...
@@ -203,8 +203,8 @@ Core reset RAM implemented for net \RPG/selector_1__I_0.
 ######## Found 1 RTL RAMs in the design.
 ######## Mapping RTL RAM \RPG/selector_1__I_0 to 6 Distributed blocks in SINGLE_PORT Mode
 
-WARNING - synthesis: c:/users/cassandra/desktop/arqui2/rpg24_4.vhd(43): Register creset_832 is stuck at Zero. VDB-5013
-GSR instance connected to net n1726.
+WARNING - synthesis: c:/users/cassandra/desktop/arqui2/rpg24_4.vhd(43): Register creset_845 is stuck at Zero. VDB-5013
+GSR instance connected to net n1867.
 Applying 200.000000 MHz constraint to all clocks
 
 WARNING - synthesis: No user .sdc file.
@@ -217,10 +217,10 @@ All blocks are expanded and NGD expansion is successful.
 Writing NGD file alu_fetch_implAluFetch.ngd.
 
 ################### Begin Area Report (alu_fetch)######################
-Number of register bits => 240 of 7209 (3 % )
-CCU2D => 20
-FD1P3AX => 83
-FD1P3IX => 85
+Number of register bits => 241 of 7209 (3 % )
+CCU2D => 25
+FD1P3AX => 73
+FD1P3IX => 96
 FD1S1A => 21
 FD1S1I => 16
 FD1S3AX => 10
@@ -228,8 +228,7 @@ FD1S3AY => 5
 FD1S3JX => 20
 GSR => 1
 IB => 2
-L6MUX21 => 10
-LUT4 => 660
+LUT4 => 742
 OB => 11
 PDPW8KC => 2
 PFUMX => 82
@@ -244,36 +243,36 @@ TSALL => 1
 ################### Begin Clock Report ######################
 Clock Nets
 Number of Clocks: 5
-  Net : clk, loads : 165
-  Net : clk_0, loads : 45
-  Net : ALU_imp/control_3_derived_24, loads : 24
-  Net : ALU_imp/logic_result_11__N_949, loads : 12
-  Net : ALU_imp/substract_N_988, loads : 1
+  Net : clk_0, loads : 192
+  Net : A_temp_11__N_976, loads : 24
+  Net : clk, loads : 19
+  Net : logic_result_11__N_951, loads : 12
+  Net : substract_N_990, loads : 1
 Clock Enable Nets
-Number of Clock Enables: 21
+Number of Clock Enables: 25
 Top 10 highest fanout Clock Enables:
-  Net : clk_enable_142, loads : 26
-  Net : clk_enable_143, loads : 24
-  Net : clk_enable_157, loads : 24
-  Net : clk_enable_67, loads : 23
-  Net : clk_enable_106, loads : 16
-  Net : clk_enable_98, loads : 15
-  Net : clk_enable_32, loads : 8
-  Net : clk_enable_14, loads : 8
-  Net : clk_0_enable_8, loads : 7
-  Net : clk_enable_62, loads : 3
+  Net : clk_0_enable_67, loads : 24
+  Net : clk_0_enable_142, loads : 24
+  Net : clk_enable_18, loads : 23
+  Net : clk_0_enable_143, loads : 14
+  Net : clk_0_enable_105, loads : 13
+  Net : clk_0_enable_83, loads : 13
+  Net : clk_0_enable_127, loads : 12
+  Net : clk_0_enable_151, loads : 8
+  Net : clk_0_enable_31, loads : 8
+  Net : clk_0_enable_37, loads : 7
 Highest fanout non-clock nets
 Top 10 highest fanout non-clock nets:
   Net : reset_c, loads : 71
-  Net : control_1, loads : 60
+  Net : control_1, loads : 62
+  Net : execute_instruction_2, loads : 54
   Net : control_2, loads : 49
-  Net : instruction_0, loads : 49
-  Net : control_0, loads : 46
-  Net : execute_instruction_2, loads : 46
-  Net : n15220, loads : 40
-  Net : instruction_2, loads : 36
-  Net : instruction_1, loads : 34
-  Net : global_state_3, loads : 33
+  Net : n18880, loads : 48
+  Net : control_0, loads : 47
+  Net : instruction_2, loads : 45
+  Net : global_state_3, loads : 42
+  Net : instruction_1, loads : 40
+  Net : instruction_0, loads : 40
 ################### End Clock Report ##################
 
 Timing Report Summary
@@ -283,26 +282,25 @@ Constraint                              |   Constraint|       Actual|Levels
 --------------------------------------------------------------------------------
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk3 [get_nets \ALU_imp/substract_N_988]|            -|            -|     0  
+clk3 [get_nets substract_N_990]         |            -|            -|     0  
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk2 [get_nets                          |             |             |
-\ALU_imp/control[3]_derived_24]         |            -|            -|     0  
+clk2 [get_nets A_temp_11__N_976]        |            -|            -|     0  
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk1 [get_nets clk_0]                   |  200.000 MHz|  209.556 MHz|     3  
+clk1 [get_nets clk]                     |  200.000 MHz|  115.875 MHz|     6 *
                                         |             |             |
 create_clock -period 5.000000 -name     |             |             |
-clk0 [get_nets clk]                     |  200.000 MHz|  109.637 MHz|     6 *
+clk0 [get_nets clk_0]                   |  200.000 MHz|   24.413 MHz|    28 *
                                         |             |             |
 --------------------------------------------------------------------------------
 
 
-1 constraints not met.
+2 constraints not met.
 
 
-Peak Memory Usage: 125.195  MB
+Peak Memory Usage: 135.594  MB
 
 --------------------------------------------------------------
-Elapsed CPU time for LSE flow : 1.109  secs
+Elapsed CPU time for LSE flow : 1.453  secs
 --------------------------------------------------------------

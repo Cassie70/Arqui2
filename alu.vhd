@@ -6,7 +6,7 @@ entity alu is port(
 	A,B: in std_logic_vector(11 downto 0);
 	control: in std_logic_vector(3 downto 0);
 	result: out std_logic_vector(11 downto 0);
-	C: out std_logic
+	C,Z: out std_logic
 );
 end alu;
 
@@ -35,7 +35,7 @@ architecture a_alu of alu is
 	signal logic_result: std_logic_vector(11 downto 0);
 	signal multi_result: std_logic_vector(11 downto 0);
 	signal div_result: std_logic_vector(11 downto 0);
-	
+	signal all_results: std_logic_vector(11 downto 0);
 	signal A_temp,B_temp: std_logic_vector(11 downto 0);
 
 begin
@@ -106,8 +106,17 @@ begin
 		end case;
 	end process input_process;
 	
+	process(all_results)
+    begin
+        if all_results = zero then
+            Z <= '1'; -- Si el resultado es cero, la flag de Zero se establece en '1'
+        else
+            Z <= '0'; -- Si el resultado no es cero, la flag de Zero se establece en '0'
+        end if;
+    end process;
+	
 	with control select
-			result<=sum_result   when "0000",
+		all_results<=sum_result   when "0000",
 					sum_result   when "0001",
 					sum_result   when "0010",
 					sum_result   when "0011",
@@ -123,4 +132,6 @@ begin
 					multi_result when "1101",
 					div_result  when "1110",
 					sum_result when "1111";
+	
+	result <= all_results;
 end a_alu;

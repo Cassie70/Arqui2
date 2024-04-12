@@ -65,7 +65,7 @@ architecture behavior of alu_fetch is
 		A,B: in std_logic_vector(11 downto 0);
 		control: in std_logic_vector(3 downto 0);
 		result: out std_logic_vector(11 downto 0);
-		C: out std_logic);
+		C,Z: out std_logic);
 	end component;
 
 signal clk: std_logic;
@@ -93,13 +93,13 @@ signal rpg_sel: std_logic_vector(1 downto 0):=(others=>'0');
 signal rpg_write: std_logic:='0';
 signal A,B: std_logic_vector(11 downto 0);
 signal control: std_logic_vector(3 downto 0);
-signal C: std_logic;
+signal C,Z: std_logic;
 
 
 type global_state_type is (reset_pc,fetch,fetch1,fetch2,fetch3,end_fetch,decode,end_decode, execute,end_execute); 
 signal global_state: global_state_type;
 
-type instruction_type is (i_addi,i_load,i_jump,i_display,i_displayi,i_halt,i_null,i_nop);
+type instruction_type is (i_addi,i_load,i_jump,i_display,i_displayi,i_halt,i_null,i_nop,i_bnz,i_dec);
 signal instruction: instruction_type;
 
 type execute_instruction_type is(t0,t1,t2,t3,t4);
@@ -119,10 +119,10 @@ centenas: bcdDisplay port map(clk_0,reset,Qbcd(11 downto 8),ce);
 millar: bcdDisplay port map(clk_0,reset,Qbcd(15 downto 12),mi);
 
 --clk
-ROM_imp: ROM port map(clk,reset,'1','1',MAR,data_bus);
-RPG : registrosPG port map(clk,reset,rpg_write,rpg_in,rpg_sel,rpg_out);
-ALU_imp : alu port map(clk,A,B,control,ACC(11 downto 0),C);  
-	process(clk, reset, stop_run)
+ROM_imp: ROM port map(clk_0,reset,'1','1',MAR,data_bus);
+RPG : registrosPG port map(clk_0,reset,rpg_write,rpg_in,rpg_sel,rpg_out);
+ALU_imp : alu port map(clk_0,A,B,control,ACC(11 downto 0),C,Z);  
+	process(clk_0, reset, stop_run)
 	begin
 		if (reset = '1') then
 			global_state <= reset_pc;
@@ -131,7 +131,7 @@ ALU_imp : alu port map(clk,A,B,control,ACC(11 downto 0),C);
 			MAR<=(others=>'0');
 			MBR<=(others=>'0');
 			IR<=(others=>'0');
-		elsif (rising_edge(clk) and stop_run='0') then			
+		elsif (rising_edge(clk_0) and stop_run='0') then			
 			case global_state is
 				when reset_pc=>
 					global_state<=fetch;
@@ -151,18 +151,15 @@ ALU_imp : alu port map(clk,A,B,control,ACC(11 downto 0),C);
 					global_state<=decode;
 				when decode =>
 					case IR(23 downto 18) is
-						when "001001" =>
-							instruction <= i_addi;
-						when "010001" =>
-							instruction <= i_load;
-						when "010111" =>
-							instruction <= i_jump;
-						when "011000" =>
-							instruction <= i_display;
-						when "011001" =>
-							instruction <= i_displayi;
-						when "010011" =>
-							instruction <= i_halt;
+						when "001001" =>instruction <= i_addi;
+						when "010001" =>instruction <= i_load;
+						when "010111" =>instruction <= i_jump;
+						when "011000" =>instruction <= i_display;
+						when "011001" =>instruction <= i_displayi;
+						when "010011" =>instruction <= i_halt;
+						when "010100" =>instruction <= i_bnz;
+						when "010110" =>instruction <= i_nop;
+						when "000100" =>instruction <= i_dec;
 						when others =>
 							instruction <= i_null;
 					end case;
@@ -241,6 +238,43 @@ ALU_imp : alu port map(clk,A,B,control,ACC(11 downto 0),C);
 						when i_jump =>
 							PC<=IR(7 downto 0);
 							global_state<=end_execute;
+						when i_nop =>
+							global_state<=end_execute;
+						when i_dec =>
+							case execute_instruction is
+								when t0 =>
+									execute_instruction<=t1;
+								when t1 =>
+									rpg_sel<=IR(17 downto 16);
+									execute_instruction<=t2;
+								when t2 =>
+									control<=IR(3 downto 0);
+									A<=rpg_out(11 downto 0);
+									execute_instruction<=t3;
+								when t3 =>
+									rpg_write<='1';
+									if(C = '1') then
+										rpg_in<="00000000000"&C&ACC;
+									else
+										rpg_in<="000000000000"&ACC;
+									end if;
+									execute_instruction<=t4;
+								when t4 =>
+									rpg_write<='0';
+									execute_instruction<=t0;
+									global_state<=end_execute;
+							end case;
+						when i_bnz =>
+							if(Z = '0') then
+								if(IR(17) = '0') then
+									PC<=PC+IR(7 downto 0);
+								else
+									PC<=PC-IR(7 downto 0);
+								end if;
+								global_state<=end_execute;
+							else
+								global_state<=end_execute;
+							end if;
 						when others =>
 							global_state<=end_execute;
 					end case;

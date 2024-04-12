@@ -23,22 +23,21 @@ begin
 Process(A, B, Op)
 begin
     if Op = '1' then  
-        B_mod <= not B;
+        B_mod <= not B;  -- Complemento de B para la resta
+        intermediate_carry(0) <= '1';  -- Iniciar con un acarreo de '1' para sumar al complemento de B
     else 
         B_mod <= B;
+        intermediate_carry(0) <= CarryIn;  -- Usar el acarreo de entrada para la suma
     end if;
 end process;
 
-
-intermediate_carry(0) <= CarryIn;
-
-
 Gen_SumRest: for i in 0 to 11 generate
 begin
+    -- La suma (o resta) se realiza igual para cada bit
     SumRest(i) <= A(i) xor B_mod(i) xor intermediate_carry(i);
     intermediate_carry(i+1) <= (A(i) and B_mod(i)) or (A(i) and intermediate_carry(i)) or (B_mod(i) and intermediate_carry(i));
 end generate;
 
-CarryOut <= intermediate_carry(12) xor Op; 
+CarryOut <= intermediate_carry(12) xor Op;  -- Ajuste para la operación de resta
 
 end Behavioral;

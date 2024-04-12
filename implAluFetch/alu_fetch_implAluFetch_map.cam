@@ -1,36 +1,39 @@
 [ START MERGED ]
-clk_enable_67 reset_c
-ALU_imp/n4011 control_2
+clk_enable_18 reset_c
+clk_0_enable_41 stop_run_c
+n18910 control_2
 [ END MERGED ]
 [ START CLIPPED ]
-n7
-n13950
-n14016
-n14809
+n17897
+n17898
 GND_net
 VCC_net
-n15230
-add_7_9/S1
-add_7_9/CO
+n19476
+add_519_1/S1
+add_519_1/S0
+add_519_1/CI
 add_7_1/S0
 add_7_1/CI
-count_631_add_4_19/S1
-count_631_add_4_19/CO
-add_157_1/S0
-add_157_1/CI
-add_157_9/S1
-add_157_9/CO
-count_631_add_4_1/S0
-count_631_add_4_1/CI
+add_163_1/S0
+add_163_1/CI
+add_519_9/CO
+count_674_add_4_1/S0
+count_674_add_4_1/CI
+add_7_9/S1
+add_7_9/CO
+count_674_add_4_19/S1
+count_674_add_4_19/CO
 selector_1__I_02/DO2
 selector_1__I_02/DO3
+add_163_9/S1
+add_163_9/CO
 [ END CLIPPED ]
 [ START OSC ]
 clk 26.60
 [ END OSC ]
 [ START DESIGN PREFS ]
 SCHEMATIC START ;
-# map:  version Diamond (64-bit) 3.13.0.56.2 -- WARNING: Map write only section -- Wed Apr 10 23:19:24 2024
+# map:  version Diamond (64-bit) 3.13.0.56.2 -- WARNING: Map write only section -- Thu Apr 11 03:25:14 2024
 
 SYSCONFIG SDM_PORT=DISABLE SLAVE_SPI_PORT=DISABLE I2C_PORT=DISABLE MASTER_SPI_PORT=DISABLE COMPRESS_CONFIG=ON CONFIGURATION=CFG MY_ASSP=OFF ONE_TIME_PROGRAM=OFF CONFIG_SECURE=OFF MCCLK_FREQ=2.08 JTAG_PORT=ENABLE ENABLE_TRANSFR=DISABLE SHAREDEBRINIT=DISABLE MUX_CONFIGURATION_PORTS=DISABLE BACKGROUND_RECONFIG=OFF INBUF=ON ;
 LOCATE COMP "display[6]" SITE "85" ;

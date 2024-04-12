@@ -23,21 +23,21 @@ Target Vendor:  LATTICE
 Target Device:  LCMXO2-7000HETQFP144
 Target Performance:   5
 Mapper:  xo2c00,  version:  Diamond (64-bit) 3.13.0.56.2
-Mapped on:  04/10/24  23:19:23
+Mapped on:  04/11/24  03:25:14
 
 
 <A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
-   Number of registers:    238 out of  7209 (3%)
-      PFU registers:          238 out of  6864 (3%)
+   Number of registers:    239 out of  7209 (3%)
+      PFU registers:          239 out of  6864 (3%)
       PIO registers:            0 out of   345 (0%)
-   Number of SLICEs:       373 out of  3432 (11%)
-      SLICEs as Logic/ROM:    361 out of  3432 (11%)
+   Number of SLICEs:       414 out of  3432 (12%)
+      SLICEs as Logic/ROM:    402 out of  3432 (12%)
       SLICEs as RAM:           12 out of  2574 (0%)
-      SLICEs as Carry:         20 out of  3432 (1%)
-   Number of LUT4s:        728 out of  6864 (11%)
-      Number used as logic LUTs:        664
+      SLICEs as Carry:         25 out of  3432 (1%)
+   Number of LUT4s:        812 out of  6864 (12%)
+      Number used as logic LUTs:        738
       Number used as distributed RAM:    24
-      Number used as ripple logic:       40
+      Number used as ripple logic:       50
       Number used as shift registers:     0
    Number of PIO sites used: 13 + 4(JTAG) out of 115 (15%)
    Number of block RAMs:  2 out of 26 (8%)
@@ -65,81 +65,84 @@ Mapped on:  04/10/24  23:19:23
       2. Number of logic LUT4s does not include count of distributed RAM and
      ripple logic.
    Number of clocks:  5
-     Net clk: 96 loads, 96 rising, 0 falling (Driver: OSCinst0 )
-     Net clk_0: 39 loads, 39 rising, 0 falling (Driver: clk_0_144 )
+     Net clk: 11 loads, 11 rising, 0 falling (Driver: OSCinst0 )
+     Net clk_0: 135 loads, 135 rising, 0 falling (Driver: clk_0_150 )
 
-     Net control[3]_derived_24: 19 loads, 19 rising, 0 falling (Driver:
-     ALU_imp/i2_3_lut_rep_284_4_lut )
-     Net ALU_imp/logic_result_11__N_949: 6 loads, 6 rising, 0 falling (Driver:
-     ALU_imp/i9306_1_lut_3_lut_4_lut )
-     Net ALU_imp/substract_N_988: 1 loads, 1 rising, 0 falling (Driver:
-     ALU_imp/i8958_4_lut_4_lut )
-   Number of Clock Enables:  21
-     Net clk_enable_14: 4 loads, 4 LSLICEs
-     Net clk_0_enable_8: 7 loads, 7 LSLICEs
-     Net clk_enable_98: 7 loads, 7 LSLICEs
-     Net clk_enable_83: 1 loads, 1 LSLICEs
-     Net clk_enable_2: 1 loads, 1 LSLICEs
-     Net clk_enable_3: 1 loads, 1 LSLICEs
-     Net clk_enable_4: 1 loads, 1 LSLICEs
-     Net clk_enable_5: 1 loads, 1 LSLICEs
-     Net clk_enable_6: 1 loads, 1 LSLICEs
-     Net clk_enable_32: 4 loads, 4 LSLICEs
+     Net logic_result_11__N_951: 6 loads, 6 rising, 0 falling (Driver:
+     i1_2_lut_2_lut_2_lut_3_lut_4_lut )
+     Net ALU_imp/A_temp_11__N_976: 20 loads, 20 rising, 0 falling (Driver:
+     i1_2_lut_3_lut_4_lut_adj_103 )
+     Net ALU_imp/substract_N_990: 1 loads, 1 rising, 0 falling (Driver:
+     i16203_4_lut_4_lut )
+   Number of Clock Enables:  25
+     Net clk_0_enable_31: 4 loads, 4 LSLICEs
+     Net clk_0_enable_145: 3 loads, 3 LSLICEs
+     Net clk_0_enable_37: 7 loads, 7 LSLICEs
+     Net clk_0_enable_6: 1 loads, 1 LSLICEs
+     Net clk_0_enable_7: 1 loads, 1 LSLICEs
+     Net clk_0_enable_67: 12 loads, 12 LSLICEs
+     Net clk_0_enable_19: 1 loads, 1 LSLICEs
+     Net clk_0_enable_20: 1 loads, 1 LSLICEs
+     Net clk_0_enable_21: 1 loads, 1 LSLICEs
+     Net stop_run_c: 1 loads, 1 LSLICEs
+     Net clk_0_enable_151: 4 loads, 4 LSLICEs
      Net reset_c: 12 loads, 12 LSLICEs
-     Net clk_enable_106: 7 loads, 7 LSLICEs
-     Net clk_enable_62: 2 loads, 2 LSLICEs
-     Net clk_enable_157: 12 loads, 12 LSLICEs
-     Net clk_enable_143: 12 loads, 12 LSLICEs
-     Net clk_enable_66: 1 loads, 1 LSLICEs
-     Net clk_enable_142: 14 loads, 14 LSLICEs
-     Net clk_enable_144: 1 loads, 1 LSLICEs
-     Net clk_enable_80: 1 loads, 1 LSLICEs
-     Net clk_enable_116: 2 loads, 2 LSLICEs
-     Net clk_enable_146: 2 loads, 2 LSLICEs
-   Number of LSRs:  25
+     Net clk_0_enable_48: 1 loads, 1 LSLICEs
+     Net clk_0_enable_60: 2 loads, 2 LSLICEs
+     Net clk_0_enable_105: 13 loads, 13 LSLICEs
+     Net clk_0_enable_142: 12 loads, 12 LSLICEs
+     Net clk_0_enable_83: 7 loads, 7 LSLICEs
+     Net clk_0_enable_63: 1 loads, 1 LSLICEs
+     Net clk_0_enable_127: 6 loads, 6 LSLICEs
+     Net clk_0_enable_59: 1 loads, 1 LSLICEs
+     Net clk_0_enable_61: 1 loads, 1 LSLICEs
+     Net clk_0_enable_87: 1 loads, 1 LSLICEs
+     Net clk_0_enable_119: 2 loads, 2 LSLICEs
+     Net clk_0_enable_144: 2 loads, 2 LSLICEs
+     Net clk_0_enable_143: 8 loads, 8 LSLICEs
+   Number of LSRs:  24
+     Net control_2: 3 loads, 3 LSLICEs
+     Net n9596: 1 loads, 1 LSLICEs
+     Net n18880: 24 loads, 24 LSLICEs
+     Net n8497: 15 loads, 15 LSLICEs
      Net reset_c: 2 loads, 0 LSLICEs
-     Net n14645: 1 loads, 1 LSLICEs
-     Net control_2: 2 loads, 2 LSLICEs
-     Net n7576: 12 loads, 12 LSLICEs
-     Net n7553: 12 loads, 12 LSLICEs
-     Net n7648: 7 loads, 7 LSLICEs
-     Net n7673: 10 loads, 10 LSLICEs
-     Net n14635: 2 loads, 2 LSLICEs
-     Net n14633: 1 loads, 1 LSLICEs
-     Net n5726: 1 loads, 1 LSLICEs
-     Net n5: 1 loads, 1 LSLICEs
-     Net n3812: 1 loads, 1 LSLICEs
-     Net n14800: 1 loads, 1 LSLICEs
-     Net n7599: 2 loads, 2 LSLICEs
-     Net n14643: 2 loads, 2 LSLICEs
-     Net n3685: 1 loads, 1 LSLICEs
-     Net n14660: 1 loads, 1 LSLICEs
-     Net n3971: 1 loads, 1 LSLICEs
-     Net n5728: 1 loads, 1 LSLICEs
-     Net n3917: 1 loads, 1 LSLICEs
-     Net n3770: 1 loads, 1 LSLICEs
-     Net n5745: 1 loads, 1 LSLICEs
-     Net n14654: 2 loads, 2 LSLICEs
-     Net n14636: 2 loads, 2 LSLICEs
-     Net ALU_imp/n5425: 6 loads, 6 LSLICEs
+     Net n8536: 10 loads, 10 LSLICEs
+     Net n8512: 7 loads, 7 LSLICEs
+     Net n6348: 1 loads, 1 LSLICEs
+     Net n18713: 2 loads, 2 LSLICEs
+     Net n18711: 1 loads, 1 LSLICEs
+     Net n4008: 1 loads, 1 LSLICEs
+     Net n18738: 1 loads, 1 LSLICEs
+     Net n18722: 1 loads, 1 LSLICEs
+     Net n18723: 2 loads, 2 LSLICEs
+     Net n18916: 6 loads, 6 LSLICEs
+     Net n4358: 1 loads, 1 LSLICEs
+     Net n6328: 1 loads, 1 LSLICEs
+     Net n18714: 2 loads, 2 LSLICEs
+     Net n3881: 1 loads, 1 LSLICEs
+     Net n6324: 1 loads, 1 LSLICEs
+     Net n4113: 1 loads, 1 LSLICEs
+     Net n18736: 2 loads, 2 LSLICEs
+     Net n3960: 1 loads, 1 LSLICEs
+
+     Net n18907: 1 loads, 1 LSLICEs
    Number of nets driven by tri-state buffers:  0
    Top 10 highest fanout non-clock nets:
-
      Net reset_c: 83 loads
-     Net control_1: 60 loads
-     Net control_2: 50 loads
-     Net instruction_0: 47 loads
-     Net control_0: 46 loads
-     Net execute_instruction_2: 46 loads
-     Net n15220: 40 loads
-     Net data_out_23__N_590: 35 loads
-     Net instruction_2: 35 loads
-     Net global_state_3: 33 loads
+     Net control_1: 62 loads
+     Net execute_instruction_2: 54 loads
+     Net control_2: 51 loads
+     Net control_0: 47 loads
+     Net instruction_2: 45 loads
+     Net global_state_3: 42 loads
+     Net instruction_0: 41 loads
+     Net instruction_1: 40 loads
+     Net n19471: 39 loads
 
 
 
 
-   Number of warnings:  25
+   Number of warnings:  0
    Number of errors:    0
      
 
@@ -148,82 +151,7 @@ Mapped on:  04/10/24  23:19:23
 
 <A name="mrp_dwe"></A><B><U><big>Design Errors/Warnings</big></U></B>
 
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(3): Semantic
-     error in "LOCATE COMP "CI[23]" SITE "59" ;": COMP "CI[23]" cannot be found
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(4): Semantic
-     error in "LOCATE COMP "CI[22]" SITE "57" ;": COMP "CI[22]" cannot be found
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(5): Semantic
-     error in "LOCATE COMP "CI[21]" SITE "56" ;": COMP "CI[21]" cannot be found
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(6): Semantic
-     error in "LOCATE COMP "CI[20]" SITE "54" ;": COMP "CI[20]" cannot be found
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(7): Semantic
-     error in "LOCATE COMP "CI[19]" SITE "55" ;": COMP "CI[19]" cannot be found
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(8): Semantic
-     error in "LOCATE COMP "CI[18]" SITE "52" ;": COMP "CI[18]" cannot be found
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(9): Semantic
-     error in "LOCATE COMP "CI[17]" SITE "50" ;": COMP "CI[17]" cannot be found
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(10): Semantic
-     error in "LOCATE COMP "CI[16]" SITE "48" ;": COMP "CI[16]" cannot be found
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(11): Semantic
-     error in "LOCATE COMP "CI[15]" SITE "49" ;": COMP "CI[15]" cannot be found
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(12): Semantic
-     error in "LOCATE COMP "CI[14]" SITE "47" ;": COMP "CI[14]" cannot be found
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(13): Semantic
-     error in "LOCATE COMP "CI[13]" SITE "45" ;": COMP "CI[13]" cannot be found
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(14): Semantic
-     error in "LOCATE COMP "CI[12]" SITE "43" ;": COMP "CI[12]" cannot be found
-
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(15): Semantic
-     error in "LOCATE COMP "CI[11]" SITE "42" ;": COMP "CI[11]" cannot be found
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(16): Semantic
-     error in "LOCATE COMP "CI[10]" SITE "44" ;": COMP "CI[10]" cannot be found
-     in design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(17): Semantic
-     error in "LOCATE COMP "CI[9]" SITE "39" ;": COMP "CI[9]" cannot be found in
-     design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(18): Semantic
-     error in "LOCATE COMP "CI[8]" SITE "41" ;": COMP "CI[8]" cannot be found in
-     design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(19): Semantic
-     error in "LOCATE COMP "CI[7]" SITE "91" ;": COMP "CI[7]" cannot be found in
-     design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(20): Semantic
-     error in "LOCATE COMP "CI[6]" SITE "92" ;": COMP "CI[6]" cannot be found in
-     design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(21): Semantic
-     error in "LOCATE COMP "CI[5]" SITE "93" ;": COMP "CI[5]" cannot be found in
-     design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(22): Semantic
-     error in "LOCATE COMP "CI[4]" SITE "94" ;": COMP "CI[4]" cannot be found in
-     design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(23): Semantic
-     error in "LOCATE COMP "CI[3]" SITE "96" ;": COMP "CI[3]" cannot be found in
-     design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(24): Semantic
-     error in "LOCATE COMP "CI[2]" SITE "95" ;": COMP "CI[2]" cannot be found in
-     design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(25): Semantic
-     error in "LOCATE COMP "CI[1]" SITE "98" ;": COMP "CI[1]" cannot be found in
-     design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(26): Semantic
-     error in "LOCATE COMP "CI[0]" SITE "97" ;": COMP "CI[0]" cannot be found in
-     design. This preference has been disabled.
-WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(40): Semantic
-     error in "LOCATE COMP "led" SITE "61" ;": COMP "led" cannot be found in
-     design. This preference has been disabled.
+   No errors or warnings present.
 
 
 
@@ -241,7 +169,6 @@ WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(40): Semantic
 +---------------------+-----------+-----------+------------+
 | display[3]          | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
-
 | display[2]          | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
 | display[1]          | OUTPUT    | LVCMOS25  |            |
@@ -257,6 +184,7 @@ WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(40): Semantic
 | sel[0]              | OUTPUT    | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
 | reset               | INPUT     | LVCMOS25  |            |
+
 +---------------------+-----------+-----------+------------+
 | stop_run            | INPUT     | LVCMOS25  |            |
 +---------------------+-----------+-----------+------------+
@@ -265,41 +193,41 @@ WARNING - map: C:/Users/Cassandra/Desktop/Arqui2/alu_fetch.lpf(40): Semantic
 
 <A name="mrp_rm"></A><B><U><big>Removed logic</big></U></B>
 
-Block i2_2_lut_3_lut_adj_146 undriven or does not drive anything - clipped.
-Block i4_4_lut_adj_120 undriven or does not drive anything - clipped.
+Block i1_2_lut_adj_144 undriven or does not drive anything - clipped.
+Block i1_2_lut_adj_142 undriven or does not drive anything - clipped.
 Block rpg_in_i0_i14 undriven or does not drive anything - clipped.
 Block rpg_in_i0_i15 undriven or does not drive anything - clipped.
-Block i1_2_lut_4_lut undriven or does not drive anything - clipped.
-Block i1_2_lut_rep_287_3_lut_4_lut undriven or does not drive anything -
-     clipped.
 Block selector_1__I_02/RAM1 undriven or does not drive anything - clipped.
-Signal ALU_imp/n4011 was merged into signal control_2
-Signal clk_enable_67 was merged into signal reset_c
-Signal n7 undriven or does not drive anything - clipped.
-Signal n13950 undriven or does not drive anything - clipped.
-Signal n14016 undriven or does not drive anything - clipped.
-Signal n14809 undriven or does not drive anything - clipped.
+Signal clk_0_enable_41 was merged into signal stop_run_c
+Signal n18910 was merged into signal control_2
+Signal clk_enable_18 was merged into signal reset_c
+Signal n17897 undriven or does not drive anything - clipped.
+Signal n17898 undriven or does not drive anything - clipped.
 Signal GND_net undriven or does not drive anything - clipped.
 Signal VCC_net undriven or does not drive anything - clipped.
-Signal n15230 undriven or does not drive anything - clipped.
-Signal add_7_9/S1 undriven or does not drive anything - clipped.
-Signal add_7_9/CO undriven or does not drive anything - clipped.
+Signal n19476 undriven or does not drive anything - clipped.
+Signal add_519_1/S1 undriven or does not drive anything - clipped.
+Signal add_519_1/S0 undriven or does not drive anything - clipped.
+Signal add_519_1/CI undriven or does not drive anything - clipped.
 Signal add_7_1/S0 undriven or does not drive anything - clipped.
 Signal add_7_1/CI undriven or does not drive anything - clipped.
-Signal count_631_add_4_19/S1 undriven or does not drive anything - clipped.
-Signal count_631_add_4_19/CO undriven or does not drive anything - clipped.
-Signal add_157_1/S0 undriven or does not drive anything - clipped.
-Signal add_157_1/CI undriven or does not drive anything - clipped.
-Signal add_157_9/S1 undriven or does not drive anything - clipped.
-Signal add_157_9/CO undriven or does not drive anything - clipped.
-Signal count_631_add_4_1/S0 undriven or does not drive anything - clipped.
-Signal count_631_add_4_1/CI undriven or does not drive anything - clipped.
+Signal add_163_1/S0 undriven or does not drive anything - clipped.
+Signal add_163_1/CI undriven or does not drive anything - clipped.
+Signal add_519_9/CO undriven or does not drive anything - clipped.
+Signal count_674_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal count_674_add_4_1/CI undriven or does not drive anything - clipped.
+Signal add_7_9/S1 undriven or does not drive anything - clipped.
+Signal add_7_9/CO undriven or does not drive anything - clipped.
+Signal count_674_add_4_19/S1 undriven or does not drive anything - clipped.
+Signal count_674_add_4_19/CO undriven or does not drive anything - clipped.
 Signal selector_1__I_02/DO2 undriven or does not drive anything - clipped.
 Signal selector_1__I_02/DO3 undriven or does not drive anything - clipped.
-Block ALU_imp/i6_1_lut was optimized away.
-Block i290_1_lut_rep_307 was optimized away.
+Signal add_163_9/S1 undriven or does not drive anything - clipped.
+Signal add_163_9/CO undriven or does not drive anything - clipped.
+Block i1_1_lut_rep_329 was optimized away.
+Block i2116_1_lut_rep_315 was optimized away.
+Block i305_1_lut_rep_342 was optimized away.
 Block i1 was optimized away.
-
 Block i2 was optimized away.
 Block m0_lut was optimized away.
 
@@ -307,21 +235,22 @@ Block m0_lut was optimized away.
 
 <A name="mrp_mem"></A><B><U><big>Memory Usage</big></U></B>
 
-/:
-    EBRs: 0
-    RAM SLICEs: 2
-    Logic SLICEs: 187
-    PFU Registers: 195
 /ROM_imp:
     EBRs: 2
     RAM SLICEs: 0
     Logic SLICEs: 1
     PFU Registers: 1
-    -Contains EBR mux_239:  TYPE= PDPW8KC,  Width= 6,  Depth_R= 256,  REGMODE=
+    -Contains EBR mux_247:  TYPE= PDPW8KC,  Width= 6,  Depth_R= 256,  REGMODE=
          NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
-    -Contains EBR mux_238:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 256,  REGMODE=
+    -Contains EBR mux_246:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 256,  REGMODE=
+
          NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
 /selector_1__I_02:
+    EBRs: 0
+    RAM SLICEs: 2
+    Logic SLICEs: 0
+    PFU Registers: 0
+/selector_1__I_02/RAMW:
     EBRs: 0
     RAM SLICEs: 1
     Logic SLICEs: 0
@@ -356,18 +285,14 @@ OSC 1:                                     Pin/Node Value
 
 
 
-
-
-
-
 <A name="mrp_asic"></A><B><U><big>ASIC Components</big></U></B>
 ---------------
 
 Instance Name: OSCinst0
          Type: OSCH
-Instance Name: ROM_imp/mux_239
+Instance Name: ROM_imp/mux_247
          Type: PDPW8KC
-Instance Name: ROM_imp/mux_238
+Instance Name: ROM_imp/mux_246
          Type: PDPW8KC
 
 
@@ -379,6 +304,7 @@ GSR Component:
    The Global Set Reset (GSR) resource has been used to implement a global reset
         of the design. The reset signal used for GSR control is 'reset_c'.
         
+
 
      GSR Property:
    The design components with GSR property set to ENABLED will respond to global
@@ -393,22 +319,16 @@ GSR Component:
      not respond to the reset signal 'reset_c' via the GSR component.
 
      Type and number of components of the type: 
-   Register = 128 
+   Register = 129 
    PDPW8KC = 2
 
      Type and instance name of component: 
+   Register : instruction_i0_i0
    Register : display_i0_i1
    Register : sel_i0_i1
-   Register : rpg_write_138
-   Register : rpg_in_i0_i1
-   Register : rpg_in_i0_i5
-   Register : rpg_in_i0_i6
-   Register : rpg_in_i0_i7
-   Register : rpg_in_i0_i8
-   Register : rpg_in_i0_i9
-   Register : rpg_in_i0_i10
-   Register : rpg_in_i0_i11
-   Register : rpg_in_i0_i12
+   Register : instruction_i0_i2
+   Register : rpg_write_144
+   Register : instruction_i0_i1
    Register : display_i0_i2
    Register : display_i0_i3
    Register : display_i0_i4
@@ -418,33 +338,30 @@ GSR Component:
    Register : sel_i0_i2
    Register : sel_i0_i3
    Register : sel_i0_i4
-   Register : count_631__i17
-   Register : count_631__i16
-
-   Register : count_631__i0
-   Register : count_631__i15
-   Register : count_631__i14
-   Register : count_631__i13
-   Register : count_631__i12
-   Register : count_631__i11
-   Register : count_631__i10
-   Register : count_631__i9
-   Register : count_631__i8
-   Register : count_631__i7
-   Register : count_631__i6
-   Register : count_631__i5
-   Register : count_631__i4
-   Register : count_631__i3
-   Register : count_631__i2
-   Register : count_631__i1
+   Register : count_674__i0
+   Register : count_674__i17
+   Register : count_674__i16
+   Register : count_674__i15
+   Register : count_674__i14
+   Register : count_674__i13
+   Register : count_674__i12
    Register : Rdisplay_i0_i0
+   Register : count_674__i11
+   Register : count_674__i10
+   Register : count_674__i9
+   Register : count_674__i8
+   Register : count_674__i7
+   Register : count_674__i6
    Register : rpg_in_i0_i0
+   Register : count_674__i5
+   Register : count_674__i4
    Register : B_i0_i0
-   Register : A_i0_i0
-   Register : control_i0_i0
-   Register : rpg_sel_i0_i0
+   Register : count_674__i3
+   Register : count_674__i2
+   Register : count_674__i1
    Register : Rdisplay_i0_i13
    Register : Rdisplay_i0_i12
+
    Register : Rdisplay_i0_i11
    Register : Rdisplay_i0_i10
    Register : Rdisplay_i0_i9
@@ -457,39 +374,30 @@ GSR Component:
    Register : Rdisplay_i0_i2
    Register : Rdisplay_i0_i1
    Register : rpg_in_i0_i13
+   Register : rpg_in_i0_i12
+   Register : rpg_in_i0_i11
+   Register : rpg_in_i0_i10
+   Register : rpg_in_i0_i9
+   Register : rpg_in_i0_i8
+   Register : rpg_in_i0_i7
+   Register : rpg_in_i0_i6
+   Register : rpg_in_i0_i5
    Register : rpg_in_i0_i4
    Register : rpg_in_i0_i3
    Register : rpg_in_i0_i2
+   Register : rpg_in_i0_i1
    Register : B_i0_i11
    Register : B_i0_i10
-   Register : instruction_i0_i0
    Register : B_i0_i9
    Register : B_i0_i8
+   Register : A_i0_i0
    Register : B_i0_i7
    Register : B_i0_i6
+   Register : control_i0_i0
    Register : B_i0_i5
    Register : B_i0_i4
    Register : B_i0_i3
-   Register : B_i0_i2
-   Register : B_i0_i1
-   Register : A_i0_i11
-   Register : A_i0_i10
-   Register : A_i0_i9
-   Register : A_i0_i8
-   Register : A_i0_i7
-
-   Register : A_i0_i6
-   Register : A_i0_i5
-   Register : A_i0_i4
-   Register : A_i0_i3
-   Register : A_i0_i2
-   Register : A_i0_i1
-   Register : control_i0_i3
-   Register : control_i0_i2
-   Register : control_i0_i1
-   Register : rpg_sel_i0_i1
-   Register : instruction_i0_i2
-   Register : instruction_i0_i1
+   Register : rpg_sel_i0_i0
    Register : ALU_imp/A_temp_11__I_0_i1
    Register : ALU_imp/B_temp_11__I_0_i1
    Register : ALU_imp/logic_result_11__I_0_i1
@@ -510,6 +418,7 @@ GSR Component:
    Register : ALU_imp/B_temp_11__I_0_i4
    Register : ALU_imp/B_temp_11__I_0_i5
    Register : ALU_imp/B_temp_11__I_0_i6
+
    Register : ALU_imp/B_temp_11__I_0_i7
    Register : ALU_imp/B_temp_11__I_0_i8
    Register : ALU_imp/B_temp_11__I_0_i9
@@ -527,25 +436,53 @@ GSR Component:
    Register : ALU_imp/logic_result_11__I_0_i10
    Register : ALU_imp/logic_result_11__I_0_i11
    Register : ALU_imp/logic_result_11__I_0_i12
-   PDPW8KC : ROM_imp/mux_239
-   PDPW8KC : ROM_imp/mux_238
+   Register : B_i0_i2
+   Register : B_i0_i1
+   Register : A_i0_i11
+   Register : A_i0_i10
+   Register : A_i0_i9
+   Register : A_i0_i8
+   Register : A_i0_i7
+   Register : A_i0_i6
+   Register : A_i0_i5
+   Register : A_i0_i4
+   Register : A_i0_i3
+   Register : A_i0_i2
+   Register : A_i0_i1
+   Register : control_i0_i3
+   Register : control_i0_i2
+   Register : control_i0_i1
+   Register : rpg_sel_i0_i1
+   Register : instruction_i0_i3
+   PDPW8KC : ROM_imp/mux_247
+   PDPW8KC : ROM_imp/mux_246
 
      Components with synchronous local reset also reset by asynchronous GSR
 ----------------------------------------------------------------------
 
      These components have the GSR property set to ENABLED and the local reset
-
      is synchronous. The components will respond to the synchronous local reset
      and to the unrelated asynchronous reset signal 'reset_c' via the GSR
      component.
 
      Type and number of components of the type: 
-   Register = 70 
+   Register = 68 
 
      Type and instance name of component: 
+   Register : IR_i0_i23
+   Register : IR_i0_i22
+   Register : IR_i0_i21
+   Register : IR_i0_i20
+   Register : IR_i0_i19
+   Register : IR_i0_i18
+
+   Register : IR_i0_i17
+   Register : IR_i0_i16
+   Register : IR_i0_i15
+   Register : IR_i0_i14
+   Register : IR_i0_i13
    Register : IR_i0_i12
    Register : IR_i0_i11
-   Register : MBR_i0_i1
    Register : IR_i0_i10
    Register : IR_i0_i9
    Register : IR_i0_i8
@@ -556,6 +493,8 @@ GSR Component:
    Register : IR_i0_i3
    Register : IR_i0_i2
    Register : IR_i0_i1
+   Register : IR_i0_i0
+   Register : MBR_i0_i0
    Register : MBR_i0_i23
    Register : MBR_i0_i22
    Register : MBR_i0_i21
@@ -563,15 +502,13 @@ GSR Component:
    Register : MBR_i0_i19
    Register : MBR_i0_i18
    Register : MBR_i0_i17
-   Register : MBR_i0_i16
    Register : millar/DISPLAY_i0
    Register : millar/DISPLAY_i3
    Register : millar/DISPLAY_i5
    Register : millar/DISPLAY_i2
    Register : millar/DISPLAY_i1
+   Register : MBR_i0_i16
    Register : MBR_i0_i15
-   Register : global_state_i0_i2
-   Register : global_state_i0_i1
    Register : MBR_i0_i14
    Register : MBR_i0_i13
    Register : MBR_i0_i12
@@ -583,37 +520,25 @@ GSR Component:
    Register : MBR_i0_i6
    Register : MBR_i0_i5
    Register : MBR_i0_i4
-   Register : IR_i0_i0
    Register : MBR_i0_i3
-   Register : MBR_i0_i0
    Register : MBR_i0_i2
-   Register : IR_i0_i23
-   Register : IR_i0_i22
-   Register : IR_i0_i21
-   Register : IR_i0_i20
-
-   Register : IR_i0_i19
-   Register : IR_i0_i18
-   Register : IR_i0_i17
-   Register : IR_i0_i16
-   Register : IR_i0_i15
-   Register : IR_i0_i14
-   Register : IR_i0_i13
-   Register : centenas/DISPLAY_i0
-   Register : centenas/DISPLAY_i3
-   Register : centenas/DISPLAY_i5
-   Register : centenas/DISPLAY_i2
-   Register : centenas/DISPLAY_i1
-   Register : decenas/DISPLAY_i0
-   Register : decenas/DISPLAY_i3
-   Register : decenas/DISPLAY_i5
-   Register : decenas/DISPLAY_i2
-   Register : decenas/DISPLAY_i1
+   Register : MBR_i0_i1
    Register : unidades/DISPLAY_i0
    Register : unidades/DISPLAY_i3
    Register : unidades/DISPLAY_i5
    Register : unidades/DISPLAY_i2
    Register : unidades/DISPLAY_i1
+   Register : decenas/DISPLAY_i0
+   Register : decenas/DISPLAY_i3
+   Register : decenas/DISPLAY_i5
+   Register : decenas/DISPLAY_i2
+
+   Register : decenas/DISPLAY_i1
+   Register : centenas/DISPLAY_i0
+   Register : centenas/DISPLAY_i3
+   Register : centenas/DISPLAY_i5
+   Register : centenas/DISPLAY_i2
+   Register : centenas/DISPLAY_i1
 
 
 
@@ -622,8 +547,24 @@ GSR Component:
 
    Total CPU Time: 0 secs  
    Total REAL Time: 0 secs  
-   Peak Memory Usage: 63 MB
+   Peak Memory Usage: 64 MB
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

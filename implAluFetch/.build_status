@@ -6,22 +6,22 @@
             <Task name="TimingSimFileVlg" build_result="0" update_result="3" update_time="0"/>
             <Task name="TimingSimFileVHD" build_result="0" update_result="3" update_time="0"/>
             <Task name="Bitgen" build_result="0" update_result="3" update_time="0"/>
-            <Task name="Jedecgen" build_result="2" update_result="0" update_time="1712812781"/>
+            <Task name="Jedecgen" build_result="2" update_result="0" update_time="1712827529"/>
         </Milestone>
-        <Milestone name="Map" build_result="2" build_time="1712812764">
-            <Task name="Map" build_result="2" update_result="0" update_time="1712812764"/>
+        <Milestone name="Map" build_result="2" build_time="1712827515">
+            <Task name="Map" build_result="2" update_result="0" update_time="1712827515"/>
             <Task name="MapTrace" build_result="0" update_result="3" update_time="0"/>
             <Task name="MapVerilogSimFile" build_result="0" update_result="3" update_time="0"/>
             <Task name="MapVHDLSimFile" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
-        <Milestone name="PAR" build_result="2" build_time="1712812775">
-            <Task name="PAR" build_result="2" update_result="0" update_time="1712812775"/>
-            <Task name="PARTrace" build_result="2" update_result="0" update_time="1712812776"/>
+        <Milestone name="PAR" build_result="2" build_time="1712827523">
+            <Task name="PAR" build_result="2" update_result="0" update_time="1712827523"/>
+            <Task name="PARTrace" build_result="2" update_result="0" update_time="1712827524"/>
             <Task name="IOTiming" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
-        <Milestone name="Synthesis" build_result="2" build_time="1712812758">
-            <Task name="Lattice_Synthesis" build_result="2" update_result="0" update_time="1712812758"/>
-            <Task name="LSE_Compile" build_result="2" update_result="0" update_time="1712812758"/>
+        <Milestone name="Synthesis" build_result="2" build_time="1712827512">
+            <Task name="Lattice_Synthesis" build_result="2" update_result="0" update_time="1712827512"/>
+            <Task name="LSE_Compile" build_result="2" update_result="0" update_time="1712827512"/>
         </Milestone>
         <Milestone name="TOOL_Report" build_result="0" build_time="0">
             <Task name="HDLE" build_result="0" update_result="2" update_time="1712812243"/>
@@ -30,14 +30,14 @@
             <Task name="PIODRC" build_result="0" update_result="2" update_time="1712639414"/>
             <Task name="DEC" build_result="0" update_result="2" update_time="1712384706"/>
         </Milestone>
-        <Report name=".vdbs/alu_fetch_implAluFetch_map.vdb" last_build_time="1712812764" last_build_size="170615"/>
-        <Report name="alu_fetch_implAluFetch.bgn" last_build_time="1712812781" last_build_size="5137"/>
-        <Report name="alu_fetch_implAluFetch.jed" last_build_time="1712812781" last_build_size="1464867"/>
-        <Report name="alu_fetch_implAluFetch.lsedata" last_build_time="1712812755" last_build_size="1588294"/>
-        <Report name="alu_fetch_implAluFetch.ncd" last_build_time="1712812775" last_build_size="752417"/>
-        <Report name="alu_fetch_implAluFetch.ngd" last_build_time="1712812758" last_build_size="578542"/>
-        <Report name="alu_fetch_implAluFetch.twr" last_build_time="1712812776" last_build_size="66130"/>
-        <Report name="alu_fetch_implAluFetch_map.ncd" last_build_time="1712812764" last_build_size="500878"/>
+        <Report name=".vdbs/alu_fetch_implAluFetch_map.vdb" last_build_time="1712827515" last_build_size="185558"/>
+        <Report name="alu_fetch_implAluFetch.bgn" last_build_time="1712827529" last_build_size="5137"/>
+        <Report name="alu_fetch_implAluFetch.jed" last_build_time="1712827529" last_build_size="1464867"/>
+        <Report name="alu_fetch_implAluFetch.lsedata" last_build_time="1712827509" last_build_size="1656467"/>
+        <Report name="alu_fetch_implAluFetch.ncd" last_build_time="1712827523" last_build_size="825953"/>
+        <Report name="alu_fetch_implAluFetch.ngd" last_build_time="1712827512" last_build_size="622874"/>
+        <Report name="alu_fetch_implAluFetch.twr" last_build_time="1712827524" last_build_size="46943"/>
+        <Report name="alu_fetch_implAluFetch_map.ncd" last_build_time="1712827514" last_build_size="548117"/>
     </Strategy>
 </BuildStatus>
-                      
+               
