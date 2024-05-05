@@ -1,58 +1,89 @@
-library ieee;
-use ieee.std_logic_1164.all;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity divi6 is
     port(
         clk: in std_logic;
-        A, B: in std_logic_vector(11 downto 0);
-        result: out std_logic_vector(11 downto 0)
+        A, B: in std_logic_vector(15 downto 0);
+		iniciar : in std_logic;
+        result: out std_logic_vector(15 downto 0)
     );
 end entity;
 
 architecture a_divi6 of divi6 is
-    component add_sub_12 is
-        port(
-            A, B: in std_logic_vector(11 downto 0);
-            sub: in std_logic;
-            S: inout std_logic_vector(11 downto 0);
-            cout: out std_logic
+    component SumRest16Bits is
+        Port (
+            A : in std_logic_vector(15 downto 0);
+            B : in std_logic_vector(15 downto 0);
+            Cin : in std_logic;
+            Op : in std_logic;
+            Res : out std_logic_vector(15 downto 0);
+            Cout : out std_logic
         );
     end component;
 
-    signal subtractor_input, one: std_logic_vector(11 downto 0);
-    signal subtractor_output, increment_output: std_logic_vector(11 downto 0);
-    signal subtraction_counter: std_logic_vector(11 downto 0) := (others => '0');
-    signal operation_complete: std_logic := '0';
-    
-begin
-    one <= "000000000001";
+    signal B_mod : std_logic_vector(15 downto 0);
+    signal intermediate_carry : std_logic_vector(16 downto 0);
+    signal Quotient : std_logic_vector(15 downto 0) := (others => '0');
+    signal Remainder : std_logic_vector(15 downto 0) := (others => '0');
+    signal Temp_result : std_logic_vector(15 downto 0) := (others => '0');
+    signal Count : std_logic_vector(15 downto 0) := (others => '0');
+	signal Temp_count : std_logic_vector(15 downto 0) := (others => '0');
+    signal unused_signal : std_logic;
+    signal wait_for_result : std_logic := '0';  -- Señal para esperar el resultado de la resta
+	
+	signal espera : std_logic := '0';
+	signal op : std_logic := '1';
+	signal termino_proceso : std_logic :='0';
+	signal suma_1 : std_logic_vector(15 downto 0) := "0000000000000001";
 
-    process(clk)
-    begin
-        if (clk'event and clk='1') then
-		    if B = "000000000000" then
-				result <= "111111111111";
-				operation_complete <= '1'; 
-            elsif operation_complete = '0' then
-                if subtractor_input < B then
-                    result <= subtraction_counter;
-                    operation_complete <= '1';
-                else
-                    subtractor_input <= subtractor_output;
-                    subtraction_counter <= increment_output;
-                end if;
-            end if;
-        end if;
-    end process;
-    
-    subtraction_instance: add_sub_12 port map(subtractor_input,B,'1',subtractor_output,open);
-    increment_instance: add_sub_12 port map(subtraction_counter,one,'0',increment_output,open);
-    
-    initial_process: process(A, B)
-    begin
-        subtractor_input <= A;
-        subtraction_counter <= "000000000000";
-        operation_complete <= '0';
-    end process;
+begin
+    -- Component instances
+    Resta: SumRest16Bits port map (Remainder, B_mod, '0', op, Temp_result, unused_signal);
+	Suma : SumRest16Bits port map (Count, suma_1, '0', '0', Temp_count, unused_signal);
+
+process(clk)
+begin
+    if rising_edge(clk) then
+		if(iniciar = '0') then --todavia no comienza, todo en 0 
+			Remainder <= A;
+			B_mod <= "0000000000000000";
+			op <= '1';
+			Count <= "0000000000000000";
+			termino_proceso <= '0';
+			suma_1<= "0000000000000000";
+		else 
+		--comienza la division
+			if(termino_proceso = '0') then 
+				if(espera = '0')then
+					Remainder <= A;
+					B_mod <= B;
+					Count <= "0000000000000000";
+					suma_1 <= "0000000000000001";
+					op <= '1';
+					espera <= '1';
+					
+				else 
+				--ya paso un ciclo y temp result tiene el valor de la primer resta						
+					if(Remainder < B) then
+					--termino 
+					termino_proceso <= '1';
+					else
+					Remainder <= Temp_result;
+					Count <= Temp_Count;
+					end if;
+				end if;
+				
+			else
+				Remainder <= Remainder;
+			end if;
+		end if;
+    end if;
+end process;
+
+	
+    -- Asignar el valor del contador como salida result
+    result <= Count;
 
 end architecture;
